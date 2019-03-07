@@ -31,6 +31,9 @@ window.oldVersion = [
 
 
 
+    <link rel="dns-prefetch" href="//imsun.github.io">
+    <link rel="dns-prefetch" href="//api.github.com">
+
 
 
 
@@ -551,6 +554,32 @@ window.oldVersion = [
                 
                     <!-- # Comment # -->
                     
+                        <div class="card-footer post-comment">
+                            <div id="gitment-comment">
+    
+</div>
+<style>
+    #gitment-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: window.location.pathname,
+        owner: 'zbw001',
+        repo: 'zbw001.github.io',
+        oauth: {
+            client_id: '43f4d718536f1d5c489b',
+            client_secret: '9f860a03afa230e1eb6120d6cff57cb95490299c',
+        },
+    })
+    gitment.render('container')
+</script>
+                        </div>
+                    
                 
             </div>
         </div>
@@ -608,7 +637,12 @@ window.lazyLoadOptions = {
     var copyrightNow = new Date().getFullYear();
     var copyrightContent = document.querySelector('span[data-year]')
     
-        copyrightContent.textContent = copyrightNow
+        copyrightSince = 2019;
+        if (copyrightSince === copyrightNow) {
+            copyrightContent.textContent = copyrightNow
+        } else {
+            copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow
+        }
     
 
 
@@ -640,6 +674,10 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.2 %c 
 
 
 <!-- Comment -->
+
+    
+        <!-- Gitment -->
+    
 
 
 <!-- ### Custom Footer ### -->

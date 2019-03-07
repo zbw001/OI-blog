@@ -31,6 +31,9 @@ window.oldVersion = [
 
 
 
+    <link rel="dns-prefetch" href="//imsun.github.io">
+    <link rel="dns-prefetch" href="//api.github.com">
+
 
 
 
@@ -485,7 +488,12 @@ window.lazyLoadOptions = {
     var copyrightNow = new Date().getFullYear();
     var copyrightContent = document.querySelector('span[data-year]')
     
-        copyrightContent.textContent = copyrightNow
+        copyrightSince = 2019;
+        if (copyrightSince === copyrightNow) {
+            copyrightContent.textContent = copyrightNow
+        } else {
+            copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow
+        }
     
 
 
@@ -517,6 +525,8 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.2 %c 
 
 
 <!-- Comment -->
+
+    
 
 
 <!-- ### Custom Footer ### -->
