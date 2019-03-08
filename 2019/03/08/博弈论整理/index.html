@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="Impartial gamewikipedia链接：https://en.wikipedia.org/wiki/Impartial_game impartial game 是指满足如下条件的游戏：  两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 当一个玩家不能操作时，winner 就被确定了。 每个状态的操作数和状态总数是有限的。 所有的操作必须同时能被两个玩家">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-08T03:56:50.210Z">
+<meta property="og:updated_time" content="2019-03-08T03:59:06.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博弈整理">
 <meta name="twitter:description" content="Impartial gamewikipedia链接：https://en.wikipedia.org/wiki/Impartial_game impartial game 是指满足如下条件的游戏：  两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 当一个玩家不能操作时，winner 就被确定了。 每个状态的操作数和状态总数是有限的。 所有的操作必须同时能被两个玩家">
@@ -365,7 +365,7 @@
                 
               
 
-              <time title="Created: 2019-03-08 10:25:39 / Modified: 11:56:50" itemprop="dateCreated datePublished" datetime="2019-03-08T10:25:39+08:00">2019-03-08</time>
+              <time title="Created: 2019-03-08 10:25:39 / Modified: 11:59:06" itemprop="dateCreated datePublished" datetime="2019-03-08T10:25:39+08:00">2019-03-08</time>
             
 
             
@@ -1132,6 +1132,53 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style>
+
+    
   
 
 
