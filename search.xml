@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[一个可出题的 idea]]></title>
+    <url>%2F2019%2F03%2F08%2F%E4%B8%80%E4%B8%AA%E5%8F%AF%E5%87%BA%E9%A2%98%E7%9A%84-idea%2F</url>
+    <content type="text"><![CDATA[请输入密码 Incorrect Password! No content to display! U2FsdGVkX19MNLITrWUcssuU2d/aL+hpbGnrXWU1Gos=]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[博弈整理]]></title>
     <url>%2F2019%2F03%2F08%2F%E5%8D%9A%E5%BC%88%E8%AE%BA%E6%95%B4%E7%90%86%2F</url>
-    <content type="text"><![CDATA[Impartial gamewikipedia链接：https://en.wikipedia.org/wiki/Impartial_game impartial game 是指满足如下条件的游戏： 两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 当一个玩家不能操作时，winner 就被确定了。 每个状态的操作数和状态总数是有限的。 所有的操作必须同时能被两个玩家进行。 所有操作的结果都是确定性的。 Nim游戏wikipedia链接：https://en.wikipedia.org/wiki/Nim有若干堆石子，两个人轮流取石子。每次轮到的人可以选择从某一堆中拿走若干颗石子（不能不拿），不能按规则操作的人输。Nim 游戏属于 Impartial game。 Nim游戏的胜利条件定理：当且仅当每堆石子的个数异或和不为 $0$ 时，先手必胜。证明：对于 terminal position，即没有石的情况，异或和为 $0$，轮到这个状态的人输。定理对 terminal position 成立。 引理1 若一个状态，每堆石子个数异或和不为 $0$，则它必定可以转移到一个石子个数为 $0$ 的状态。证明：设每堆石子个数的异或和为 $s$。设 $s$ 最高的二进制位是第 $k$ 位（从低到高，最低位为第 $0$ 位）。一定存在一堆石子个数为 $x$，二进制下 $x$ 的第 $k$ 位为 $1$。除了这堆石子外，其他堆石子个数的异或和为 $s\oplus x$。$s\oplus x$ 和 $x$ 在所有比第 $k$ 位高的二进制位上相等，$s\oplus x$ 的第 $k$ 位为 $0$，$x$ 的第 $k$ 位为 $1$，所以 $s \oplus x &lt; x$。可以从这堆石子中取走 $x-s\oplus x$ 个石子，使异或和变为 $0$。 引理2 若一个状态，每堆石子个数异或和为 $0$，无论怎么操作都会转移到一个每堆石子个数异或和不为 $0$ 的状态。证明：设操作的堆在操作前有 $x$ 颗石子。那么除了这堆以外的其他堆石子数异或和也为 $x$。在取石子后，这堆石子的个数一定不为 $x$。只有这堆石子的个数为 $x$ 时，与其他堆石子个数的异或和才会为 $0$。所以操作后，每堆石子个数的异或和一定非 $0$。 由数学归纳法可知定理成立。 Sprague–Grundy定理]]></content>
+    <content type="text"><![CDATA[Impartial gamewikipedia链接：https://en.wikipedia.org/wiki/Impartial_game impartial game 是指满足如下条件的游戏： 两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 当一个玩家不能操作时，winner 就被确定了。 每个状态的操作数和状态总数是有限的。 所有的操作必须同时能被两个玩家进行。 所有操作的结果都是确定性的。 Normal play conventionwikipedia链接：https://en.wikipedia.org/wiki/Normal_play_conventionImpartial game 的 Normal play convention ：最后一个可以操作的玩家获胜。 Nim游戏wikipedia链接：https://en.wikipedia.org/wiki/Nim有若干堆石子，两个人轮流取石子。每次轮到的人可以选择从某一堆中拿走若干颗石子（不能不拿），不能按规则操作的人输。Nim 游戏属于 Impartial game。 Nim游戏的胜利条件定理：当且仅当每堆石子的个数异或和不为 $0$ 时，先手必胜。证明：对于 terminal position，即没有石的情况，异或和为 $0$，轮到这个状态的人输。定理对 terminal position 成立。 引理1 若一个状态，每堆石子个数异或和不为 $0$，则它必定可以转移到一个石子个数为 $0$ 的状态。证明：设每堆石子个数的异或和为 $s$。设 $s$ 最高的二进制位是第 $k$ 位（从低到高，最低位为第 $0$ 位）。一定存在一堆石子个数为 $x$，二进制下 $x$ 的第 $k$ 位为 $1$。除了这堆石子外，其他堆石子个数的异或和为 $s\oplus x$。$s\oplus x$ 和 $x$ 在所有比第 $k$ 位高的二进制位上相等，$s\oplus x$ 的第 $k$ 位为 $0$，$x$ 的第 $k$ 位为 $1$，所以 $s \oplus x &lt; x$。可以从这堆石子中取走 $x-s\oplus x$ 个石子，使异或和变为 $0$。 引理2 若一个状态，每堆石子个数异或和为 $0$，无论怎么操作都会转移到一个每堆石子个数异或和不为 $0$ 的状态。证明：设操作的堆在操作前有 $x$ 颗石子。那么除了这堆以外的其他堆石子数异或和也为 $x$。在取石子后，这堆石子的个数一定不为 $x$。只有这堆石子的个数为 $x$ 时，与其他堆石子个数的异或和才会为 $0$。所以操作后，每堆石子个数的异或和一定非 $0$。 由数学归纳法可知定理成立。 Nimberswikipedia链接：https://en.wikipedia.org/wiki/Nimber Sprague–Grundy定理]]></content>
       <tags>
         <tag>博弈</tag>
       </tags>

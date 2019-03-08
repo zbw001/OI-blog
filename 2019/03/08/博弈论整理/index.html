@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="Impartial gamewikipedia链接：https://en.wikipedia.org/wiki/Impartial_game impartial game 是指满足如下条件的游戏：  两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 当一个玩家不能操作时，winner 就被确定了。 每个状态的操作数和状态总数是有限的。 所有的操作必须同时能被两个玩家">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-08T03:59:06.807Z">
+<meta property="og:updated_time" content="2019-03-08T05:08:23.841Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博弈整理">
 <meta name="twitter:description" content="Impartial gamewikipedia链接：https://en.wikipedia.org/wiki/Impartial_game impartial game 是指满足如下条件的游戏：  两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 当一个玩家不能操作时，winner 就被确定了。 每个状态的操作数和状态总数是有限的。 所有的操作必须同时能被两个玩家">
@@ -365,7 +365,7 @@
                 
               
 
-              <time title="Created: 2019-03-08 10:25:39 / Modified: 11:59:06" itemprop="dateCreated datePublished" datetime="2019-03-08T10:25:39+08:00">2019-03-08</time>
+              <time title="Created: 2019-03-08 10:25:39 / Modified: 13:08:23" itemprop="dateCreated datePublished" datetime="2019-03-08T10:25:39+08:00">2019-03-08</time>
             
 
             
@@ -426,11 +426,13 @@
 <li>所有的操作必须同时能被两个玩家进行。</li>
 <li>所有操作的结果都是确定性的。</li>
 </ul>
+<h3 id="Normal-play-convention"><a href="#Normal-play-convention" class="headerlink" title="Normal play convention"></a>Normal play convention</h3><p>wikipedia链接：<a href="https://en.wikipedia.org/wiki/Normal_play_convention" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Normal_play_convention</a><br>Impartial game 的 <strong>Normal play convention</strong> ：最后一个可以操作的玩家获胜。</p>
 <h3 id="Nim游戏"><a href="#Nim游戏" class="headerlink" title="Nim游戏"></a>Nim游戏</h3><p>wikipedia链接：<a href="https://en.wikipedia.org/wiki/Nim" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Nim</a><br>有若干堆石子，两个人轮流取石子。每次轮到的人可以选择从某一堆中拿走若干颗石子（不能不拿），不能按规则操作的人输。<br><strong>Nim</strong> 游戏属于 Impartial game。</p>
 <h3 id="Nim游戏的胜利条件"><a href="#Nim游戏的胜利条件" class="headerlink" title="Nim游戏的胜利条件"></a>Nim游戏的胜利条件</h3><p><strong>定理</strong>：当且仅当每堆石子的个数异或和不为 $0$ 时，先手必胜。<br>证明：<br>对于 terminal position，即没有石的情况，异或和为 $0$，轮到这个状态的人输。定理对 terminal position 成立。</p>
 <p><strong>引理1</strong> 若一个状态，每堆石子个数异或和不为 $0$，则它必定可以转移到一个石子个数为 $0$ 的状态。<br>证明：<br>设每堆石子个数的异或和为 $s$。<br>设 $s$ 最高的二进制位是第 $k$ 位（从低到高，最低位为第 $0$ 位）。<br>一定存在一堆石子个数为 $x$，二进制下 $x$ 的第 $k$ 位为 $1$。<br>除了这堆石子外，其他堆石子个数的异或和为 $s\oplus x$。<br>$s\oplus x$ 和 $x$ 在所有比第 $k$ 位高的二进制位上相等，$s\oplus x$ 的第 $k$ 位为 $0$，$x$ 的第 $k$ 位为 $1$，所以 $s \oplus x &lt; x$。<br>可以从这堆石子中取走 $x-s\oplus x$ 个石子，使异或和变为 $0$。</p>
 <p><strong>引理2</strong> 若一个状态，每堆石子个数异或和为 $0$，无论怎么操作都会转移到一个每堆石子个数异或和不为 $0$ 的状态。<br>证明：<br>设操作的堆在操作前有 $x$ 颗石子。<br>那么除了这堆以外的其他堆石子数异或和也为 $x$。<br>在取石子后，这堆石子的个数一定不为 $x$。<br>只有这堆石子的个数为 $x$ 时，与其他堆石子个数的异或和才会为 $0$。<br>所以操作后，每堆石子个数的异或和一定非 $0$。</p>
 <p>由数学归纳法可知定理成立。</p>
+<h3 id="Nimbers"><a href="#Nimbers" class="headerlink" title="Nimbers"></a>Nimbers</h3><p>wikipedia链接：<a href="https://en.wikipedia.org/wiki/Nimber" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Nimber</a></p>
 <h3 id="Sprague–Grundy定理"><a href="#Sprague–Grundy定理" class="headerlink" title="Sprague–Grundy定理"></a>Sprague–Grundy定理</h3>
       
     </div>
@@ -476,6 +478,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/08/一个可出题的-idea/" rel="prev" title="一个可出题的 idea">
+                一个可出题的 idea <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -551,7 +557,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -604,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Impartial-game"><span class="nav-number">1.</span> <span class="nav-text">Impartial game</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nim游戏"><span class="nav-number">2.</span> <span class="nav-text">Nim游戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nim游戏的胜利条件"><span class="nav-number">3.</span> <span class="nav-text">Nim游戏的胜利条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sprague–Grundy定理"><span class="nav-number">4.</span> <span class="nav-text">Sprague–Grundy定理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Impartial-game"><span class="nav-number">1.</span> <span class="nav-text">Impartial game</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Normal-play-convention"><span class="nav-number">2.</span> <span class="nav-text">Normal play convention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nim游戏"><span class="nav-number">3.</span> <span class="nav-text">Nim游戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nim游戏的胜利条件"><span class="nav-number">4.</span> <span class="nav-text">Nim游戏的胜利条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nimbers"><span class="nav-number">5.</span> <span class="nav-text">Nimbers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sprague–Grundy定理"><span class="nav-number">6.</span> <span class="nav-text">Sprague–Grundy定理</span></a></li></ol></div>
             
 
           </div>
