@@ -364,12 +364,24 @@
                 
               
 
-              <time title="Created: 2019-03-08 10:25:39 / Modified: 13:08:23" itemprop="dateCreated datePublished" datetime="2019-03-08T10:25:39+08:00">2019-03-08</time>
+              <time title="Created: 2019-03-08 10:25:39" itemprop="dateCreated datePublished" datetime="2019-03-08T10:25:39+08:00">2019-03-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-09 15:42:52" itemprop="dateModified" datetime="2019-03-09T15:42:52+08:00">2019-03-09</time>
               
             
           </span>
@@ -419,9 +431,11 @@
 <h3 id="Nim游戏的胜利条件"><a href="#Nim游戏的胜利条件" class="headerlink" title="Nim游戏的胜利条件"></a>Nim游戏的胜利条件</h3><p><strong>定理</strong>：当且仅当每堆石子的个数异或和不为 $0$ 时，先手必胜。<br>证明：<br>对于 terminal position，即没有石的情况，异或和为 $0$，轮到这个状态的人输。定理对 terminal position 成立。</p>
 <p><strong>引理1</strong> 若一个状态，每堆石子个数异或和不为 $0$，则它必定可以转移到一个石子个数为 $0$ 的状态。<br>证明：<br>设每堆石子个数的异或和为 $s$。<br>设 $s$ 最高的二进制位是第 $k$ 位（从低到高，最低位为第 $0$ 位）。<br>一定存在一堆石子个数为 $x$，二进制下 $x$ 的第 $k$ 位为 $1$。<br>除了这堆石子外，其他堆石子个数的异或和为 $s\oplus x$。<br>$s\oplus x$ 和 $x$ 在所有比第 $k$ 位高的二进制位上相等，$s\oplus x$ 的第 $k$ 位为 $0$，$x$ 的第 $k$ 位为 $1$，所以 $s \oplus x &lt; x$。<br>可以从这堆石子中取走 $x-s\oplus x$ 个石子，使异或和变为 $0$。</p>
 <p><strong>引理2</strong> 若一个状态，每堆石子个数异或和为 $0$，无论怎么操作都会转移到一个每堆石子个数异或和不为 $0$ 的状态。<br>证明：<br>设操作的堆在操作前有 $x$ 颗石子。<br>那么除了这堆以外的其他堆石子数异或和也为 $x$。<br>在取石子后，这堆石子的个数一定不为 $x$。<br>只有这堆石子的个数为 $x$ 时，与其他堆石子个数的异或和才会为 $0$。<br>所以操作后，每堆石子个数的异或和一定非 $0$。</p>
-<p>由数学归纳法可知定理成立。</p>
-<h3 id="Nimbers"><a href="#Nimbers" class="headerlink" title="Nimbers"></a>Nimbers</h3><p>wikipedia链接：<a href="https://en.wikipedia.org/wiki/Nimber" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Nimber</a></p>
-<h3 id="Sprague–Grundy定理"><a href="#Sprague–Grundy定理" class="headerlink" title="Sprague–Grundy定理"></a>Sprague–Grundy定理</h3>
+<p>根据结构归纳法可知定理成立。</p>
+<h3 id="Sprague–Grundy-定理"><a href="#Sprague–Grundy-定理" class="headerlink" title="Sprague–Grundy 定理"></a>Sprague–Grundy 定理</h3><p>wikipedia链接：<a href="https://en.wikipedia.org/wiki/Sprague–Grundy_theorem" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Sprague–Grundy_theorem</a><br>定义 $mex$ 运算，一个集合的 $mex$ 值是最小的没有出现在这个集合中的自然数。<br>定义 Sprague-Grundy 函数：对于一个状态 $x$，当 $x$ 是 terminal position 时，$SG(x)=mex\{SG(y)|x$ 可以转移到 $y\}$。<br>可以用 Sprague-Grundy 函数判断一个状态是必胜状态还是必败状态，因为必胜状态函数值必不为 $0$，必败状态函数值必为 $0$。<br>定义两个游戏的 disjunctive sum 为一个游戏：轮到每个玩家的时候，他可以选择两个游戏中的一个游戏，然后在这个游戏上操作一步，无法操作的人输。<br>显然 disjunctive sum 满足交换律和结合律。</p>
+<p><strong>定理</strong> 有 $n$ 个游戏 $G_1,G_2,\cdots,G_n$，设他们的 disjunctive sum 为 $G$。那么 $SG(G)=SG(G_1)\oplus SG(G_2)\cdots \oplus SG(G_n)$。</p>
+<p>证明可以看<a href="http://web.mit.edu/sp.268/www/nim.pdf" target="_blank" rel="noopener">这个</a>。</p>
+
           
         
       
