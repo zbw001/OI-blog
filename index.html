@@ -364,7 +364,7 @@
                 
               
 
-              <time title="Created: 2019-03-11 18:58:20 / Modified: 19:04:53" itemprop="dateCreated datePublished" datetime="2019-03-11T18:58:20+08:00">2019-03-11</time>
+              <time title="Created: 2019-03-11 18:58:20 / Modified: 19:11:58" itemprop="dateCreated datePublished" datetime="2019-03-11T18:58:20+08:00">2019-03-11</time>
             
 
             
@@ -406,8 +406,9 @@
         
           
             <p>题目连接： <a href="https://codeforces.com/contest/1120/problem/C" target="_blank" rel="noopener">https://codeforces.com/contest/1120/problem/C</a></p>
-<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>你有一个长度为 $n$ 个字符串 $s$。<br>请你把 $s$ 拆成若干个字符串 $s=t_1t_2\cdots t_k$。<br>对于第 $i$ 个串，若 $t_i$ 是 $t_1t_2\cdots t_{i-1}$ 的字符串，你需要付出 $b$ 的代价，否则你需要付出 $a$ 的代价。求最小代价。<br>$n \le 5000$，字符集大小 $26$</p>
-<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>你有一个长度为 $n$ 个字符串 $s$。<br>请你把 $s$ 拆成若干个字符串 $s=t_1t_2\cdots t_k$。<br>对于第 $i$ 个串，若 $t_i$ 是 $t_1t_2\cdots t_{i-1}$ 的字符串，你需要付出 $b$ 的代价，否则你需要付出 $a$ 的代价。求最小代价。<br>$n \le 5000$，字符集大小 $26$。</p>
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>设 $dp_i$ 表示前 $i$ 个字符的最小划分，在 $dp_i$ 处枚举 $j &gt; i$，用 $kmp$ 做匹配，更新 $dp_j$。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
         
       

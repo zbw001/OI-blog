@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[[Codeforces1120C] Compress String]]></title>
     <url>%2F2019%2F03%2F11%2F-%2F</url>
-    <content type="text"><![CDATA[题目连接： https://codeforces.com/contest/1120/problem/C 题目大意你有一个长度为 $n$ 个字符串 $s$。请你把 $s$ 拆成若干个字符串 $s=t_1t_2\cdots t_k$。对于第 $i$ 个串，若 $t_i$ 是 $t_1t_2\cdots t_{i-1}$ 的字符串，你需要付出 $b$ 的代价，否则你需要付出 $a$ 的代价。求最小代价。$n \le 5000$，字符集大小 $26$ 解法代码]]></content>
+    <content type="text"><![CDATA[题目连接： https://codeforces.com/contest/1120/problem/C 题目大意你有一个长度为 $n$ 个字符串 $s$。请你把 $s$ 拆成若干个字符串 $s=t_1t_2\cdots t_k$。对于第 $i$ 个串，若 $t_i$ 是 $t_1t_2\cdots t_{i-1}$ 的字符串，你需要付出 $b$ 的代价，否则你需要付出 $a$ 的代价。求最小代价。$n \le 5000$，字符集大小 $26$。 解法设 $dp_i$ 表示前 $i$ 个字符的最小划分，在 $dp_i$ 处枚举 $j &gt; i$，用 $kmp$ 做匹配，更新 $dp_j$。 代码12345678#include &lt;iostream&gt;#include &lt;cstdio&gt;#include &lt;cstring&gt;using namespace std;int main() &#123; return 0;&#125;]]></content>
       <tags>
         <tag>Codeforces 题解</tag>
       </tags>
