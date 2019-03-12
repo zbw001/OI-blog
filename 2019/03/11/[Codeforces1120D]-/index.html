@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="题目连接： https://codeforces.com/contest/1120/problem/D 题目大意解法代码">
+  <meta name="description" content="题目连接： https://codeforces.com/contest/1120/problem/D 题目大意给定一棵 $n$ 个点，以 $1$ 为根的树，第 $i$ 个点有一个价格 $c_i$。你要选一些点，然后另一个人会给每个叶节点设置一个数字。你只能对已经选择的点做子树加任意数字的操作。你要通过若干次操作把所有叶子节点上的数变为 $0$。问：要确保另一个人无论怎么操作你都能把叶子上的数变成">
 <meta name="keywords" content="codeforces,题解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Codeforces1120D] Power Tree">
 <meta property="og:url" content="http://zbww.cf/2019/03/11/[Codeforces1120D]-/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="题目连接： https://codeforces.com/contest/1120/problem/D 题目大意解法代码">
+<meta property="og:description" content="题目连接： https://codeforces.com/contest/1120/problem/D 题目大意给定一棵 $n$ 个点，以 $1$ 为根的树，第 $i$ 个点有一个价格 $c_i$。你要选一些点，然后另一个人会给每个叶节点设置一个数字。你只能对已经选择的点做子树加任意数字的操作。你要通过若干次操作把所有叶子节点上的数变为 $0$。问：要确保另一个人无论怎么操作你都能把叶子上的数变成">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-11T11:59:32.266Z">
+<meta property="og:updated_time" content="2019-03-11T13:09:22.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Codeforces1120D] Power Tree">
-<meta name="twitter:description" content="题目连接： https://codeforces.com/contest/1120/problem/D 题目大意解法代码">
+<meta name="twitter:description" content="题目连接： https://codeforces.com/contest/1120/problem/D 题目大意给定一棵 $n$ 个点，以 $1$ 为根的树，第 $i$ 个点有一个价格 $c_i$。你要选一些点，然后另一个人会给每个叶节点设置一个数字。你只能对已经选择的点做子树加任意数字的操作。你要通过若干次操作把所有叶子节点上的数变为 $0$。问：要确保另一个人无论怎么操作你都能把叶子上的数变成">
 
 
 
@@ -365,7 +365,7 @@
                 
               
 
-              <time title="Created: 2019-03-11 19:55:47 / Modified: 19:59:32" itemprop="dateCreated datePublished" datetime="2019-03-11T19:55:47+08:00">2019-03-11</time>
+              <time title="Created: 2019-03-11 19:55:47 / Modified: 21:09:22" itemprop="dateCreated datePublished" datetime="2019-03-11T19:55:47+08:00">2019-03-11</time>
             
 
             
@@ -418,7 +418,9 @@
 
       
         <p>题目连接： <a href="https://codeforces.com/contest/1120/problem/D" target="_blank" rel="noopener">https://codeforces.com/contest/1120/problem/D</a></p>
-<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一棵 $n$ 个点，以 $1$ 为根的树，第 $i$ 个点有一个价格 $c_i$。<br>你要选一些点，然后另一个人会给每个叶节点设置一个数字。<br>你只能对已经选择的点做子树加任意数字的操作。<br>你要通过若干次操作把所有叶子节点上的数变为 $0$。<br>问：要确保另一个人无论怎么操作你都能把叶子上的数变成 $0$，你选择的点价格总和最小是什么？有哪些点被至少一种最小价格的方案包含？<br>$n \le 200000$，$0\le c_i \le 10^9$。</p>
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>这个问题可以看成，你要选一些点作为未知数，然后每个叶子是一个方程，你要让这个线性方程组</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1>
       
     </div>
 
@@ -824,9 +826,9 @@
       oauth: {
       
       
-        client_secret: '9f860a03afa230e1eb6120d6cff57cb95490299c',
+        client_secret: '101e65608c4870d4d2841a5bf412282001956ae8',
       
-        client_id: '43f4d718536f1d5c489b'
+        client_id: '844e3304a880f7f4285c'
       }
     });
     gitment.render('gitment-container');

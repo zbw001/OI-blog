@@ -364,7 +364,7 @@
                 
               
 
-              <time title="Created: 2019-03-11 19:55:47 / Modified: 19:59:32" itemprop="dateCreated datePublished" datetime="2019-03-11T19:55:47+08:00">2019-03-11</time>
+              <time title="Created: 2019-03-11 19:55:47 / Modified: 21:09:22" itemprop="dateCreated datePublished" datetime="2019-03-11T19:55:47+08:00">2019-03-11</time>
             
 
             
@@ -406,7 +406,9 @@
         
           
             <p>题目连接： <a href="https://codeforces.com/contest/1120/problem/D" target="_blank" rel="noopener">https://codeforces.com/contest/1120/problem/D</a></p>
-<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一棵 $n$ 个点，以 $1$ 为根的树，第 $i$ 个点有一个价格 $c_i$。<br>你要选一些点，然后另一个人会给每个叶节点设置一个数字。<br>你只能对已经选择的点做子树加任意数字的操作。<br>你要通过若干次操作把所有叶子节点上的数变为 $0$。<br>问：要确保另一个人无论怎么操作你都能把叶子上的数变成 $0$，你选择的点价格总和最小是什么？有哪些点被至少一种最小价格的方案包含？<br>$n \le 200000$，$0\le c_i \le 10^9$。</p>
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>这个问题可以看成，你要选一些点作为未知数，然后每个叶子是一个方程，你要让这个线性方程组</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1>
           
         
       

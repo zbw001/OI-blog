@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[[Codeforces1120D] Power Tree]]></title>
     <url>%2F2019%2F03%2F11%2F%5BCodeforces1120D%5D-%2F</url>
-    <content type="text"><![CDATA[题目连接： https://codeforces.com/contest/1120/problem/D 题目大意解法代码]]></content>
+    <content type="text"><![CDATA[题目连接： https://codeforces.com/contest/1120/problem/D 题目大意给定一棵 $n$ 个点，以 $1$ 为根的树，第 $i$ 个点有一个价格 $c_i$。你要选一些点，然后另一个人会给每个叶节点设置一个数字。你只能对已经选择的点做子树加任意数字的操作。你要通过若干次操作把所有叶子节点上的数变为 $0$。问：要确保另一个人无论怎么操作你都能把叶子上的数变成 $0$，你选择的点价格总和最小是什么？有哪些点被至少一种最小价格的方案包含？$n \le 200000$，$0\le c_i \le 10^9$。 解法这个问题可以看成，你要选一些点作为未知数，然后每个叶子是一个方程，你要让这个线性方程组 代码]]></content>
       <tags>
         <tag>codeforces</tag>
         <tag>题解</tag>
