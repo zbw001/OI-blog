@@ -777,7 +777,7 @@
 <script>
   function renderGitment() {
     var gitment = new Gitmint({
-      id: window.location.pathname,
+      id: decodeURI(window.location.pathname),
       owner: 'zbw001',
       repo: 'zbw001.github.io',
       
