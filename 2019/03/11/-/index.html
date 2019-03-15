@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="题目链接： https://codeforces.com/contest/1120/problem/C 题目大意 你有一个长度为 \(n\) 个字符串 \(s\)。 请你把 \(s\) 拆成若干个字符串 \(s=t_1t_2\cdots t_k\)。 对于第 \(i\) 个串，若 \(t_i\) 是 \(t_1t_2\cdots t_{i-1}\) 的字符串，你需要付出 \(b\) 的代价，否则">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-15T11:32:40.340Z">
+<meta property="og:updated_time" content="2019-03-15T11:44:43.762Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Codeforces1120C] Compress String">
 <meta name="twitter:description" content="题目链接： https://codeforces.com/contest/1120/problem/C 题目大意 你有一个长度为 \(n\) 个字符串 \(s\)。 请你把 \(s\) 拆成若干个字符串 \(s=t_1t_2\cdots t_k\)。 对于第 \(i\) 个串，若 \(t_i\) 是 \(t_1t_2\cdots t_{i-1}\) 的字符串，你需要付出 \(b\) 的代价，否则">
@@ -382,7 +382,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-15 19:32:40" itemprop="dateModified" datetime="2019-03-15T19:32:40+08:00">2019-03-15</time>
+                <time title="Modified: 2019-03-15 19:44:43" itemprop="dateModified" datetime="2019-03-15T19:44:43+08:00">2019-03-15</time>
               
             
           </span>
@@ -438,10 +438,10 @@
       
         <p>题目链接： https://codeforces.com/contest/1120/problem/C</p>
 <h1 id="题目大意">题目大意</h1>
-<p>你有一个长度为 <span class="math inline">\(n\)</span> 个字符串 <span class="math inline">\(s\)</span>。</p>
-<p>请你把 <span class="math inline">\(s\)</span> 拆成若干个字符串 <span class="math inline">\(s=t_1t_2\cdots t_k\)</span>。</p>
-<p>对于第 <span class="math inline">\(i\)</span> 个串，若 <span class="math inline">\(t_i\)</span> 是 <span class="math inline">\(t_1t_2\cdots t_{i-1}\)</span> 的字符串，你需要付出 <span class="math inline">\(b\)</span> 的代价，否则 <span class="math inline">\(t_i\)</span> 长度必须为 <span class="math inline">\(1\)</span>，你需要付出 <span class="math inline">\(a\)</span> 的代价。求最小代价。</p>
-<p><span class="math inline">\(n \le 5000\)</span>，字符集大小 <span class="math inline">\(26\)</span>。</p>
+<p>你有一个长度为 <span class="math inline">\(n\)</span> 个字符串 <span class="math inline">\(s\)</span>。<br>
+请你把 <span class="math inline">\(s\)</span> 拆成若干个字符串 <span class="math inline">\(s=t_1t_2\cdots t_k\)</span>。<br>
+对于第 <span class="math inline">\(i\)</span> 个串，若 <span class="math inline">\(t_i\)</span> 是 <span class="math inline">\(t_1t_2\cdots t_{i-1}\)</span> 的字符串，你需要付出 <span class="math inline">\(b\)</span> 的代价，否则 <span class="math inline">\(t_i\)</span> 长度必须为 <span class="math inline">\(1\)</span>，你需要付出 <span class="math inline">\(a\)</span> 的代价。求最小代价。<br>
+<span class="math inline">\(n \le 5000\)</span>，字符集大小 <span class="math inline">\(26\)</span>。</p>
 <h1 id="解法">解法</h1>
 <p>设 <span class="math inline">\(dp_i\)</span> 表示前 <span class="math inline">\(i\)</span> 个字符的最小划分，在求出 <span class="math inline">\(dp_i\)</span> 后用 <span class="math inline">\(kmp\)</span> 找最长在前面出现过的从 <span class="math inline">\(i+1\)</span> 开始的串，更新所有 <span class="math inline">\(dp_j\)</span>。</p>
 <h1 id="代码">代码</h1>
