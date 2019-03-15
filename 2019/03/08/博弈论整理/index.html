@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Impartial game wikipedia链接：https://en.wikipedia.org/wiki/Impartial_game impartial game 是指满足如下条件的游戏： - 两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 - 当一个玩家不能操作时，winner 就被确定了。 - 每个状态的操作数和状态总数是有限的。 - 所有的操作必须">
+  <meta name="description" content="Impartial game wikipedia链接：https://en.wikipedia.org/wiki/Impartial_game impartial game 是指满足如下条件的游戏：  两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 当一个玩家不能操作时，winner 就被确定了。 每个状态的操作数和状态总数是有限的。 所有的操作必须同时能被两个玩">
 <meta name="keywords" content="博弈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博弈整理（一）">
 <meta property="og:url" content="http://zbww.cf/2019/03/08/博弈论整理/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="Impartial game wikipedia链接：https://en.wikipedia.org/wiki/Impartial_game impartial game 是指满足如下条件的游戏： - 两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 - 当一个玩家不能操作时，winner 就被确定了。 - 每个状态的操作数和状态总数是有限的。 - 所有的操作必须">
+<meta property="og:description" content="Impartial game wikipedia链接：https://en.wikipedia.org/wiki/Impartial_game impartial game 是指满足如下条件的游戏：  两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 当一个玩家不能操作时，winner 就被确定了。 每个状态的操作数和状态总数是有限的。 所有的操作必须同时能被两个玩">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-03-09T15:34:13.352Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博弈整理（一）">
-<meta name="twitter:description" content="Impartial game wikipedia链接：https://en.wikipedia.org/wiki/Impartial_game impartial game 是指满足如下条件的游戏： - 两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 - 当一个玩家不能操作时，winner 就被确定了。 - 每个状态的操作数和状态总数是有限的。 - 所有的操作必须">
+<meta name="twitter:description" content="Impartial game wikipedia链接：https://en.wikipedia.org/wiki/Impartial_game impartial game 是指满足如下条件的游戏：  两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 当一个玩家不能操作时，winner 就被确定了。 每个状态的操作数和状态总数是有限的。 所有的操作必须同时能被两个玩">
 
 
 
@@ -437,20 +437,27 @@
 
       
         <h3 id="impartial-game">Impartial game</h3>
-<p>wikipedia链接：https://en.wikipedia.org/wiki/Impartial_game</p>
-<p><strong>impartial game</strong> 是指满足如下条件的游戏： - 两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 - 当一个玩家不能操作时，winner 就被确定了。 - 每个状态的操作数和状态总数是有限的。 - 所有的操作必须同时能被两个玩家进行。 - 所有操作的结果都是确定性的。</p>
+<p>wikipedia链接：<a href="https://en.wikipedia.org/wiki/Impartial_game" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Impartial_game</a></p>
+<p><strong>impartial game</strong> 是指满足如下条件的游戏：</p>
+<ul>
+<li>两个玩家轮流操作，直到达到不能操作的状态（terminal position）。</li>
+<li>当一个玩家不能操作时，winner 就被确定了。</li>
+<li>每个状态的操作数和状态总数是有限的。</li>
+<li>所有的操作必须同时能被两个玩家进行。</li>
+<li>所有操作的结果都是确定性的。</li>
+</ul>
 <h3 id="normal-play-convention">Normal play convention</h3>
-<p>wikipedia链接：https://en.wikipedia.org/wiki/Normal_play_convention Impartial game 的 <strong>Normal play convention</strong> ：最后一个可以操作的玩家获胜。</p>
+<p>wikipedia链接：<a href="https://en.wikipedia.org/wiki/Normal_play_convention" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Normal_play_convention</a> Impartial game 的 <strong>Normal play convention</strong> ：最后一个可以操作的玩家获胜。</p>
 <h3 id="nim游戏">Nim游戏</h3>
-<p>wikipedia链接：https://en.wikipedia.org/wiki/Nim 有若干堆石子，两个人轮流取石子。每次轮到的人可以选择从某一堆中拿走若干颗石子（不能不拿），不能按规则操作的人输。 <strong>Nim</strong> 游戏属于 Impartial game。</p>
+<p>wikipedia链接：<a href="https://en.wikipedia.org/wiki/Nim" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Nim</a> 有若干堆石子，两个人轮流取石子。每次轮到的人可以选择从某一堆中拿走若干颗石子（不能不拿），不能按规则操作的人输。 <strong>Nim</strong> 游戏属于 Impartial game。</p>
 <h3 id="nim游戏的胜利条件">Nim游戏的胜利条件</h3>
-<p><strong>定理</strong>：当且仅当每堆石子的个数异或和不为 <span class="math inline">\(0\)</span> 时，先手必胜。 证明： 对于 terminal position，即没有石的情况，异或和为 <span class="math inline">\(0\)</span>，轮到这个状态的人输。定理对 terminal position 成立。</p>
-<p><strong>引理1</strong> 若一个状态，每堆石子个数异或和不为 <span class="math inline">\(0\)</span>，则它必定可以转移到一个石子个数为 <span class="math inline">\(0\)</span> 的状态。 证明： 设每堆石子个数的异或和为 <span class="math inline">\(s\)</span>。 设 <span class="math inline">\(s\)</span> 最高的二进制位是第 <span class="math inline">\(k\)</span> 位（从低到高，最低位为第 <span class="math inline">\(0\)</span> 位）。 一定存在一堆石子个数为 <span class="math inline">\(x\)</span>，二进制下 <span class="math inline">\(x\)</span> 的第 <span class="math inline">\(k\)</span> 位为 <span class="math inline">\(1\)</span>。 除了这堆石子外，其他堆石子个数的异或和为 <span class="math inline">\(s\oplus x\)</span>。 <span class="math inline">\(s\oplus x\)</span> 和 <span class="math inline">\(x\)</span> 在所有比第 <span class="math inline">\(k\)</span> 位高的二进制位上相等，<span class="math inline">\(s\oplus x\)</span> 的第 <span class="math inline">\(k\)</span> 位为 <span class="math inline">\(0\)</span>，<span class="math inline">\(x\)</span> 的第 <span class="math inline">\(k\)</span> 位为 <span class="math inline">\(1\)</span>，所以 <span class="math inline">\(s \oplus x &lt; x\)</span>。 可以从这堆石子中取走 <span class="math inline">\(x-s\oplus x\)</span> 个石子，使异或和变为 <span class="math inline">\(0\)</span>。</p>
-<p><strong>引理2</strong> 若一个状态，每堆石子个数异或和为 <span class="math inline">\(0\)</span>，无论怎么操作都会转移到一个每堆石子个数异或和不为 <span class="math inline">\(0\)</span> 的状态。 证明： 设操作的堆在操作前有 <span class="math inline">\(x\)</span> 颗石子。 那么除了这堆以外的其他堆石子数异或和也为 <span class="math inline">\(x\)</span>。 在取石子后，这堆石子的个数一定不为 <span class="math inline">\(x\)</span>。 只有这堆石子的个数为 <span class="math inline">\(x\)</span> 时，与其他堆石子个数的异或和才会为 <span class="math inline">\(0\)</span>。 所以操作后，每堆石子个数的异或和一定非 <span class="math inline">\(0\)</span>。</p>
+<p><strong>定理</strong>：当且仅当每堆石子的个数异或和不为 $0$ 时，先手必胜。 证明： 对于 terminal position，即没有石的情况，异或和为 $0$，轮到这个状态的人输。定理对 terminal position 成立。</p>
+<p><strong>引理1</strong> 若一个状态，每堆石子个数异或和不为 $0$，则它必定可以转移到一个石子个数为 $0$ 的状态。 证明： 设每堆石子个数的异或和为 $s$。 设 $s$ 最高的二进制位是第 $k$ 位（从低到高，最低位为第 $0$ 位）。 一定存在一堆石子个数为 $x$，二进制下 $x$ 的第 $k$ 位为 $1$。 除了这堆石子外，其他堆石子个数的异或和为 $s\oplus x$。 $s\oplus x$ 和 $x$ 在所有比第 $k$ 位高的二进制位上相等，$s\oplus x$ 的第 $k$ 位为 $0$，$x$ 的第 $k$ 位为 $1$，所以 $s \oplus x &lt; x$。 可以从这堆石子中取走 $x-s\oplus x$ 个石子，使异或和变为 $0$。</p>
+<p><strong>引理2</strong> 若一个状态，每堆石子个数异或和为 $0$，无论怎么操作都会转移到一个每堆石子个数异或和不为 $0$ 的状态。 证明： 设操作的堆在操作前有 $x$ 颗石子。 那么除了这堆以外的其他堆石子数异或和也为 $x$。 在取石子后，这堆石子的个数一定不为 $x$。 只有这堆石子的个数为 $x$ 时，与其他堆石子个数的异或和才会为 $0$。 所以操作后，每堆石子个数的异或和一定非 $0$。</p>
 <p>根据结构归纳法可知定理成立。</p>
 <h3 id="spraguegrundy-定理">Sprague–Grundy 定理</h3>
-<p>wikipedia链接：https://en.wikipedia.org/wiki/Sprague–Grundy_theorem 定义 <span class="math inline">\(mex\)</span> 运算，一个集合的 <span class="math inline">\(mex\)</span> 值是最小的没有出现在这个集合中的自然数。 定义 Sprague-Grundy 函数：对于一个状态 <span class="math inline">\(x\)</span>，当 <span class="math inline">\(x\)</span> 是 terminal position 时，<span class="math inline">\(SG(x)=mex\{SG(y)|x\)</span> 可以转移到 <span class="math inline">\(y\}\)</span>。 可以用 Sprague-Grundy 函数判断一个状态是必胜状态还是必败状态，因为必胜状态函数值必不为 <span class="math inline">\(0\)</span>，必败状态函数值必为 <span class="math inline">\(0\)</span>。 定义两个游戏的 disjunctive sum 为一个游戏：轮到每个玩家的时候，他可以选择两个游戏中的一个游戏，然后在这个游戏上操作一步，无法操作的人输。 显然 disjunctive sum 满足交换律和结合律。</p>
-<p><strong>定理</strong> 有 <span class="math inline">\(n\)</span> 个游戏 <span class="math inline">\(G_1,G_2,\cdots,G_n\)</span>，设他们的 disjunctive sum 为 <span class="math inline">\(G\)</span>。那么 <span class="math inline">\(SG(G)=SG(G_1)\oplus SG(G_2)\cdots \oplus SG(G_n)\)</span>。</p>
+<p>wikipedia链接：<a href="https://en.wikipedia.org/wiki/Sprague–Grundy_theorem" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Sprague–Grundy_theorem</a> 定义 $mex$ 运算，一个集合的 $mex$ 值是最小的没有出现在这个集合中的自然数。 定义 Sprague-Grundy 函数：对于一个状态 $x$，当 $x$ 是 terminal position 时，$SG(x)=mex{SG(y)|x$ 可以转移到 $y}$。 可以用 Sprague-Grundy 函数判断一个状态是必胜状态还是必败状态，因为必胜状态函数值必不为 $0$，必败状态函数值必为 $0$。 定义两个游戏的 disjunctive sum 为一个游戏：轮到每个玩家的时候，他可以选择两个游戏中的一个游戏，然后在这个游戏上操作一步，无法操作的人输。 显然 disjunctive sum 满足交换律和结合律。</p>
+<p><strong>定理</strong> 有 $n$ 个游戏 $G_1,G_2,\cdots,G_n$，设他们的 disjunctive sum 为 $G$。那么 $SG(G)=SG(G_1)\oplus SG(G_2)\cdots \oplus SG(G_n)$。</p>
 <p>证明可以看<a href="http://web.mit.edu/sp.268/www/nim.pdf" target="_blank" rel="noopener">这个</a>。 这也说明了每一个 normal play convention 下的 impartial game 都等价于一个Nim游戏。</p>
 
       
