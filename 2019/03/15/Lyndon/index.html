@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="wikipedia链接：https://en.wikipedia.org/wiki/Lyndon_word 定义如果一个串最小后缀是它本身，那么称他为 Lyndon word。（与严格最小循环移位的定义是等价的） 相关性质和算法性质1 如果 $s$ 是 Lyndon word，那么 $s$ 不存在 border。 性质2 如果 $s$ 是 Lyndon word，$s=uv$ 且 $u$ 和 $v">
+  <meta name="description" content="wikipedia链接：https://en.wikipedia.org/wiki/Lyndon_word # 定义 如果一个串最小后缀是它本身，那么称他为 Lyndon word。 （与严格最小循环移位的定义是等价的） # 相关性质和算法 性质1 如果 \(s\) 是 Lyndon word，那么 \(s\) 不存在 border。 性质2 如果 \(s\) 是 Lyndon word，\(s=">
 <meta name="keywords" content="字符串,知识点">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lyndon word的一些性质">
 <meta property="og:url" content="http://zbww.cf/2019/03/15/Lyndon/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="wikipedia链接：https://en.wikipedia.org/wiki/Lyndon_word 定义如果一个串最小后缀是它本身，那么称他为 Lyndon word。（与严格最小循环移位的定义是等价的） 相关性质和算法性质1 如果 $s$ 是 Lyndon word，那么 $s$ 不存在 border。 性质2 如果 $s$ 是 Lyndon word，$s=uv$ 且 $u$ 和 $v">
+<meta property="og:description" content="wikipedia链接：https://en.wikipedia.org/wiki/Lyndon_word # 定义 如果一个串最小后缀是它本身，那么称他为 Lyndon word。 （与严格最小循环移位的定义是等价的） # 相关性质和算法 性质1 如果 \(s\) 是 Lyndon word，那么 \(s\) 不存在 border。 性质2 如果 \(s\) 是 Lyndon word，\(s=">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-15T10:19:00.800Z">
+<meta property="og:updated_time" content="2019-03-15T10:21:44.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lyndon word的一些性质">
-<meta name="twitter:description" content="wikipedia链接：https://en.wikipedia.org/wiki/Lyndon_word 定义如果一个串最小后缀是它本身，那么称他为 Lyndon word。（与严格最小循环移位的定义是等价的） 相关性质和算法性质1 如果 $s$ 是 Lyndon word，那么 $s$ 不存在 border。 性质2 如果 $s$ 是 Lyndon word，$s=uv$ 且 $u$ 和 $v">
+<meta name="twitter:description" content="wikipedia链接：https://en.wikipedia.org/wiki/Lyndon_word # 定义 如果一个串最小后缀是它本身，那么称他为 Lyndon word。 （与严格最小循环移位的定义是等价的） # 相关性质和算法 性质1 如果 \(s\) 是 Lyndon word，那么 \(s\) 不存在 border。 性质2 如果 \(s\) 是 Lyndon word，\(s=">
 
 
 
@@ -365,7 +365,7 @@
                 
               
 
-              <time title="Created: 2019-03-15 15:45:43 / Modified: 18:19:00" itemprop="dateCreated datePublished" datetime="2019-03-15T15:45:43+08:00">2019-03-15</time>
+              <time title="Created: 2019-03-15 15:45:43 / Modified: 18:21:44" itemprop="dateCreated datePublished" datetime="2019-03-15T15:45:43+08:00">2019-03-15</time>
             
 
             
@@ -424,15 +424,13 @@
       
 
       
-        <p>wikipedia链接：<a href="https://en.wikipedia.org/wiki/Lyndon_word" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Lyndon_word</a></p>
-<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>如果一个串最小后缀是它本身，那么称他为 Lyndon word。<br>（与严格最小循环移位的定义是等价的）</p>
-<h1 id="相关性质和算法"><a href="#相关性质和算法" class="headerlink" title="相关性质和算法"></a>相关性质和算法</h1><p><strong>性质1</strong> 如果 $s$ 是 Lyndon word，那么 $s$ 不存在 border。</p>
-<p><strong>性质2</strong> 如果 $s$ 是 Lyndon word，$s=uv$ 且 $u$ 和 $v$ 非空，那么 $u&lt;v$。</p>
-<p><strong>性质3</strong> 如果 $s,t$ 是 Lyndon word 且 $s &lt; t$，那么 $st$ 也是 Lyndon word。</p>
-<p><strong>性质4</strong> 一个长度大于等于 $2$ 字符串的 $s$ 是 Lyndon word 的充要条件是，$s$ 可以拆成两个非空串 $u,v$，满足 $u &lt; v$ 且 $u$ 和 $v$ 都是 Lyndon word。<br><strong>证明</strong><br>充分性即上一条性质，只证必要性。<br>设 $s$ 的长度为 $n$，后缀 $s[i..n]$ 是 $s$ 的次小后缀。<br>假设 $s[1..i-1]$ 有长度为 $k$ 的 border，即 $s[1..k]=s[i-k..i-1]$。<br>因为 $k &lt; i-1$，所以 $k+1 \neq i$。<br>因为 $s$ 是 Lyndon word，$s[i..n]$ 是 $s$ 的次小后缀，所以 $s[i..n]<s[k+1..n]$。又因为 1 $s[i-k..i-1]="s[1..k]$，所以" $s[i-k..n]<s[1..n]$，这与 $s$ 是 lyndon word 矛盾。所以 $s[1..i-1]$ 没有 border。 根据 的定义及 border，有 $\forall < j \le i-1$，$\exists k i-1$，满足 $s[k]> s[k-j+1]$，即 $s[j..i-1] &gt; s[1..i-1]$。所以 $s[1..i-1]$ 是 Lyndon word。<br>因为 $s[i..n]$ 是 $s$ 的次小后缀，显然不存在 $j&gt;i$ 满足 $s[j..n]&lt;s[i..n]$，所以 $s[i..n]$ 是 Lyndon word。<br>所以 $u=s[1..i-1],v=s[i..n]$ 是一组合法的拆分，必要性得证。</s[k+1..n]$。又因为></p>
-<p><strong>性质5</strong> 任意一个字符串 $s$ 都可以唯一地拆成若干个字典序不增的 Lyndon Word。</p>
+        <p>wikipedia链接：https://en.wikipedia.org/wiki/Lyndon_word # 定义 如果一个串最小后缀是它本身，那么称他为 Lyndon word。 （与严格最小循环移位的定义是等价的） # 相关性质和算法 <strong>性质1</strong> 如果 <span class="math inline">\(s\)</span> 是 Lyndon word，那么 <span class="math inline">\(s\)</span> 不存在 border。</p>
+<p><strong>性质2</strong> 如果 <span class="math inline">\(s\)</span> 是 Lyndon word，<span class="math inline">\(s=uv\)</span> 且 <span class="math inline">\(u\)</span> 和 <span class="math inline">\(v\)</span> 非空，那么 <span class="math inline">\(u&lt;v\)</span>。</p>
+<p><strong>性质3</strong> 如果 <span class="math inline">\(s,t\)</span> 是 Lyndon word 且 <span class="math inline">\(s &lt; t\)</span>，那么 <span class="math inline">\(st\)</span> 也是 Lyndon word。</p>
+<p><strong>性质4</strong> 一个长度大于等于 <span class="math inline">\(2\)</span> 字符串的 <span class="math inline">\(s\)</span> 是 Lyndon word 的充要条件是，<span class="math inline">\(s\)</span> 可以拆成两个非空串 <span class="math inline">\(u,v\)</span>，满足 <span class="math inline">\(u &lt; v\)</span> 且 <span class="math inline">\(u\)</span> 和 <span class="math inline">\(v\)</span> 都是 Lyndon word。 <strong>证明</strong> 充分性即上一条性质，只证必要性。 设 <span class="math inline">\(s\)</span> 的长度为 <span class="math inline">\(n\)</span>，后缀 <span class="math inline">\(s[i..n]\)</span> 是 <span class="math inline">\(s\)</span> 的次小后缀。 假设 <span class="math inline">\(s[1..i-1]\)</span> 有长度为 <span class="math inline">\(k\)</span> 的 border，即 <span class="math inline">\(s[1..k]=s[i-k..i-1]\)</span>。 因为 <span class="math inline">\(k &lt; i-1\)</span>，所以 <span class="math inline">\(k+1 \neq i\)</span>。 因为 <span class="math inline">\(s\)</span> 是 Lyndon word，<span class="math inline">\(s[i..n]\)</span> 是 <span class="math inline">\(s\)</span> 的次小后缀，所以 <span class="math inline">\(s[i..n]&lt;s[k+1..n]\)</span>。又因为 <span class="math inline">\(s[i-k..i-1]=s[1..k]\)</span>，所以 <span class="math inline">\(s[i-k..n]&lt;s[1..n]\)</span>，这与 <span class="math inline">\(s\)</span> 是 Lyndon word 矛盾。所以 <span class="math inline">\(s[1..i-1]\)</span> 没有 border。 根据 Lyndon word 的定义及 <span class="math inline">\(s[1..i-1]\)</span> 没有 border，有 <span class="math inline">\(\forall 1 &lt; j \le i-1\)</span>，<span class="math inline">\(\exists j \le k \le i-1\)</span>，满足 <span class="math inline">\(s[k] &gt; s[k-j+1]\)</span>，即 <span class="math inline">\(s[j..i-1] &gt; s[1..i-1]\)</span>。所以 <span class="math inline">\(s[1..i-1]\)</span> 是 Lyndon word。 因为 <span class="math inline">\(s[i..n]\)</span> 是 <span class="math inline">\(s\)</span> 的次小后缀，显然不存在 <span class="math inline">\(j&gt;i\)</span> 满足 <span class="math inline">\(s[j..n]&lt;s[i..n]\)</span>，所以 <span class="math inline">\(s[i..n]\)</span> 是 Lyndon word。 所以 <span class="math inline">\(u=s[1..i-1],v=s[i..n]\)</span> 是一组合法的拆分，必要性得证。</p>
+<p><strong>性质5</strong> 任意一个字符串 <span class="math inline">\(s\)</span> 都可以唯一地拆成若干个字典序不增的 Lyndon Word。</p>
 <p><strong>Duval算法</strong></p>
-<p>我抽代太菜了…其他的性质以后再补吧。</p>
+<p>我抽代太菜了...其他的性质以后再补吧。</p>
 
       
     </div>
@@ -530,17 +528,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -673,23 +662,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关性质和算法"><span class="nav-number">2.</span> <span class="nav-text">相关性质和算法</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
