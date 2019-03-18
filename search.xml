@@ -19,7 +19,7 @@
   <entry>
     <title><![CDATA[Lyndon word的一些性质]]></title>
     <url>%2F2019%2F03%2F15%2FLyndon%2F</url>
-    <content type="text"><![CDATA[wikipedia链接：https://en.wikipedia.org/wiki/Lyndon_word 定义 如果一个串最小后缀是它本身，那么称他为 Lyndon word。（与严格最小循环移位的定义是等价的） 相关性质和算法 性质1 如果 \(s\) 是 Lyndon word，那么 \(s\) 不存在 border。 性质2 如果 \(s\) 是 Lyndon word，\(s=uv\) 且 \(u\) 和 \(v\) 非空，那么 \(u&lt;v\)。 性质3 如果 \(s,t\) 是 Lyndon word 且 \(s &lt; t\)，那么 \(st\) 也是 Lyndon word。 性质4 一个长度大于等于 \(2\) 字符串的 \(s\) 是 Lyndon word 的充要条件是，\(s\) 可以拆成两个非空串 \(u,v\)，满足 \(u &lt; v\) 且 \(u\) 和 \(v\) 都是 Lyndon word。 证明 充分性即上一条性质，只证必要性。 设 \(s\) 的长度为 \(n\)，后缀 \(s[i..n]\) 是 \(s\) 的次小后缀。 假设 \(s[1..i-1]\) 有长度为 \(k\) 的 border，即 \(s[1..k]=s[i-k..i-1]\)。 因为 \(k &lt; i-1\)，所以 \(k+1 \neq i\)。 因为 \(s\) 是 Lyndon word，\(s[i..n]\) 是 \(s\) 的次小后缀，所以 \(s[i..n]&lt;s[k+1..n]\)。又因为 \(s[i-k..i-1]=s[1..k]\)，所以 \(s[i-k..n]&lt;s[1..n]\)，这与 \(s\) 是 Lyndon word 矛盾。所以 \(s[1..i-1]\) 没有 border。 根据 Lyndon word 的定义及 \(s[1..i-1]\) 没有 border，有 \(\forall 1 &lt; j \le i-1\)，\(\exists j \le k \le i-1\)，满足 \(s[k] &gt; s[k-j+1]\)，即 \(s[j..i-1] &gt; s[1..i-1]\)。所以 \(s[1..i-1]\) 是 Lyndon word。 因为 \(s[i..n]\) 是 \(s\) 的次小后缀，显然不存在 \(j&gt;i\) 满足 \(s[j..n]&lt;s[i..n]\)，所以 \(s[i..n]\) 是 Lyndon word。 所以 \(u=s[1..i-1],v=s[i..n]\) 是一组合法的拆分，必要性得证。 性质5 任意一个字符串 \(s\) 都可以唯一地拆成若干个字典序不增的 Lyndon Word。 Duval算法 我抽代太菜了...其他的性质以后再补吧。]]></content>
+    <content type="text"><![CDATA[wikipedia链接：https://en.wikipedia.org/wiki/Lyndon_word 定义 如果一个串最小后缀是它本身，那么称他为 Lyndon word。（与严格最小循环移位的定义是等价的） 相关性质和算法 性质1 如果 \(s\) 是 Lyndon word，那么 \(s\) 不存在 border。 性质2 如果 \(s\) 是 Lyndon word，\(s=uv\) 且 \(u\) 和 \(v\) 非空，那么 \(u&lt;v\)。 性质3 如果 \(s,t\) 是 Lyndon word 且 \(s &lt; t\)，那么 \(st\) 也是 Lyndon word。 性质4 一个长度大于等于 \(2\) 字符串的 \(s\) 是 Lyndon word 的充要条件是，\(s\) 可以拆成两个非空串 \(u,v\)，满足 \(u &lt; v\) 且 \(u\) 和 \(v\) 都是 Lyndon word。 证明 充分性即上一条性质，只证必要性。 设 \(s\) 的长度为 \(n\)，后缀 \(s[i..n]\) 是 \(s\) 的次小后缀。 假设 \(s[1..i-1]\) 有长度为 \(k\) 的 border，即 \(s[1..k]=s[i-k..i-1]\)。 因为 \(k &lt; i-1\)，所以 \(k+1 \neq i\)。 因为 \(s\) 是 Lyndon word，\(s[i..n]\) 是 \(s\) 的次小后缀，所以 \(s[i..n]&lt;s[k+1..n]\)。又因为 \(s[i-k..i-1]=s[1..k]\)，所以 \(s[i-k..n]&lt;s[1..n]\)，这与 \(s\) 是 Lyndon word 矛盾。所以 \(s[1..i-1]\) 没有 border。 根据 Lyndon word 的定义及 \(s[1..i-1]\) 没有 border，有 \(\forall 1 &lt; j \le i-1\)，\(\exists j \le k \le i-1\)，满足 \(s[k] &gt; s[k-j+1]\)，即 \(s[j..i-1] &gt; s[1..i-1]\)。所以 \(s[1..i-1]\) 是 Lyndon word。 因为 \(s[i..n]\) 是 \(s\) 的次小后缀，显然不存在 \(j&gt;i\) 满足 \(s[j..n]&lt;s[i..n]\)，所以 \(s[i..n]\) 是 Lyndon word。 所以 \(u=s[1..i-1],v=s[i..n]\) 是一组合法的拆分，必要性得证。 性质5 任意一个字符串 \(s\) 都可以唯一地拆成若干个字典序不增的 Lyndon Word。 我抽代太菜了...其他的性质以后再补吧。]]></content>
       <tags>
         <tag>字符串</tag>
         <tag>知识点</tag>
@@ -28,7 +28,7 @@
   <entry>
     <title><![CDATA[[LOJ129] Lydon分解]]></title>
     <url>%2F2019%2F03%2F13%2F%5BLOJ129%5D-Lydon%E5%88%86%E8%A7%A3%2F</url>
-    <content type="text"><![CDATA[解法 算法可以看这个。 代码]]></content>
+    <content type="text"><![CDATA[解法 关于 Lyndon word 的一些结论可以看这个。 代码]]></content>
       <tags>
         <tag>字符串</tag>
         <tag>LOJ</tag>
