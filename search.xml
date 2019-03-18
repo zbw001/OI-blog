@@ -28,7 +28,7 @@
   <entry>
     <title><![CDATA[[LOJ129] Lydon分解]]></title>
     <url>%2F2019%2F03%2F13%2F%5BLOJ129%5D-Lydon%E5%88%86%E8%A7%A3%2F</url>
-    <content type="text"><![CDATA[解法 关于 Lyndon word 的一些结论可以看这个。 代码]]></content>
+    <content type="text"><![CDATA[解法 关于 Lyndon word 的一些结论可以看这个。 代码 12345678910111213141516171819202122232425262728293031323334#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;cstdio&gt;#include &lt;algorithm&gt;using namespace std;const int maxn = (1&lt;&lt;20)+10;int n;char str[maxn];int main() &#123; scanf("%s", str+1); n = int(strlen(str+1)); int s = 1, l = 0, p = 0; while (s &lt; n) &#123; l = 1; p = s+1; for (p = s+1; ; ++p) &#123; if (str[p] &lt; str[p-l]) &#123; while (s+l-1 &lt; p) &#123; printf("%d ", s+l-1); s += l; &#125; break; &#125; else if (str[p] &gt; str[p-l]) &#123; l = p-s+1; &#125; &#125; &#125; if (s &lt;= n) printf("%d ", n); printf("\n"); return 0;&#125;]]></content>
       <tags>
         <tag>字符串</tag>
         <tag>LOJ</tag>
