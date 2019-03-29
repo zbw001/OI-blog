@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[口胡的题目]]></title>
     <url>%2F2019%2F03%2F29%2F%E5%8F%A3%E8%83%A1%E7%9A%84%E9%A2%98%E7%9B%AE%2F</url>
-    <content type="text"><![CDATA[我的这么菜了还口胡题目...大概会越来越菜吧..]]></content>
+    <content type="text"><![CDATA[我的这么菜了还口胡题目...大概会越来越菜吧.. 2019.3.29 CF 1097G \(k\) 次方看作是选 \(k\) 条边。考虑所有 \(k\) 条边的有序对，计算包含它们的集合数。背包 \(dp\) 一下就好了。根据某考过很多次的复杂度分析，时间复杂度是 \(\mathcal O (nk)\)。]]></content>
       <tags>
         <tag>题解</tag>
       </tags>
