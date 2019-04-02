@@ -97,18 +97,18 @@
 
 
 
-  <meta name="description" content="提交至 [CTSC2010] 性能优化。">
+  <meta name="description" content="提交至 [CTSC2010] 性能优化。 Bluestein&apos;s Algorithm 求 \(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\) 设 \(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^">
 <meta name="keywords" content="模板">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[模板] 任意长度DFT">
 <meta property="og:url" content="https://zbww.cf/2019/04/02/[模板]-/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="提交至 [CTSC2010] 性能优化。">
+<meta property="og:description" content="提交至 [CTSC2010] 性能优化。 Bluestein&apos;s Algorithm 求 \(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\) 设 \(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-02T12:57:28.692Z">
+<meta property="og:updated_time" content="2019-04-02T13:22:32.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[模板] 任意长度DFT">
-<meta name="twitter:description" content="提交至 [CTSC2010] 性能优化。">
+<meta name="twitter:description" content="提交至 [CTSC2010] 性能优化。 Bluestein&apos;s Algorithm 求 \(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\) 设 \(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^">
 
 
 
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="Created: 2019-04-02 20:52:31 / Modified: 20:57:28" itemprop="dateCreated datePublished" datetime="2019-04-02T20:52:31+08:00">2019-04-02</time>
+              <time title="Created: 2019-04-02 20:52:31 / Modified: 21:22:32" itemprop="dateCreated datePublished" datetime="2019-04-02T20:52:31+08:00">2019-04-02</time>
             
 
             
@@ -426,6 +426,12 @@
 
       
         <p>提交至 <a href="https://www.luogu.org/problemnew/show/P4191" target="_blank" rel="noopener">[CTSC2010] 性能优化</a>。</p>
+<p><strong>Bluestein's Algorithm</strong></p>
+<p>求 <span class="math inline">\(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\)</span></p>
+<p>设 <span class="math inline">\(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^2}\)</span>。</p>
+<p>则 <span class="math inline">\(f(\omega_n^i) = \omega_{2n}^{i^2}\sum_{k=0}^{n-1} b_kc_{i-k+2n}\)</span>。</p>
+<p>做一次卷积即可。我比较暴力地加了一个 <span class="math inline">\(2n\)</span>，常数可能比较大。</p>
+<p>代码非常丑。</p>
 
       
     </div>
