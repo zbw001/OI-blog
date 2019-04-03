@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="我的这么菜了还口胡题目...大概会越来越菜吧.. 2019.3.29 CF 1097G \(k\) 次方看作是选 \(k\) 条边。考虑所有 \(k\) 条边的有序对，计算包含它们的集合数。背包 \(dp\) 一下就好了。根据某考过很多次的复杂度分析，时间复杂度是 \(\mathcal O (nk)\)。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-29T13:01:10.328Z">
+<meta property="og:updated_time" content="2019-04-03T07:41:17.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="口胡的题目">
 <meta name="twitter:description" content="我的这么菜了还口胡题目...大概会越来越菜吧.. 2019.3.29 CF 1097G \(k\) 次方看作是选 \(k\) 条边。考虑所有 \(k\) 条边的有序对，计算包含它们的集合数。背包 \(dp\) 一下就好了。根据某考过很多次的复杂度分析，时间复杂度是 \(\mathcal O (nk)\)。">
@@ -366,12 +366,24 @@
                 
               
 
-              <time title="Created: 2019-03-29 20:13:13 / Modified: 21:01:10" itemprop="dateCreated datePublished" datetime="2019-03-29T20:13:13+08:00">2019-03-29</time>
+              <time title="Created: 2019-03-29 20:13:13" itemprop="dateCreated datePublished" datetime="2019-03-29T20:13:13+08:00">2019-03-29</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-03 15:41:17" itemprop="dateModified" datetime="2019-04-03T15:41:17+08:00">2019-04-03</time>
               
             
           </span>
@@ -1252,6 +1264,53 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style>
+
+    
   
 
 
