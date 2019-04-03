@@ -382,7 +382,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-03 15:34:32" itemprop="dateModified" datetime="2019-04-03T15:34:32+08:00">2019-04-03</time>
+                <time title="Modified: 2019-04-03 15:36:35" itemprop="dateModified" datetime="2019-04-03T15:36:35+08:00">2019-04-03</time>
               
             
           </span>
@@ -418,13 +418,12 @@
       
         
           
-            <p>提交至 <a href="https://www.luogu.org/problemnew/show/P4191" target="_blank" rel="noopener">[CTSC2010] 性能优化</a>。</p>
-<p><strong>Bluestein's Algorithm</strong></p>
+            <p><strong>Bluestein's Algorithm</strong></p>
 <p>求 <span class="math inline">\(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\)</span></p>
 <p>设 <span class="math inline">\(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^2}\)</span>。</p>
-<p>则 <span class="math inline">\(f(\omega_n^i) = \omega_{2n}^{i^2}\sum_{k=0}^{n-1} b_kc_{i-k+2n}\)</span>。</p>
-<p>做一次卷积即可。我比较暴力地加了一个 <span class="math inline">\(2n\)</span>，常数可能比较大。</p>
-<p>代码非常丑。</p>
+<p>则 <span class="math inline">\(f(\omega_n^i) = \omega_{2n}^{i^2}\sum_{k=0}^{n-1} b_kc_{i-k}\)</span>。</p>
+<p><span class="math inline">\(i-k\)</span> 可能会出现负数。平移下做个卷积即可。</p>
+<p>懒得写QAQ。（好像也没啥好写的）</p>
 
           
         

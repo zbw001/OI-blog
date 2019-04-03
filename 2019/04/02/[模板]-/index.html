@@ -97,18 +97,18 @@
 
 
 
-  <meta name="description" content="提交至 [CTSC2010] 性能优化。 Bluestein&apos;s Algorithm 求 \(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\) 设 \(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^">
-<meta name="keywords" content="模板">
+  <meta name="description" content="Bluestein&apos;s Algorithm 求 \(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\) 设 \(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^2}\)。 则 \(f(\omega_n^">
+<meta name="keywords" content="noip noi oi 算法 algorithm acm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[模板] 任意长度DFT">
 <meta property="og:url" content="https://zbww.cf/2019/04/02/[模板]-/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="提交至 [CTSC2010] 性能优化。 Bluestein&apos;s Algorithm 求 \(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\) 设 \(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^">
+<meta property="og:description" content="Bluestein&apos;s Algorithm 求 \(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\) 设 \(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^2}\)。 则 \(f(\omega_n^">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-03T07:34:32.151Z">
+<meta property="og:updated_time" content="2019-04-03T07:36:35.057Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[模板] 任意长度DFT">
-<meta name="twitter:description" content="提交至 [CTSC2010] 性能优化。 Bluestein&apos;s Algorithm 求 \(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\) 设 \(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^">
+<meta name="twitter:description" content="Bluestein&apos;s Algorithm 求 \(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\) 设 \(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^2}\)。 则 \(f(\omega_n^">
 
 
 
@@ -383,7 +383,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-03 15:34:32" itemprop="dateModified" datetime="2019-04-03T15:34:32+08:00">2019-04-03</time>
+                <time title="Modified: 2019-04-03 15:36:35" itemprop="dateModified" datetime="2019-04-03T15:36:35+08:00">2019-04-03</time>
               
             
           </span>
@@ -437,13 +437,12 @@
       
 
       
-        <p>提交至 <a href="https://www.luogu.org/problemnew/show/P4191" target="_blank" rel="noopener">[CTSC2010] 性能优化</a>。</p>
-<p><strong>Bluestein's Algorithm</strong></p>
+        <p><strong>Bluestein's Algorithm</strong></p>
 <p>求 <span class="math inline">\(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\)</span></p>
 <p>设 <span class="math inline">\(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^2}\)</span>。</p>
-<p>则 <span class="math inline">\(f(\omega_n^i) = \omega_{2n}^{i^2}\sum_{k=0}^{n-1} b_kc_{i-k+2n}\)</span>。</p>
-<p>做一次卷积即可。我比较暴力地加了一个 <span class="math inline">\(2n\)</span>，常数可能比较大。</p>
-<p>代码非常丑。</p>
+<p>则 <span class="math inline">\(f(\omega_n^i) = \omega_{2n}^{i^2}\sum_{k=0}^{n-1} b_kc_{i-k}\)</span>。</p>
+<p><span class="math inline">\(i-k\)</span> 可能会出现负数。平移下做个卷积即可。</p>
+<p>懒得写QAQ。（好像也没啥好写的）</p>
 
       
     </div>
@@ -464,12 +463,6 @@
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/模板/" rel="tag"># 模板</a>
-          
-        </div>
       
 
       

@@ -3,10 +3,7 @@
   <entry>
     <title><![CDATA[[模板] 任意长度DFT]]></title>
     <url>%2F2019%2F04%2F02%2F%5B%E6%A8%A1%E6%9D%BF%5D-%2F</url>
-    <content type="text"><![CDATA[提交至 [CTSC2010] 性能优化。 Bluestein's Algorithm 求 \(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\) 设 \(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^2}\)。 则 \(f(\omega_n^i) = \omega_{2n}^{i^2}\sum_{k=0}^{n-1} b_kc_{i-k+2n}\)。 做一次卷积即可。我比较暴力地加了一个 \(2n\)，常数可能比较大。 代码非常丑。]]></content>
-      <tags>
-        <tag>模板</tag>
-      </tags>
+    <content type="text"><![CDATA[Bluestein's Algorithm 求 \(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\) 设 \(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^2}\)。 则 \(f(\omega_n^i) = \omega_{2n}^{i^2}\sum_{k=0}^{n-1} b_kc_{i-k}\)。 \(i-k\) 可能会出现负数。平移下做个卷积即可。 懒得写QAQ。（好像也没啥好写的）]]></content>
   </entry>
   <entry>
     <title><![CDATA[[模板] NTT模板]]></title>
