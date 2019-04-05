@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[模板] FWT]]></title>
+    <url>%2F2019%2F04%2F05%2F%5B%E6%A8%A1%E6%9D%BF%5D-FWT%2F</url>
+    <content type="text"><![CDATA[提交至 【模板】快速沃尔什变换。 先咕着。。。万一遇上现推吧。]]></content>
+      <tags>
+        <tag>模板</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[模板] 扩展中国剩余定理]]></title>
     <url>%2F2019%2F04%2F05%2F%5B%E6%A8%A1%E6%9D%BF%5D-%E6%89%A9%E5%B1%95%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%2F</url>
     <content type="text"><![CDATA[提交至 【模板】扩展中国剩余定理。 这题目有问题吧....模数可以爆 long long 的。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364#include &lt;iostream&gt;#include &lt;cstdio&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;using namespace std;typedef long long ll;int n;ll a1, b1;ll gcd(ll x, ll y) &#123; if (!y) return x; return gcd(y, x%y);&#125;ll mul(ll x, ll y, ll mod) &#123; ll t = y, ret = 0; for (int i = 0; i &lt; 63; i++) &#123; if (x &amp; (1ll&lt;&lt;i)) ret = (ret + t) % mod; t = t*2%mod; &#125; return ret;&#125;void exgcd(ll a, ll b, ll &amp;x, ll &amp;y) &#123; if (!b) &#123; x = 1; y = 0; return; &#125; exgcd(b, a%b, y, x); y -= (a/b)*x;&#125;int main() &#123; scanf("%d", &amp;n); a1 = 1; b1 = 0; for (int i = 1; i &lt;= n; i++) &#123; ll a2, b2; scanf("%lld%lld", &amp;a2, &amp;b2); ll na = a1/gcd(a1,a2)*a2; ll x, y; exgcd(a1, -a2, x, y); ll k = (b2-b1)/gcd(a1,-a2); int t = 1; if (k &lt; 0) &#123; k = -k; t = -t; &#125; if (x &lt; 0) &#123; x = -x; t = -t; &#125; ll k1 = t*mul(k, x, na); k1 %= na; if (k1 &lt; 0) k1 += na; b1 = (mul(k1%na, a1, na)+b1)%na; a1 = na; &#125; printf("%lld\n", b1); return 0;&#125;]]></content>
