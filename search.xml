@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[模板] 扩展中国剩余定理]]></title>
+    <url>%2F2019%2F04%2F05%2F%5B%E6%A8%A1%E6%9D%BF%5D-%E6%89%A9%E5%B1%95%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%2F</url>
+    <content type="text"><![CDATA[提交至 【模板】扩展中国剩余定理。 这题目有问题吧....模数可以爆 long long 的。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364#include &lt;iostream&gt;#include &lt;cstdio&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;using namespace std;typedef long long ll;int n;ll a1, b1;ll gcd(ll x, ll y) &#123; if (!y) return x; return gcd(y, x%y);&#125;ll mul(ll x, ll y, ll mod) &#123; ll t = y, ret = 0; for (int i = 0; i &lt; 63; i++) &#123; if (x &amp; (1ll&lt;&lt;i)) ret = (ret + t) % mod; t = t*2%mod; &#125; return ret;&#125;void exgcd(ll a, ll b, ll &amp;x, ll &amp;y) &#123; if (!b) &#123; x = 1; y = 0; return; &#125; exgcd(b, a%b, y, x); y -= (a/b)*x;&#125;int main() &#123; scanf("%d", &amp;n); a1 = 1; b1 = 0; for (int i = 1; i &lt;= n; i++) &#123; ll a2, b2; scanf("%lld%lld", &amp;a2, &amp;b2); ll na = a1/gcd(a1,a2)*a2; ll x, y; exgcd(a1, -a2, x, y); ll k = (b2-b1)/gcd(a1,-a2); int t = 1; if (k &lt; 0) &#123; k = -k; t = -t; &#125; if (x &lt; 0) &#123; x = -x; t = -t; &#125; ll k1 = t*mul(k, x, na); k1 %= na; if (k1 &lt; 0) k1 += na; b1 = (mul(k1%na, a1, na)+b1)%na; a1 = na; &#125; printf("%lld\n", b1); return 0;&#125;]]></content>
+      <tags>
+        <tag>模板</tag>
+        <tag>数论</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[模板] 后缀自动机]]></title>
     <url>%2F2019%2F04%2F05%2F%5B%E6%A8%A1%E6%9D%BF%5D-%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA%2F</url>
     <content type="text"><![CDATA[提交至 【模板】后缀自动机。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstdio&gt;#include &lt;cstring&gt;#include &lt;vector&gt;using namespace std;const int maxn = 1000010;vector&lt;int&gt; tree[maxn*2];typedef long long ll;char s[maxn];int n, tot, last = 0;ll ans = 0;int tr[maxn*2][26], par[maxn*2], len[maxn*2], sum[maxn*2], val[maxn*2];void addchar(int c, int l) &#123; int np = ++tot; len[np] = l; val[np] = 1; while (!tr[last][c]) &#123; tr[last][c] = np; last = par[last]; &#125; if (!last) par[np] = 1; else &#123; int q = tr[last][c]; if (len[q] == len[last] + 1) &#123; par[np] = q; &#125; else &#123; int nq = ++tot; len[nq] = len[last] + 1; par[nq] = par[q]; memcpy(tr[nq], tr[q], sizeof(tr[nq])); par[q] = par[np] = nq; while (tr[last][c] == q) &#123; tr[last][c] = nq; last = par[last]; &#125; &#125; &#125; last = np;&#125;void dfs(int u) &#123; sum[u] = val[u]; for (int i = 0; i &lt; tree[u].size(); i++) &#123; int v = tree[u][i]; dfs(v); sum[u] += sum[v]; &#125;&#125;int main() &#123; scanf("%s", s+1); n = int(strlen(s+1)); last = ++tot; for (int i = 1; i &lt;= n; i++) &#123; addchar(s[i]-'a', i); &#125; for (int i = 2; i &lt;= tot; i++) tree[par[i]].push_back(i); dfs(1); for (int i = 2; i &lt;= tot; i++) if (sum[i] &gt; 1) ans = max(ans, 1LL*sum[i]*len[i]); printf("%lld\n", ans); return 0;&#125;]]></content>
@@ -71,7 +80,7 @@
   <entry>
     <title><![CDATA[模板]]></title>
     <url>%2F2019%2F04%2F01%2F%E6%A8%A1%E6%9D%BF%2F</url>
-    <content type="text"><![CDATA[我发现自己的代码能力太弱了...... 有些模板需要平时写一下，不能现场写，否则不一定调的出来。这里列出一些常用模板。（优化常数&amp;&amp;优化代码复杂度&amp;&amp;背下来）。 多项式： FFT NTT 多项式求逆 多项式ln 多项式exp 多项式取模 多项式多点求值 多项式快速插值 多项式复合逆 常系数齐次线性递推 数论： Lucas定理 exCRT 杜教筛 Pollard-Rho Miller-Rabin min_25筛 类欧几里得 高级数据结构： 线段树合并 树状数组 Splay LCT ETT 点分树 树链剖分 动态dp 字符串： 后缀自动机 建后缀树 后缀数组 trie树SAM AC自动机 回文树 其他： FWT 半平面交 矩阵-树定理]]></content>
+    <content type="text"><![CDATA[我发现自己的代码能力太弱了...... 有些模板需要平时写一下，不能现场写，否则不一定调的出来。这里列出一些常用模板。（优化常数&amp;&amp;优化代码复杂度&amp;&amp;背下来）。 多项式： FFT NTT 多项式求逆 多项式ln 多项式exp 多项式取模 多项式多点求值 多项式快速插值 多项式复合逆 常系数齐次线性递推 数论： Lucas定理 exCRT 杜教筛 Pollard-Rho Miller-Rabin min_25筛 类欧几里得 二次剩余 高级数据结构： 线段树合并 树状数组 Splay LCT ETT 点分树 树链剖分 动态dp 字符串： 后缀自动机 建后缀树 后缀数组 trie树SAM AC自动机 回文树 其他： FWT 半平面交 矩阵-树定理]]></content>
       <tags>
         <tag>模板</tag>
       </tags>
