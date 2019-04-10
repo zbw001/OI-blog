@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[题解] YNOI]]></title>
+    <url>%2F2019%2F04%2F10%2F%5B%E9%A2%98%E8%A7%A3%5D-YNOI%2F</url>
+    <content type="text"><![CDATA[虽然前面还有很多坑没补完...但是我发现自己代码能力问题比较严重。所以来做做ynoi。 [Ynoi2016] 镜中的昆虫]]></content>
+      <tags>
+        <tag>题解</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[模板] FWT]]></title>
     <url>%2F2019%2F04%2F05%2F%5B%E6%A8%A1%E6%9D%BF%5D-FWT%2F</url>
     <content type="text"><![CDATA[提交至 【模板】快速沃尔什变换。 先咕着。。。万一遇上现推吧。]]></content>
