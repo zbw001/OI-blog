@@ -97,18 +97,18 @@
 
 
 
-  <meta name="description" content="提交至 「SDOI2018」反回文串。 题解 考虑什么样的回文串在循环移位 \(k\) 位后还是一个回文串。 设 \(s\) 是一个循环右移 \(k\) 位后仍是回文串的长度为 \(n\) 回文串。 记字符串 \(a\) 的反串为 \(a^R\)。 因为 \(s\) 是回文串，对于 \(1\le i \le n\)，\(s[i]=s[n-i+1]\)。 因为 \(s\) 循环右移 \(k\) 位后">
+  <meta name="description" content="提交至 「SDOI2018」反回文串。 题解 考虑什么样的回文串在循环移位 \(k\) 位后还是一个回文串。 设 \(s\) 是一个循环右移 \(k\) 位后仍是回文串的长度为 \(n\) 回文串。 记字符串 \(a\) 的反串为 \(a^R\)。 因为 \(s\) 是回文串，对于 \(1\le i \le n\)，\(s[i]=s[n-i+1]\)。 又因为 \(s\) 循环右移 \(k\) 位">
 <meta name="keywords" content="字符串,数论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[SDOI2018] 反回文串">
 <meta property="og:url" content="https://zbww.cf/2019/04/15/[SDOI2018]-反回文串/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="提交至 「SDOI2018」反回文串。 题解 考虑什么样的回文串在循环移位 \(k\) 位后还是一个回文串。 设 \(s\) 是一个循环右移 \(k\) 位后仍是回文串的长度为 \(n\) 回文串。 记字符串 \(a\) 的反串为 \(a^R\)。 因为 \(s\) 是回文串，对于 \(1\le i \le n\)，\(s[i]=s[n-i+1]\)。 因为 \(s\) 循环右移 \(k\) 位后">
+<meta property="og:description" content="提交至 「SDOI2018」反回文串。 题解 考虑什么样的回文串在循环移位 \(k\) 位后还是一个回文串。 设 \(s\) 是一个循环右移 \(k\) 位后仍是回文串的长度为 \(n\) 回文串。 记字符串 \(a\) 的反串为 \(a^R\)。 因为 \(s\) 是回文串，对于 \(1\le i \le n\)，\(s[i]=s[n-i+1]\)。 又因为 \(s\) 循环右移 \(k\) 位">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-15T16:09:34.351Z">
+<meta property="og:updated_time" content="2019-04-16T09:56:23.677Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[SDOI2018] 反回文串">
-<meta name="twitter:description" content="提交至 「SDOI2018」反回文串。 题解 考虑什么样的回文串在循环移位 \(k\) 位后还是一个回文串。 设 \(s\) 是一个循环右移 \(k\) 位后仍是回文串的长度为 \(n\) 回文串。 记字符串 \(a\) 的反串为 \(a^R\)。 因为 \(s\) 是回文串，对于 \(1\le i \le n\)，\(s[i]=s[n-i+1]\)。 因为 \(s\) 循环右移 \(k\) 位后">
+<meta name="twitter:description" content="提交至 「SDOI2018」反回文串。 题解 考虑什么样的回文串在循环移位 \(k\) 位后还是一个回文串。 设 \(s\) 是一个循环右移 \(k\) 位后仍是回文串的长度为 \(n\) 回文串。 记字符串 \(a\) 的反串为 \(a^R\)。 因为 \(s\) 是回文串，对于 \(1\le i \le n\)，\(s[i]=s[n-i+1]\)。 又因为 \(s\) 循环右移 \(k\) 位">
 
 
 
@@ -383,7 +383,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-16 00:09:34" itemprop="dateModified" datetime="2019-04-16T00:09:34+08:00">2019-04-16</time>
+                <time title="Modified: 2019-04-16 17:56:23" itemprop="dateModified" datetime="2019-04-16T17:56:23+08:00">2019-04-16</time>
               
             
           </span>
@@ -443,7 +443,13 @@
 <p>设 <span class="math inline">\(s\)</span> 是一个循环右移 <span class="math inline">\(k\)</span> 位后仍是回文串的长度为 <span class="math inline">\(n\)</span> 回文串。<br>
 记字符串 <span class="math inline">\(a\)</span> 的反串为 <span class="math inline">\(a^R\)</span>。</p>
 <p>因为 <span class="math inline">\(s\)</span> 是回文串，对于 <span class="math inline">\(1\le i \le n\)</span>，<span class="math inline">\(s[i]=s[n-i+1]\)</span>。</p>
-<p>因为 <span class="math inline">\(s\)</span> 循环右移 <span class="math inline">\(k\)</span> 位后仍是回文串，对于 <span class="math inline">\(1 \le i \le n-2k\)</span>，<span class="math inline">\(s[i]=s[n-(i+k)+1-k]=s[n-i+1-2k]=s[i+2k]\)</span>；对于 <span class="math inline">\(n-2k &lt; i \le n-k\)</span>，<span class="math inline">\(s[i] = s[2n-2k-i+1] = s[i+2k]\)</span>；对于 <span class="math inline">\(n-k&lt;i \le n\)</span>，<span class="math inline">\(s[i] = s[n-(i+k-n)+1-k]=s[2n-i-2k+1]=s[i+2k-n]\)</span>。</p>
+<p>又因为 <span class="math inline">\(s\)</span> 循环右移 <span class="math inline">\(k\)</span> 位后仍是回文串：</p>
+<p>对于 <span class="math inline">\(1 \le i \le n-2k\)</span>：<br>
+<span class="math inline">\(s[i]=s[n-(i+k)+1-k]=s[n-i+1-2k]=s[i+2k]\)</span></p>
+<p>对于 <span class="math inline">\(n-2k &lt; i \le n-k\)</span>：<br>
+<span class="math inline">\(s[i] = s[2n-2k-i+1] = s[i+2k]\)</span></p>
+<p>对于 <span class="math inline">\(n-k&lt;i \le n\)</span>：<br>
+<span class="math inline">\(s[i] = s[n-(i+k-n)+1-k]=s[2n-i-2k+1]=s[i+2k-n]\)</span></p>
 <p>可以看出 <span class="math inline">\(2k\)</span> 是 <span class="math inline">\(s\)</span> 的周期，且 <span class="math inline">\(s\)</span> 循环右移 <span class="math inline">\(2k\)</span> 位后得到的字符串与 <span class="math inline">\(s\)</span> 相等。因此 <span class="math inline">\(s\)</span> 的最小周期是 <span class="math inline">\(n\)</span> 的约数。设 <span class="math inline">\(s\)</span> 的最小周期长度为 <span class="math inline">\(t\)</span>，<span class="math inline">\(t \mid n\)</span>。</p>
 <p>显然，如果 <span class="math inline">\(s\)</span> 循环右移 <span class="math inline">\(k\)</span> 位仍是一个回文串，那么 <span class="math inline">\(t \mid 2k\)</span>。有 <span class="math inline">\(t\)</span> 种不同的与 <span class="math inline">\(s\)</span> 循环同构的串。若 <span class="math inline">\(t\)</span> 为偶数，那么 <span class="math inline">\(s\)</span> 循环右移 <span class="math inline">\(\frac t 2\)</span> 位或循环右移 <span class="math inline">\(0\)</span> 位是回文串。否则只有循环右移 <span class="math inline">\(0\)</span> 位是回文串。</p>
 <p>为了计算与某个回文串循环同构的字符串数，考虑枚举回文串并计算与这个回文串同构的字符串有多少种，这样最小周期是偶数的回文串的循环同构串会被算恰好两次，其他回文串的循环同构串只会被算一次。特判最小周期为偶数的情况即可。</p>
