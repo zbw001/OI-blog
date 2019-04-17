@@ -97,25 +97,25 @@
 
 
 
-  <meta name="description" content="本文需要密码。">
-<meta name="keywords" content="字符串,知识点,总结">
+  <meta name="description" content="题目链接 「PKUWC2018」Minimax。 大致思路&amp;amp;&amp;amp;吐槽 线段树合并，维护某个点最后的值在线段树上每个区间的概率。 merge 的时候记一下前后缀概率就能转移了。 代码能力真是越来越差了..线段树合并都写不熟。 代码 123456789101112131415161718192021222324252627282930313233343536373839404142434">
+<meta name="keywords" content="noip noi oi 算法 algorithm acm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="字符串技巧、思想、知识点整理">
-<meta property="og:url" content="https://zbww.cf/2019/03/18/字符串技巧、思想、知识点整理/index.html">
+<meta property="og:title" content="[LOJ2537] PKUWC2018 Minimax">
+<meta property="og:url" content="https://zbww.cf/2019/04/17/[LOJ2537]-PKUWC2018-Minimax/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="本文需要密码。">
+<meta property="og:description" content="题目链接 「PKUWC2018」Minimax。 大致思路&amp;amp;&amp;amp;吐槽 线段树合并，维护某个点最后的值在线段树上每个区间的概率。 merge 的时候记一下前后缀概率就能转移了。 代码能力真是越来越差了..线段树合并都写不熟。 代码 123456789101112131415161718192021222324252627282930313233343536373839404142434">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-18T12:47:49.914Z">
+<meta property="og:updated_time" content="2019-04-17T14:25:20.854Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="字符串技巧、思想、知识点整理">
-<meta name="twitter:description" content="本文需要密码。">
+<meta name="twitter:title" content="[LOJ2537] PKUWC2018 Minimax">
+<meta name="twitter:description" content="题目链接 「PKUWC2018」Minimax。 大致思路&amp;amp;&amp;amp;吐槽 线段树合并，维护某个点最后的值在线段树上每个区间的概率。 merge 的时候记一下前后缀概率就能转移了。 代码能力真是越来越差了..线段树合并都写不熟。 代码 123456789101112131415161718192021222324252627282930313233343536373839404142434">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zbww.cf/2019/03/18/字符串技巧、思想、知识点整理/">
+  <link rel="canonical" href="https://zbww.cf/2019/04/17/[LOJ2537]-PKUWC2018-Minimax/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>字符串技巧、思想、知识点整理 | 一个蒟蒻的Blog</title>
+  <title>[LOJ2537] PKUWC2018 Minimax | 一个蒟蒻的Blog</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/03/18/字符串技巧、思想、知识点整理/">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/04/17/[LOJ2537]-PKUWC2018-Minimax/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zbww">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">字符串技巧、思想、知识点整理
+          <h1 class="post-title" itemprop="name headline">[LOJ2537] PKUWC2018 Minimax
 
               
             
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="Created: 2019-03-18 20:33:52 / Modified: 20:47:49" itemprop="dateCreated datePublished" datetime="2019-03-18T20:33:52+08:00">2019-03-18</time>
+              <time title="Created: 2019-04-17 22:22:34 / Modified: 22:25:20" itemprop="dateCreated datePublished" datetime="2019-04-17T22:22:34+08:00">2019-04-17</time>
             
 
             
@@ -389,8 +389,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Comments: </span>
-                <a href="/2019/03/18/字符串技巧、思想、知识点整理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/03/18/字符串技巧、思想、知识点整理/" itemprop="commentCount"></span>
+                <a href="/2019/04/17/[LOJ2537]-PKUWC2018-Minimax/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/04/17/[LOJ2537]-PKUWC2018-Minimax/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -425,20 +425,15 @@
       
 
       
-        <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<div id="hbe-security">
-  <div class="hbe-input-container">
-  <input type="password" class="hbe-form-control" id="pass" placeholder="请输入密码">
-    <label for="pass">请输入密码</label>
-    <div class="bottom-line"></div>
-  </div>
-</div>
-<div id="decryptionError" style="display: none;">Incorrect Password!</div>
-<div id="noContentError" style="display: none;">No content to display!</div>
-<div id="encrypt-blog" style="display:none">
-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
-</div>
-<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+        <h3 id="题目链接">题目链接</h3>
+<p><a href="https://loj.ac/problem/2537" target="_blank" rel="noopener">「PKUWC2018」Minimax</a>。</p>
+<h3 id="大致思路吐槽">大致思路&amp;&amp;吐槽</h3>
+<p>线段树合并，维护某个点最后的值在线段树上每个区间的概率。</p>
+<p>merge 的时候记一下前后缀概率就能转移了。</p>
+<p>代码能力真是越来越差了..线段树合并都写不熟。</p>
+<h3 id="代码">代码</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">300010</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxw = <span class="number">1e9</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ret = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (y) &#123;</span><br><span class="line">		<span class="keyword">if</span> (y &amp; <span class="number">1</span>) </span><br><span class="line">			ret = <span class="number">1L</span>L*ret*x%mod;</span><br><span class="line">		x = <span class="number">1L</span>L*x*x%mod;</span><br><span class="line">		y &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tree[maxn];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, tot;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> ls[maxn*<span class="number">20</span>], rs[maxn*<span class="number">20</span>], sum[maxn*<span class="number">20</span>], tag[maxn*<span class="number">20</span>], p[maxn], _, ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">addEdge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">	tree[u].push_back(v);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> rt, <span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (rt) &#123;</span><br><span class="line">		tag[rt] = <span class="number">1L</span>L*tag[rt]*v%mod;</span><br><span class="line">		sum[rt] = <span class="number">1L</span>L*sum[rt]*v%mod;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pushDown</span><span class="params">(<span class="keyword">int</span> rt)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (tag[rt] != <span class="number">1</span>) &#123;</span><br><span class="line">		modify(ls[rt], tag[rt]);</span><br><span class="line">		modify(rs[rt], tag[rt]);</span><br><span class="line">		tag[rt] = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> rt1, <span class="keyword">int</span> rt2, <span class="keyword">int</span> p, <span class="keyword">int</span> Lp1, <span class="keyword">int</span> Rp1, <span class="keyword">int</span> Lp2, <span class="keyword">int</span> Rp2)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> pmax = p, pmin = (mod+<span class="number">1</span>-p)%mod;</span><br><span class="line">	<span class="keyword">int</span> a = sum[rt1], b = sum[rt2];</span><br><span class="line">	<span class="keyword">int</span> sa = (Rp1+a)%mod, pa = (Lp1+a)%mod;</span><br><span class="line">	<span class="keyword">int</span> sb = (Rp2+b)%mod, pb = (Lp2+b)%mod;</span><br><span class="line">	<span class="keyword">if</span> (!rt1 || !rt2) &#123;</span><br><span class="line">		<span class="keyword">if</span> (!rt1 &amp;&amp; !rt2) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">if</span> (rt1 &amp;&amp; !rt2) &#123;</span><br><span class="line">			modify(rt1, (<span class="number">1L</span>L*pmin*sb%mod+<span class="number">1L</span>L*pmax*pb%mod)%mod);</span><br><span class="line">			<span class="keyword">return</span> rt1;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (rt2 &amp;&amp; !rt1) &#123;</span><br><span class="line">			modify(rt2, (<span class="number">1L</span>L*pmin*sa%mod+<span class="number">1L</span>L*pmax*pa%mod)%mod);</span><br><span class="line">			<span class="keyword">return</span> rt2;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	pushDown(rt1); pushDown(rt2);</span><br><span class="line">	sum[rt1] = ((pmin*(<span class="number">1L</span>L*a*sb%mod+<span class="number">1L</span>L*b*sa%mod)%mod+pmax*(<span class="number">1L</span>L*a*pb%mod+<span class="number">1L</span>L*b*pa%mod))%mod<span class="number">-1L</span>L*a*b%mod+mod)%mod;</span><br><span class="line">	<span class="keyword">if</span> (l == r) <span class="keyword">return</span> rt1;</span><br><span class="line">	<span class="keyword">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> t1 = (Rp1+sum[rs[rt1]])%mod;</span><br><span class="line">	<span class="keyword">int</span> t2 = (Rp2+sum[rs[rt2]])%mod;</span><br><span class="line">	<span class="keyword">int</span> t3 = (Lp1+sum[ls[rt1]])%mod;</span><br><span class="line">	<span class="keyword">int</span> t4 = (Lp2+sum[ls[rt2]])%mod;</span><br><span class="line">	ls[rt1] = Merge(l, m, ls[rt1], ls[rt2], p, Lp1, t1, Lp2, t2);</span><br><span class="line">	rs[rt1] = Merge(m+<span class="number">1</span>, r, rs[rt1], rs[rt2], p, t3, Rp1, t4, Rp2);</span><br><span class="line">	<span class="keyword">return</span> rt1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> &amp;rt)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!rt) &#123;rt = ++tot; tag[rt] = <span class="number">1</span>;&#125;</span><br><span class="line">	sum[rt] ++;</span><br><span class="line">	<span class="keyword">if</span> (l == r) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	pushDown(rt);</span><br><span class="line">	<span class="keyword">if</span> (p &lt;= m) update(p, l, m, ls[rt]);</span><br><span class="line">	<span class="keyword">else</span> update(p, m+<span class="number">1</span>, r, rs[rt]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> rt = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span> (tree[u].size() == <span class="number">0</span>) update(p[u], <span class="number">1</span>, maxw, rt);</span><br><span class="line">	<span class="keyword">if</span> (tree[u].size() == <span class="number">1</span>) rt = dfs(tree[u][<span class="number">0</span>]);</span><br><span class="line">	<span class="keyword">if</span> (tree[u].size() == <span class="number">2</span>) rt = Merge(<span class="number">1</span>, maxw, dfs(tree[u][<span class="number">0</span>]), dfs(tree[u][<span class="number">1</span>]), <span class="number">1L</span>L*p[u]*qpow(<span class="number">10000</span>, mod<span class="number">-2</span>)%mod, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">	<span class="keyword">return</span> rt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cal_ans</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> rt)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">		<span class="keyword">if</span> (sum[rt]) &#123;</span><br><span class="line">			++ _;</span><br><span class="line">			ans = (ans + <span class="number">1L</span>L*_*l%mod*sum[rt]%mod*sum[rt]%mod) % mod;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	pushDown(rt);</span><br><span class="line">	<span class="keyword">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span> (ls[rt]) cal_ans(l, m, ls[rt]);</span><br><span class="line">	<span class="keyword">if</span> (rs[rt]) cal_ans(m+<span class="number">1</span>, r, rs[rt]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> f = <span class="number">0</span>;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;f);</span><br><span class="line">		<span class="keyword">if</span> (i &gt; <span class="number">1</span>) addEdge(f, i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) </span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;p[i]);</span><br><span class="line">	<span class="keyword">int</span> rt = dfs(<span class="number">1</span>);</span><br><span class="line">	cal_ans(<span class="number">1</span>, maxw, rt);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -459,16 +454,6 @@ U2FsdGVkX19koiWfkCs+vu0+Fg9+yue2AXFphZxZMjs5DK63YZOe2fGDFrjyQPRGdkOkvUTGJP70BjTh
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/字符串/" rel="tag"># 字符串</a>
-          
-            <a href="/tags/知识点/" rel="tag"># 知识点</a>
-          
-            <a href="/tags/总结/" rel="tag"># 总结</a>
-          
-        </div>
-      
 
       
       
@@ -478,8 +463,8 @@ U2FsdGVkX19koiWfkCs+vu0+Fg9+yue2AXFphZxZMjs5DK63YZOe2fGDFrjyQPRGdkOkvUTGJP70BjTh
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/15/Lyndon/" rel="next" title="Lyndon word的一些性质">
-                <i class="fa fa-chevron-left"></i> Lyndon word的一些性质
+              <a href="/2019/04/16/[]/" rel="next" title="[LOJ2302] NOI2017 整数">
+                <i class="fa fa-chevron-left"></i> [LOJ2302] NOI2017 整数
               </a>
             
           </div>
@@ -487,10 +472,6 @@ U2FsdGVkX19koiWfkCs+vu0+Fg9+yue2AXFphZxZMjs5DK63YZOe2fGDFrjyQPRGdkOkvUTGJP70BjTh
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/29/[Gym100543G]-Virus-synthesis/" rel="prev" title="[Gym100543G] Virus synthesis">
-                [Gym100543G] Virus synthesis <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -541,8 +522,17 @@ U2FsdGVkX19koiWfkCs+vu0+Fg9+yue2AXFphZxZMjs5DK63YZOe2fGDFrjyQPRGdkOkvUTGJP70BjTh
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -697,6 +687,23 @@ U2FsdGVkX19koiWfkCs+vu0+Fg9+yue2AXFphZxZMjs5DK63YZOe2fGDFrjyQPRGdkOkvUTGJP70BjTh
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目链接"><span class="nav-number">1.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大致思路吐槽"><span class="nav-number">2.</span> <span class="nav-text">大致思路&amp;&amp;吐槽</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1247,53 +1254,6 @@ U2FsdGVkX19koiWfkCs+vu0+Fg9+yue2AXFphZxZMjs5DK63YZOe2fGDFrjyQPRGdkOkvUTGJP70BjTh
   
   
 
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
-        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
-      }
-    });
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-      for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<style>
-.MathJax_Display {
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-</style>
-
-    
   
 
 
