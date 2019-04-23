@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="题目链接。 题目大意 给你一棵 \(n\) 个点的树，边上有字符。定义路径 \(u\) 到 \(v\) 上的字符串就是把路径上的字符依次接起来得到的字符串。给定 \(m\) 个字符串 \(s_1,s_2\ldots s_m\)。\(q\) 次询问，每次询问给出三个数 \(i, j, k\)，询问在路径 \(i\) 到 \(j\) 的字符串中，\(s_k\) 出现了几次。 解法 符号说明：\(s^R">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-22T00:03:58.374Z">
+<meta property="og:updated_time" content="2019-04-23T13:31:15.980Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Codeforces917E] Upside Down">
 <meta name="twitter:description" content="题目链接。 题目大意 给你一棵 \(n\) 个点的树，边上有字符。定义路径 \(u\) 到 \(v\) 上的字符串就是把路径上的字符依次接起来得到的字符串。给定 \(m\) 个字符串 \(s_1,s_2\ldots s_m\)。\(q\) 次询问，每次询问给出三个数 \(i, j, k\)，询问在路径 \(i\) 到 \(j\) 的字符串中，\(s_k\) 出现了几次。 解法 符号说明：\(s^R">
@@ -383,7 +383,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-22 08:03:58" itemprop="dateModified" datetime="2019-04-22T08:03:58+08:00">2019-04-22</time>
+                <time title="Modified: 2019-04-23 21:31:15" itemprop="dateModified" datetime="2019-04-23T21:31:15+08:00">2019-04-23</time>
               
             
           </span>
@@ -449,7 +449,7 @@
 <p>第三部分比较复杂。设路径 <span class="math inline">\(u\rightarrow r\)</span> 上的字符串为 <span class="math inline">\(x\)</span>，路径 <span class="math inline">\(r \rightarrow v\)</span> 上的字符串为 <span class="math inline">\(y\)</span>。设 <span class="math inline">\(p\)</span> 是最大的满足 <span class="math inline">\(pre(s_k,p)=suf(x,p)\)</span> 的整数，<span class="math inline">\(q\)</span> 是最大的满足 <span class="math inline">\(suf(s_k,q)=pre(y,q)\)</span> 的整数。那么计算第三部分可以转化为计算 <span class="math inline">\(s_k\)</span> 在 <span class="math inline">\(suf(x,p)+pre(y,q)\)</span> 中的出现次数。</p>
 <p>设 <span class="math inline">\(t_i\)</span> 路径表示 <span class="math inline">\(r\rightarrow i\)</span> 上的字符串。则 <span class="math inline">\(suf(x,p)+pre(y,q)\)</span> 可以表示为 <span class="math inline">\(pre(s_k,p)+suf(s_k,q)\)</span>，这样就转化为了只与 <span class="math inline">\(s_k\)</span> 相关的问题。<span class="math inline">\(p\)</span>、<span class="math inline">\(q\)</span> 的具体求法后面会详细描述。假设已经求得了 <span class="math inline">\(p\)</span>、<span class="math inline">\(q\)</span>，考虑怎么快速得到第三部分的匹配次数。</p>
 <p>把询问离线。对每个 <span class="math inline">\(i\)</span>，建一棵 <span class="math inline">\(s_i\)</span> 的后缀树和 <span class="math inline">\(s_i^R\)</span> 的后缀树。在 <span class="math inline">\(s_i^R\)</span> 的后缀树上 <span class="math inline">\(dfs\)</span>，<span class="math inline">\(dfs\)</span> 的过程中，维护一棵线段树。如果 <span class="math inline">\(dfs\)</span> 到一个代表 <span class="math inline">\(s_i^R\)</span> 后缀的点，设这个点对应的字符串长度为 <span class="math inline">\(l\)</span>，那么就在线段树上把 <span class="math inline">\(s_i\)</span> 的后缀树上对应 <span class="math inline">\(s_i[l+1\ldots \lvert s_i \rvert]\)</span> 的点的子树 <span class="math inline">\(dfs\)</span> 序上位置加一。（可能描述的不是很清楚...我也不知道怎么描述了）回溯时撤销操作。然后对每个询问 <span class="math inline">\(p, q\)</span>，只要在 <span class="math inline">\(dfs\)</span> 到 <span class="math inline">\(s_i^R\)</span> 长度为 <span class="math inline">\(p\)</span> 的后缀时，询问一下 <span class="math inline">\(s_i\)</span> 长度为 <span class="math inline">\(q\)</span> 的后缀在 <span class="math inline">\(s_i\)</span> 的后缀树上的 <span class="math inline">\(dfs\)</span> 序上位置在线段树上的值即可。</p>
-<p>考虑如何求 <span class="math inline">\(p\)</span>、<span class="math inline">\(q\)</span>。由于求 <span class="math inline">\(q\)</span> 的过程和求 <span class="math inline">\(p\)</span> 类似，这里只详细描述求 <span class="math inline">\(p\)</span> 的过程。我自己的做法是对所有 <span class="math inline">\(s_i\)</span> 以及 <span class="math inline">\(s_i^R\)</span> 建出一个广义SAM。然后类似AC自动机+BIT的做法，维护一个以parent树 <span class="math inline">\(dfs\)</span> 序为下标的线段树。然后在点分治后得到的连通块上 <span class="math inline">\(dfs\)</span>，<span class="math inline">\(dfs\)</span> 到 <span class="math inline">\(u\)</span> 时维护 <span class="math inline">\(r\rightarrow u\)</span> 上的字符串在SAM上的位置，并把它的子树在 <span class="math inline">\(dfs\)</span> 序上的位置在线段树上子树对长度取 <span class="math inline">\(max\)</span>。然后求 <span class="math inline">\(p\)</span> 时只需要询问一下 <span class="math inline">\(s_k^R\)</span> 在 <span class="math inline">\(SAM\)</span> 上的位置在parent tree中的 <span class="math inline">\(dfs\)</span> 在线段树上的位置即可。</p>
+<p>考虑如何求 <span class="math inline">\(p\)</span>、<span class="math inline">\(q\)</span>。由于求 <span class="math inline">\(q\)</span> 的过程和求 <span class="math inline">\(p\)</span> 类似，这里只详细描述求 <span class="math inline">\(p\)</span> 的过程。对所有 <span class="math inline">\(s_i\)</span> 以及 <span class="math inline">\(s_i^R\)</span> 建出一个广义SAM。然后类似AC自动机+BIT的过程地，维护一个以parent树 <span class="math inline">\(dfs\)</span> 序为下标的线段树。然后在点分治后得到的连通块上 <span class="math inline">\(dfs\)</span>，<span class="math inline">\(dfs\)</span> 到 <span class="math inline">\(u\)</span> 时维护 <span class="math inline">\(r\rightarrow u\)</span> 上的字符串在SAM上的位置，并把它的子树在 <span class="math inline">\(dfs\)</span> 序上的位置在线段树上子树对长度取 <span class="math inline">\(max\)</span>。然后求 <span class="math inline">\(p\)</span> 时只需要询问一下 <span class="math inline">\(s_k^R\)</span> 在 <span class="math inline">\(SAM\)</span> 上的位置在parent tree中的 <span class="math inline">\(dfs\)</span> 在线段树上的位置即可。</p>
 <h1 id="代码">代码</h1>
 
       
@@ -502,6 +502,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/23/[AGC032D]-Rotation-Sort/" rel="prev" title="[AGC032D] Rotation Sort">
+                [AGC032D] Rotation Sort <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -579,7 +583,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -622,7 +626,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
