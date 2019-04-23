@@ -320,6 +320,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/04/23/2-SAT-问题整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zbww">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个蒟蒻的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/23/2-SAT-问题整理/" class="post-title-link" itemprop="url">2-SAT 问题整理</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-23 16:27:50 / Modified: 16:35:34" itemprop="dateCreated datePublished" datetime="2019-04-23T16:27:50+08:00">2019-04-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>发现自己对 2-SAT 问题的理解比较模糊。这里来整理一下。</p>
+<p><del>（以下内容纯属自己瞎编，可能与其他 blog 上写的不太一样）</del></p>
+<p>** 2-SAT问题定义 ** 有 <span class="math inline">\(n\)</span> 个逻辑变量和 <span class="math inline">\(m\)</span> 个约束条件，每个约束条件都是如果第 <span class="math inline">\(x\)</span> 个变量为 <span class="math inline">\(true/false\)</span> 那么第 <span class="math inline">\(y\)</span> 个变量必须为 <span class="math inline">\(true/false\)</span> 的形式。</p>
+<p>用有向图来描述 2-SAT 问题时，把每个变量拆成两个点分别代表 <span class="math inline">\(true\)</span> 和 <span class="math inline">\(false\)</span>。如果存在一个约束，要求如果一个点选了另一个点必须选，就连一条有向边。因为逆否命题与原命题等价，所以这个有向图具有对称性。（如：如果第一个变量为 <span class="math inline">\(true\)</span> 那么第二个变量为 <span class="math inline">\(false\)</span>，那么如果第二个变量为 <span class="math inline">\(true\)</span>，第一个变量必为 <span class="math inline">\(false\)</span>。</p>
+<p>** 2-SAT问题有解的条件 **</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/04/20/CF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -365,12 +512,24 @@
                 
               
 
-              <time title="Created: 2019-04-20 12:58:09 / Modified: 13:33:04" itemprop="dateCreated datePublished" datetime="2019-04-20T12:58:09+08:00">2019-04-20</time>
+              <time title="Created: 2019-04-20 12:58:09" itemprop="dateCreated datePublished" datetime="2019-04-20T12:58:09+08:00">2019-04-20</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-22 08:03:58" itemprop="dateModified" datetime="2019-04-22T08:03:58+08:00">2019-04-22</time>
               
             
           </span>
@@ -411,12 +570,15 @@
 <p>给你一棵 <span class="math inline">\(n\)</span> 个点的树，边上有字符。定义路径 <span class="math inline">\(u\)</span> 到 <span class="math inline">\(v\)</span> 上的字符串就是把路径上的字符依次接起来得到的字符串。给定 <span class="math inline">\(m\)</span> 个字符串 <span class="math inline">\(s_1,s_2\ldots s_m\)</span>。<span class="math inline">\(q\)</span> 次询问，每次询问给出三个数 <span class="math inline">\(i, j, k\)</span>，询问在路径 <span class="math inline">\(i\)</span> 到 <span class="math inline">\(j\)</span> 的字符串中，<span class="math inline">\(s_k\)</span> 出现了几次。</p>
 <h1 id="解法">解法</h1>
 <p>符号说明：<span class="math inline">\(s^R\)</span> 表示 <span class="math inline">\(s\)</span> 的反串。<span class="math inline">\(pre(s,i)\)</span> 表示 <span class="math inline">\(s\)</span> 的长度为 <span class="math inline">\(i\)</span> 的前缀，<span class="math inline">\(suf(s,i)\)</span> 表示 <span class="math inline">\(s\)</span> 的长度为 <span class="math inline">\(i\)</span> 的后缀。<span class="math inline">\(s+t\)</span> 表示把字符串 <span class="math inline">\(s\)</span> 和字符串 <span class="math inline">\(t\)</span> 拼起来得到的字符串。</p>
-<p>因为只要作一次点分治就可以把询问的路径转为经过根的路径，先考虑询问的路径经过根的情况。</p>
+<p>先做一次点分治就可以把问题转化为 <span class="math inline">\(u \rightarrow v\)</span> 经过根的情况，所以只讨论经过根的情况。</p>
 <p>设根为 <span class="math inline">\(r\)</span>，询问的路径为 <span class="math inline">\(u \rightarrow v\)</span>，询问的字符串为 <span class="math inline">\(s_k\)</span>。</p>
 <p>可以把 <span class="math inline">\(s_k\)</span> 在路径 <span class="math inline">\(u \rightarrow v\)</span> 上的匹配分成三部分计算，第一部分是在 <span class="math inline">\(u\rightarrow r\)</span> 上的匹配，第二部分是在 <span class="math inline">\(r \rightarrow v\)</span> 上的匹配，第三部分是在跨过 <span class="math inline">\(r\)</span> 的匹配。</p>
 <p>前两部分是比较好计算的。离线一下，对所有的 <span class="math inline">\(s_i\)</span> 建AC自动机，在树上dfs，每次在AC自动机上走一条转移边，用 BIT 维护一下每个点被走了几次，在 dfs 到点 <span class="math inline">\(x\)</span> 时，只需作一次子树询问即可快速得到 <span class="math inline">\(s_k\)</span> 在 <span class="math inline">\(r\rightarrow x\)</span> 上出现了几次（对于第一部分是询问 <span class="math inline">\(s_k\)</span> 的反串出现了几次）。 比较简单就不详细描述了。</p>
 <p>第三部分比较复杂。设路径 <span class="math inline">\(u\rightarrow r\)</span> 上的字符串为 <span class="math inline">\(x\)</span>，路径 <span class="math inline">\(r \rightarrow v\)</span> 上的字符串为 <span class="math inline">\(y\)</span>。设 <span class="math inline">\(p\)</span> 是最大的满足 <span class="math inline">\(pre(s_k,p)=suf(x,p)\)</span> 的整数，<span class="math inline">\(q\)</span> 是最大的满足 <span class="math inline">\(suf(s_k,q)=pre(y,q)\)</span> 的整数。那么计算第三部分可以转化为计算 <span class="math inline">\(s_k\)</span> 在 <span class="math inline">\(suf(x,p)+pre(y,q)\)</span> 中的出现次数。</p>
-<p>设 <span class="math inline">\(t_i\)</span> 路径表示 <span class="math inline">\(r\rightarrow i\)</span> 上的字符串。则 <span class="math inline">\(suf(x,p)+pre(y,q)\)</span> 可以表示为 $$</p>
+<p>设 <span class="math inline">\(t_i\)</span> 路径表示 <span class="math inline">\(r\rightarrow i\)</span> 上的字符串。则 <span class="math inline">\(suf(x,p)+pre(y,q)\)</span> 可以表示为 <span class="math inline">\(pre(s_k,p)+suf(s_k,q)\)</span>，这样就转化为了只与 <span class="math inline">\(s_k\)</span> 相关的问题。<span class="math inline">\(p\)</span>、<span class="math inline">\(q\)</span> 的具体求法后面会详细描述。假设已经求得了 <span class="math inline">\(p\)</span>、<span class="math inline">\(q\)</span>，考虑怎么快速得到第三部分的匹配次数。</p>
+<p>把询问离线。对每个 <span class="math inline">\(i\)</span>，建一棵 <span class="math inline">\(s_i\)</span> 的后缀树和 <span class="math inline">\(s_i^R\)</span> 的后缀树。在 <span class="math inline">\(s_i^R\)</span> 的后缀树上 <span class="math inline">\(dfs\)</span>，<span class="math inline">\(dfs\)</span> 的过程中，维护一棵线段树。如果 <span class="math inline">\(dfs\)</span> 到一个代表 <span class="math inline">\(s_i^R\)</span> 后缀的点，设这个点对应的字符串长度为 <span class="math inline">\(l\)</span>，那么就在线段树上把 <span class="math inline">\(s_i\)</span> 的后缀树上对应 <span class="math inline">\(s_i[l+1\ldots \lvert s_i \rvert]\)</span> 的点的子树 <span class="math inline">\(dfs\)</span> 序上位置加一。（可能描述的不是很清楚...我也不知道怎么描述了）回溯时撤销操作。然后对每个询问 <span class="math inline">\(p, q\)</span>，只要在 <span class="math inline">\(dfs\)</span> 到 <span class="math inline">\(s_i^R\)</span> 长度为 <span class="math inline">\(p\)</span> 的后缀时，询问一下 <span class="math inline">\(s_i\)</span> 长度为 <span class="math inline">\(q\)</span> 的后缀在 <span class="math inline">\(s_i\)</span> 的后缀树上的 <span class="math inline">\(dfs\)</span> 序上位置在线段树上的值即可。</p>
+<p>考虑如何求 <span class="math inline">\(p\)</span>、<span class="math inline">\(q\)</span>。由于求 <span class="math inline">\(q\)</span> 的过程和求 <span class="math inline">\(p\)</span> 类似，这里只详细描述求 <span class="math inline">\(p\)</span> 的过程。我自己的做法是对所有 <span class="math inline">\(s_i\)</span> 以及 <span class="math inline">\(s_i^R\)</span> 建出一个广义SAM。然后类似AC自动机+BIT的做法，维护一个以parent树 <span class="math inline">\(dfs\)</span> 序为下标的线段树。然后在点分治后得到的连通块上 <span class="math inline">\(dfs\)</span>，<span class="math inline">\(dfs\)</span> 到 <span class="math inline">\(u\)</span> 时维护 <span class="math inline">\(r\rightarrow u\)</span> 上的字符串在SAM上的位置，并把它的子树在 <span class="math inline">\(dfs\)</span> 序上的位置在线段树上子树对长度取 <span class="math inline">\(max\)</span>。然后求 <span class="math inline">\(p\)</span> 时只需要询问一下 <span class="math inline">\(s_k^R\)</span> 在 <span class="math inline">\(SAM\)</span> 上的位置在parent tree中的 <span class="math inline">\(dfs\)</span> 在线段树上的位置即可。</p>
+<h1 id="代码">代码</h1>
 
           
         
@@ -1674,150 +1836,6 @@ ans=\sum_{i|n} \frac{i}{1+[2\mid i]}\sum_{d|i} K^{\lceil \frac d 2 \rceil}\mu(\f
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/04/05/[模板]-后缀自动机/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zbww">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一个蒟蒻的Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/05/[模板]-后缀自动机/" class="post-title-link" itemprop="url">[模板] 后缀自动机</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-04-05 17:45:28 / Modified: 17:47:01" itemprop="dateCreated datePublished" datetime="2019-04-05T17:45:28+08:00">2019-04-05</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>提交至 <a href="https://www.luogu.org/problemnew/show/P3804" target="_blank" rel="noopener">【模板】后缀自动机</a>。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1000010</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tree[maxn*<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> s[maxn];</span><br><span class="line"><span class="keyword">int</span> n, tot, last = <span class="number">0</span>;</span><br><span class="line">ll ans = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> tr[maxn*<span class="number">2</span>][<span class="number">26</span>], par[maxn*<span class="number">2</span>], len[maxn*<span class="number">2</span>], sum[maxn*<span class="number">2</span>], val[maxn*<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addchar</span><span class="params">(<span class="keyword">int</span> c, <span class="keyword">int</span> l)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> np = ++tot; len[np] = l; val[np] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (!tr[last][c]) &#123;</span><br><span class="line">		tr[last][c] = np;</span><br><span class="line">		last = par[last];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (!last) par[np] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">int</span> q = tr[last][c];</span><br><span class="line">		<span class="keyword">if</span> (len[q] == len[last] + <span class="number">1</span>) &#123;</span><br><span class="line">			par[np] = q;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">int</span> nq = ++tot;</span><br><span class="line">			len[nq] = len[last] + <span class="number">1</span>;</span><br><span class="line">			par[nq] = par[q];</span><br><span class="line">			<span class="built_in">memcpy</span>(tr[nq], tr[q], <span class="keyword">sizeof</span>(tr[nq]));</span><br><span class="line">			par[q] = par[np] = nq;</span><br><span class="line">			<span class="keyword">while</span> (tr[last][c] == q) &#123;</span><br><span class="line">				tr[last][c] = nq;</span><br><span class="line">				last = par[last];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	last = np;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">	sum[u] = val[u];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tree[u].size(); i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> v = tree[u][i];</span><br><span class="line">		dfs(v);</span><br><span class="line">		sum[u] += sum[v];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>, s+<span class="number">1</span>);</span><br><span class="line">	n = <span class="keyword">int</span>(<span class="built_in">strlen</span>(s+<span class="number">1</span>));</span><br><span class="line">	last = ++tot;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		addchar(s[i]-<span class="string">'a'</span>, i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= tot; i++) tree[par[i]].push_back(i);</span><br><span class="line">	dfs(<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= tot; i++) <span class="keyword">if</span> (sum[i] &gt; <span class="number">1</span>) ans = max(ans, <span class="number">1L</span>L*sum[i]*len[i]);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans); </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1866,7 +1884,7 @@ ans=\sum_{i|n} \frac{i}{1+[2\mid i]}\sum_{d|i} K^{\lceil \frac d 2 \rceil}\mu(\f
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2512,15 +2530,15 @@ ans=\sum_{i|n} \frac{i}{1+[2\mid i]}\sum_{d|i} K^{\lceil \frac d 2 \rceil}\mu(\f
   
     
       
-    
-      
-    
-      
-    
-      
-    
-      
         
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       
