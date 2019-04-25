@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[AGC031C] Differ by 1 Bit]]></title>
+    <url>%2F2019%2F04%2F25%2F%5BAGC031C%5D-Differ-by-1-Bit%2F</url>
+    <content type="text"><![CDATA[题目链接。 做法 代码]]></content>
+      <tags>
+        <tag>atcoder</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[AGC032D] Rotation Sort]]></title>
     <url>%2F2019%2F04%2F23%2F%5BAGC032D%5D-Rotation-Sort%2F</url>
-    <content type="text"><![CDATA[题目链接。 # 做法设 \(f_{i,j}\) 表示把 \(p_i \ldots p_n\) 中大于等于 \(j\) 的数排序的最小代价。 设 \(k\) 是 \(p_i \ldots p_n\) 中第一个大于等于 \(j\) 的数的位置，\(p_i\ldots p_k\) 中大于等于 \(j\) 的数共有 \(c\) 个。 \[f_{i,j}=\min\{A(c-1)+f_{k+1, p_k+1},B+f_{i, p_k+1}\}\] 预处理出 \(p\) 和 \(c\)，\(n^2\) dp 一下即可。 代码 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;cstdio&gt;#include &lt;algorithm&gt;using namespace std;const int maxn = 5010;typedef long long ll;int n, A, B, p[maxn], rp[maxn];ll f[maxn][maxn];int sum[maxn], K[maxn][maxn], C[maxn][maxn];int main() &#123; scanf("%d%d%d", &amp;n, &amp;A, &amp;B); for (int i = 1; i &lt;= n; i++) &#123; scanf("%d", &amp;p[i]); rp[p[i]] = i; &#125; for (int i = 1; i &lt;= n; i++) &#123; for (int j = n; j &gt;= 1; j--) &#123; K[i][j] = K[i][j+1]; if (rp[j] &gt;= i) K[i][j] = rp[j]; &#125; &#125; for (int j = 1; j &lt;= n; j++) &#123; for (int i = 1; i &lt;= n; i++) &#123; if (p[i] &gt;= j) sum[i] = sum[i-1] + 1; else sum[i] = sum[i-1]; &#125; for (int i = 1; i &lt;= n; i++) &#123; int k = K[i][j]; if (k) &#123; C[i][j] = sum[k]-sum[i-1]; &#125; &#125; &#125; for (int i = n; i &gt;= 1; i--) &#123; for (int j = n; j &gt;= 1; j--) &#123; if (!K[i][j]) f[i][j] = 0; else &#123; ll c = C[i][j], k = K[i][j]; f[i][j] = min(1ll*A*(c-1)+f[k+1][p[k]+1], B+f[i][p[k]+1]); &#125; &#125; &#125; printf("%lld\n", f[1][1]); return 0;&#125;]]></content>
+    <content type="text"><![CDATA[题目链接。 做法 设 \(f_{i,j}\) 表示把 \(p_i \ldots p_n\) 中大于等于 \(j\) 的数排序的最小代价。 设 \(k\) 是 \(p_i \ldots p_n\) 中第一个大于等于 \(j\) 的数的位置，\(p_i\ldots p_k\) 中大于等于 \(j\) 的数共有 \(c\) 个。 \[f_{i,j}=\min\{A(c-1)+f_{k+1, p_k+1},B+f_{i, p_k+1}\}\] 预处理出 \(p\) 和 \(c\)，\(n^2\) dp 一下即可。 代码 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;cstdio&gt;#include &lt;algorithm&gt;using namespace std;const int maxn = 5010;typedef long long ll;int n, A, B, p[maxn], rp[maxn];ll f[maxn][maxn];int sum[maxn], K[maxn][maxn], C[maxn][maxn];int main() &#123; scanf("%d%d%d", &amp;n, &amp;A, &amp;B); for (int i = 1; i &lt;= n; i++) &#123; scanf("%d", &amp;p[i]); rp[p[i]] = i; &#125; for (int i = 1; i &lt;= n; i++) &#123; for (int j = n; j &gt;= 1; j--) &#123; K[i][j] = K[i][j+1]; if (rp[j] &gt;= i) K[i][j] = rp[j]; &#125; &#125; for (int j = 1; j &lt;= n; j++) &#123; for (int i = 1; i &lt;= n; i++) &#123; if (p[i] &gt;= j) sum[i] = sum[i-1] + 1; else sum[i] = sum[i-1]; &#125; for (int i = 1; i &lt;= n; i++) &#123; int k = K[i][j]; if (k) &#123; C[i][j] = sum[k]-sum[i-1]; &#125; &#125; &#125; for (int i = n; i &gt;= 1; i--) &#123; for (int j = n; j &gt;= 1; j--) &#123; if (!K[i][j]) f[i][j] = 0; else &#123; ll c = C[i][j], k = K[i][j]; f[i][j] = min(1ll*A*(c-1)+f[k+1][p[k]+1], B+f[i][p[k]+1]); &#125; &#125; &#125; printf("%lld\n", f[1][1]); return 0;&#125;]]></content>
       <tags>
         <tag>题解</tag>
         <tag>atcoder</tag>

@@ -97,18 +97,18 @@
 
 
 
-  <meta name="description" content="题目链接。 # 做法设 \(f_{i,j}\) 表示把 \(p_i \ldots p_n\) 中大于等于 \(j\) 的数排序的最小代价。 设 \(k\) 是 \(p_i \ldots p_n\) 中第一个大于等于 \(j\) 的数的位置，\(p_i\ldots p_k\) 中大于等于 \(j\) 的数共有 \(c\) 个。 \[f_{i,j}=\min\{A(c-1)+f_{k+1, p_k+1">
+  <meta name="description" content="题目链接。 做法 设 \(f_{i,j}\) 表示把 \(p_i \ldots p_n\) 中大于等于 \(j\) 的数排序的最小代价。 设 \(k\) 是 \(p_i \ldots p_n\) 中第一个大于等于 \(j\) 的数的位置，\(p_i\ldots p_k\) 中大于等于 \(j\) 的数共有 \(c\) 个。 \[f_{i,j}=\min\{A(c-1)+f_{k+1, p_k+1}">
 <meta name="keywords" content="题解,atcoder">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[AGC032D] Rotation Sort">
 <meta property="og:url" content="https://zbww.cf/2019/04/23/[AGC032D]-Rotation-Sort/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="题目链接。 # 做法设 \(f_{i,j}\) 表示把 \(p_i \ldots p_n\) 中大于等于 \(j\) 的数排序的最小代价。 设 \(k\) 是 \(p_i \ldots p_n\) 中第一个大于等于 \(j\) 的数的位置，\(p_i\ldots p_k\) 中大于等于 \(j\) 的数共有 \(c\) 个。 \[f_{i,j}=\min\{A(c-1)+f_{k+1, p_k+1">
+<meta property="og:description" content="题目链接。 做法 设 \(f_{i,j}\) 表示把 \(p_i \ldots p_n\) 中大于等于 \(j\) 的数排序的最小代价。 设 \(k\) 是 \(p_i \ldots p_n\) 中第一个大于等于 \(j\) 的数的位置，\(p_i\ldots p_k\) 中大于等于 \(j\) 的数共有 \(c\) 个。 \[f_{i,j}=\min\{A(c-1)+f_{k+1, p_k+1}">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-23T13:55:01.029Z">
+<meta property="og:updated_time" content="2019-04-25T09:43:25.883Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[AGC032D] Rotation Sort">
-<meta name="twitter:description" content="题目链接。 # 做法设 \(f_{i,j}\) 表示把 \(p_i \ldots p_n\) 中大于等于 \(j\) 的数排序的最小代价。 设 \(k\) 是 \(p_i \ldots p_n\) 中第一个大于等于 \(j\) 的数的位置，\(p_i\ldots p_k\) 中大于等于 \(j\) 的数共有 \(c\) 个。 \[f_{i,j}=\min\{A(c-1)+f_{k+1, p_k+1">
+<meta name="twitter:description" content="题目链接。 做法 设 \(f_{i,j}\) 表示把 \(p_i \ldots p_n\) 中大于等于 \(j\) 的数排序的最小代价。 设 \(k\) 是 \(p_i \ldots p_n\) 中第一个大于等于 \(j\) 的数的位置，\(p_i\ldots p_k\) 中大于等于 \(j\) 的数共有 \(c\) 个。 \[f_{i,j}=\min\{A(c-1)+f_{k+1, p_k+1}">
 
 
 
@@ -366,12 +366,24 @@
                 
               
 
-              <time title="Created: 2019-04-23 21:31:18 / Modified: 21:55:01" itemprop="dateCreated datePublished" datetime="2019-04-23T21:31:18+08:00">2019-04-23</time>
+              <time title="Created: 2019-04-23 21:31:18" itemprop="dateCreated datePublished" datetime="2019-04-23T21:31:18+08:00">2019-04-23</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-25 17:43:25" itemprop="dateModified" datetime="2019-04-25T17:43:25+08:00">2019-04-25</time>
               
             
           </span>
@@ -425,7 +437,9 @@
       
 
       
-        <p><a href="https://atcoder.jp/contests/agc032/tasks/agc032_d" target="_blank" rel="noopener">题目链接</a>。 # 做法设 <span class="math inline">\(f_{i,j}\)</span> 表示把 <span class="math inline">\(p_i \ldots p_n\)</span> 中大于等于 <span class="math inline">\(j\)</span> 的数排序的最小代价。</p>
+        <p><a href="https://atcoder.jp/contests/agc032/tasks/agc032_d" target="_blank" rel="noopener">题目链接</a>。</p>
+<h1 id="做法">做法</h1>
+<p>设 <span class="math inline">\(f_{i,j}\)</span> 表示把 <span class="math inline">\(p_i \ldots p_n\)</span> 中大于等于 <span class="math inline">\(j\)</span> 的数排序的最小代价。</p>
 <p>设 <span class="math inline">\(k\)</span> 是 <span class="math inline">\(p_i \ldots p_n\)</span> 中第一个大于等于 <span class="math inline">\(j\)</span> 的数的位置，<span class="math inline">\(p_i\ldots p_k\)</span> 中大于等于 <span class="math inline">\(j\)</span> 的数共有 <span class="math inline">\(c\)</span> 个。</p>
 <p><span class="math display">\[f_{i,j}=\min\{A(c-1)+f_{k+1, p_k+1},B+f_{i, p_k+1}\}\]</span></p>
 <p>预处理出 <span class="math inline">\(p\)</span> 和 <span class="math inline">\(c\)</span>，<span class="math inline">\(n^2\)</span> dp 一下即可。</p>
@@ -478,6 +492,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/25/[AGC031C]-Differ-by-1-Bit/" rel="prev" title="[AGC031C] Differ by 1 Bit">
+                [AGC031C] Differ by 1 Bit <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -555,7 +573,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -710,7 +728,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">1.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#做法"><span class="nav-number">1.</span> <span class="nav-text">做法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
 
           </div>
