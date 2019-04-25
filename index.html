@@ -365,7 +365,7 @@
                 
               
 
-              <time title="Created: 2019-04-25 17:41:27 / Modified: 19:46:13" itemprop="dateCreated datePublished" datetime="2019-04-25T17:41:27+08:00">2019-04-25</time>
+              <time title="Created: 2019-04-25 17:41:27 / Modified: 19:46:59" itemprop="dateCreated datePublished" datetime="2019-04-25T17:41:27+08:00">2019-04-25</time>
             
 
             
@@ -418,7 +418,7 @@
 </li>
 <li>若 <span class="math inline">\(A \oplus B\)</span> 中恰有一个 <span class="math inline">\(1\)</span>，不妨设 <span class="math inline">\(A = 0, B = 2^{n-1}\)</span>（其他情况只需要把所有数异或上 <span class="math inline">\(A\)</span> 并把 <span class="math inline">\(1\)</span> 所在在位和最高位交换即可）。设 <span class="math inline">\(a=build(n-1, 0, 1)\)</span>，那么 <span class="math inline">\(0a_1,\ldots,0a_{2^{n-1}},1a_{2^{n-1}},\ldots,1a_1\)</span> 是一个满足条件的排列。<br>
 </li>
-<li>若 <span class="math inline">\(A\oplus B\)</span> 中存在 <span class="math inline">\(0\)</span>，不妨设其中 <span class="math inline">\(0\)</span> 在最低位上。设 <span class="math inline">\(a = build(n-1, \frac A 2, \frac B 2)\)</span>，<span class="math inline">\(b = build(n-1, a_1, a_2)\)</span>。那么 <span class="math inline">\(a_10,b_11,\ldots,b_{2^{n-1}}1,a_20,\ldots,a_{2^{n-1}}0\)</span> 是一个满足条件的排列。<br>
+<li>若 <span class="math inline">\(A\oplus B\)</span> 中存在 <span class="math inline">\(0\)</span>，不妨设其中 <span class="math inline">\(0\)</span> 在最低位上且 <span class="math inline">\(A\)</span> 的最低位为 <span class="math inline">\(0\)</span>。设 <span class="math inline">\(a = build(n-1, \frac A 2, \frac B 2)\)</span>，<span class="math inline">\(b = build(n-1, a_1, a_2)\)</span>。那么 <span class="math inline">\(a_10,b_11,\ldots,b_{2^{n-1}}1,a_20,\ldots,a_{2^{n-1}}0\)</span> 是一个满足条件的排列。<br>
 </li>
 <li>若 <span class="math inline">\(A\oplus B\)</span> 中不存在 <span class="math inline">\(0\)</span>，不妨设 <span class="math inline">\(A = 0, B = 2^n-1\)</span>。设 <span class="math inline">\(a=build(n-1, 0, 1), b = build(n-1, 1, 2^{n-1}-1)\)</span>。则 <span class="math inline">\(0a_1, \ldots, 0a_{2^{n-1}}, 1b_1,\ldots,1b_{2^{n-1}}\)</span> 是一个合法的排列。</li>
 </ol>
