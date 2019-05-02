@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="KrQmuAp5zK">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Impartial game wikipedia链接：https://en.wikipedia.org/wiki/Impartial_game impartial game 是指满足如下条件的游戏： - 两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 - 当一个玩家不能操作时，winner 就被确定了。 - 每个状态的操作数和状态总数是有限的。 - 所有的操作必须">
+<meta name="keywords" content="博弈">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博弈整理（一）">
+<meta property="og:url" content="https://zbww.cf/2019/03/08/博弈论整理/index.html">
+<meta property="og:site_name" content="一个蒟蒻的Blog">
+<meta property="og:description" content="Impartial game wikipedia链接：https://en.wikipedia.org/wiki/Impartial_game impartial game 是指满足如下条件的游戏： - 两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 - 当一个玩家不能操作时，winner 就被确定了。 - 每个状态的操作数和状态总数是有限的。 - 所有的操作必须">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-15T11:43:29.848Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="博弈整理（一）">
+<meta name="twitter:description" content="Impartial game wikipedia链接：https://en.wikipedia.org/wiki/Impartial_game impartial game 是指满足如下条件的游戏： - 两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 - 当一个玩家不能操作时，winner 就被确定了。 - 每个状态的操作数和状态总数是有限的。 - 所有的操作必须">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zbww.cf/2019/03/08/博弈论整理/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>博弈整理（一） | 一个蒟蒻的Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一个蒟蒻的Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Zbww's Blog</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/03/08/博弈论整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zbww">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个蒟蒻的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">博弈整理（一）
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-08 10:25:39" itemprop="dateCreated datePublished" datetime="2019-03-08T10:25:39+08:00">2019-03-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-15 19:43:29" itemprop="dateModified" datetime="2019-03-15T19:43:29+08:00">2019-03-15</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2019/03/08/博弈论整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/03/08/博弈论整理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="impartial-game">Impartial game</h3>
+<p>wikipedia链接：https://en.wikipedia.org/wiki/Impartial_game</p>
+<p><strong>impartial game</strong> 是指满足如下条件的游戏： - 两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 - 当一个玩家不能操作时，winner 就被确定了。 - 每个状态的操作数和状态总数是有限的。 - 所有的操作必须同时能被两个玩家进行。 - 所有操作的结果都是确定性的。</p>
+<h3 id="normal-play-convention">Normal play convention</h3>
+<p>wikipedia链接：https://en.wikipedia.org/wiki/Normal_play_convention<br>
+Impartial game 的 <strong>Normal play convention</strong> ：最后一个可以操作的玩家获胜。</p>
+<h3 id="nim游戏">Nim游戏</h3>
+<p>wikipedia链接：https://en.wikipedia.org/wiki/Nim<br>
+有若干堆石子，两个人轮流取石子。每次轮到的人可以选择从某一堆中拿走若干颗石子（不能不拿），不能按规则操作的人输。<br>
+<strong>Nim</strong> 游戏属于 Impartial game。</p>
+<h3 id="nim游戏的胜利条件">Nim游戏的胜利条件</h3>
+<p><strong>定理</strong>：当且仅当每堆石子的个数异或和不为 <span class="math inline">\(0\)</span> 时，先手必胜。<br>
+<strong>证明</strong>：<br>
+对于 terminal position，即没有石的情况，异或和为 <span class="math inline">\(0\)</span>，轮到这个状态的人输。定理对 terminal position 成立。<br>
+<strong>引理1</strong> 若一个状态，每堆石子个数异或和不为 <span class="math inline">\(0\)</span>，则它必定可以转移到一个石子个数为 <span class="math inline">\(0\)</span> 的状态。<br>
+<strong>证明</strong>：<br>
+设每堆石子个数的异或和为 <span class="math inline">\(s\)</span>。<br>
+设 <span class="math inline">\(s\)</span> 最高的二进制位是第 <span class="math inline">\(k\)</span> 位（从低到高，最低位为第 <span class="math inline">\(0\)</span> 位）。<br>
+一定存在一堆石子个数为 <span class="math inline">\(x\)</span>，二进制下 <span class="math inline">\(x\)</span> 的第 <span class="math inline">\(k\)</span> 位为 <span class="math inline">\(1\)</span>。<br>
+除了这堆石子外，其他堆石子个数的异或和为 <span class="math inline">\(s\oplus x\)</span>。<br>
+<span class="math inline">\(s\oplus x\)</span> 和 <span class="math inline">\(x\)</span> 在所有比第 <span class="math inline">\(k\)</span> 位高的二进制位上相等，<span class="math inline">\(s\oplus x\)</span> 的第 <span class="math inline">\(k\)</span> 位为 <span class="math inline">\(0\)</span>，<span class="math inline">\(x\)</span> 的第 <span class="math inline">\(k\)</span> 位为 <span class="math inline">\(1\)</span>，所以 <span class="math inline">\(s \oplus x &lt; x\)</span>。<br>
+可以从这堆石子中取走 <span class="math inline">\(x-s\oplus x\)</span> 个石子，使异或和变为 <span class="math inline">\(0\)</span>。</p>
+<p><strong>引理2</strong> 若一个状态，每堆石子个数异或和为 <span class="math inline">\(0\)</span>，无论怎么操作都会转移到一个每堆石子个数异或和不为 <span class="math inline">\(0\)</span> 的状态。<br>
+<strong>证明</strong>：<br>
+设操作的堆在操作前有 <span class="math inline">\(x\)</span> 颗石子。<br>
+那么除了这堆以外的其他堆石子数异或和也为 <span class="math inline">\(x\)</span>。<br>
+在取石子后，这堆石子的个数一定不为 <span class="math inline">\(x\)</span>。<br>
+只有这堆石子的个数为 <span class="math inline">\(x\)</span> 时，与其他堆石子个数的异或和才会为 <span class="math inline">\(0\)</span>。<br>
+所以操作后，每堆石子个数的异或和一定非 <span class="math inline">\(0\)</span>。<br>
+根据结构归纳法可知定理成立。</p>
+<h3 id="spraguegrundy-定理">Sprague–Grundy 定理</h3>
+<p>wikipedia链接：https://en.wikipedia.org/wiki/Sprague–Grundy_theorem<br>
+定义 <span class="math inline">\(mex\)</span> 运算，一个集合的 <span class="math inline">\(mex\)</span> 值是最小的没有出现在这个集合中的自然数。<br>
+定义 Sprague-Grundy 函数：对于一个状态 <span class="math inline">\(x\)</span>，当 <span class="math inline">\(x\)</span> 是 terminal position 时，<span class="math inline">\(SG(x)=mex\{SG(y)|x\)</span> 可以转移到 <span class="math inline">\(y\}\)</span>。<br>
+可以用 Sprague-Grundy 函数判断一个状态是必胜状态还是必败状态，因为必胜状态函数值必不为 <span class="math inline">\(0\)</span>，必败状态函数值必为 <span class="math inline">\(0\)</span>。<br>
+定义两个游戏的 disjunctive sum 为一个游戏：轮到每个玩家的时候，他可以选择两个游戏中的一个游戏，然后在这个游戏上操作一步，无法操作的人输。<br>
+显然 disjunctive sum 满足交换律和结合律。<br>
+<strong>定理</strong> 有 <span class="math inline">\(n\)</span> 个游戏 <span class="math inline">\(G_1,G_2,\cdots,G_n\)</span>，设他们的 disjunctive sum 为 <span class="math inline">\(G\)</span>。那么 <span class="math inline">\(SG(G)=SG(G_1)\oplus SG(G_2)\cdots \oplus SG(G_n)\)</span>。<br>
+证明可以看<a href="http://web.mit.edu/sp.268/www/nim.pdf" target="_blank" rel="noopener">这个</a>。<br>
+这也说明了每一个 normal play convention 下的 impartial game 都等价于一个Nim游戏。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/博弈/" rel="tag"># 博弈</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/08/Hello-World/" rel="next" title="Hello World!">
+                <i class="fa fa-chevron-left"></i> Hello World!
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/11/-/" rel="prev" title="[Codeforces1120C] Compress String">
+                [Codeforces1120C] Compress String <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      <div>
+        <div style="display: table-cell;vertical-align: top; color:#B2B7F2;font-size:24px;font-family:'Times New Roman',serif;font-weight:bold;text-align:left;">“</div>
+        <div style="display: table-cell;text-align: left; vertical-align: middle; text-indent: 2em; padding: 0.8em 0.2em 1em 0.2em"><b><span style="color:burlywood;"><span id="hitokoto-content"></span></span></b></div>
+        <div style="display: table-cell; vertical-align: bottom; color:#B2B7F2;font-size:24px;font-family:'Times New Roman',serif;font-weight:bold;text-align:left;">”</div>
+      </div>
+      <div style="text-align: right; font-size: 0.8em; color: black;" id="hitokoto-from"></div>
+      <div style="margin-top: 15px; font-size: 0.8em; color: black;"><a href="https://hitokoto.cn/">Hitokoto</a></div>
+    </div>
+
+    <div style="height: 15px"></div>
+
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="zbww">
+            
+              <p class="site-author-name" itemprop="name">zbww</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://wpa.qq.com/msgrd?v=3&uin=2502669375&site=qq&menu=yes" title="QQ &rarr; http://wpa.qq.com/msgrd?v=3&uin=2502669375&site=qq&menu=yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zbw001" title="GitHub &rarr; https://github.com/zbw001" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:hbzbw001@yeah.net" title="E-Mail &rarr; mailto:hbzbw001@yeah.net" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.lydsy.com/JudgeOnline/userinfo.php?user=zbw001" title="BZOJ &rarr; https://www.lydsy.com/JudgeOnline/userinfo.php?user=zbw001" rel="noopener" target="_blank"><i class="fa fa-fw fa-turtle"></i>BZOJ</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://samsarakarma.cf/" title="http://samsarakarma.cf/" rel="noopener" target="_blank">SamsaraKarma</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tgotp.science/" title="http://tgotp.science/" rel="noopener" target="_blank">Tgotp</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.halocat.top/" title="https://www.halocat.top/" rel="noopener" target="_blank">Nicoppa</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.illyasviel.top/" title="http://www.illyasviel.top/" rel="noopener" target="_blank">λxd</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#impartial-game"><span class="nav-number">1.</span> <span class="nav-text">Impartial game</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#normal-play-convention"><span class="nav-number">2.</span> <span class="nav-text">Normal play convention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nim游戏"><span class="nav-number">3.</span> <span class="nav-text">Nim游戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nim游戏的胜利条件"><span class="nav-number">4.</span> <span class="nav-text">Nim游戏的胜利条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spraguegrundy-定理"><span class="nav-number">5.</span> <span class="nav-text">Sprague–Grundy 定理</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zbww</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+<script type="text/javascript">
+	$.get('https://v1.hitokoto.cn/?c=a', function (data) {
+		$('#hitokoto-content').css('display', '').text(data.hitokoto);
+		$('#hitokoto-from').css('display', '').text('——' + data.from);
+	});
+</script>
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
+
+
+  
+  
+
+
+  
+    <!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitmint.browser.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
+
+<style>
+#gitment-container a {
+  border-bottom: none;
+}
+
+</style>
+
+<script>
+  function renderGitment() {
+    var gitment = new Gitmint({
+      id: decodeURI(window.location.pathname),
+      owner: 'zbw001',
+      repo: 'zbw001.github.io',
+      
+        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+      
+      oauth: {
+      
+      
+        client_secret: '101e65608c4870d4d2841a5bf412282001956ae8',
+      
+        client_id: '844e3304a880f7f4285c'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    renderGitment();
+  
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style>
+
+    
+  
+
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      
+        background-color: #eee;
+        background-image: linear-gradient(#fcfcfc, #eee);
+        border: 1px solid #d5d5d5;
+        border-radius: 3px;
+      
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      
+        right: 4px;
+        top: 8px;
+      
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1;
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; // Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.readOnly = true;
+        ta.value = code;
+        document.body.appendChild(ta);
+        ta.select();
+        ta.setSelectionRange(0, code.length);
+        ta.readOnly = false;
+        var result = document.execCommand('copy');
+        
+        ta.blur(); // For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
