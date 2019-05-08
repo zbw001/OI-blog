@@ -365,7 +365,7 @@
                 
               
 
-              <time title="Created: 2019-05-08 19:43:32 / Modified: 19:51:53" itemprop="dateCreated datePublished" datetime="2019-05-08T19:43:32+08:00">2019-05-08</time>
+              <time title="Created: 2019-05-08 19:43:32 / Modified: 20:07:20" itemprop="dateCreated datePublished" datetime="2019-05-08T19:43:32+08:00">2019-05-08</time>
             
 
             
@@ -407,11 +407,18 @@
         
           
             <p>题目链接：<br>
-https://codeforces.com/problemset/problem/715/E</p>
+<a href="https://codeforces.com/problemset/problem/715/E" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/715/E</a></p>
 <h1 id="题目大意">题目大意</h1>
-<p>你有两个长度为 <span class="math inline">\(n\)</span> 的排列 <span class="math inline">\(p_1\)</span> 和 <span class="math inline">\(p_2\)</span>，其中有一些位置被挖空，让你自己填数字。请你对每个 <span class="math inline">\(k\)</span> 输出，有多少种填数字方案，使得 <span class="math inline">\(p_1\)</span> 最少交换 <span class="math inline">\(k\)</span> 次可以变成 <span class="math inline">\(p_2\)</span>。</p>
+<p>你有两个长度为 <span class="math inline">\(n\)</span> 的排列 <span class="math inline">\(p_1\)</span> 和 <span class="math inline">\(p_2\)</span>，其中有一些位置被挖空，让你自己填数字。</p>
+<p>请你对每个 <span class="math inline">\(k\)</span> 输出，有多少种填数字方案，使得 <span class="math inline">\(p_1\)</span> 最少交换 <span class="math inline">\(k\)</span> 次可以变成 <span class="math inline">\(p_2\)</span>。</p>
 <p><span class="math inline">\(n \le 250\)</span>。</p>
 <h1 id="解法">解法</h1>
+<p>容易看出交换次数 <span class="math inline">\(n-(p_1p_2^{-1}\)</span> 的轮换数<span class="math inline">\()\)</span>。<br>
+问题变成了求满足 <span class="math inline">\(p_1p_2^{-1}\)</span> 恰好可以分解为 <span class="math inline">\(k\)</span> 个不相交轮换的方案数。</p>
+<p>设 <span class="math inline">\(p_1p_2^{-1}=w\)</span>，则 <span class="math inline">\(p_1=wp_2\)</span>，即 <span class="math inline">\(p_1[i]=w[p_2[i]]\)</span>。</p>
+<p>设所有 <span class="math inline">\(p_1\)</span> 中已经确定的位置的下标构成的集合为 <span class="math inline">\(S_1\)</span>，所有 <span class="math inline">\(p_2\)</span> 中已经确定的位置的下标构成的集合为 <span class="math inline">\(S_2\)</span>。</p>
+<p>假设 <span class="math inline">\(w\)</span> 是已经确定的排列。那么对于 <span class="math inline">\(i \in S_1\)</span>，有 <span class="math inline">\(p_2[i]=w^{-1}[p_1[i]]\)</span>；对于 <span class="math inline">\(i \in T\)</span>，有 <span class="math inline">\(p_1[i]=w[p_2[i]]\)</span>。所以 <span class="math inline">\(\forall i \in S_1 \cup S_2\)</span>，<span class="math inline">\(p_1[i]\)</span> 和 <span class="math inline">\(p_2[i]\)</span> 都是确定的。对于 <span class="math inline">\(p_1\)</span> 来说，还有 <span class="math inline">\(n-\lvert S_1\cup S_2 \rvert\)</span> 个位置要填的数没有确定。显然，每一种使得 <span class="math inline">\(p_1\)</span> 是个排列的填数方案，都对应一种使得 <span class="math inline">\(p_1p_2^{-1}=w\)</span> 的填数方案。所以，如果 <span class="math inline">\(w\)</span> 使得 <span class="math inline">\(\forall i,j \in S_1 \cup S_2\)</span>，<span class="math inline">\(p_1[i] \neq p_1[j]\)</span>，那么就恰好有 <span class="math inline">\((n-\lvert S_1\cup S_2 \rvert)!\)</span> 种方案。</p>
+<p>再考虑有多少种合法的 <span class="math inline">\(w\)</span>。<span class="math inline">\(\forall i,j \in S_1 \cup S_2\)</span>，<span class="math inline">\(p_1[i] \neq p_1[j]\)</span> 即 <span class="math inline">\(\forall i \in S_1, j \in S_2\)</span>，<span class="math inline">\(p_1[i] \neq w[p_2[j]]\)</span>。</p>
 <h1 id="代码">代码</h1>
 
           
