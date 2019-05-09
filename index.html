@@ -365,12 +365,24 @@
                 
               
 
-              <time title="Created: 2019-05-08 19:43:32 / Modified: 20:22:49" itemprop="dateCreated datePublished" datetime="2019-05-08T19:43:32+08:00">2019-05-08</time>
+              <time title="Created: 2019-05-08 19:43:32" itemprop="dateCreated datePublished" datetime="2019-05-08T19:43:32+08:00">2019-05-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-09 09:18:27" itemprop="dateModified" datetime="2019-05-09T09:18:27+08:00">2019-05-09</time>
               
             
           </span>
@@ -418,8 +430,16 @@
 问题变成了求满足 <span class="math inline">\(p_1p_2^{-1}\)</span> 恰好可以分解为 <span class="math inline">\(k\)</span> 个不相交轮换的方案数。</p>
 <p>设 <span class="math inline">\(p_1p_2^{-1}=w\)</span>，则 <span class="math inline">\(p_1=wp_2\)</span>，即 <span class="math inline">\(p_1[i]=w[p_2[i]]\)</span>。</p>
 <p>设所有 <span class="math inline">\(p_1\)</span> 中已经确定的位置的下标构成的集合为 <span class="math inline">\(S_1\)</span>，所有 <span class="math inline">\(p_2\)</span> 中已经确定的位置的下标构成的集合为 <span class="math inline">\(S_2\)</span>。</p>
-<p>假设 <span class="math inline">\(w\)</span> 是已经确定的排列。那么对于 <span class="math inline">\(i \in S_1\)</span>，有 <span class="math inline">\(p_2[i]=w^{-1}[p_1[i]]\)</span>；对于 <span class="math inline">\(i \in T\)</span>，有 <span class="math inline">\(p_1[i]=w[p_2[i]]\)</span>。所以 <span class="math inline">\(\forall i \in S_1 \cup S_2\)</span>，<span class="math inline">\(p_1[i]\)</span> 和 <span class="math inline">\(p_2[i]\)</span> 都是确定的。对于 <span class="math inline">\(p_1\)</span> 来说，还有 <span class="math inline">\(n-\lvert S_1\cup S_2 \rvert\)</span> 个位置要填的数没有确定。显然，每一种使得 <span class="math inline">\(p_1\)</span> 是个排列的填数方案，都对应一种使得 <span class="math inline">\(p_1p_2^{-1}=w\)</span> 的填数方案。所以，如果 <span class="math inline">\(w\)</span> 使得 <span class="math inline">\(\forall i,j \in S_1 \cup S_2\)</span>，<span class="math inline">\(p_1[i] \neq p_1[j]\)</span>，那么就恰好有 <span class="math inline">\((n-\lvert S_1\cup S_2 \rvert)!\)</span> 种方案。</p>
-<p>再考虑有多少种恰有 <span class="math inline">\(k\)</span> 个环的合法的 <span class="math inline">\(w\)</span>。对于 <span class="math inline">\(i \in S_1\cap S_2\)</span>，有<span class="math inline">\(\forall i,j \in S_1 \cup S_2\)</span>，<span class="math inline">\(p_1[i] \neq p_1[j]\)</span> 即 <span class="math inline">\(\forall i \in S_2\)</span>，$ w[p_2[j]] S_1$。</p>
+<p>假设 <span class="math inline">\(w\)</span> 是已经确定的排列。那么对于 <span class="math inline">\(i \in S_1\)</span>，有 <span class="math inline">\(p_2[i]=w^{-1}[p_1[i]]\)</span>；对于 <span class="math inline">\(i \in T\)</span>，有 <span class="math inline">\(p_1[i]=w[p_2[i]]\)</span>。所以 <span class="math inline">\(\forall i \in S_1 \cup S_2\)</span>，<span class="math inline">\(p_1[i]\)</span> 和 <span class="math inline">\(p_2[i]\)</span> 都是确定的。对于 <span class="math inline">\(p_1\)</span> 来说，还有 <span class="math inline">\(n-\lvert S_1\cup S_2 \rvert\)</span> 个位置要填的数没有确定。那么如果存在至少一种填数方案，就恰好有 <span class="math inline">\((n-\lvert S_1\cup S_2 \rvert)!\)</span> 种使得 <span class="math inline">\(p_1p_2^{-1}=w\)</span> 的填数方案。</p>
+<p>再考虑有多少种恰有 <span class="math inline">\(k\)</span> 个环的合法的 <span class="math inline">\(w\)</span>。对于 <span class="math inline">\(i \in S_1\cap S_2\)</span>，<span class="math inline">\(w[p_2[i]]=p_1[i]\)</span>。所以 <span class="math inline">\(w\)</span> 的一些位置已经确定了。同时 <span class="math inline">\(\forall i \in S_2\setminus S_1, j \in S_1, w[p_2[i]] \notin p_1[j]\)</span>。<span class="math inline">\(w\)</span> 中确定的位置已经构成了一些链和一些环。构成环后不可能与其他点连边，可以直接忽略。链可以缩成一个点。那么问题转化为，给定两个集合 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span>，求有多少个长度为 <span class="math inline">\(n\)</span> 的排列，恰有 <span class="math inline">\(k\)</span> 个环的排列，满足 <span class="math inline">\(\forall i \in A, w[i] \notin B\)</span>。显然这个问题只与 <span class="math inline">\(n, k, \lvert A \rvert, \lvert B \rvert, \lvert A\cap B\rvert\)</span> 有关。</p>
+<p>先考虑 <span class="math inline">\(A\cap B =\emptyset\)</span>。容斥一下即可。</p>
+<p><span class="math display">\[F(\lvert A \rvert, \lvert B \rvert,k)=\sum_{x\le\lvert A \rvert} (-1)^x\binom{\lvert A \rvert}{x}\binom{\lvert B \rvert}{x}S(n-x,k)\]</span></p>
+<p>再考虑 <span class="math inline">\(A\cap B \neq \emptyset\)</span>。把限制条件看作 <span class="math inline">\(\forall i \in A,w[i]\notin B \setminus A\)</span> 和 <span class="math inline">\(\forall i \in A \cap B, w[i] \notin A\cap B\)</span>。对第二个条件容斥。设 <span class="math inline">\(G(n, c, i)\)</span> 为 <span class="math inline">\(n\)</span> 个数的排列，决定 <span class="math inline">\(c\)</span> 个位置填什么，使已经决定的边构成 <span class="math inline">\(i\)</span> 个环方案数（显然此时有 <span class="math inline">\(n-c\)</span> 条链）。</p>
+<p><span class="math display">\[\sum_{x\le{\lvert A \cap B \rvert}} (-1)^x\binom{\lvert A \cap B \rvert}{x} \sum_{i} G(\lvert A \cap B \rvert,x,i) F(\lvert A \setminus B \rvert+n-x, \lvert B \setminus A \rvert,k-i)\]</span></p>
+<p><span class="math inline">\((\lvert A \setminus B \rvert+j, \lvert B \setminus A \rvert,k-i)\)</span> 实际只有 <span class="math inline">\(n^2\)</span> 种，暴力预处理 <span class="math inline">\(F\)</span> 即可，时间复杂度 <span class="math inline">\(\mathcal O(n^3)\)</span>。</p>
+<p>再考虑 <span class="math inline">\(G\)</span> 怎么计算。<span class="math inline">\(G(n,c,i)=(n-1)G(n-1,c-1,i)+G(n-1,c-1,i-1)\)</span>.</p>
+<p><span class="math inline">\(\mathcal O(n^3)\)</span> 计算非常方便。</p>
+<p>这样就做完了。</p>
 <h1 id="代码">代码</h1>
 
           
