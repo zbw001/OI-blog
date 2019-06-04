@@ -320,6 +320,296 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/04/02/[模板]-NTT模板/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zbww">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个蒟蒻的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/02/[模板]-NTT模板/" class="post-title-link" itemprop="url">[模板] NTT模板</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-02 19:19:21 / Modified: 19:39:33" itemprop="dateCreated datePublished" datetime="2019-04-02T19:19:21+08:00">2019-04-02</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一个普通的 NTT 模板。代码非常丑。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> g = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> rev[maxn*<span class="number">4</span>];</span><br><span class="line"><span class="keyword">int</span> w_a[maxn*<span class="number">4</span>], w_b[maxn*<span class="number">4</span>], w_c[maxn*<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ret = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (y) &#123;</span><br><span class="line">		<span class="keyword">if</span> (y &amp; <span class="number">1</span>) &#123;</span><br><span class="line">			ret = <span class="number">1L</span>L*ret*x%mod;</span><br><span class="line">		&#125;</span><br><span class="line">		x = <span class="number">1L</span>L*x*x%mod;</span><br><span class="line">		y &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">calrev</span><span class="params">(<span class="keyword">int</span> l)</span> </span>&#123;</span><br><span class="line">	rev[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; (<span class="number">1</span>&lt;&lt;l); i++) &#123;</span><br><span class="line">		rev[i] = (rev[i&gt;&gt;<span class="number">1</span>] &gt;&gt; <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">if</span> (i &amp; <span class="number">1</span>) rev[i] |= (<span class="number">1</span>&lt;&lt;(l<span class="number">-1</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ntt</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> t, <span class="keyword">int</span> ty)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> len = <span class="number">1</span>&lt;&lt;t;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (rev[i] &gt; i)</span><br><span class="line">			swap(a[i], a[rev[i]]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">2</span>; l &lt;= len; l &lt;&lt;= <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">int</span> wn = qpow(g, (mod<span class="number">-1</span>)/l);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> s = <span class="number">0</span>; s &lt; len; s += l) &#123;</span><br><span class="line">			<span class="keyword">int</span> w = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = s; i &lt; (s + (l &gt;&gt; <span class="number">1</span>)); i++) &#123;</span><br><span class="line">				<span class="keyword">int</span> v1 = a[i], v2 = <span class="number">1L</span>L*a[i+(l&gt;&gt;<span class="number">1</span>)]*w%mod;</span><br><span class="line">				a[i] = (v1+v2) % mod;</span><br><span class="line">				a[i+(l&gt;&gt;<span class="number">1</span>)] = (v1-v2+mod)%mod;</span><br><span class="line">				w = <span class="number">1L</span>L*w*wn%mod;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (ty == <span class="number">-1</span>) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len/<span class="number">2</span>; i++) &#123;</span><br><span class="line">			swap(a[i], a[len-i]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> r = qpow(len, mod<span class="number">-2</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">			a[i] = <span class="number">1L</span>L*a[i]*r%mod;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;w_a[i]);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m; i++) </span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;w_b[i]);</span><br><span class="line">	<span class="keyword">int</span> l = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> ((<span class="number">1</span>&lt;&lt;l) &lt; n+m+<span class="number">1</span>) l ++;</span><br><span class="line">	calrev(l);</span><br><span class="line">	ntt(w_a, l, <span class="number">1</span>); ntt(w_b, l, <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span>&lt;&lt;l); i++)</span><br><span class="line">		w_c[i] = <span class="number">1L</span>L*w_a[i]*w_b[i]%mod;</span><br><span class="line">	ntt(w_c, l, <span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n+m; i++) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>, w_c[i]);</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/04/01/[模板]FFT模板/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zbww">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个蒟蒻的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/01/[模板]FFT模板/" class="post-title-link" itemprop="url">[模板] FFT模板</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-01 21:36:15 / Modified: 21:39:03" itemprop="dateCreated datePublished" datetime="2019-04-01T21:36:15+08:00">2019-04-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>省选前复习。这是一个普通的 fft 模板。<br>
+（发现自己差点fft模板不会打了）</p>
+<p>因为没有预处理&amp;&amp;用了complex类可能常数比较大。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;complex&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">complex</span>&lt;<span class="keyword">double</span>&gt; C;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> rev[maxn*<span class="number">4</span>];</span><br><span class="line">C c_a[maxn*<span class="number">4</span>], c_b[maxn*<span class="number">4</span>], c_c[maxn*<span class="number">4</span>];</span><br><span class="line"><span class="keyword">int</span> a[maxn], b[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fft</span><span class="params">(C *a, <span class="keyword">int</span> len, <span class="keyword">int</span> t)</span> </span>&#123;</span><br><span class="line">	rev[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> x = <span class="number">0</span>; <span class="keyword">while</span> ((<span class="number">1</span>&lt;&lt;x) &lt; len) ++ x;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">		rev[i] = (rev[i&gt;&gt;<span class="number">1</span>]&gt;&gt;<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">if</span> (i &amp; <span class="number">1</span>) rev[i] |= (<span class="number">1</span>&lt;&lt;(x<span class="number">-1</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) </span><br><span class="line">		<span class="keyword">if</span> (rev[i] &gt; i)</span><br><span class="line">			swap(a[rev[i]], a[i]);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">2</span>; l &lt;= len; l &lt;&lt;= <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="function">C <span class="title">wn</span><span class="params">(<span class="built_in">cos</span>(<span class="number">2</span>*M_PI/l), t*<span class="built_in">sin</span>(<span class="number">2</span>*M_PI/l))</span></span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> s = <span class="number">0</span>; s &lt; len; s += l) &#123;</span><br><span class="line">			<span class="function">C <span class="title">w</span><span class="params">(<span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = s; i &lt; (s+(l&gt;&gt;<span class="number">1</span>)); i++) &#123;</span><br><span class="line">				C v1 = a[i], v2 = a[i+(l&gt;&gt;<span class="number">1</span>)]*w;</span><br><span class="line">				a[i] = v1+v2;</span><br><span class="line">				a[i+(l&gt;&gt;<span class="number">1</span>)] = v1-v2;</span><br><span class="line">				w = w * wn;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (t == <span class="number">-1</span>) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">			a[i] /= len;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m); </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m; i++)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;b[i]);</span><br><span class="line">	<span class="keyword">int</span> l = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (l &lt; n+m+<span class="number">1</span>) l &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++) c_a[i] = a[i];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m; i++) c_b[i] = b[i];</span><br><span class="line">	fft(c_a, l, <span class="number">1</span>); fft(c_b, l, <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; l; i++)</span><br><span class="line">		c_c[i] = c_a[i]*c_b[i];</span><br><span class="line">	fft(c_c, l, <span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n+m; i++) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>, <span class="keyword">int</span>(c_c[i].real()+<span class="number">0.5</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/04/01/模板/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -382,7 +672,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-26 21:26:59" itemprop="dateModified" datetime="2019-04-26T21:26:59+08:00">2019-04-26</time>
+                <time title="Modified: 2019-06-04 21:33:35" itemprop="dateModified" datetime="2019-06-04T21:33:35+08:00">2019-06-04</time>
               
             
           </span>
@@ -436,13 +726,14 @@
 <p>数论：</p>
 <ul>
 <li><a href="http://buhuibaidu.me/?s=Lucas定理" target="_blank" rel="noopener">Lucas定理</a></li>
-<li><a href="http://zbww.cf/2019/04/05/%5B模板%5D-扩展中国剩余定理/">exCRT</a></li>
+<li><a href="https://zbww.cf/2019/04/05/%5B模板%5D-扩展中国剩余定理/">exCRT</a></li>
 <li><a href="http://buhuibaidu.me/?s=杜教筛" target="_blank" rel="noopener">杜教筛</a></li>
 <li><a href="http://buhuibaidu.me/?s=Pollard-Rho" target="_blank" rel="noopener">Pollard-Rho</a></li>
 <li><a href="https://zbww.cf/2019/04/16/%5B模板%5D-Miller-Rabin/">Miller-Rabin</a></li>
 <li><a href="http://buhuibaidu.me/?s=min_25筛" target="_blank" rel="noopener">min_25筛</a></li>
 <li><a href="http://buhuibaidu.me/?s=类欧几里得" target="_blank" rel="noopener">类欧几里得</a></li>
 <li><a href="http://buhuibaidu.me/?s=二次剩余" target="_blank" rel="noopener">二次剩余</a></li>
+<li><a href="https://zbww.cf/2019/06/04/%5B模板%5D-貌似是洲阁筛的筛/">貌似是洲阁筛的筛法</a></li>
 </ul>
 <p>高级数据结构：</p>
 <ul>
@@ -1666,348 +1957,11 @@ https://codeforces.com/gym/100543/attachments/download/2854/20142015-acmicpc-cen
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/03/08/博弈论整理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zbww">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一个蒟蒻的Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/08/博弈论整理/" class="post-title-link" itemprop="url">博弈整理（一）</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-08 10:25:39" itemprop="dateCreated datePublished" datetime="2019-03-08T10:25:39+08:00">2019-03-08</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-03-15 19:43:29" itemprop="dateModified" datetime="2019-03-15T19:43:29+08:00">2019-03-15</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="impartial-game">Impartial game</h3>
-<p>wikipedia链接：https://en.wikipedia.org/wiki/Impartial_game</p>
-<p><strong>impartial game</strong> 是指满足如下条件的游戏： - 两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 - 当一个玩家不能操作时，winner 就被确定了。 - 每个状态的操作数和状态总数是有限的。 - 所有的操作必须同时能被两个玩家进行。 - 所有操作的结果都是确定性的。</p>
-<h3 id="normal-play-convention">Normal play convention</h3>
-<p>wikipedia链接：https://en.wikipedia.org/wiki/Normal_play_convention<br>
-Impartial game 的 <strong>Normal play convention</strong> ：最后一个可以操作的玩家获胜。</p>
-<h3 id="nim游戏">Nim游戏</h3>
-<p>wikipedia链接：https://en.wikipedia.org/wiki/Nim<br>
-有若干堆石子，两个人轮流取石子。每次轮到的人可以选择从某一堆中拿走若干颗石子（不能不拿），不能按规则操作的人输。<br>
-<strong>Nim</strong> 游戏属于 Impartial game。</p>
-<h3 id="nim游戏的胜利条件">Nim游戏的胜利条件</h3>
-<p><strong>定理</strong>：当且仅当每堆石子的个数异或和不为 <span class="math inline">\(0\)</span> 时，先手必胜。<br>
-<strong>证明</strong>：<br>
-对于 terminal position，即没有石的情况，异或和为 <span class="math inline">\(0\)</span>，轮到这个状态的人输。定理对 terminal position 成立。<br>
-<strong>引理1</strong> 若一个状态，每堆石子个数异或和不为 <span class="math inline">\(0\)</span>，则它必定可以转移到一个石子个数为 <span class="math inline">\(0\)</span> 的状态。<br>
-<strong>证明</strong>：<br>
-设每堆石子个数的异或和为 <span class="math inline">\(s\)</span>。<br>
-设 <span class="math inline">\(s\)</span> 最高的二进制位是第 <span class="math inline">\(k\)</span> 位（从低到高，最低位为第 <span class="math inline">\(0\)</span> 位）。<br>
-一定存在一堆石子个数为 <span class="math inline">\(x\)</span>，二进制下 <span class="math inline">\(x\)</span> 的第 <span class="math inline">\(k\)</span> 位为 <span class="math inline">\(1\)</span>。<br>
-除了这堆石子外，其他堆石子个数的异或和为 <span class="math inline">\(s\oplus x\)</span>。<br>
-<span class="math inline">\(s\oplus x\)</span> 和 <span class="math inline">\(x\)</span> 在所有比第 <span class="math inline">\(k\)</span> 位高的二进制位上相等，<span class="math inline">\(s\oplus x\)</span> 的第 <span class="math inline">\(k\)</span> 位为 <span class="math inline">\(0\)</span>，<span class="math inline">\(x\)</span> 的第 <span class="math inline">\(k\)</span> 位为 <span class="math inline">\(1\)</span>，所以 <span class="math inline">\(s \oplus x &lt; x\)</span>。<br>
-可以从这堆石子中取走 <span class="math inline">\(x-s\oplus x\)</span> 个石子，使异或和变为 <span class="math inline">\(0\)</span>。</p>
-<p><strong>引理2</strong> 若一个状态，每堆石子个数异或和为 <span class="math inline">\(0\)</span>，无论怎么操作都会转移到一个每堆石子个数异或和不为 <span class="math inline">\(0\)</span> 的状态。<br>
-<strong>证明</strong>：<br>
-设操作的堆在操作前有 <span class="math inline">\(x\)</span> 颗石子。<br>
-那么除了这堆以外的其他堆石子数异或和也为 <span class="math inline">\(x\)</span>。<br>
-在取石子后，这堆石子的个数一定不为 <span class="math inline">\(x\)</span>。<br>
-只有这堆石子的个数为 <span class="math inline">\(x\)</span> 时，与其他堆石子个数的异或和才会为 <span class="math inline">\(0\)</span>。<br>
-所以操作后，每堆石子个数的异或和一定非 <span class="math inline">\(0\)</span>。<br>
-根据结构归纳法可知定理成立。</p>
-<h3 id="spraguegrundy-定理">Sprague–Grundy 定理</h3>
-<p>wikipedia链接：https://en.wikipedia.org/wiki/Sprague–Grundy_theorem<br>
-定义 <span class="math inline">\(mex\)</span> 运算，一个集合的 <span class="math inline">\(mex\)</span> 值是最小的没有出现在这个集合中的自然数。<br>
-定义 Sprague-Grundy 函数：对于一个状态 <span class="math inline">\(x\)</span>，当 <span class="math inline">\(x\)</span> 是 terminal position 时，<span class="math inline">\(SG(x)=mex\{SG(y)|x\)</span> 可以转移到 <span class="math inline">\(y\}\)</span>。<br>
-可以用 Sprague-Grundy 函数判断一个状态是必胜状态还是必败状态，因为必胜状态函数值必不为 <span class="math inline">\(0\)</span>，必败状态函数值必为 <span class="math inline">\(0\)</span>。<br>
-定义两个游戏的 disjunctive sum 为一个游戏：轮到每个玩家的时候，他可以选择两个游戏中的一个游戏，然后在这个游戏上操作一步，无法操作的人输。<br>
-显然 disjunctive sum 满足交换律和结合律。<br>
-<strong>定理</strong> 有 <span class="math inline">\(n\)</span> 个游戏 <span class="math inline">\(G_1,G_2,\cdots,G_n\)</span>，设他们的 disjunctive sum 为 <span class="math inline">\(G\)</span>。那么 <span class="math inline">\(SG(G)=SG(G_1)\oplus SG(G_2)\cdots \oplus SG(G_n)\)</span>。<br>
-证明可以看<a href="http://web.mit.edu/sp.268/www/nim.pdf" target="_blank" rel="noopener">这个</a>。<br>
-这也说明了每一个 normal play convention 下的 impartial game 都等价于一个Nim游戏。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/03/08/Hello-World/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zbww">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一个蒟蒻的Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/08/Hello-World/" class="post-title-link" itemprop="url">Hello World!</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-08 01:08:03 / Modified: 01:08:34" itemprop="dateCreated datePublished" datetime="2019-03-08T01:08:03+08:00">2019-03-08</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2063,7 +2017,7 @@ Impartial game 的 <strong>Normal play convention</strong> ：最后一个可以
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2720,11 +2674,11 @@ Impartial game 的 <strong>Normal play convention</strong> ：最后一个可以
       
     
       
+    
+      
+    
+      
         
-      
-    
-      
-    
       
     
       
