@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[[LOJ2572] 「ZJOI2017」字符串]]></title>
     <url>%2F2019%2F06%2F23%2FLOJ2572%2F</url>
-    <content type="text"><![CDATA[不难证明如果一个子串 \(s\) 有两个后缀 \(s_1, s_2\)，\(s_2\) 是 \(s_1\) 的 border 且 \(2\lvert s_2 \rvert &gt; \lvert s_1 \rvert\)，那么对于任意的字符串 \(t\)，\(s_2\) 不可能是 \(st\) 的最小后缀。 用一个线段树维护每个区间内可能成为最小后缀的点，这样的点只有 \(\mathcal O (\log n)\) 个。push up 的时候暴力合并即可。 比较大小的时候需要查 lcp，分块维护前缀哈希即可做到 \(\mathcal O(\sqrt n)\) 修改，\(\mathcal O(1)\) 询问（调整块大小应该可以做到更优的复杂度）。 总复杂度 \(\mathcal O(n\log^2n+m \log ^3 n+m\sqrt n)\)。 （真的毒瘤）]]></content>
+    <content type="text"><![CDATA[做法 不难证明如果一个子串 \(s\) 有两个后缀 \(s_1, s_2\)，\(s_2\) 是 \(s_1\) 的 border 且 \(2\lvert s_2 \rvert &gt; \lvert s_1 \rvert\)，那么对于任意的字符串 \(t\)，\(s_2\) 不可能是 \(st\) 的最小后缀。 用一个线段树维护每个区间内可能成为最小后缀的点，这样的点只有 \(\mathcal O (\log n)\) 个。push up 的时候暴力合并即可。 比较大小的时候需要查 lcp，分块维护前缀哈希即可做到 \(\mathcal O(\sqrt n)\) 修改，\(\mathcal O(\log n)\) 询问（调整块大小应该可以做到更优的复杂度）。 总复杂度 \(\mathcal O(n\log^2n+m \log ^3 n+m\sqrt n)\)。 （真的毒瘤）]]></content>
       <tags>
         <tag>题解</tag>
         <tag>字符串</tag>

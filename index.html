@@ -365,7 +365,7 @@
                 
               
 
-              <time title="Created: 2019-06-23 14:48:22 / Modified: 16:52:59" itemprop="dateCreated datePublished" datetime="2019-06-23T14:48:22+08:00">2019-06-23</time>
+              <time title="Created: 2019-06-23 14:48:22 / Modified: 16:55:05" itemprop="dateCreated datePublished" datetime="2019-06-23T14:48:22+08:00">2019-06-23</time>
             
 
             
@@ -406,9 +406,10 @@
       
         
           
-            <p>不难证明如果一个子串 <span class="math inline">\(s\)</span> 有两个后缀 <span class="math inline">\(s_1, s_2\)</span>，<span class="math inline">\(s_2\)</span> 是 <span class="math inline">\(s_1\)</span> 的 border 且 <span class="math inline">\(2\lvert s_2 \rvert &gt; \lvert s_1 \rvert\)</span>，那么对于任意的字符串 <span class="math inline">\(t\)</span>，<span class="math inline">\(s_2\)</span> 不可能是 <span class="math inline">\(st\)</span> 的最小后缀。</p>
+            <h1 id="做法">做法</h1>
+<p>不难证明如果一个子串 <span class="math inline">\(s\)</span> 有两个后缀 <span class="math inline">\(s_1, s_2\)</span>，<span class="math inline">\(s_2\)</span> 是 <span class="math inline">\(s_1\)</span> 的 border 且 <span class="math inline">\(2\lvert s_2 \rvert &gt; \lvert s_1 \rvert\)</span>，那么对于任意的字符串 <span class="math inline">\(t\)</span>，<span class="math inline">\(s_2\)</span> 不可能是 <span class="math inline">\(st\)</span> 的最小后缀。</p>
 <p>用一个线段树维护每个区间内可能成为最小后缀的点，这样的点只有 <span class="math inline">\(\mathcal O (\log n)\)</span> 个。push up 的时候暴力合并即可。</p>
-<p>比较大小的时候需要查 lcp，分块维护前缀哈希即可做到 <span class="math inline">\(\mathcal O(\sqrt n)\)</span> 修改，<span class="math inline">\(\mathcal O(1)\)</span> 询问（调整块大小应该可以做到更优的复杂度）。</p>
+<p>比较大小的时候需要查 lcp，分块维护前缀哈希即可做到 <span class="math inline">\(\mathcal O(\sqrt n)\)</span> 修改，<span class="math inline">\(\mathcal O(\log n)\)</span> 询问（调整块大小应该可以做到更优的复杂度）。</p>
 <p>总复杂度 <span class="math inline">\(\mathcal O(n\log^2n+m \log ^3 n+m\sqrt n)\)</span>。</p>
 <p>（真的毒瘤）</p>
 
