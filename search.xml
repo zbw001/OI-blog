@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LOJ2572] 「ZJOI2017」字符串]]></title>
+    <url>%2F2019%2F06%2F23%2FLOJ2572%2F</url>
+    <content type="text"><![CDATA[不难证明如果一个子串 \(s\) 有两个后缀 \(s_1, s_2\)，\(s_2\) 是 \(s_1\) 的 border 且 \(2\lvert s_2 \rvert &gt; \lvert s_1 \rvert\)，那么对于任意的字符串 \(t\)，\(s_2\) 不可能是 \(st\) 的最小后缀。 用一个线段树维护每个区间内可能成为最小后缀的点，这样的点只有 \(\mathcal O (\log n)\) 个。push up 的时候暴力合并即可。 比较大小的时候需要查 lcp，分块维护前缀哈希即可做到 \(\mathcal O(\sqrt n)\) 修改，\(\mathcal O(1)\) 询问（调整块大小应该可以做到更优的复杂度）。 总复杂度 \(\mathcal O(n\log^2n+m \log ^3 n+m\sqrt n)\)。 （真的毒瘤）]]></content>
+      <tags>
+        <tag>题解</tag>
+        <tag>字符串</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[Gym102222I] Bubble Sort]]></title>
+    <url>%2F2019%2F06%2F19%2F%5BGym102222I%5D-Bubble-Sort%2F</url>
+    <content type="text"><![CDATA[题目链接。 ### 做法]]></content>
+      <tags>
+        <tag>codeforces</tag>
+        <tag>题解</tag>
+        <tag>组合</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[模板]-貌似是洲阁筛的筛法]]></title>
     <url>%2F2019%2F06%2F04%2F%5B%E6%A8%A1%E6%9D%BF%5D-%E8%B2%8C%E4%BC%BC%E6%98%AF%E6%B4%B2%E9%98%81%E7%AD%9B%E7%9A%84%E7%AD%9B%E6%B3%95%2F</url>
     <content type="text"><![CDATA[提交至 简单的函数。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;using namespace std;typedef long long ll;const int maxn = 1000010;const int mod = 1e9+7;ll n;ll val[maxn];int f[maxn], g[maxn], h[maxn], mx_p[maxn];int p[maxn], isnp[maxn], cnt, tot, sqr;int in1[maxn], in2[maxn], s1[maxn], s2[maxn];inline int mo(const int &amp;x) &#123; if (x &gt;= mod) return x-mod; if (x &lt; 0) return x+mod; return x;&#125;int getin(ll x) &#123; if (x &gt;= sqr) &#123; if (!in1[n/x]) in1[n/x] = ++ tot; return in1[n/x]; &#125; else &#123; if (!in2[x]) in2[x] = ++ tot; return in2[x]; &#125;&#125;ll calp(ll n) &#123; if (n == 1) return 0; return mo(f[getin(n)]-g[getin(n)]+2);&#125;ll calh(int n, int i) &#123; if (val[n] == 1) return 0; if (val[n] &lt; p[i-1]) return mo(calp(val[n])-s1[mx_p[val[n]]]); else return mo(calp(val[n])-s1[i-1]); &#125;int main() &#123; isnp[1] = 1; for (int i = 2; i &lt;= 1000000; i++) &#123; if (!isnp[i]) &#123;p[++ cnt] = i; mx_p[i] = cnt;&#125; for (int j = 1; j &lt;= cnt &amp;&amp; p[j]*i &lt;= 1000000; j++) &#123; isnp[i*p[j]] = 1; if (i % p[j] == 0) break; &#125; &#125; for (int i = 2; i &lt;= 1000000; i++) if (!mx_p[i]) mx_p[i] = mx_p[i-1]; scanf("%lld", &amp;n); sqr = int(sqrt(n)); for (ll i = 1; i &lt;= n; i = n/(n/i)+1) &#123; val[getin(n/i)] = n/i; &#125; for (int i = 1; i &lt;= tot; i++) &#123;f[i] = (1LL*(val[i]%mod)*(val[i]%mod+1)%mod*((mod+1)/2)%mod-1)%mod; g[i] = mo(val[i]%mod-1);&#125; for (int i = 1; i &lt;= cnt; i++) s1[i] = mo(s1[i-1] + (p[i] ^ 1)); for (int i = 1; i &lt;= cnt; i++) s2[i] = mo(s2[i-1] + p[i]); for (int i = 1; i &lt;= cnt &amp;&amp; 1ll*p[i]*p[i] &lt;= n; i++) &#123; for (int j = 1; j &lt;= tot &amp;&amp; val[j] &gt;= 1ll*p[i]*p[i]; j++) &#123; f[j] = mo(f[j]-1LL*p[i]*mo(f[getin(val[j]/p[i])]-s2[i-1])%mod); g[j] = mo(g[j]-mo(g[getin(val[j]/p[i])]-(i-1))); &#125; &#125; int mx = 0; for (int i = 1; i &lt;= cnt; i++) if (1ll*p[i]*p[i] &lt;= n) mx = i; for (int i = mx; i &gt;= 1; i--) &#123; for (int j = 1; j &lt;= tot &amp;&amp; val[j] &gt;= 1ll*p[i]*p[i]; j++) &#123; int e = 1; ll v = p[i]; if (1ll*p[i+1]*p[i+1] &gt; val[j]) h[j] = calh(j, i+1); while (v &lt;= val[j]) &#123; int t = 0; if (1LL*p[i+1]*p[i+1] &gt; val[j]/v) &#123; t = mo(calh(getin(val[j]/v), i+1)+1); &#125; else t = mo(h[getin(val[j]/v)]+1); h[j] = mo(h[j]+1LL*(p[i]^e)*t%mod); ++ e; v *= p[i]; &#125; &#125; &#125; printf("%d\n", mo(h[getin(n)]+1)); return 0;&#125;]]></content>
