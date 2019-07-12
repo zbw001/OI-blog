@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[模板] 模拟退火]]></title>
+    <url>%2F2019%2F07%2F12%2F%5B%E6%A8%A1%E6%9D%BF%5D-%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%2F</url>
+    <content type="text"><![CDATA[NOI 前复习。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[[模板] 带花树]]></title>
+    <url>%2F2019%2F07%2F12%2F%5B%E6%A8%A1%E6%9D%BF%5D-%E5%B8%A6%E8%8A%B1%E6%A0%91%2F</url>
+    <content type="text"><![CDATA[NOI 前学习。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[[模板] 支配树]]></title>
+    <url>%2F2019%2F07%2F12%2F%5B%E6%A8%A1%E6%9D%BF%5D-%E6%94%AF%E9%85%8D%E6%A0%91%2F</url>
+    <content type="text"><![CDATA[NOI 前复习。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[[模板] 无向图 Tarjan]]></title>
+    <url>%2F2019%2F07%2F12%2F%5B%E6%A8%A1%E6%9D%BF%5D-%E6%97%A0%E5%90%91%E5%9B%BE-Tarjan%2F</url>
+    <content type="text"><![CDATA[NOI 前复习。]]></content>
+      <tags>
+        <tag>图论</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[模板] 可并堆]]></title>
     <url>%2F2019%2F07%2F12%2F%5B%E6%A8%A1%E6%9D%BF%5D-%E5%8F%AF%E5%B9%B6%E5%A0%86%2F</url>
     <content type="text"><![CDATA[NOI前复习。]]></content>
