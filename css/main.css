@@ -1891,7 +1891,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff4a95;
+  background: #c3e9ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3023,4 +3023,11 @@ ul.breadcrumb li+li:last-child {
 }
 .sidebar {
   background: rgba(0,0,0,0);
+}
+body {
+  background-image: url("/images/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-size: cover;
 }
