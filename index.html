@@ -365,7 +365,7 @@
                 
               
 
-              <time title="创建时间：2019-08-10 17:40:04 / 修改时间：18:03:31" itemprop="dateCreated datePublished" datetime="2019-08-10T17:40:04+08:00">2019-08-10</time>
+              <time title="创建时间：2019-08-10 17:40:04 / 修改时间：18:18:31" itemprop="dateCreated datePublished" datetime="2019-08-10T17:40:04+08:00">2019-08-10</time>
             
 
             
@@ -411,7 +411,10 @@
 <p>求出每次操作加入的新的 <span class="math inline">\(x\)</span> 全部被弹出的最早时间，就很好求答案了。</p>
 <p>从后往前考虑每个操作，计算这次操作加入的元素全部被弹出的最早时间。</p>
 <p>定义一个队列 <span class="math inline">\(i\)</span> 的弹出时间为从当前操作开始，往后第 <span class="math inline">\(a_i\)</span> 个影响队列 <span class="math inline">\(i\)</span> 的操作的发生时间。</p>
-<p>分块，分别维护每一块中的队列弹出时间的 <span class="math inline">\(\max\)</span>。</p>
+<p>分块，从后往前依次加入每个操作，分别维护每一块中的队列弹出时间的 <span class="math inline">\(\max\)</span>。</p>
+<p>考虑在加入操作 <span class="math inline">\(i\)</span> 后，每一块中的队列弹出时间 <span class="math inline">\(\max\)</span> 发生什么样的变化。</p>
+<h4 id="被-l_ir_i-包含的块">被 <span class="math inline">\([l_i,r_i]\)</span> 包含的块</h4>
+<h4 id="与-l_ir_i-有交但是没有被包含的块">与 <span class="math inline">\([l_i,r_i]\)</span> 有交但是没有被包含的块</h4>
 
           
         
