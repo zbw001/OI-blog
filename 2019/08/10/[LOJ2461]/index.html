@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="题目链接 复杂度讨论中默认 \(n,m\) 同阶。 定义第 \(i\) 个操作的发生时间为 \(i\)。 求出每次操作加入的新的 \(x\) 全部被弹出的最早时间，就很好求答案了。 从后往前考虑每个操作，计算这次操作加入的元素全部被弹出的最早时间。 定义一个队列 \(i\) 的弹出时间为从当前操作开始，往后第 \(a_i\) 个影响队列 \(i\) 的操作的发生时间。 分块，从后往前依次加入每个操">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-10T16:19:35.656Z">
+<meta property="og:updated_time" content="2019-08-10T20:13:39.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LOJ2461] 完美的队列">
 <meta name="twitter:description" content="题目链接 复杂度讨论中默认 \(n,m\) 同阶。 定义第 \(i\) 个操作的发生时间为 \(i\)。 求出每次操作加入的新的 \(x\) 全部被弹出的最早时间，就很好求答案了。 从后往前考虑每个操作，计算这次操作加入的元素全部被弹出的最早时间。 定义一个队列 \(i\) 的弹出时间为从当前操作开始，往后第 \(a_i\) 个影响队列 \(i\) 的操作的发生时间。 分块，从后往前依次加入每个操">
@@ -383,7 +383,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-11 00:19:35" itemprop="dateModified" datetime="2019-08-11T00:19:35+08:00">2019-08-11</time>
+                <time title="修改时间：2019-08-11 04:13:39" itemprop="dateModified" datetime="2019-08-11T04:13:39+08:00">2019-08-11</time>
               
             
           </span>
@@ -449,6 +449,8 @@
 </ol>
 <p>这样就做到了在 <span class="math inline">\(O(n \sqrt n)\)</span> 时间内维护每个块的最早弹出时间。</p>
 <p>剩余的问题是: 如何在从右往左加入操作的过程中，支持查询一个区间的最早弹出时间。把区间拆成若干个块和不超过 <span class="math inline">\(2 \sqrt n\)</span> 个多出来的点。对于这些块，已经知道了它的最早弹出时间，取 <span class="math inline">\(\max\)</span> 即可。对于这些多出来的点，需要动态询问他们的最早弹出时间。</p>
+<h4 id="处理单点信息">处理单点信息</h4>
+<p>这样就以 <span class="math inline">\(O(n^{1.5})\)</span> 的时间复杂度解决了问题。</p>
 
       
     </div>
@@ -740,7 +742,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#更新-mn_k-和-c-数组"><span class="nav-number">1.</span> <span class="nav-text">更新 \(mn_k\) 和 \(c\) 数组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如果这个块被第-i-次修改的区间完整包含"><span class="nav-number">1.1.</span> <span class="nav-text">如果这个块被第 \(i\) 次修改的区间完整包含：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如果这个块未被第-i-次修改的区间完整包含"><span class="nav-number">1.2.</span> <span class="nav-text">如果这个块未被第 \(i\) 次修改的区间完整包含：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新-t_k"><span class="nav-number">2.</span> <span class="nav-text">更新 \(t_k\)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#更新-mn_k-和-c-数组"><span class="nav-number">1.</span> <span class="nav-text">更新 \(mn_k\) 和 \(c\) 数组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如果这个块被第-i-次修改的区间完整包含"><span class="nav-number">1.1.</span> <span class="nav-text">如果这个块被第 \(i\) 次修改的区间完整包含：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如果这个块未被第-i-次修改的区间完整包含"><span class="nav-number">1.2.</span> <span class="nav-text">如果这个块未被第 \(i\) 次修改的区间完整包含：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新-t_k"><span class="nav-number">2.</span> <span class="nav-text">更新 \(t_k\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理单点信息"><span class="nav-number">3.</span> <span class="nav-text">处理单点信息</span></a></li></ol></div>
             
 
           </div>
