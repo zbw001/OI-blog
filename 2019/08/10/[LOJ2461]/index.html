@@ -97,18 +97,18 @@
 
 
 
-  <meta name="description" content="题目链接 定义第 \(i\) 个操作的发生时间为 \(i\)。 求出每次操作加入的新的 \(x\) 全部被弹出的最早时间，就很好求答案了。 从后往前考虑每个操作，计算这次操作加入的元素全部被弹出的最早时间。 定义一个队列 \(i\) 的弹出时间为从当前操作开始，往后第 \(a_i\) 个影响队列 \(i\) 的操作的发生时间。 分块，从后往前依次加入每个操作，分别维护每一块中的队列弹出时间的 \(">
+  <meta name="description" content="题目链接 复杂度讨论中默认 \(n,m\) 同阶。 定义第 \(i\) 个操作的发生时间为 \(i\)。 求出每次操作加入的新的 \(x\) 全部被弹出的最早时间，就很好求答案了。 从后往前考虑每个操作，计算这次操作加入的元素全部被弹出的最早时间。 定义一个队列 \(i\) 的弹出时间为从当前操作开始，往后第 \(a_i\) 个影响队列 \(i\) 的操作的发生时间。 分块，从后往前依次加入每个操">
 <meta name="keywords" content="数据结构,LOJ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LOJ2461] 完美的队列">
 <meta property="og:url" content="https://zbww.cf/2019/08/10/[LOJ2461]/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="题目链接 定义第 \(i\) 个操作的发生时间为 \(i\)。 求出每次操作加入的新的 \(x\) 全部被弹出的最早时间，就很好求答案了。 从后往前考虑每个操作，计算这次操作加入的元素全部被弹出的最早时间。 定义一个队列 \(i\) 的弹出时间为从当前操作开始，往后第 \(a_i\) 个影响队列 \(i\) 的操作的发生时间。 分块，从后往前依次加入每个操作，分别维护每一块中的队列弹出时间的 \(">
+<meta property="og:description" content="题目链接 复杂度讨论中默认 \(n,m\) 同阶。 定义第 \(i\) 个操作的发生时间为 \(i\)。 求出每次操作加入的新的 \(x\) 全部被弹出的最早时间，就很好求答案了。 从后往前考虑每个操作，计算这次操作加入的元素全部被弹出的最早时间。 定义一个队列 \(i\) 的弹出时间为从当前操作开始，往后第 \(a_i\) 个影响队列 \(i\) 的操作的发生时间。 分块，从后往前依次加入每个操">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-10T10:18:31.335Z">
+<meta property="og:updated_time" content="2019-08-10T13:53:33.305Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LOJ2461] 完美的队列">
-<meta name="twitter:description" content="题目链接 定义第 \(i\) 个操作的发生时间为 \(i\)。 求出每次操作加入的新的 \(x\) 全部被弹出的最早时间，就很好求答案了。 从后往前考虑每个操作，计算这次操作加入的元素全部被弹出的最早时间。 定义一个队列 \(i\) 的弹出时间为从当前操作开始，往后第 \(a_i\) 个影响队列 \(i\) 的操作的发生时间。 分块，从后往前依次加入每个操作，分别维护每一块中的队列弹出时间的 \(">
+<meta name="twitter:description" content="题目链接 复杂度讨论中默认 \(n,m\) 同阶。 定义第 \(i\) 个操作的发生时间为 \(i\)。 求出每次操作加入的新的 \(x\) 全部被弹出的最早时间，就很好求答案了。 从后往前考虑每个操作，计算这次操作加入的元素全部被弹出的最早时间。 定义一个队列 \(i\) 的弹出时间为从当前操作开始，往后第 \(a_i\) 个影响队列 \(i\) 的操作的发生时间。 分块，从后往前依次加入每个操">
 
 
 
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-08-10 17:40:04 / 修改时间：18:18:31" itemprop="dateCreated datePublished" datetime="2019-08-10T17:40:04+08:00">2019-08-10</time>
+              <time title="创建时间：2019-08-10 17:40:04 / 修改时间：21:53:33" itemprop="dateCreated datePublished" datetime="2019-08-10T17:40:04+08:00">2019-08-10</time>
             
 
             
@@ -426,14 +426,30 @@
 
       
         <p><a href="https://loj.ac/problem/2461" target="_blank" rel="noopener">题目链接</a></p>
+<p>复杂度讨论中默认 <span class="math inline">\(n,m\)</span> 同阶。</p>
 <p>定义第 <span class="math inline">\(i\)</span> 个操作的发生时间为 <span class="math inline">\(i\)</span>。</p>
 <p>求出每次操作加入的新的 <span class="math inline">\(x\)</span> 全部被弹出的最早时间，就很好求答案了。</p>
 <p>从后往前考虑每个操作，计算这次操作加入的元素全部被弹出的最早时间。</p>
 <p>定义一个队列 <span class="math inline">\(i\)</span> 的弹出时间为从当前操作开始，往后第 <span class="math inline">\(a_i\)</span> 个影响队列 <span class="math inline">\(i\)</span> 的操作的发生时间。</p>
-<p>分块，从后往前依次加入每个操作，分别维护每一块中的队列弹出时间的 <span class="math inline">\(\max\)</span>。</p>
-<p>考虑在加入操作 <span class="math inline">\(i\)</span> 后，每一块中的队列弹出时间 <span class="math inline">\(\max\)</span> 发生什么样的变化。</p>
-<h4 id="被-l_ir_i-包含的块">被 <span class="math inline">\([l_i,r_i]\)</span> 包含的块</h4>
-<h4 id="与-l_ir_i-有交但是没有被包含的块">与 <span class="math inline">\([l_i,r_i]\)</span> 有交但是没有被包含的块</h4>
+<p>分块，从后往前依次加入每个操作，分别维护每一块中的队列弹出时间的最大值。我们把一块中所有队列弹出时间的最大值称为这个块的最早弹出时间。</p>
+<p>在加入第 <span class="math inline">\(k\)</span> 个操作后，第 <span class="math inline">\(i\)</span> 个块 <span class="math inline">\([a_i,b_i]\)</span> 维护最早弹出时间 <span class="math inline">\(t_i\)</span>，设 <span class="math inline">\(c_p\)</span> 为第 <span class="math inline">\(k\)</span> 个操作到第 <span class="math inline">\(t_i-1\)</span> 个操作中第 <span class="math inline">\(p\)</span> 个队列被 push 的次数，维护 <span class="math inline">\(mn_k = \min_{a_i \le p \le b_i} c_p-a_p\)</span>。同时维护 <span class="math inline">\(c_p\)</span> 的值。（通过打标记）</p>
+<p>考虑在加入操作 <span class="math inline">\(i\)</span> 后，如何更新每块维护的信息。</p>
+<p>假设这个块是第 <span class="math inline">\(k\)</span> 个块。<br>
+对于这个块的最早弹出时间大于等于 <span class="math inline">\(m\)</span> 的情况预先处理好。下面只讨论最早弹出时间小于 <span class="math inline">\(m\)</span> 的情况。</p>
+<h4 id="更新-mn_k-和-c-数组">更新 <span class="math inline">\(mn_k\)</span> 和 <span class="math inline">\(c\)</span> 数组</h4>
+<h5 id="如果这个块被第-i-次修改的区间完整包含">如果这个块被第 <span class="math inline">\(i\)</span> 次修改的区间完整包含：</h5>
+<p>更新 <span class="math inline">\(mn_k \leftarrow mn_k+1\)</span>。更新 <span class="math inline">\(c_p\)</span> 的值，即打一个整块加 <span class="math inline">\(1\)</span> 标记。</p>
+<h5 id="如果这个快未被第-i-次修改的区间完整包含">如果这个快未被第 <span class="math inline">\(i\)</span> 次修改的区间完整包含：</h5>
+<p>暴力重构，更新 <span class="math inline">\(mn_k\)</span> 和 <span class="math inline">\(c\)</span> 数组。</p>
+<h4 id="更新-t_k">更新 <span class="math inline">\(t_k\)</span></h4>
+<p>按以下步骤进行：</p>
+<ol type="1">
+<li>如果 <span class="math inline">\(mn_k \ge 0\)</span>，说明 <span class="math inline">\(t_k\)</span> 可以减小，那么 <span class="math inline">\(t_k \leftarrow t_k-1\)</span>。否则不用更新，结束操作。</li>
+<li>如果第 <span class="math inline">\(t_k\)</span> 次操作包含整个块，那么 <span class="math inline">\(mn_k \leftarrow mn_k-1\)</span>，打 <span class="math inline">\(-1\)</span> 标记更新 <span class="math inline">\(c_p\)</span> 的值。否则暴力重构更新 <span class="math inline">\(mn_k\)</span> 和 <span class="math inline">\(c_p\)</span> 的值。</li>
+<li>转到操作 1。</li>
+</ol>
+<p>这样就做到了在 <span class="math inline">\(O(n \sqrt n)\)</span> 时间内维护每个块的最早弹出时间。</p>
+<p>剩余的问题是: 如何在从右往左加入操作的过程中，支持查询一个区间的最早弹出时间。把区间拆成若干个块和不超过 <span class="math inline">\(2 \sqrt n\)</span> 个多出来的点。对于这些块，已经知道了它的最早弹出时间，取 <span class="math inline">\(\max\)</span> 即可。对于这些点，需要动态询问他们的最早弹出时间。</p>
 
       
     </div>
@@ -723,7 +739,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#被-l_ir_i-包含的块"><span class="nav-number">1.</span> <span class="nav-text">被 \([l_i,r_i]\) 包含的块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#与-l_ir_i-有交但是没有被包含的块"><span class="nav-number">2.</span> <span class="nav-text">与 \([l_i,r_i]\) 有交但是没有被包含的块</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#更新-mn_k-和-c-数组"><span class="nav-number">1.</span> <span class="nav-text">更新 \(mn_k\) 和 \(c\) 数组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如果这个块被第-i-次修改的区间完整包含"><span class="nav-number">1.1.</span> <span class="nav-text">如果这个块被第 \(i\) 次修改的区间完整包含：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如果这个快未被第-i-次修改的区间完整包含"><span class="nav-number">1.2.</span> <span class="nav-text">如果这个快未被第 \(i\) 次修改的区间完整包含：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新-t_k"><span class="nav-number">2.</span> <span class="nav-text">更新 \(t_k\)</span></a></li></ol></div>
             
 
           </div>
