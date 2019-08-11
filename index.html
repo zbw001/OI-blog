@@ -382,7 +382,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-11 15:02:12" itemprop="dateModified" datetime="2019-08-11T15:02:12+08:00">2019-08-11</time>
+                <time title="修改时间：2019-08-11 15:09:34" itemprop="dateModified" datetime="2019-08-11T15:09:34+08:00">2019-08-11</time>
               
             
           </span>
@@ -450,7 +450,7 @@
 <p>那么一个队列的操作序列就是它的 vector 和它所在的块的 vector 归并后的结果。对每个点记录它的最早弹出时间 <span class="math inline">\(t\)</span> (每次询问时更新，修改时不一定是最新的)，它的 vector 中第一个在 <span class="math inline">\(t\)</span> 之前的修改的位置 <span class="math inline">\(p_1\)</span>，它所在块的 vector 中第一个在 <span class="math inline">\(t\)</span> 之前修改的位置 <span class="math inline">\(p_2\)</span>。对每个块记录这个块中的队列在上一次更新信息之后修改的次数 <span class="math inline">\(c\)</span>。那么修改的时候对整块只需要 <span class="math inline">\(c \leftarrow c+1\)</span>，对两端的块更新其中每一个队列的 <span class="math inline">\(t, p_1, p_2\)</span>，并把 <span class="math inline">\(c\)</span> 设为 <span class="math inline">\(0\)</span>。更新方法大致为：对于一个队列，先判断 <span class="math inline">\(t\)</span> 是在它 vector 中还是在块的 vector 中（通过 <span class="math inline">\(p_1, p_2\)</span> 可以直接判断），这两种情况区别不大，所以这里只写在块 vector 上的情况。定义一个临时变量 <span class="math inline">\(t = c\)</span>，如果它的块的 vector 中的第 <span class="math inline">\(p_2+t\)</span> 项的小于这个队列的 vector 中的 <span class="math inline">\(p_1\)</span> 项，那么 <span class="math inline">\(p_1 \leftarrow p_1+1\)</span>，然后 <span class="math inline">\(t \leftarrow t-1\)</span>，然后再次检查，这样循环直到可以直接把 <span class="math inline">\(p_2\)</span> 改为 <span class="math inline">\(p_2+t\)</span> 的时候，修改 <span class="math inline">\(p_2\)</span> 就完成了更新。</p>
 <p>一个队列被更新时进行的判断的总次数与它的 vector 中元素个数同级，所以更新的总复杂度是 <span class="math inline">\(O(n)\)</span> 的。（但是维护 vector 和进行操作是 <span class="math inline">\(O(\sqrt n)\)</span> 的）。</p>
 <p>这样就以 <span class="math inline">\(O(n \sqrt n)\)</span> 的时间复杂度解决了问题。</p>
-<h3 id="实现">实现</h3>
+<h2 id="实现">实现</h2>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">待填</span><br></pre></td></tr></table></figure>
 
           
