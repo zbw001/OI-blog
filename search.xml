@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[类欧几里得算法]]></title>
     <url>%2F2019%2F08%2F16%2F%E7%B1%BB%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[一直用一直拷板...需要补一补了。]]></content>
+    <content type="text"><![CDATA[一直用一直拷板...需要补一补了。 问题1 求 \[ f(a,b,c,n)=\sum_{i=0}^n \lfloor \frac {ai+b} c \rfloor \] 即在一条直线下的整点数。 （因为 \(i\) 从 \(0\) 开始，所以要用小于号） 如果 \(a \ge c\) 或 \(b \ge c\)，则 \(f(a,b,c,n) = \frac {n(n+1)}2\lfloor \frac a c \rfloor + (n+1) \lfloor \frac {b} {c}\rfloor + f(a\bmod c,b\bmod c,c,n)\) 否则 \[ \sum_{i=0}^n \lfloor \frac {ai+b} c \rfloor \\ =\sum_{x \ge 0} \sum_{i=0}^n [x &lt; \lceil \frac{ai+b} c \rceil]\\ =\sum_{x \ge 0} \sum_{i=0}^n [xc &lt; ai+b+c-1]\\ =\sum_{x \ge 0} \sum_{i \le n} [i &gt; \lfloor \frac{xc-b-c+1} a\rfloor]\\ =\sum_{0 \le x &lt; \frac{an+b} c} [n-\lfloor \frac{xc-b-c+1}a \rfloor]\\ =\lceil \frac {an+b} {c} \rceil n-f(c,1-b-c,a,\lceil \frac {an+b} {c}\rceil-1) \] 这样每递归两次，\((a,c)\) 就变成 \((c, a\bmod c)\)，因此时间复杂度为 \(O(\log (a+c))\)。 由于 \(a &lt; c, b &lt; c\)，所以 \(n\) 的值不会增大，无需担心爆 long long。]]></content>
       <tags>
         <tag>数论</tag>
       </tags>

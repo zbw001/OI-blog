@@ -365,7 +365,7 @@
                 
               
 
-              <time title="创建时间：2019-08-16 18:46:09 / 修改时间：18:47:24" itemprop="dateCreated datePublished" datetime="2019-08-16T18:46:09+08:00">2019-08-16</time>
+              <time title="创建时间：2019-08-16 18:46:09 / 修改时间：19:16:29" itemprop="dateCreated datePublished" datetime="2019-08-16T18:46:09+08:00">2019-08-16</time>
             
 
             
@@ -407,6 +407,23 @@
         
           
             <p>一直用一直拷板...需要补一补了。</p>
+<h3 id="问题1">问题1</h3>
+<p>求<br>
+<span class="math display">\[
+f(a,b,c,n)=\sum_{i=0}^n \lfloor \frac {ai+b} c \rfloor
+\]</span> 即在一条直线下的整点数。</p>
+<p>（因为 <span class="math inline">\(i\)</span> 从 <span class="math inline">\(0\)</span> 开始，所以要用小于号）</p>
+<p>如果 <span class="math inline">\(a \ge c\)</span> 或 <span class="math inline">\(b \ge c\)</span>，则 <span class="math inline">\(f(a,b,c,n) = \frac {n(n+1)}2\lfloor \frac a c \rfloor + (n+1) \lfloor \frac {b} {c}\rfloor + f(a\bmod c,b\bmod c,c,n)\)</span></p>
+<p>否则 <span class="math display">\[
+\sum_{i=0}^n \lfloor \frac {ai+b} c \rfloor \\
+=\sum_{x \ge 0} \sum_{i=0}^n [x &lt; \lceil \frac{ai+b} c \rceil]\\
+=\sum_{x \ge 0} \sum_{i=0}^n [xc &lt; ai+b+c-1]\\
+=\sum_{x \ge 0} \sum_{i \le n} [i &gt; \lfloor \frac{xc-b-c+1} a\rfloor]\\
+=\sum_{0 \le x &lt; \frac{an+b} c} [n-\lfloor \frac{xc-b-c+1}a \rfloor]\\
+=\lceil \frac {an+b} {c} \rceil n-f(c,1-b-c,a,\lceil \frac {an+b} {c}\rceil-1)
+\]</span></p>
+<p>这样每递归两次，<span class="math inline">\((a,c)\)</span> 就变成 <span class="math inline">\((c, a\bmod c)\)</span>，因此时间复杂度为 <span class="math inline">\(O(\log (a+c))\)</span>。</p>
+<p>由于 <span class="math inline">\(a &lt; c, b &lt; c\)</span>，所以 <span class="math inline">\(n\)</span> 的值不会增大，无需担心爆 long long。</p>
 
           
         
