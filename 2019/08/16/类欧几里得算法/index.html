@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="一直用一直拷板...需要补一补了。 问题1 求 \[ f(a,b,c,n)=\sum_{i=0}^n \lfloor \frac {ai+b} c \rfloor \] 即在一条直线下的整点数。 （因为 \(i\) 从 \(0\) 开始，所以要用小于号） 如果 \(a \ge c\) 或 \(b \ge c\)，则 \(f(a,b,c,n) = \frac {n(n+1)}2\lfloor \fr">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-16T11:34:51.856Z">
+<meta property="og:updated_time" content="2019-08-16T11:52:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="类欧几里得算法">
 <meta name="twitter:description" content="一直用一直拷板...需要补一补了。 问题1 求 \[ f(a,b,c,n)=\sum_{i=0}^n \lfloor \frac {ai+b} c \rfloor \] 即在一条直线下的整点数。 （因为 \(i\) 从 \(0\) 开始，所以要用小于号） 如果 \(a \ge c\) 或 \(b \ge c\)，则 \(f(a,b,c,n) = \frac {n(n+1)}2\lfloor \fr">
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-08-16 18:46:09 / 修改时间：19:34:51" itemprop="dateCreated datePublished" datetime="2019-08-16T18:46:09+08:00">2019-08-16</time>
+              <time title="创建时间：2019-08-16 18:46:09 / 修改时间：19:52:04" itemprop="dateCreated datePublished" datetime="2019-08-16T18:46:09+08:00">2019-08-16</time>
             
 
             
@@ -421,7 +421,7 @@ f(a,b,c,n)=\sum_{i=0}^n \lfloor \frac {ai+b} c \rfloor
 <p>（因为 <span class="math inline">\(i\)</span> 从 <span class="math inline">\(0\)</span> 开始，所以要用小于号）</p>
 <p>如果 <span class="math inline">\(a \ge c\)</span> 或 <span class="math inline">\(b \ge c\)</span>，则 <span class="math inline">\(f(a,b,c,n) = \frac {n(n+1)}2\lfloor \frac a c \rfloor + (n+1) \lfloor \frac {b} {c}\rfloor + f(a\bmod c,b\bmod c,c,n)\)</span></p>
 <p>否则 <span class="math display">\[
-\sum_{i=0}^n \lfloor \frac {ai+b} c \rfloor \\
+f(a,b,c,n)=\sum_{i=0}^n \lfloor \frac {ai+b} c \rfloor \\
 =\sum_{x \ge 0} \sum_{i=0}^n [x &lt; \lceil \frac{ai+b} c \rceil]\\
 =\sum_{x \ge 0} \sum_{i=0}^n [xc &lt; ai+b+c-1]\\
 =\sum_{x \ge 0} \sum_{i \le n} [i &gt; \lfloor \frac{xc-b-c+1} a\rfloor]\\
