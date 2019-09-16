@@ -365,7 +365,7 @@
                 
               
 
-              <time title="创建时间：2019-09-17 00:32:00 / 修改时间：00:58:42" itemprop="dateCreated datePublished" datetime="2019-09-17T00:32:00+08:00">2019-09-17</time>
+              <time title="创建时间：2019-09-17 00:32:00 / 修改时间：01:38:01" itemprop="dateCreated datePublished" datetime="2019-09-17T00:32:00+08:00">2019-09-17</time>
             
 
             
@@ -434,12 +434,22 @@
 <p>设 <span class="math inline">\(d_i = card \{1 \le x \le n, a_x \ge c_i, b_x \ge c_i\}\)</span>，定义 <span class="math inline">\(d_0 = n\)</span>。</p>
 <p>如果 <span class="math inline">\(d_k &gt; 1\)</span>，<span class="math inline">\(p\)</span> 的数量为 <span class="math inline">\(0\)</span>。</p>
 <p>否则 <span class="math inline">\(p\)</span> 的数量为 <span class="math inline">\(\prod_{0 \le i &lt; k} \binom{d_i}{d_{i+1}}(d_i-d_{i+1})!\)</span>。</p>
-这是一个非常容易 <span class="math inline">\(dp\)</span> 处理的式子。分治优化 dp 一下就做完了。
+这是一个非常容易 <span class="math inline">\(dp\)</span> 处理的式子。分治优化一下就做完了。
 </details>
 <h1 id="loj-6212-美团-codem-决赛melon">LOJ 6212 「美团 CodeM 决赛」melon</h1>
 <details>
-<summary>点击查看题解</summary> QAQ
+<p><summary>点击查看题解</summary> <span class="math inline">\(n \le L\)</span> 时答案比较显然，所以只讨论 <span class="math inline">\(n &gt; L\)</span> 的情况。</p>
+<p>假设 Alice 第一步取 <span class="math inline">\(x\)</span> 个瓜。那么问题变成了 <span class="math inline">\(n-x\)</span> 个瓜，第一次是 Bob 先拿。</p>
+<p>假设 <span class="math inline">\(n-x \le 2L\)</span>，那么答案肯定是 Alice 拿了 <span class="math inline">\(n-L\)</span> 个瓜。下面讨论 <span class="math inline">\(n-x &gt; 2L\)</span> 的情况：</p>
+<p>对剩余的 <span class="math inline">\(n-x\)</span> 个瓜，如果 Bob 采取如下策略：假设瓜的数量大于 <span class="math inline">\(2L\)</span>，取走一个瓜，否则取走 <span class="math inline">\(L\)</span> 个瓜，就能保证至少拿到 <span class="math inline">\(\lfloor \frac {n-x} 2\rfloor\)</span> 个瓜。</p>
+<p>如果 Alice 采取如下策略：假设瓜的数量大于 <span class="math inline">\(2L\)</span>，取走和 Bob 上一轮取的相同数量的瓜，否则取走 <span class="math inline">\(L\)</span> 个瓜，就能保证至少拿到 <span class="math inline">\(\lceil \frac {n-x} 2\rceil\)</span> 个瓜。</p>
+<p>因此，在双方都采取最优策略时，Alice 能获得恰好 <span class="math inline">\(\lceil \frac{n-x} 2\rceil\)</span> 个瓜。Alice 能够获得的瓜总数为 <span class="math inline">\(x + \lceil \frac {n-x} 2 \rceil\)</span>。</p>
+综上所述，当 <span class="math inline">\(n \le L\)</span> 时，答案为 <span class="math inline">\(n\)</span>；当 <span class="math inline">\(L &lt; n \le 3L\)</span> 时，答案为 <span class="math inline">\(n-L\)</span>；当 <span class="math inline">\(n &gt; 3L\)</span> 时，答案为 <span class="math inline">\(L + \lceil \frac {n-L} 2\rceil\)</span>。
 </details>
+<h1 id="cf-1215f-radio-stations">CF 1215F Radio Stations</h1>
+<p>非常妙的 2SAT 题，没想出来。看了题解觉得很 nb。具体做法就不写了。可以看官方题解。</p>
+<h1 id="cf-1188e-problem-from-red-panda">CF 1188E Problem from Red Panda</h1>
+<p>待填坑。</p>
 
           
         
