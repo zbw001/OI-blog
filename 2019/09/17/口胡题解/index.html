@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="用来记录口胡的题目。 如有错误请务必 qq 或者评论告诉我，谢谢！ JOISC 2018 Day4 T1 如果认为相邻两点之间有一条边，本题就可以看成求最大权点独立集。 显然一条链是二分图，那么问题可以转化为用费用流求最小权点覆盖集。 记录相邻两点之间边的方向，把连续一段方向相同的视作一个段。用线段树维护最短增广路，每次有段发生变更时就询问这个段，然后修改线段树上的信息。这样就可以维护最短增广路，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-16T16:54:18.098Z">
+<meta property="og:updated_time" content="2019-09-16T16:55:59.679Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="口胡的题">
 <meta name="twitter:description" content="用来记录口胡的题目。 如有错误请务必 qq 或者评论告诉我，谢谢！ JOISC 2018 Day4 T1 如果认为相邻两点之间有一条边，本题就可以看成求最大权点独立集。 显然一条链是二分图，那么问题可以转化为用费用流求最小权点覆盖集。 记录相邻两点之间边的方向，把连续一段方向相同的视作一个段。用线段树维护最短增广路，每次有段发生变更时就询问这个段，然后修改线段树上的信息。这样就可以维护最短增广路，">
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-09-17 00:32:00 / 修改时间：00:54:18" itemprop="dateCreated datePublished" datetime="2019-09-17T00:32:00+08:00">2019-09-17</time>
+              <time title="创建时间：2019-09-17 00:32:00 / 修改时间：00:55:59" itemprop="dateCreated datePublished" datetime="2019-09-17T00:32:00+08:00">2019-09-17</time>
             
 
             
@@ -421,9 +421,12 @@
 <h1 id="joisc-2018-day4-t2">JOISC 2018 Day4 T2</h1>
 <p>看作是询问一条链上一部分点的导出子图的连通块数。依次加点，通过二分求出新加的点和已有点构成的连通块之间的连边。由于总共只有 <span class="math inline">\(n-1\)</span> 条边，询问次数不会超过 <span class="math inline">\(\lceil \log n\rceil (n-1)\)</span>。</p>
 <h1 id="loj-6191-美团-codem-复赛配对游戏">LOJ 6191 「美团 CodeM 复赛」配对游戏</h1>
+<details>
+<p><summary>点击查看题解</summary></p>
 <p>最后一定会变成 &lt;&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;&gt;&gt;。</p>
 <p><span class="math inline">\(f_{i,j}\)</span> 表示前 <span class="math inline">\(i\)</span> 个消完，留下的字符最后有连续 <span class="math inline">\(j\)</span> 个 &gt;，留下的字符中 &lt; 的数量的期望。</p>
 <p>最后很容易统计答案。</p>
+</details>
 <h1 id="loj-6192-美团-codem-复赛城市网络">LOJ 6192 「美团 CodeM 复赛」城市网络</h1>
 <p>没啥好说的，就是倍增一下。</p>
 <h1 id="loj-6194-美团-codem-复赛排列">LOJ 6194 「美团 CodeM 复赛」排列</h1>
