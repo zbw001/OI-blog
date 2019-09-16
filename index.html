@@ -365,7 +365,7 @@
                 
               
 
-              <time title="创建时间：2019-09-17 00:32:00 / 修改时间：00:53:39" itemprop="dateCreated datePublished" datetime="2019-09-17T00:32:00+08:00">2019-09-17</time>
+              <time title="创建时间：2019-09-17 00:32:00 / 修改时间：00:54:18" itemprop="dateCreated datePublished" datetime="2019-09-17T00:32:00+08:00">2019-09-17</time>
             
 
             
@@ -421,13 +421,16 @@
 <h1 id="loj-6192-美团-codem-复赛城市网络">LOJ 6192 「美团 CodeM 复赛」城市网络</h1>
 <p>没啥好说的，就是倍增一下。</p>
 <h1 id="loj-6194-美团-codem-复赛排列">LOJ 6194 「美团 CodeM 复赛」排列</h1>
+<details>
+<p><summary>点击查看题解</summary></p>
 <p>按 <span class="math inline">\(a_i\)</span> 为第一关键字，<span class="math inline">\(b_i\)</span> 为第二关键字排序。重新给点编号。</p>
 <p>假设使 saved 变动的点的编号分别是 <span class="math inline">\(c_1, \ldots, c_k\)</span>，有 <span class="math inline">\(\forall 1 \le i &lt; k, a_{c_i} \le a_{c_{i+1}}, b_{c_i} \le b_{c_{i+1}}\)</span>。</p>
 <p>考虑对于给定的 <span class="math inline">\(c_i\)</span> 和 <span class="math inline">\(k\)</span>，如何计算 <span class="math inline">\(p\)</span> 的数量。</p>
 <p>设 <span class="math inline">\(d_i = card \{1 \le x \le n, a_x \ge c_i, b_x \ge c_i\}\)</span>，定义 <span class="math inline">\(d_0 = n\)</span>。</p>
 <p>如果 <span class="math inline">\(d_k &gt; 1\)</span>，<span class="math inline">\(p\)</span> 的数量为 <span class="math inline">\(0\)</span>。</p>
 <p>否则 <span class="math inline">\(p\)</span> 的数量为 <span class="math inline">\(\prod_{0 \le i &lt; k} \binom{d_i}{d_{i+1}}(d_i-d_{i+1})!\)</span>。</p>
-<p>这是一个非常容易 <span class="math inline">\(dp\)</span> 处理的式子。分治优化 dp 一下就做完了。</p>
+这是一个非常容易 <span class="math inline">\(dp\)</span> 处理的式子。分治优化 dp 一下就做完了。
+</details>
 <h1 id="loj-6212-美团-codem-决赛melon">LOJ 6212 「美团 CodeM 决赛」melon</h1>
 <details>
 <summary>点击查看题解</summary> QAQ
