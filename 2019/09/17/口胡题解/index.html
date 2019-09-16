@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="用来记录口胡的题目。 如有错误请务必 qq 或者评论告诉我，谢谢！ JOISC 2018 Day4 T1  点击查看题解 如果认为相邻两点之间有一条边，本题就可以看成求最大权点独立集。 显然一条链是二分图，那么问题可以转化为用费用流求最小权点覆盖集。 记录相邻两点之间边的方向，把连续一段方向相同的视作一个段。用线段树维护最短增广路，每次有段发生变更时就询问这个段，然后修改线段树上的信息。这样就可以">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-16T17:38:01.191Z">
+<meta property="og:updated_time" content="2019-09-16T18:11:19.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="口胡的题">
 <meta name="twitter:description" content="用来记录口胡的题目。 如有错误请务必 qq 或者评论告诉我，谢谢！ JOISC 2018 Day4 T1  点击查看题解 如果认为相邻两点之间有一条边，本题就可以看成求最大权点独立集。 显然一条链是二分图，那么问题可以转化为用费用流求最小权点覆盖集。 记录相邻两点之间边的方向，把连续一段方向相同的视作一个段。用线段树维护最短增广路，每次有段发生变更时就询问这个段，然后修改线段树上的信息。这样就可以">
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-09-17 00:32:00 / 修改时间：01:38:01" itemprop="dateCreated datePublished" datetime="2019-09-17T00:32:00+08:00">2019-09-17</time>
+              <time title="创建时间：2019-09-17 00:32:00 / 修改时间：02:11:19" itemprop="dateCreated datePublished" datetime="2019-09-17T00:32:00+08:00">2019-09-17</time>
             
 
             
@@ -444,13 +444,11 @@
 </details>
 <h1 id="loj-6212-美团-codem-决赛melon">LOJ 6212 「美团 CodeM 决赛」melon</h1>
 <details>
-<p><summary>点击查看题解</summary> <span class="math inline">\(n \le L\)</span> 时答案比较显然，所以只讨论 <span class="math inline">\(n &gt; L\)</span> 的情况。</p>
-<p>假设 Alice 第一步取 <span class="math inline">\(x\)</span> 个瓜。那么问题变成了 <span class="math inline">\(n-x\)</span> 个瓜，第一次是 Bob 先拿。</p>
-<p>假设 <span class="math inline">\(n-x \le 2L\)</span>，那么答案肯定是 Alice 拿了 <span class="math inline">\(n-L\)</span> 个瓜。下面讨论 <span class="math inline">\(n-x &gt; 2L\)</span> 的情况：</p>
-<p>对剩余的 <span class="math inline">\(n-x\)</span> 个瓜，如果 Bob 采取如下策略：假设瓜的数量大于 <span class="math inline">\(2L\)</span>，取走一个瓜，否则取走 <span class="math inline">\(L\)</span> 个瓜，就能保证至少拿到 <span class="math inline">\(\lfloor \frac {n-x} 2\rfloor\)</span> 个瓜。</p>
-<p>如果 Alice 采取如下策略：假设瓜的数量大于 <span class="math inline">\(2L\)</span>，取走和 Bob 上一轮取的相同数量的瓜，否则取走 <span class="math inline">\(L\)</span> 个瓜，就能保证至少拿到 <span class="math inline">\(\lceil \frac {n-x} 2\rceil\)</span> 个瓜。</p>
-<p>因此，在双方都采取最优策略时，Alice 能获得恰好 <span class="math inline">\(\lceil \frac{n-x} 2\rceil\)</span> 个瓜。Alice 能够获得的瓜总数为 <span class="math inline">\(x + \lceil \frac {n-x} 2 \rceil\)</span>。</p>
-综上所述，当 <span class="math inline">\(n \le L\)</span> 时，答案为 <span class="math inline">\(n\)</span>；当 <span class="math inline">\(L &lt; n \le 3L\)</span> 时，答案为 <span class="math inline">\(n-L\)</span>；当 <span class="math inline">\(n &gt; 3L\)</span> 时，答案为 <span class="math inline">\(L + \lceil \frac {n-L} 2\rceil\)</span>。
+<p><summary>点击查看题解</summary> <span class="math inline">\(n \le L\)</span> 时答案显然是 <span class="math inline">\(n\)</span>，<span class="math inline">\(L &lt; n \le 2L\)</span> 时答案显然是 <span class="math inline">\(L\)</span>，下面讨论 <span class="math inline">\(n &gt; 2L\)</span> 的情况。</p>
+<p>如果 Alice 采取如下策略：假设瓜的数量大于 <span class="math inline">\(2L\)</span>，取走一个瓜，否则取走 <span class="math inline">\(L\)</span> 个瓜，就能保证至少拿到 <span class="math inline">\(\lfloor \frac {n-x} 2\rfloor\)</span> 个瓜。（因为这样 Alice 拿到的瓜一定不会比 Bob 少）</p>
+<p>如果 Bob 采取如下策略：假设 Alice 刚刚拿走了 <span class="math inline">\(x\)</span> 个瓜，现在还剩下 <span class="math inline">\(c\)</span> 个瓜，如果 <span class="math inline">\(c-x \ge 2L\)</span>，那么取走 <span class="math inline">\(x\)</span> 个瓜；否则先取走 <span class="math inline">\(x-1\)</span> 个瓜，吃完后，剩余瓜数为 <span class="math inline">\(c-(x-1)\)</span>，因为 <span class="math inline">\(c-x &lt; 2L\)</span>，所以 <span class="math inline">\(c-x+1 \le 2L\)</span>，如果 <span class="math inline">\(c-x+1 \le L\)</span>，直接取走，这种情况下 Bob 拿的瓜不会比 Alice 少，否则取走 L 个，因为 <span class="math inline">\(c-x+1 \le 2L\)</span>，在剩余的 <span class="math inline">\(c-x+1\)</span> 个瓜中，Bob 拿的瓜不会比 Alice 少，这种情况下最坏也只是由于上一次 Alice 操作的时刻，Alice 取走了 <span class="math inline">\(x\)</span> 个而 Bob 取走了 <span class="math inline">\(x-1\)</span> 个，Bob 比 Alice 拿的瓜少了一个。所以 Bob 拿的瓜的数量最坏比 Alice 少 1。</p>
+<p>因此，在双方都采取最优策略时，Alice 能获得恰好 <span class="math inline">\(\lceil \frac{n} 2\rceil\)</span> 个瓜。</p>
+综上所述，当 <span class="math inline">\(n \le L\)</span> 时，答案为 <span class="math inline">\(n\)</span>；当 <span class="math inline">\(L &lt; n \le 2L\)</span> 时，答案为 <span class="math inline">\(L\)</span>；当 <span class="math inline">\(n &gt; 2L\)</span> 时，答案为 <span class="math inline">\(\lceil \frac {n+1} 2\rceil\)</span>。
 </details>
 <h1 id="cf-1215f-radio-stations">CF 1215F Radio Stations</h1>
 <p>非常妙的 2SAT 题，没想出来。看了题解觉得很 nb。具体做法就不写了。可以看官方题解。</p>
