@@ -365,7 +365,7 @@
                 
               
 
-              <time title="创建时间：2019-09-17 16:54:00 / 修改时间：16:55:52" itemprop="dateCreated datePublished" datetime="2019-09-17T16:54:00+08:00">2019-09-17</time>
+              <time title="创建时间：2019-09-17 16:54:00 / 修改时间：19:08:09" itemprop="dateCreated datePublished" datetime="2019-09-17T16:54:00+08:00">2019-09-17</time>
             
 
             
@@ -406,7 +406,20 @@
       
         
           
-            <p>一直以来对 2-SAT 的理解比较模糊，所以写这样一个尽可能严谨的总结来理清思路。</p>
+            <p>一直以来对 2-SAT 的理解比较模糊，所以写这样一个尽可能清晰的总结来理清思路。</p>
+<p>2-SAT 问题的定义：有 <span class="math inline">\(n\)</span> 个逻辑变量，用 <span class="math inline">\(b_i\)</span> 表示第 <span class="math inline">\(i\)</span> 个逻辑变量。<span class="math inline">\(m\)</span> 个限制条件，每一个限制条件形如：<span class="math inline">\((\neg)b_i \to (\neg) b_j\)</span>。问是否存在满足限制的 <span class="math inline">\(b\)</span>。</p>
+<p>用图来描述限制条件。对每个逻辑变量建两个点，分别代表取值为 <span class="math inline">\(0\)</span> 和取值为 <span class="math inline">\(1\)</span>。代表 <span class="math inline">\(b_i=0\)</span> 的点为 <span class="math inline">\(p_i\)</span>，代表 <span class="math inline">\(b_i = 1\)</span> 的点为 <span class="math inline">\(q_i\)</span>。对每个限制条件，在图上连一条有向边，表示一个命题推出另一个命题，然后再加一条边表示该限制条件的逆否命题。举例来说，如果有限制条件 <span class="math inline">\(\neg b_i \rightarrow b_j\)</span>，就加入 <span class="math inline">\((p_i, q_j)\)</span> 和 <span class="math inline">\((p_j, q_i)\)</span> 这两条有向边。问题就变为判定是否存在对于任意的 <span class="math inline">\(i\)</span>，恰好包含 <span class="math inline">\(p_i\)</span> 和 <span class="math inline">\(q_i\)</span> 中的一个点的闭合子图。</p>
+<p>定理：2-SAT 有解的充要条件是，对于任意的 <span class="math inline">\(i\)</span>，<span class="math inline">\(p_i\)</span> 和 <span class="math inline">\(q_i\)</span> 不在同一强连通分量中。</p>
+<p>必要性是显然的。</p>
+<p>下面用构造证明充分性：</p>
+<p>先 tarjan 求出强连通分量，把每个强联通分量缩成一个点。由于一个强连通分量内的点对应相反取值的点也构成一个强连通分量，所以缩点后，这个问题变为了一个更小的 2-SAT 问题。只需要解决图是 DAG 时的问题即可。</p>
+<p>把所有的边方向反过来。下面所有的讨论都是在反图上的。</p>
+<p>用符号 <span class="math inline">\(v^r\)</span> 表示与点 <span class="math inline">\(v\)</span> 对应的点：<span class="math inline">\(p_i^r = q_i, q_i^r = p_i\)</span>。</p>
+<p>求出拓扑序，按拓扑序依次处理每个点：如果当前点 <span class="math inline">\(u\)</span> 被打了标记，那么不选；否则选择 <span class="math inline">\(u\)</span>，并把 <span class="math inline">\(u^r\)</span> 以及 <span class="math inline">\(u^r\)</span> 出发能到达的所有点打上标记（递归进行，如果已经被打过标记就跳过，这样每个点只会被标记一次）。</p>
+<p>这样对于任意的 <span class="math inline">\(i\)</span>，<span class="math inline">\(p_i\)</span> 和 <span class="math inline">\(q_i\)</span> 不可能同时被选，已选的点也不与限制矛盾，只需要证明对于任意的 <span class="math inline">\(u\)</span>，<span class="math inline">\(u\)</span> 和 <span class="math inline">\(u^r\)</span> 中至少有一个被选即可。</p>
+<p>如果 <span class="math inline">\(u\)</span> 第一次被标记的原因是 <span class="math inline">\(v\)</span> 被选择， 那么 <span class="math inline">\(u\)</span> 是 <span class="math inline">\(v^r\)</span> 出发能到达的点，由 2-SAT 的性质可得 <span class="math inline">\(v\)</span> 是 <span class="math inline">\(u^r\)</span> 出发能到达的点，从而 <span class="math inline">\(v\)</span> 在拓扑序上比 <span class="math inline">\(u^r\)</span> 靠后。</p>
+<p>假设存在一个 <span class="math inline">\(u\)</span>，<span class="math inline">\(u\)</span> 和 <span class="math inline">\(u^r\)</span> 都被标记了，标记 <span class="math inline">\(u\)</span> 的原因是 <span class="math inline">\(v_1\)</span> 是被选择，标记 <span class="math inline">\(u^r\)</span> 的原因是 <span class="math inline">\(v_2\)</span> 被选择。那么 <span class="math inline">\(v_1\)</span> 在拓扑序上比 <span class="math inline">\(u^r\)</span> 靠后，<span class="math inline">\(v_2\)</span> 在拓扑序上比 <span class="math inline">\(u\)</span> 靠后。不妨设 <span class="math inline">\(u\)</span> 在拓扑序上比 <span class="math inline">\(u^r\)</span> 靠后，那么 <span class="math inline">\(v_2\)</span> 在拓扑序上比 <span class="math inline">\(u^r\)</span> 靠后，在处理 <span class="math inline">\(v_2\)</span> 之前就会先处理 <span class="math inline">\(u^r\)</span>，矛盾。</p>
+<p>所以该算法会得到一组合法的方案。</p>
 
           
         
