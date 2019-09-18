@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[‘[Codeforces1188E] Problem from Red Panda']]></title>
+    <title><![CDATA[[Codeforces1188E] Problem from Red Panda]]></title>
     <url>%2F2019%2F09%2F18%2FCF1188E%2F</url>
-    <content type="text"><![CDATA[12]]></content>
+    <content type="text"><![CDATA[还没写过。如果有错误可以 QQ / 评论告诉我。 题解 这样理解这个问题：初始时时间为第 \(0\) 秒。每秒你可以选择一个 \(i\)，然后把 \(a_i\) 加上 \(k\)，接下来再把所有 \(a_i\) 减去 \(1\)。你可以随时停止这个过程，并把当前的 \(a\) 数组作为结果。问在不经过任何存在 \(a_i &lt; 0\) 的状态的前提下，能够得到多少种不同的结果。 从这个角度来看，如果不考虑 \(+k\) 操作，每秒每个 \(a_i\)都会减少 \(1\)。 设 \(c_{t,i}\) 表示前 \(t\) 秒 \(a_i\) 被执行 \(+k\) 操作的次数。那么，如果这个过程在进行了 \(T\) 秒之后结束，\(\forall t \le T, 1 \le i \le n, a_i-t+kc_{t,i} \ge 0\)，也就是说 \(\forall 1 \le i \le n, 0 \le p \le \lfloor \frac {T-a_i-1} k \rfloor,c_{a_i+kp+1,i} \ge p+1\)。 不难证明存在经过 \(T\) 秒没有出现过负数的方案的充要条件是： \[ \forall t \le T, \sum_i \lceil \frac{\max(t-a_i, 0)} k \rceil \le t \] 对于 \(t \in \mathbb{N}\)，\(\sum_i \lceil \frac{\max(t-a_i, 0)} k \rceil \le t\) 是否成立是与 \(T\) 无关的。所以，要么对所有的 \(T\) 都存在不经过负数的方案，要么存在一个非负整数 \(T_0\)，当 \(T \le T_0\) 时存在方案，\(T &gt; T_0\) 时不存在方案。]]></content>
       <tags>
         <tag>codeforces</tag>
         <tag>题解</tag>
@@ -23,7 +23,7 @@
   <entry>
     <title><![CDATA[支配树]]></title>
     <url>%2F2019%2F09%2F17%2F%E6%94%AF%E9%85%8D%E6%A0%91%2F</url>
-    <content type="text"><![CDATA[补一个知识点。]]></content>
+    <content type="text"><![CDATA[补一个知识点。 等待填坑。]]></content>
       <tags>
         <tag>知识点</tag>
         <tag>支配树</tag>

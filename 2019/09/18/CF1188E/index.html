@@ -97,18 +97,18 @@
 
 
 
-  <meta name="description" content="12">
+  <meta name="description" content="还没写过。如果有错误可以 QQ / 评论告诉我。 题解 这样理解这个问题：初始时时间为第 \(0\) 秒。每秒你可以选择一个 \(i\)，然后把 \(a_i\) 加上 \(k\)，接下来再把所有 \(a_i\) 减去 \(1\)。你可以随时停止这个过程，并把当前的 \(a\) 数组作为结果。问在不经过任何存在 \(a_i &amp;lt; 0\) 的状态的前提下，能够得到多少种不同的结果。 从这个角度来看">
 <meta name="keywords" content="codeforces,题解,组合计数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="‘[Codeforces1188E] Problem from Red Panda&#39;">
+<meta property="og:title" content="[Codeforces1188E] Problem from Red Panda">
 <meta property="og:url" content="https://zbww.cf/2019/09/18/CF1188E/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="12">
+<meta property="og:description" content="还没写过。如果有错误可以 QQ / 评论告诉我。 题解 这样理解这个问题：初始时时间为第 \(0\) 秒。每秒你可以选择一个 \(i\)，然后把 \(a_i\) 加上 \(k\)，接下来再把所有 \(a_i\) 减去 \(1\)。你可以随时停止这个过程，并把当前的 \(a\) 数组作为结果。问在不经过任何存在 \(a_i &amp;lt; 0\) 的状态的前提下，能够得到多少种不同的结果。 从这个角度来看">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-18T07:18:30.036Z">
+<meta property="og:updated_time" content="2019-09-18T14:58:08.136Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="‘[Codeforces1188E] Problem from Red Panda&#39;">
-<meta name="twitter:description" content="12">
+<meta name="twitter:title" content="[Codeforces1188E] Problem from Red Panda">
+<meta name="twitter:description" content="还没写过。如果有错误可以 QQ / 评论告诉我。 题解 这样理解这个问题：初始时时间为第 \(0\) 秒。每秒你可以选择一个 \(i\)，然后把 \(a_i\) 加上 \(k\)，接下来再把所有 \(a_i\) 减去 \(1\)。你可以随时停止这个过程，并把当前的 \(a\) 数组作为结果。问在不经过任何存在 \(a_i &amp;lt; 0\) 的状态的前提下，能够得到多少种不同的结果。 从这个角度来看">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>‘[Codeforces1188E] Problem from Red Panda' | 一个蒟蒻的Blog</title>
+  <title>[Codeforces1188E] Problem from Red Panda | 一个蒟蒻的Blog</title>
   
 
 
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">‘[Codeforces1188E] Problem from Red Panda'
+          <h1 class="post-title" itemprop="name headline">[Codeforces1188E] Problem from Red Panda
 
               
             
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-09-18 15:18:00 / 修改时间：15:18:30" itemprop="dateCreated datePublished" datetime="2019-09-18T15:18:00+08:00">2019-09-18</time>
+              <time title="创建时间：2019-09-18 15:18:00 / 修改时间：22:58:08" itemprop="dateCreated datePublished" datetime="2019-09-18T15:18:00+08:00">2019-09-18</time>
             
 
             
@@ -412,7 +412,14 @@
       
 
       
-        <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <p>还没写过。如果有错误可以 QQ / 评论告诉我。</p>
+<h3 id="题解">题解</h3>
+<p>这样理解这个问题：初始时时间为第 <span class="math inline">\(0\)</span> 秒。每秒你可以选择一个 <span class="math inline">\(i\)</span>，然后把 <span class="math inline">\(a_i\)</span> 加上 <span class="math inline">\(k\)</span>，接下来再把所有 <span class="math inline">\(a_i\)</span> 减去 <span class="math inline">\(1\)</span>。你可以随时停止这个过程，并把当前的 <span class="math inline">\(a\)</span> 数组作为结果。问在不经过任何存在 <span class="math inline">\(a_i &lt; 0\)</span> 的状态的前提下，能够得到多少种不同的结果。</p>
+<p>从这个角度来看，如果不考虑 <span class="math inline">\(+k\)</span> 操作，每秒每个 <span class="math inline">\(a_i\)</span>都会减少 <span class="math inline">\(1\)</span>。</p>
+<p>设 <span class="math inline">\(c_{t,i}\)</span> 表示前 <span class="math inline">\(t\)</span> 秒 <span class="math inline">\(a_i\)</span> 被执行 <span class="math inline">\(+k\)</span> 操作的次数。那么，如果这个过程在进行了 <span class="math inline">\(T\)</span> 秒之后结束，<span class="math inline">\(\forall t \le T, 1 \le i \le n, a_i-t+kc_{t,i} \ge 0\)</span>，也就是说 <span class="math inline">\(\forall 1 \le i \le n, 0 \le p \le \lfloor \frac {T-a_i-1} k \rfloor,c_{a_i+kp+1,i} \ge p+1\)</span>。</p>
+<p>不难证明存在经过 <span class="math inline">\(T\)</span> 秒没有出现过负数的方案的充要条件是： <span class="math display">\[
+\forall t \le T, \sum_i \lceil \frac{\max(t-a_i, 0)} k \rceil \le t
+\]</span> 对于 <span class="math inline">\(t \in \mathbb{N}\)</span>，<span class="math inline">\(\sum_i \lceil \frac{\max(t-a_i, 0)} k \rceil \le t\)</span> 是否成立是与 <span class="math inline">\(T\)</span> 无关的。所以，要么对所有的 <span class="math inline">\(T\)</span> 都存在不经过负数的方案，要么存在一个非负整数 <span class="math inline">\(T_0\)</span>，当 <span class="math inline">\(T \le T_0\)</span> 时存在方案，<span class="math inline">\(T &gt; T_0\)</span> 时不存在方案。</p>
 
       
     </div>
@@ -513,8 +520,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -702,6 +718,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">1.</span> <span class="nav-text">题解</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
