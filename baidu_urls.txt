@@ -3,7 +3,6 @@ https://zbww.cf/2019/09/18/CF571E/
 https://zbww.cf/2019/09/17/支配树/
 https://zbww.cf/2019/09/17/2-SAT/
 https://zbww.cf/2019/09/17/口胡题解/
-https://zbww.cf/2019/09/16/LOJ6191/
 https://zbww.cf/2019/08/16/类欧几里得算法/
 https://zbww.cf/2019/08/10/[LOJ2461]/
 https://zbww.cf/2019/07/12/[模板]-多项式操作模板/
