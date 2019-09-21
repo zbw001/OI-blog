@@ -100,14 +100,14 @@
   <meta name="description" content="支配树的算法很妙。它的证明实在太长了….完整写一遍比较费时间，这里就只写结论了。 显然支配关系构成一棵树。 定义 \(sdom(u)\) 是能够从 \(v\) 出发只经过 \(dfn\) 比 \(u\) 大的到达 \(u\)（\(u\) 和 \(v\) 不算在里面）的 \(dfn\) 最小的 \(v\)。 \(sdom(u)\) 要么是能够通过一条前向边 / 树边直接到达 \(u\) 的点，要么是">
 <meta name="keywords" content="知识点,图论">
 <meta property="og:type" content="article">
-<meta property="og:title" content="‘[模板] 支配树&#39;">
+<meta property="og:title" content="[模板] 支配树">
 <meta property="og:url" content="https://zbww.cf/2019/09/17/支配树/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="支配树的算法很妙。它的证明实在太长了….完整写一遍比较费时间，这里就只写结论了。 显然支配关系构成一棵树。 定义 \(sdom(u)\) 是能够从 \(v\) 出发只经过 \(dfn\) 比 \(u\) 大的到达 \(u\)（\(u\) 和 \(v\) 不算在里面）的 \(dfn\) 最小的 \(v\)。 \(sdom(u)\) 要么是能够通过一条前向边 / 树边直接到达 \(u\) 的点，要么是">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-21T09:12:41.496Z">
+<meta property="og:updated_time" content="2019-09-21T09:20:43.012Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="‘[模板] 支配树&#39;">
+<meta name="twitter:title" content="[模板] 支配树">
 <meta name="twitter:description" content="支配树的算法很妙。它的证明实在太长了….完整写一遍比较费时间，这里就只写结论了。 显然支配关系构成一棵树。 定义 \(sdom(u)\) 是能够从 \(v\) 出发只经过 \(dfn\) 比 \(u\) 大的到达 \(u\)（\(u\) 和 \(v\) 不算在里面）的 \(dfn\) 最小的 \(v\)。 \(sdom(u)\) 要么是能够通过一条前向边 / 树边直接到达 \(u\) 的点，要么是">
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>‘[模板] 支配树' | 一个蒟蒻的Blog</title>
+  <title>[模板] 支配树 | 一个蒟蒻的Blog</title>
   
 
 
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">‘[模板] 支配树'
+          <h1 class="post-title" itemprop="name headline">[模板] 支配树
 
               
             
@@ -383,7 +383,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-21 17:12:41" itemprop="dateModified" datetime="2019-09-21T17:12:41+08:00">2019-09-21</time>
+                <time title="修改时间：2019-09-21 17:20:43" itemprop="dateModified" datetime="2019-09-21T17:20:43+08:00">2019-09-21</time>
               
             
           </span>
@@ -429,7 +429,9 @@
 <p>定义 <span class="math inline">\(sdom(u)\)</span> 是能够从 <span class="math inline">\(v\)</span> 出发只经过 <span class="math inline">\(dfn\)</span> 比 <span class="math inline">\(u\)</span> 大的到达 <span class="math inline">\(u\)</span>（<span class="math inline">\(u\)</span> 和 <span class="math inline">\(v\)</span> 不算在里面）的 <span class="math inline">\(dfn\)</span> 最小的 <span class="math inline">\(v\)</span>。</p>
 <p><span class="math inline">\(sdom(u)\)</span> 要么是能够通过一条前向边 / 树边直接到达 <span class="math inline">\(u\)</span> 的点，要么是满足子树中存在至少一个点能够直接走到 <span class="math inline">\(u\)</span> 且 <span class="math inline">\(dfn\)</span> 比 <span class="math inline">\(u\)</span> 大的点的 <span class="math inline">\(sdom\)</span>。根据这一点可以并查集计算 <span class="math inline">\(sdom\)</span>。并查集维护的是链 sdom 的最小值。</p>
 <p>设 <span class="math inline">\(v\)</span> 是 <span class="math inline">\(u\)</span> 到 <span class="math inline">\(sdom(u)\)</span> 的链上（不含 <span class="math inline">\(sdom(u)\)</span>）<span class="math inline">\(sdom\)</span> 最小的点 ，那么如果 <span class="math inline">\(sdom(v) = sdom(u)\)</span>，<span class="math inline">\(idom(u) = sdom(u)\)</span>，否则 <span class="math inline">\(idom(u) = idom(v)\)</span>。这个东西也是要求一个链 sdom 的最小值。可以求 <span class="math inline">\(sdom\)</span> 的时候顺便维护一下。</p>
+<p>这份代码被提交到 <a href="https://www.luogu.org/problem/P5180" target="_blank" rel="noopener">【模板】支配树</a>。</p>
 <h3 id="代码">代码</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br></pre></td></tr></table></figure>
 
       
     </div>
