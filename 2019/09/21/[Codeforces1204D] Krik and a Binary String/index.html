@@ -97,25 +97,25 @@
 
 
 
-  <meta name="description" content="Bluestein&apos;s Algorithm 求 \(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\) 设 \(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^2}\)。 则 \(f(\omega_n^">
-<meta name="keywords" content="noip noi oi 算法 algorithm acm">
+  <meta name="description" content="题解 如果只把 \(0\) 变成 \(1\) 而不把 \(1\) 变成 \(0\)，会导致 \(0\) 的个数减少，还不如不改变原序列。 如果既出现把 \(0\) 变成 \(1\) 也出现把 \(1\) 变成 \(0\)，设某一个把 \(0\) 变成 \(1\) 的位置为 \(p_1\)，某一个把 \(1\) 变成 \(0\) 的位置为 \(p_2\)。 不妨设 \(p_1 &amp;lt; p_2\)。">
+<meta name="keywords" content="codeforces,题解,贪心">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[模板] 任意长度DFT">
-<meta property="og:url" content="https://zbww.cf/2019/04/02/[模板]-/index.html">
+<meta property="og:title" content="[Codeforces1204D] Krik and a Binary String">
+<meta property="og:url" content="https://zbww.cf/2019/09/21/[Codeforces1204D] Krik and a Binary String/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="Bluestein&apos;s Algorithm 求 \(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\) 设 \(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^2}\)。 则 \(f(\omega_n^">
+<meta property="og:description" content="题解 如果只把 \(0\) 变成 \(1\) 而不把 \(1\) 变成 \(0\)，会导致 \(0\) 的个数减少，还不如不改变原序列。 如果既出现把 \(0\) 变成 \(1\) 也出现把 \(1\) 变成 \(0\)，设某一个把 \(0\) 变成 \(1\) 的位置为 \(p_1\)，某一个把 \(1\) 变成 \(0\) 的位置为 \(p_2\)。 不妨设 \(p_1 &amp;lt; p_2\)。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-03T07:36:35.057Z">
+<meta property="og:updated_time" content="2019-09-21T07:38:53.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[模板] 任意长度DFT">
-<meta name="twitter:description" content="Bluestein&apos;s Algorithm 求 \(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\) 设 \(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^2}\)。 则 \(f(\omega_n^">
+<meta name="twitter:title" content="[Codeforces1204D] Krik and a Binary String">
+<meta name="twitter:description" content="题解 如果只把 \(0\) 变成 \(1\) 而不把 \(1\) 变成 \(0\)，会导致 \(0\) 的个数减少，还不如不改变原序列。 如果既出现把 \(0\) 变成 \(1\) 也出现把 \(1\) 变成 \(0\)，设某一个把 \(0\) 变成 \(1\) 的位置为 \(p_1\)，某一个把 \(1\) 变成 \(0\) 的位置为 \(p_2\)。 不妨设 \(p_1 &amp;lt; p_2\)。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zbww.cf/2019/04/02/[模板]-/">
+  <link rel="canonical" href="https://zbww.cf/2019/09/21/[Codeforces1204D] Krik and a Binary String/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>[模板] 任意长度DFT | 一个蒟蒻的Blog</title>
+  <title>[Codeforces1204D] Krik and a Binary String | 一个蒟蒻的Blog</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/04/02/[模板]-/">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/09/21/[Codeforces1204D] Krik and a Binary String/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zbww">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[模板] 任意长度DFT
+          <h1 class="post-title" itemprop="name headline">[Codeforces1204D] Krik and a Binary String
 
               
             
@@ -366,24 +366,12 @@
                 
               
 
-              <time title="创建时间：2019-04-02 20:52:31" itemprop="dateCreated datePublished" datetime="2019-04-02T20:52:31+08:00">2019-04-02</time>
+              <time title="创建时间：2019-09-21 15:38:00 / 修改时间：15:38:53" itemprop="dateCreated datePublished" datetime="2019-09-21T15:38:00+08:00">2019-09-21</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-03 15:36:35" itemprop="dateModified" datetime="2019-04-03T15:36:35+08:00">2019-04-03</time>
               
             
           </span>
@@ -424,12 +412,27 @@
       
 
       
-        <p><strong>Bluestein's Algorithm</strong></p>
-<p>求 <span class="math inline">\(f(\omega_n^i) = \sum_{k=0}^{n-1} a_k \omega_n^{ik} = \sum_{k=0}^{n-1} a_k \omega_{2n}^{i^2+k^2-(i-k)^2}\)</span></p>
-<p>设 <span class="math inline">\(b_k = a_k\omega_{2n}^{k^2},c_k =w_{2n}^{-k^2}\)</span>。</p>
-<p>则 <span class="math inline">\(f(\omega_n^i) = \omega_{2n}^{i^2}\sum_{k=0}^{n-1} b_kc_{i-k}\)</span>。</p>
-<p><span class="math inline">\(i-k\)</span> 可能会出现负数。平移下做个卷积即可。</p>
-<p>懒得写QAQ。（好像也没啥好写的）</p>
+        <h3 id="题解">题解</h3>
+<p>如果只把 <span class="math inline">\(0\)</span> 变成 <span class="math inline">\(1\)</span> 而不把 <span class="math inline">\(1\)</span> 变成 <span class="math inline">\(0\)</span>，会导致 <span class="math inline">\(0\)</span> 的个数减少，还不如不改变原序列。</p>
+<p>如果既出现把 <span class="math inline">\(0\)</span> 变成 <span class="math inline">\(1\)</span> 也出现把 <span class="math inline">\(1\)</span> 变成 <span class="math inline">\(0\)</span>，设某一个把 <span class="math inline">\(0\)</span> 变成 <span class="math inline">\(1\)</span> 的位置为 <span class="math inline">\(p_1\)</span>，某一个把 <span class="math inline">\(1\)</span> 变成 <span class="math inline">\(0\)</span> 的位置为 <span class="math inline">\(p_2\)</span>。</p>
+<p>不妨设 <span class="math inline">\(p_1 &lt; p_2\)</span>。（如果 <span class="math inline">\(p_1 &gt; p_2\)</span>，交换原序列和新序列就和一种 <span class="math inline">\(p_1 &lt; p_2\)</span> 的情况等价了）</p>
+<p>设 <span class="math inline">\(f[l,r]\)</span> 表示原序列上 <span class="math inline">\([l,r]\)</span> 中最长不降子序列长度，<span class="math inline">\(g[l,r]\)</span> 表示新序列上 <span class="math inline">\([l,r]\)</span> 中最长不降子序列长度。</p>
+<p>定义 <span class="math inline">\(f[l,r] = g[l,r] = 0(l &gt; r)\)</span>。</p>
+<p>那么 <span class="math inline">\(f[p_1,p_2] = f[p_1+1, p_2-1]+2 \Rightarrow g[p_1,p_2] = g[p_1+1,p_2-1]+2\)</span>。</p>
+<p>因此新序列上 <span class="math inline">\([p_1,p_2]\)</span> 中的最长不降子序列必然要包含 <span class="math inline">\(p_1\)</span> 和 <span class="math inline">\(p_2\)</span>，但是新序列上 <span class="math inline">\(p_1\)</span> 位置为 <span class="math inline">\(1\)</span>，<span class="math inline">\(p_2\)</span> 位置为 <span class="math inline">\(0\)</span>，这是不可能的。</p>
+<p>因此，只会出现把 <span class="math inline">\(1\)</span> 变成 <span class="math inline">\(0\)</span> 的位置，不会出现把 <span class="math inline">\(0\)</span> 变成 <span class="math inline">\(1\)</span> 的位置。</p>
+<p>考虑把一个位置在原序列左端或左边不为 <span class="math inline">\(1\)</span> 的 <span class="math inline">\(1\)</span> 变成 <span class="math inline">\(0\)</span>，不对任意区间内的最长不降子序列产生影响的条件。</p>
+<p>假设这个位置是 <span class="math inline">\(p\)</span>。分两种情况讨论：</p>
+<ol type="1">
+<li><span class="math inline">\(p &lt; n\)</span> 且位置 <span class="math inline">\(p+1\)</span> 上的是 <span class="math inline">\(1\)</span>.</li>
+<li><span class="math inline">\(p = n\)</span> 或位置 <span class="math inline">\(p+1\)</span> 上的是 <span class="math inline">\(0\)</span>.</li>
+</ol>
+<p>先看第一种情况。把位置 <span class="math inline">\(p\)</span> 上的 <span class="math inline">\(1\)</span> 变成 <span class="math inline">\(0\)</span> 看作新序列（用 <span class="math inline">\(g[l,r]\)</span> 描述新序列上的最长不降子序列）。对于任意的 <span class="math inline">\(i &lt; p\)</span>，<span class="math inline">\(f[i,p] = f[i,p-1] + 1 \Rightarrow g[i,p] = g[i,p-1] + 1\)</span>，而新序列上位置 <span class="math inline">\(p\)</span> 上的是 <span class="math inline">\(0\)</span>，这说明 <span class="math inline">\([i,p-1]\)</span> 存在结尾为 <span class="math inline">\(0\)</span> 的最长不降子序列，即 <span class="math inline">\([i,p-1]\)</span> 的最长不降子序列等于 <span class="math inline">\([i, p-1]\)</span> 中 <span class="math inline">\(0\)</span> 的个数。可以证明这个条件对任意的 <span class="math inline">\(i &lt; p\)</span> 都成立的充要条件为对于任意的 <span class="math inline">\(i &lt; p\)</span>，<span class="math inline">\([i,p-1]\)</span> 中 <span class="math inline">\(0\)</span> 的个数不少于 <span class="math inline">\(1\)</span> 的个数：必要性是显然的，只需证充分性，假设 <span class="math inline">\([i, p-1]\)</span> 的最长不降子序列大于 <span class="math inline">\(0\)</span> 的个数，任取一个 <span class="math inline">\([i,p-1]\)</span> 的最长不降子序列，它必然包含一个 <span class="math inline">\(1\)</span>，设第一个 <span class="math inline">\(1\)</span> 位置为 <span class="math inline">\(k\)</span>，那么这个子序列 <span class="math inline">\(k\)</span> 之前的元素再拼上 <span class="math inline">\([k,p-1]\)</span> 中所有的 <span class="math inline">\(0\)</span> 必然是一个全 <span class="math inline">\(0\)</span> 的不会更短的子序列（因为 <span class="math inline">\([k,p-1]\)</span> 中 <span class="math inline">\(0\)</span> 的个数不少于 <span class="math inline">\(1\)</span> 的个数），这与不存在全为 <span class="math inline">\(0\)</span> 的不降子序列矛盾。不难验证这也是第一种情况中能把 <span class="math inline">\(p\)</span> 上的数变为 <span class="math inline">\(0\)</span> 的充要条件。</p>
+<p>第二种情况显然也必须要满足第一种情况的条件。除此之外，由于位置 <span class="math inline">\(p+1\)</span> 上的是 <span class="math inline">\(0\)</span>，还需满足对于任意的 <span class="math inline">\(i &gt; p\)</span>，<span class="math inline">\([p+1,i]\)</span> 中 <span class="math inline">\(1\)</span> 的个数不少于 <span class="math inline">\(0\)</span> 的个数（与第一种情况的证明类似，详细过程就不写了）。</p>
+<p>从左往右贪心，对于一个位置，如果它是 <span class="math inline">\(1\)</span>，且能够保持任意区间最长不降子序列长度不变地变为 <span class="math inline">\(0\)</span>，就把它变成 <span class="math inline">\(0\)</span>。不难证明这种贪心是正确的，详细证明这里不写了。（提示：考虑最优解中 <span class="math inline">\(1\rightarrow0\)</span> 的最小位置）</p>
+<p>判断是否存在前缀 / 后缀 <span class="math inline">\(0\)</span> 的个数多于/少于 <span class="math inline">\(1\)</span> 的个数，可以通过计算每个前缀中 <span class="math inline">\(0\)</span> 的个数减 <span class="math inline">\(1\)</span> 的个数很容易地处理。</p>
+<h3 id="代码">代码</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -451,6 +454,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/codeforces/" rel="tag"># codeforces</a>
+          
+            <a href="/tags/题解/" rel="tag"># 题解</a>
+          
+            <a href="/tags/贪心/" rel="tag"># 贪心</a>
+          
+        </div>
+      
 
       
       
@@ -460,8 +473,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/02/[模板]-NTT模板/" rel="next" title="[模板] NTT模板">
-                <i class="fa fa-chevron-left"></i> [模板] NTT模板
+              <a href="/2019/09/18/CF1188E/" rel="next" title="[Codeforces1188E] Problem from Red Panda">
+                <i class="fa fa-chevron-left"></i> [Codeforces1188E] Problem from Red Panda
               </a>
             
           </div>
@@ -469,10 +482,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/03/[模板]-多项式求逆/" rel="prev" title="[模板] 多项式求逆">
-                [模板] 多项式求逆 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -524,8 +533,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -716,6 +734,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">1.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -888,7 +923,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/04/02/[模板]-/'
+    refer: '2019/09/21/[Codeforces1204D] Krik and a Binary String/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
