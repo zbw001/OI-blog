@@ -31,12 +31,12 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[支配树]]></title>
+    <title><![CDATA[‘[模板] 支配树']]></title>
     <url>%2F2019%2F09%2F17%2F%E6%94%AF%E9%85%8D%E6%A0%91%2F</url>
-    <content type="text"><![CDATA[补一个知识点。 等待填坑。]]></content>
+    <content type="text"><![CDATA[支配树的算法很妙。它的证明实在太长了….完整写一遍比较费时间，这里就只写结论了。 显然支配关系构成一棵树。 定义 \(sdom(u)\) 是能够从 \(v\) 出发只经过 \(dfn\) 比 \(u\) 大的到达 \(u\)（\(u\) 和 \(v\) 不算在里面）的 \(dfn\) 最小的 \(v\)。 \(sdom(u)\) 要么是能够通过一条前向边 / 树边直接到达 \(u\) 的点，要么是满足子树中存在至少一个点能够直接走到 \(u\) 且 \(dfn\) 比 \(u\) 大的点的 \(sdom\)。根据这一点可以并查集计算 \(sdom\)。并查集维护的是链 sdom 的最小值。 设 \(v\) 是 \(u\) 到 \(sdom(u)\) 的链上（不含 \(sdom(u)\)）\(sdom\) 最小的点 ，那么如果 \(sdom(v) = sdom(u)\)，\(idom(u) = sdom(u)\)，否则 \(idom(u) = idom(v)\)。这个东西也是要求一个链 sdom 的最小值。可以求 \(sdom\) 的时候顺便维护一下。 代码]]></content>
       <tags>
         <tag>知识点</tag>
-        <tag>支配树</tag>
+        <tag>图论</tag>
       </tags>
   </entry>
   <entry>
