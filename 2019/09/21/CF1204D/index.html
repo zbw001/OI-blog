@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="题解 update: 感觉我做麻烦了，题解做法好简单。这篇 blog 就丢这吧…..感觉没什么错误。 如果只把 \(0\) 变成 \(1\) 而不把 \(1\) 变成 \(0\)，会导致 \(0\) 的个数减少，还不如不改变原序列。 如果既出现把 \(0\) 变成 \(1\) 也出现把 \(1\) 变成 \(0\)，设某一个把 \(0\) 变成 \(1\) 的位置为 \(p_1\)，某一个把 \(">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-21T07:52:56.627Z">
+<meta property="og:updated_time" content="2019-09-21T07:55:53.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Codeforces1204D] Kirk and a Binary String">
 <meta name="twitter:description" content="题解 update: 感觉我做麻烦了，题解做法好简单。这篇 blog 就丢这吧…..感觉没什么错误。 如果只把 \(0\) 变成 \(1\) 而不把 \(1\) 变成 \(0\)，会导致 \(0\) 的个数减少，还不如不改变原序列。 如果既出现把 \(0\) 变成 \(1\) 也出现把 \(1\) 变成 \(0\)，设某一个把 \(0\) 变成 \(1\) 的位置为 \(p_1\)，某一个把 \(">
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-09-21 15:38:00 / 修改时间：15:52:56" itemprop="dateCreated datePublished" datetime="2019-09-21T15:38:00+08:00">2019-09-21</time>
+              <time title="创建时间：2019-09-21 15:38:00 / 修改时间：15:55:53" itemprop="dateCreated datePublished" datetime="2019-09-21T15:38:00+08:00">2019-09-21</time>
             
 
             
@@ -432,7 +432,6 @@
 <p>第二种情况显然也必须要满足第一种情况的条件。除此之外，由于位置 <span class="math inline">\(p+1\)</span> 上的是 <span class="math inline">\(0\)</span>，还需满足对于任意的 <span class="math inline">\(i &gt; p\)</span>，<span class="math inline">\([p+1,i]\)</span> 中 <span class="math inline">\(1\)</span> 的个数不少于 <span class="math inline">\(0\)</span> 的个数（与第一种情况的证明类似，详细过程就不写了）。</p>
 <p>从左往右贪心，对于一个位置，如果它是 <span class="math inline">\(1\)</span>，且能够保持任意区间最长不降子序列长度不变地变为 <span class="math inline">\(0\)</span>，就把它变成 <span class="math inline">\(0\)</span>。不难证明这种贪心是正确的，详细证明这里不写了。（提示：考虑最优解中 <span class="math inline">\(1\rightarrow0\)</span> 的最小位置）</p>
 <p>判断是否存在前缀 / 后缀 <span class="math inline">\(0\)</span> 的个数多于 / 少于 <span class="math inline">\(1\)</span> 的个数，可以通过计算每个前缀中 <span class="math inline">\(0\)</span> 的个数减 <span class="math inline">\(1\)</span> 的个数很容易地处理。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
