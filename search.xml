@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[agc037_f]]></title>
     <url>%2F2019%2F10%2F19%2Fagc037_f%2F</url>
-    <content type="text"><![CDATA[题目链接 # 题解 代码 12345678#include &lt;bits/stdc++.h&gt;using namespace std;int main() &#123; return 0;&#125;]]></content>
+    <content type="text"><![CDATA[题目链接 题解 考虑对于一个给定的序列 \(a\)，如何判断是否存在 \(K\) 使得 \(a\) 属于 \((K, L)\)。 \(a\) 属于 \((K,L)\) 等价于，存在一个有 \(\lvert a \rvert\) 个叶子的有根树，满足一个点要么是叶子，要么要有至少 \(L\) 个儿子，且 dfs 序上的第 \(i\) 个叶子的深度恰好为 \(K - a_i\)。（根的深度为 \(0\)） 代码 12345678#include &lt;bits/stdc++.h&gt;using namespace std;int main() &#123; return 0;&#125;]]></content>
       <tags>
         <tag>题解</tag>
         <tag>atcoder</tag>

@@ -97,18 +97,18 @@
 
 
 
-  <meta name="description" content="题目链接 # 题解 代码 12345678#include &amp;lt;bits/stdc++.h&amp;gt;using namespace std;int main() &amp;#123;    return 0;&amp;#125;">
+  <meta name="description" content="题目链接 题解 考虑对于一个给定的序列 \(a\)，如何判断是否存在 \(K\) 使得 \(a\) 属于 \((K, L)\)。 \(a\) 属于 \((K,L)\) 等价于，存在一个有 \(\lvert a \rvert\) 个叶子的有根树，满足一个点要么是叶子，要么要有至少 \(L\) 个儿子，且 dfs 序上的第 \(i\) 个叶子的深度恰好为 \(K - a_i\)。（根的深度为 \(0\">
 <meta name="keywords" content="题解,atcoder">
 <meta property="og:type" content="article">
 <meta property="og:title" content="agc037_f">
 <meta property="og:url" content="https://zbww.cf/2019/10/19/agc037_f/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="题目链接 # 题解 代码 12345678#include &amp;lt;bits/stdc++.h&amp;gt;using namespace std;int main() &amp;#123;    return 0;&amp;#125;">
+<meta property="og:description" content="题目链接 题解 考虑对于一个给定的序列 \(a\)，如何判断是否存在 \(K\) 使得 \(a\) 属于 \((K, L)\)。 \(a\) 属于 \((K,L)\) 等价于，存在一个有 \(\lvert a \rvert\) 个叶子的有根树，满足一个点要么是叶子，要么要有至少 \(L\) 个儿子，且 dfs 序上的第 \(i\) 个叶子的深度恰好为 \(K - a_i\)。（根的深度为 \(0\">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-19T11:06:48.814Z">
+<meta property="og:updated_time" content="2019-10-21T12:57:55.843Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="agc037_f">
-<meta name="twitter:description" content="题目链接 # 题解 代码 12345678#include &amp;lt;bits/stdc++.h&amp;gt;using namespace std;int main() &amp;#123;    return 0;&amp;#125;">
+<meta name="twitter:description" content="题目链接 题解 考虑对于一个给定的序列 \(a\)，如何判断是否存在 \(K\) 使得 \(a\) 属于 \((K, L)\)。 \(a\) 属于 \((K,L)\) 等价于，存在一个有 \(\lvert a \rvert\) 个叶子的有根树，满足一个点要么是叶子，要么要有至少 \(L\) 个儿子，且 dfs 序上的第 \(i\) 个叶子的深度恰好为 \(K - a_i\)。（根的深度为 \(0\">
 
 
 
@@ -366,12 +366,24 @@
                 
               
 
-              <time title="创建时间：2019-10-19 19:05:41 / 修改时间：19:06:48" itemprop="dateCreated datePublished" datetime="2019-10-19T19:05:41+08:00">2019-10-19</time>
+              <time title="创建时间：2019-10-19 19:05:41" itemprop="dateCreated datePublished" datetime="2019-10-19T19:05:41+08:00">2019-10-19</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-21 20:57:55" itemprop="dateModified" datetime="2019-10-21T20:57:55+08:00">2019-10-21</time>
               
             
           </span>
@@ -412,7 +424,10 @@
       
 
       
-        <p><a href="https://atcoder.jp/contests/agc037/tasks/agc037_f" target="_blank" rel="noopener">题目链接</a> # 题解</p>
+        <p><a href="https://atcoder.jp/contests/agc037/tasks/agc037_f" target="_blank" rel="noopener">题目链接</a></p>
+<h1 id="题解">题解</h1>
+<p>考虑对于一个给定的序列 <span class="math inline">\(a\)</span>，如何判断是否存在 <span class="math inline">\(K\)</span> 使得 <span class="math inline">\(a\)</span> 属于 <span class="math inline">\((K, L)\)</span>。</p>
+<p><span class="math inline">\(a\)</span> 属于 <span class="math inline">\((K,L)\)</span> 等价于，存在一个有 <span class="math inline">\(\lvert a \rvert\)</span> 个叶子的有根树，满足一个点要么是叶子，要么要有至少 <span class="math inline">\(L\)</span> 个儿子，且 dfs 序上的第 <span class="math inline">\(i\)</span> 个叶子的深度恰好为 <span class="math inline">\(K - a_i\)</span>。（根的深度为 <span class="math inline">\(0\)</span>）</p>
 <h1 id="代码">代码</h1>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -722,7 +737,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">1.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题解"><span class="nav-number">1.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
 
           </div>
