@@ -97,25 +97,25 @@
 
 
 
-  <meta name="description" content="题目链接 题解 复杂度讨论中默认 \(n,m\) 同阶。 定义第 \(i\) 个操作的发生时间为 \(i\)。 求出每次操作加入的新的 \(x\) 全部被弹出的最早时间，就很好求答案了。 从后往前考虑每个操作，计算这次操作加入的元素全部被弹出的最早时间。 定义一个队列 \(i\) 的弹出时间为从当前操作开始，往后第 \(a_i\) 个影响队列 \(i\) 的操作的发生时间。 分块，从后往前依次加入">
-<meta name="keywords" content="数据结构,LOJ">
+  <meta name="description" content="题解 对于 \(i, j\)，考虑 \(P_i &amp;gt; P_j\) 的方案数。只需考虑 \(A_i \le A_j\) 的情况即可。这相当于是把 \(A_j\) 改为 \(A_i\) 之后满足 \(\forall i, P_i \le A_i\) 的限制的排列数除以 \(2\)。 把 \(1 \ldots n\) 按 \(A_i\) 从小到大排序，设排序后第 \(i\) 个数是 \(p_i\)。">
+<meta name="keywords" content="题解,Atcoder,计数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LOJ2461] 完美的队列">
-<meta property="og:url" content="https://zbww.cf/2019/08/10/[LOJ2461]/index.html">
+<meta property="og:title" content="[AGC023E] Inversions">
+<meta property="og:url" content="https://zbww.cf/2019/10/24/[AGC023E]-Inversions/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="题目链接 题解 复杂度讨论中默认 \(n,m\) 同阶。 定义第 \(i\) 个操作的发生时间为 \(i\)。 求出每次操作加入的新的 \(x\) 全部被弹出的最早时间，就很好求答案了。 从后往前考虑每个操作，计算这次操作加入的元素全部被弹出的最早时间。 定义一个队列 \(i\) 的弹出时间为从当前操作开始，往后第 \(a_i\) 个影响队列 \(i\) 的操作的发生时间。 分块，从后往前依次加入">
+<meta property="og:description" content="题解 对于 \(i, j\)，考虑 \(P_i &amp;gt; P_j\) 的方案数。只需考虑 \(A_i \le A_j\) 的情况即可。这相当于是把 \(A_j\) 改为 \(A_i\) 之后满足 \(\forall i, P_i \le A_i\) 的限制的排列数除以 \(2\)。 把 \(1 \ldots n\) 按 \(A_i\) 从小到大排序，设排序后第 \(i\) 个数是 \(p_i\)。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-11T07:36:07.735Z">
+<meta property="og:updated_time" content="2019-10-24T12:27:26.990Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LOJ2461] 完美的队列">
-<meta name="twitter:description" content="题目链接 题解 复杂度讨论中默认 \(n,m\) 同阶。 定义第 \(i\) 个操作的发生时间为 \(i\)。 求出每次操作加入的新的 \(x\) 全部被弹出的最早时间，就很好求答案了。 从后往前考虑每个操作，计算这次操作加入的元素全部被弹出的最早时间。 定义一个队列 \(i\) 的弹出时间为从当前操作开始，往后第 \(a_i\) 个影响队列 \(i\) 的操作的发生时间。 分块，从后往前依次加入">
+<meta name="twitter:title" content="[AGC023E] Inversions">
+<meta name="twitter:description" content="题解 对于 \(i, j\)，考虑 \(P_i &amp;gt; P_j\) 的方案数。只需考虑 \(A_i \le A_j\) 的情况即可。这相当于是把 \(A_j\) 改为 \(A_i\) 之后满足 \(\forall i, P_i \le A_i\) 的限制的排列数除以 \(2\)。 把 \(1 \ldots n\) 按 \(A_i\) 从小到大排序，设排序后第 \(i\) 个数是 \(p_i\)。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zbww.cf/2019/08/10/[LOJ2461]/">
+  <link rel="canonical" href="https://zbww.cf/2019/10/24/[AGC023E]-Inversions/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>[LOJ2461] 完美的队列 | 一个蒟蒻的Blog</title>
+  <title>[AGC023E] Inversions | 一个蒟蒻的Blog</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/08/10/[LOJ2461]/">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/10/24/[AGC023E]-Inversions/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zbww">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[LOJ2461] 完美的队列
+          <h1 class="post-title" itemprop="name headline">[AGC023E] Inversions
 
               
             
@@ -366,24 +366,12 @@
                 
               
 
-              <time title="创建时间：2019-08-10 17:40:04" itemprop="dateCreated datePublished" datetime="2019-08-10T17:40:04+08:00">2019-08-10</time>
+              <time title="创建时间：2019-10-24 16:35:07 / 修改时间：20:27:26" itemprop="dateCreated datePublished" datetime="2019-10-24T16:35:07+08:00">2019-10-24</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-11 15:36:07" itemprop="dateModified" datetime="2019-08-11T15:36:07+08:00">2019-08-11</time>
               
             
           </span>
@@ -424,40 +412,13 @@
       
 
       
-        <p><a href="https://loj.ac/problem/2461" target="_blank" rel="noopener">题目链接</a></p>
-<h2 id="题解">题解</h2>
-<p>复杂度讨论中默认 <span class="math inline">\(n,m\)</span> 同阶。</p>
-<p>定义第 <span class="math inline">\(i\)</span> 个操作的发生时间为 <span class="math inline">\(i\)</span>。</p>
-<p>求出每次操作加入的新的 <span class="math inline">\(x\)</span> 全部被弹出的最早时间，就很好求答案了。</p>
-<p>从后往前考虑每个操作，计算这次操作加入的元素全部被弹出的最早时间。</p>
-<p>定义一个队列 <span class="math inline">\(i\)</span> 的弹出时间为从当前操作开始，往后第 <span class="math inline">\(a_i\)</span> 个影响队列 <span class="math inline">\(i\)</span> 的操作的发生时间。</p>
-<p>分块，从后往前依次加入每个操作，分别维护每一块中的队列弹出时间的最大值。我们把一块中所有队列弹出时间的最大值称为这个块的最早弹出时间。</p>
-<p>在加入第 <span class="math inline">\(k\)</span> 个操作后，第 <span class="math inline">\(i\)</span> 个块 <span class="math inline">\([a_i,b_i]\)</span> 维护最早弹出时间 <span class="math inline">\(t_i\)</span>，设 <span class="math inline">\(c_p\)</span> 为第 <span class="math inline">\(k\)</span> 个操作到第 <span class="math inline">\(t_i-1\)</span> 个操作中第 <span class="math inline">\(p\)</span> 个队列被 push 的次数，维护 <span class="math inline">\(mn_k = \min_{a_i \le p \le b_i} c_p-a_p\)</span>。同时维护 <span class="math inline">\(c_p\)</span> 的值。（通过打标记）</p>
-<p>考虑在加入操作 <span class="math inline">\(i\)</span> 后，如何更新每块维护的信息。</p>
-<p>假设这个块是第 <span class="math inline">\(k\)</span> 个块。<br>
-对于这个块的最早弹出时间大于等于 <span class="math inline">\(m\)</span> 的情况预先处理好。下面只讨论最早弹出时间小于 <span class="math inline">\(m\)</span> 的情况。</p>
-<h3 id="更新-mn_k-和-c-数组">更新 <span class="math inline">\(mn_k\)</span> 和 <span class="math inline">\(c\)</span> 数组</h3>
-<h4 id="如果这个块被第-i-次修改的区间完整包含">如果这个块被第 <span class="math inline">\(i\)</span> 次修改的区间完整包含：</h4>
-<p>更新 <span class="math inline">\(mn_k \leftarrow mn_k+1\)</span>。更新 <span class="math inline">\(c_p\)</span> 的值，即打一个整块加 <span class="math inline">\(1\)</span> 标记。</p>
-<h4 id="如果这个块未被第-i-次修改的区间完整包含">如果这个块未被第 <span class="math inline">\(i\)</span> 次修改的区间完整包含：</h4>
-<p>暴力重构，更新 <span class="math inline">\(mn_k\)</span> 和 <span class="math inline">\(c\)</span> 数组。</p>
-<h3 id="更新-t_k">更新 <span class="math inline">\(t_k\)</span></h3>
-<p>按以下步骤进行：</p>
-<ol type="1">
-<li>如果 <span class="math inline">\(mn_k \ge 0\)</span>，说明 <span class="math inline">\(t_k\)</span> 可以减小，那么 <span class="math inline">\(t_k \leftarrow t_k-1\)</span>。否则不用更新，结束操作。</li>
-<li>如果第 <span class="math inline">\(t_k\)</span> 次操作包含整个块，那么 <span class="math inline">\(mn_k \leftarrow mn_k-1\)</span>，打 <span class="math inline">\(-1\)</span> 标记更新 <span class="math inline">\(c_p\)</span> 的值。否则暴力重构更新 <span class="math inline">\(mn_k\)</span> 和 <span class="math inline">\(c_p\)</span> 的值。</li>
-<li>转到操作 1。</li>
-</ol>
-<p>这样就做到了在 <span class="math inline">\(O(n \sqrt n)\)</span> 时间内维护每个块的最早弹出时间。</p>
-<p>剩余的问题是: 如何在从右往左加入操作的过程中，支持查询一个区间的最早弹出时间。把区间拆成若干个块和不超过 <span class="math inline">\(2 \sqrt n\)</span> 个多出来的点。对于这些块，已经知道了它的最早弹出时间，取 <span class="math inline">\(\max\)</span> 即可。对于这些多出来的点，需要动态询问他们的最早弹出时间。</p>
-<h3 id="处理单点信息">处理单点信息</h3>
-<p>要支持从后往前添加操作，询问单个队列的最早弹出时间。</p>
-<p>同样分块维护。对每个块开一个 vector，对每个队列开一个 vector。在进行修改时，对完整包含的每个块的 vector 加入当前修改的编号，再对两边多出的 <span class="math inline">\(O (\sqrt n)\)</span> 个队列对应的 vector 加入当前修改的编号。</p>
-<p>那么一个队列的操作序列就是它的 vector 和它所在的块的 vector 归并后的结果。对每个点记录它的最早弹出时间 <span class="math inline">\(t\)</span> (每次询问时更新，修改时不一定是最新的)，它的 vector 中第一个在 <span class="math inline">\(t\)</span> 之前的修改的位置 <span class="math inline">\(p_1\)</span>，它所在块的 vector 中第一个在 <span class="math inline">\(t\)</span> 之前修改的位置 <span class="math inline">\(p_2\)</span>。对每个块记录这个块中的队列在上一次更新信息之后修改的次数 <span class="math inline">\(c\)</span>。那么修改的时候对整块只需要 <span class="math inline">\(c \leftarrow c+1\)</span>，对两端的块更新其中每一个队列的 <span class="math inline">\(t, p_1, p_2\)</span>，并把 <span class="math inline">\(c\)</span> 设为 <span class="math inline">\(0\)</span>。更新方法大致为：对于一个队列，先判断 <span class="math inline">\(t\)</span> 是在它 vector 中还是在块的 vector 中（通过 <span class="math inline">\(p_1, p_2\)</span> 可以直接判断），这两种情况区别不大，所以这里只写在块 vector 上的情况。定义一个临时变量 <span class="math inline">\(t = c\)</span>，如果它的块的 vector 中的第 <span class="math inline">\(p_2+t\)</span> 项的小于这个队列的 vector 中的 <span class="math inline">\(p_1\)</span> 项，那么 <span class="math inline">\(p_1 \leftarrow p_1+1\)</span>，然后 <span class="math inline">\(t \leftarrow t-1\)</span>，然后再次检查，这样循环直到可以直接把 <span class="math inline">\(p_2\)</span> 改为 <span class="math inline">\(p_2+t\)</span> 的时候，修改 <span class="math inline">\(p_2\)</span> 就完成了更新。</p>
-<p>一个队列被更新时进行的判断的总次数与它的 vector 中元素个数同级，所以更新的总复杂度是 <span class="math inline">\(O(n)\)</span> 的。（但是维护 vector 和进行操作是 <span class="math inline">\(O(\sqrt n)\)</span> 的）。</p>
-<p>这样就以 <span class="math inline">\(O(n \sqrt n)\)</span> 的时间复杂度解决了问题。</p>
-<h2 id="实现">实现</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">待填</span><br></pre></td></tr></table></figure>
+        <h1 id="题解">题解</h1>
+<p>对于 <span class="math inline">\(i, j\)</span>，考虑 <span class="math inline">\(P_i &gt; P_j\)</span> 的方案数。只需考虑 <span class="math inline">\(A_i \le A_j\)</span> 的情况即可。这相当于是把 <span class="math inline">\(A_j\)</span> 改为 <span class="math inline">\(A_i\)</span> 之后满足 <span class="math inline">\(\forall i, P_i \le A_i\)</span> 的限制的排列数除以 <span class="math inline">\(2\)</span>。</p>
+<p>把 <span class="math inline">\(1 \ldots n\)</span> 按 <span class="math inline">\(A_i\)</span> 从小到大排序，设排序后第 <span class="math inline">\(i\)</span> 个数是 <span class="math inline">\(p_i\)</span>。显然满足 <span class="math inline">\(\forall i, P_i \le A_i\)</span> 的排列总数为 <span class="math inline">\(\prod_i A_{p_i}-i+1\)</span>。设总数为 <span class="math inline">\(C\)</span>。</p>
+<p>设 <span class="math inline">\(B_i = \frac{A_{p_i}-i}{A_{p_i}-i+1}\)</span></p>
+<p>对所有满足 <span class="math inline">\(p_i &lt; p_j\)</span> 的 <span class="math inline">\((i,j)\)</span> 计算 <span class="math inline">\(P_{p_i} &gt; P_{p_j}\)</span> 的排列数。对于每一对 <span class="math inline">\(i &lt; j\)</span>，如果 <span class="math inline">\(p_i &lt; p_j\)</span>，那么它的贡献是 <span class="math inline">\(\frac 1 2 C\frac{A_{p_i}-i}{A_{p_j}-j+1}\prod_{k=i+1}^{j-1} B_k\)</span>。<span class="math inline">\(p_i &gt; p_j\)</span> 的情况没有很大区别，具体式子就不写出来了。枚举 <span class="math inline">\(j\)</span>，用线段树对每个 <span class="math inline">\(p_i\)</span> 维护下这个式子，每次移动 <span class="math inline">\(j\)</span> 的时候区间乘更新，统计答案时区间求和即可。</p>
+<h1 id="代码">代码</h1>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; pi;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">200010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, C = <span class="number">1</span>, ans = <span class="number">0</span>;</span><br><span class="line">pi a[maxn];</span><br><span class="line"><span class="keyword">int</span> b[maxn], sum[maxn&lt;&lt;<span class="number">2</span>], cnt[maxn&lt;&lt;<span class="number">2</span>], K[maxn&lt;&lt;<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (y) &#123;</span><br><span class="line">        <span class="keyword">if</span> (y &amp; <span class="number">1</span>) ret = <span class="number">1L</span>L * ret * x % mod;</span><br><span class="line">        x = <span class="number">1L</span>L * x * x % mod;</span><br><span class="line">        y &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pushUp</span><span class="params">(<span class="keyword">int</span> rt)</span> </span>&#123;</span><br><span class="line">    sum[rt] = (sum[rt&lt;&lt;<span class="number">1</span>] + sum[rt&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]) % mod;</span><br><span class="line">    cnt[rt] = cnt[rt&lt;&lt;<span class="number">1</span>] + cnt[rt&lt;&lt;<span class="number">1</span>|<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> rt, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    sum[rt] = <span class="number">1L</span>L * sum[rt] * k % mod;</span><br><span class="line">    K[rt] = <span class="number">1L</span>L * K[rt] * k % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pushDown</span><span class="params">(<span class="keyword">int</span> rt)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (K[rt] != <span class="number">1</span>) &#123;</span><br><span class="line">        modify(rt&lt;&lt;<span class="number">1</span>, K[rt]);</span><br><span class="line">        modify(rt&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, K[rt]);</span><br><span class="line">        K[rt] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> v, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> rt)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">        sum[rt] = (sum[rt] + v) % mod;</span><br><span class="line">        cnt[rt] ++;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    pushDown(rt);</span><br><span class="line">    <span class="keyword">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (p &lt;= m) update(p, v, l, m, rt&lt;&lt;<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span> update(p, v, m+<span class="number">1</span>, r, rt&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</span><br><span class="line">    pushUp(rt);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> L, <span class="keyword">int</span> R, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> rt)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (L &gt; R) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (L &lt;= l &amp;&amp; r &lt;= R) <span class="keyword">return</span> sum[rt];</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    pushDown(rt);</span><br><span class="line">    <span class="keyword">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (L &lt;= m) ret = (ret + query(L, R, l, m, rt&lt;&lt;<span class="number">1</span>)) % mod;</span><br><span class="line">    <span class="keyword">if</span> (R &gt; m) ret = (ret + query(L, R, m+<span class="number">1</span>, r, rt&lt;&lt;<span class="number">1</span>|<span class="number">1</span>)) % mod;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query_cnt</span><span class="params">(<span class="keyword">int</span> L, <span class="keyword">int</span> R, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> rt)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (L &gt; R) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (L &lt;= l &amp;&amp; r &lt;= R) <span class="keyword">return</span> cnt[rt];</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (L &lt;= m) ret = ret + query_cnt(L, R, l, m, rt&lt;&lt;<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (R &gt; m) ret = ret + query_cnt(L, R, m+<span class="number">1</span>, r, rt&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i].first);</span><br><span class="line">        a[i].second = i;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(a+<span class="number">1</span>, a+n+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i].first-i+<span class="number">1</span> &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"0"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        b[i] = <span class="number">1L</span>L*(a[i].first-i)*qpow(a[i].first-i+<span class="number">1</span>, mod<span class="number">-2</span>)%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) C = <span class="number">1L</span>L * C * (a[i].first-i+<span class="number">1</span>) % mod;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = <span class="number">1L</span>L*(mod+<span class="number">1</span>)/<span class="number">2</span>*C%mod*qpow(a[i].first-i+<span class="number">1</span>, mod<span class="number">-2</span>)%mod;</span><br><span class="line">        ans = (ans + <span class="number">1L</span>L*v*query(<span class="number">1</span>, a[i].second<span class="number">-1</span>, <span class="number">1</span>, n, <span class="number">1</span>)%mod)%mod;</span><br><span class="line">        ans = ((ans + <span class="number">1L</span>L*C*query_cnt(a[i].second+<span class="number">1</span>, n, <span class="number">1</span>, n, <span class="number">1</span>)%mod)%mod+mod<span class="number">-1L</span>L*v*query(a[i].second+<span class="number">1</span>, n, <span class="number">1</span>, n, <span class="number">1</span>)%mod)%mod;</span><br><span class="line">        K[<span class="number">1</span>] = <span class="number">1L</span>L * K[<span class="number">1</span>] * b[i] % mod;</span><br><span class="line">        sum[<span class="number">1</span>] = <span class="number">1L</span>L * sum[<span class="number">1</span>] * b[i] % mod;</span><br><span class="line">        update(a[i].second, a[i].first-i, <span class="number">1</span>, n, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -481,9 +442,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+            <a href="/tags/题解/" rel="tag"># 题解</a>
           
-            <a href="/tags/LOJ/" rel="tag"># LOJ</a>
+            <a href="/tags/Atcoder/" rel="tag"># Atcoder</a>
+          
+            <a href="/tags/计数/" rel="tag"># 计数</a>
           
         </div>
       
@@ -496,8 +459,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/12/[模板]-多项式操作模板/" rel="next" title="[模板] 多项式操作模板">
-                <i class="fa fa-chevron-left"></i> [模板] 多项式操作模板
+              <a href="/2019/09/21/CF1204D/" rel="next" title="[Codeforces1204D] Kirk and a Binary String">
+                <i class="fa fa-chevron-left"></i> [Codeforces1204D] Kirk and a Binary String
               </a>
             
           </div>
@@ -505,10 +468,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/16/类欧几里得算法/" rel="prev" title="类欧几里得算法">
-                类欧几里得算法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -773,7 +732,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">1.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更新-mn_k-和-c-数组"><span class="nav-number">1.1.</span> <span class="nav-text">更新 \(mn_k\) 和 \(c\) 数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果这个块被第-i-次修改的区间完整包含"><span class="nav-number">1.1.1.</span> <span class="nav-text">如果这个块被第 \(i\) 次修改的区间完整包含：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如果这个块未被第-i-次修改的区间完整包含"><span class="nav-number">1.1.2.</span> <span class="nav-text">如果这个块未被第 \(i\) 次修改的区间完整包含：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新-t_k"><span class="nav-number">1.2.</span> <span class="nav-text">更新 \(t_k\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理单点信息"><span class="nav-number">1.3.</span> <span class="nav-text">处理单点信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题解"><span class="nav-number">1.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
 
           </div>
@@ -952,7 +911,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/08/10/[LOJ2461]/'
+    refer: '2019/10/24/[AGC023E]-Inversions/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
