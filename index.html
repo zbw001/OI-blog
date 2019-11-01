@@ -365,7 +365,7 @@
                 
               
 
-              <time title="创建时间：2019-11-01 15:40:12 / 修改时间：15:49:00" itemprop="dateCreated datePublished" datetime="2019-11-01T15:40:12+08:00">2019-11-01</time>
+              <time title="创建时间：2019-11-01 15:40:12 / 修改时间：16:00:45" itemprop="dateCreated datePublished" datetime="2019-11-01T15:40:12+08:00">2019-11-01</time>
             
 
             
@@ -410,7 +410,7 @@
 <h1 id="题解">题解</h1>
 <p>给点 <span class="math inline">\(i\)</span> 一个权重 <span class="math inline">\(w_i\)</span>，重新定义 <span class="math inline">\(D_i = \sum_k w_k dis(i,k)\)</span>。初始时对于所有的 <span class="math inline">\(i\)</span>，<span class="math inline">\(w_i = 1\)</span>。任意时刻，<span class="math inline">\(\sum_i w_i = n\)</span>。</p>
 <p>可以发现，如果点 <span class="math inline">\(v\)</span> 与点 <span class="math inline">\(u\)</span> 相邻，以点 <span class="math inline">\(u\)</span> 为根时点 <span class="math inline">\(v\)</span> 的子树中的点权重之和为 <span class="math inline">\(s\)</span>，则 <span class="math inline">\(D_v - D_u = n - 2s\)</span>。</p>
-<p>找到 <span class="math inline">\(D_u\)</span> 最大的点 <span class="math inline">\(u\)</span>，由于任何与 <span class="math inline">\(v\)</span> 相邻的点都满足 <span class="math inline">\(D_v - D_u \le 0\)</span>，所以以 <span class="math inline">\(u\)</span> 为根 <span class="math inline">\(v\)</span> 子树中的点权重和至少为 <span class="math inline">\(\frac 2 n\)</span>，所以 <span class="math inline">\(u\)</span> 至多有一个相邻点。我们不考虑 <span class="math inline">\(n = 1\)</span> 的情况。<span class="math inline">\(u\)</span> 是一个叶子。</p>
+<p>找到 <span class="math inline">\(D_u\)</span> 最大的点 <span class="math inline">\(u\)</span>，由于任何与 <span class="math inline">\(v\)</span> 相邻的点都满足 <span class="math inline">\(D_v - D_u \le 0\)</span>，所以以 <span class="math inline">\(u\)</span> 为根 <span class="math inline">\(v\)</span> 子树中的点权重和至少为 <span class="math inline">\(\frac n 2\)</span>，所以 <span class="math inline">\(u\)</span> 至多有一个相邻点。我们不考虑 <span class="math inline">\(n = 1\)</span> 的情况。<span class="math inline">\(u\)</span> 是一个叶子。</p>
 <p>假设与 <span class="math inline">\(u\)</span> 相邻的点是 <span class="math inline">\(f\)</span>，那么 <span class="math inline">\(D_f-D_u = 2w_u - n\)</span>，由于 <span class="math inline">\(D_i\)</span> 互不相同，这就唯一确定了 <span class="math inline">\(u\)</span> 的父亲 <span class="math inline">\(f\)</span>。我们记录一下点 <span class="math inline">\(u\)</span> 和点 <span class="math inline">\(f\)</span> 连一条边，把点 <span class="math inline">\(f\)</span> 的权重加上点 <span class="math inline">\(u\)</span> 的权重，然后把点 <span class="math inline">\(u\)</span> 删去。这样对还在树上的任何一个点 <span class="math inline">\(i\)</span>，经过这次操作 <span class="math inline">\(D_i\)</span> 恰好减少了 <span class="math inline">\(w_u\)</span>。更新一下即可。</p>
 <p>一直这样操作下去就唯一确定了一棵树，检验一下即可。（懒得判特殊情况，就直接暴力验证了）</p>
 <p>实际上不需要更新 <span class="math inline">\(D_i\)</span>，因为所有的操作都是整体加，而我们始终只会用到 <span class="math inline">\(D_i\)</span> 的相对大小关系和 <span class="math inline">\(D_f-D_u\)</span> 的值。</p>
