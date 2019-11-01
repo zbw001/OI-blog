@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="题解 为了方便描述结论，把输入的数组看作 \(n\) 个格子，每个格子里填了一个数字。对格子黑白染色，第一个格子是黑色，相邻两个格子颜色不同。 不难发现结论：如果 \(n\) 为偶数，先手最优策略得到的收益是黑格子上数字的和与白格子上数字的和的最大值。如果 \(n\) 为奇数，设白格子上数字的和为 \(s\)，先手能够获得至少 \(x\) 的收益，当且仅当存在一种选出若干个白格子的方案，用这些白格">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-01T05:33:03.234Z">
+<meta property="og:updated_time" content="2019-11-01T06:23:41.081Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[AGC026F] Manju Game">
 <meta name="twitter:description" content="题解 为了方便描述结论，把输入的数组看作 \(n\) 个格子，每个格子里填了一个数字。对格子黑白染色，第一个格子是黑色，相邻两个格子颜色不同。 不难发现结论：如果 \(n\) 为偶数，先手最优策略得到的收益是黑格子上数字的和与白格子上数字的和的最大值。如果 \(n\) 为奇数，设白格子上数字的和为 \(s\)，先手能够获得至少 \(x\) 的收益，当且仅当存在一种选出若干个白格子的方案，用这些白格">
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-11-01 13:24:36 / 修改时间：13:33:03" itemprop="dateCreated datePublished" datetime="2019-11-01T13:24:36+08:00">2019-11-01</time>
+              <time title="创建时间：2019-11-01 13:24:36 / 修改时间：14:23:41" itemprop="dateCreated datePublished" datetime="2019-11-01T13:24:36+08:00">2019-11-01</time>
             
 
             
@@ -547,7 +547,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-count">51</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -608,7 +608,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -1266,6 +1268,54 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.MathJax{outline:0;}
+</style>
+
+    
   
 
 
