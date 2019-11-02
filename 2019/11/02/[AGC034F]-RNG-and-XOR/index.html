@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="题解 很有启发性的问题...做了一遍把对 FWT 理解的不彻底的地方都搞清楚了。 倒过来看，计算每个数变成 \(0\) 的期望步数，显然答案是一样的。 首先这个问题可以列 \(2^n\) 元线性方程组去解，但是暴力高斯消元的复杂度太高了。 我们设 \(f_i\) 表示 \(i\) 变成 \(0\) 的期望步数，\(p_i\) 表示随机数生成器生成 \(i\) 的概率。那么可以发现 \(f\) 数组">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-02T08:33:58.797Z">
+<meta property="og:updated_time" content="2019-11-02T13:30:55.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[AGC034F] RNG and XOR">
 <meta name="twitter:description" content="题解 很有启发性的问题...做了一遍把对 FWT 理解的不彻底的地方都搞清楚了。 倒过来看，计算每个数变成 \(0\) 的期望步数，显然答案是一样的。 首先这个问题可以列 \(2^n\) 元线性方程组去解，但是暴力高斯消元的复杂度太高了。 我们设 \(f_i\) 表示 \(i\) 变成 \(0\) 的期望步数，\(p_i\) 表示随机数生成器生成 \(i\) 的概率。那么可以发现 \(f\) 数组">
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-11-02 16:19:42 / 修改时间：16:33:58" itemprop="dateCreated datePublished" datetime="2019-11-02T16:19:42+08:00">2019-11-02</time>
+              <time title="创建时间：2019-11-02 16:19:42 / 修改时间：21:30:55" itemprop="dateCreated datePublished" datetime="2019-11-02T16:19:42+08:00">2019-11-02</time>
             
 
             
@@ -471,6 +471,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/11/02/[AGC/" rel="prev" title="[AGC034E] Complete Compress">
+                [AGC034E] Complete Compress <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -548,7 +552,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-count">53</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1275,6 +1279,54 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.MathJax{outline:0;}
+</style>
+
+    
   
 
 
