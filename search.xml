@@ -174,9 +174,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[较难发现的一些zz错误]]></title>
-    <url>%2F2019%2F07%2F02%2F%E8%BE%83%E9%9A%BE%E5%8F%91%E7%8E%B0%E7%9A%84%E4%B8%80%E4%BA%9Bzz%E9%94%99%E8%AF%AF%2F</url>
-    <content type="text"><![CDATA[比较函数定义不严格。 for (int i = 1; i &lt;= n; i++) a[n] = inf。 在一些回溯时需要撤销操作的 dfs 中，因为其他原因 return 的时候没有撤销操作。 循环/if 里层外层变量名混淆。]]></content>
+    <title><![CDATA[实现错误记录]]></title>
+    <url>%2F2019%2F07%2F02%2F%E5%AE%9E%E7%8E%B0%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[比较函数定义不严格，存在返回相等但是实际上有区别的情况。这可能导致双堆维护删除操作时出现问题。（应当同时弹栈但是栈顶元素不相等） for (int i = 1; i &lt;= n; i++) a[n] = inf。 在一些回溯时需要撤销操作的 dfs 中，因为其他原因 return 的时候没有撤销操作。 循环/if 里层外层变量名混淆。]]></content>
   </entry>
   <entry>
     <title><![CDATA[[Gym102201E] Eat Economically]]></title>

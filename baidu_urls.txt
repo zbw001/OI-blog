@@ -17,7 +17,7 @@ https://zbww.cf/2019/08/16/类欧几里得算法/
 https://zbww.cf/2019/08/10/[LOJ2461]/
 https://zbww.cf/2019/07/12/[模板]-多项式操作模板/
 https://zbww.cf/2019/07/08/[模板]-任意模数-NTT/
-https://zbww.cf/2019/07/02/较难发现的一些zz错误/
+https://zbww.cf/2019/07/02/实现错误记录/
 https://zbww.cf/2019/06/26/[Gym102201E]-/
 https://zbww.cf/2019/06/23/LOJ2572/
 https://zbww.cf/2019/06/19/[Gym102222I]-Bubble-Sort/
