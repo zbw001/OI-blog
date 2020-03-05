@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="题目链接 题解 假设 \(s\) 中有 \(R\) 个 r，第 \(i\) 个的位置是 \(p_i\)。 考虑一个最终结果可能出现的条件。假设不为白色的球构成的连续段有 \(c\) 个，其中第 \(i\) 个不为白色的连续段中蓝球构成的连续段有 \(d_i\) 个，如果 \(i &amp;gt; c\) 则 \(d_i = 0\)。把 \(d_i\) 从大到小排序后，这样一个结果可能出现的充要条件是 \(">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-09T07:21:50.330Z">
+<meta property="og:updated_time" content="2020-03-05T12:33:03.420Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ARC089D] ColoringBalls">
 <meta name="twitter:description" content="题目链接 题解 假设 \(s\) 中有 \(R\) 个 r，第 \(i\) 个的位置是 \(p_i\)。 考虑一个最终结果可能出现的条件。假设不为白色的球构成的连续段有 \(c\) 个，其中第 \(i\) 个不为白色的连续段中蓝球构成的连续段有 \(d_i\) 个，如果 \(i &amp;gt; c\) 则 \(d_i = 0\)。把 \(d_i\) 从大到小排序后，这样一个结果可能出现的充要条件是 \(">
@@ -366,12 +366,24 @@
                 
               
 
-              <time title="创建时间：2019-11-09 15:03:25 / 修改时间：15:21:50" itemprop="dateCreated datePublished" datetime="2019-11-09T15:03:25+08:00">2019-11-09</time>
+              <time title="创建时间：2019-11-09 15:03:25" itemprop="dateCreated datePublished" datetime="2019-11-09T15:03:25+08:00">2019-11-09</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-05 20:33:03" itemprop="dateModified" datetime="2020-03-05T20:33:03+08:00">2020-03-05</time>
               
             
           </span>
@@ -1262,6 +1274,54 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.MathJax{outline:0;}
+</style>
+
+    
   
 
 
