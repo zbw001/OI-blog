@@ -97,25 +97,22 @@
 
 
 
-  <meta name="description" content="题目链接 题解 假设 \(s\) 中有 \(R\) 个 r，第 \(i\) 个的位置是 \(p_i\)。 考虑一个最终结果可能出现的条件。假设不为白色的球构成的连续段有 \(c\) 个，其中第 \(i\) 个不为白色的连续段中蓝球构成的连续段有 \(d_i\) 个，如果 \(i &amp;gt; c\) 则 \(d_i = 0\)。把 \(d_i\) 从大到小排序后，这样一个结果可能出现的充要条件是 \(">
-<meta name="keywords" content="noip noi oi 算法 algorithm acm">
+  <meta name="keywords" content="noip noi oi 算法 algorithm acm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[ARC089D] ColoringBalls">
-<meta property="og:url" content="https://zbww.cf/2019/11/09/[ARC089D]-ColoringBalls/index.html">
+<meta property="og:title" content="实现技巧整理">
+<meta property="og:url" content="https://zbww.cf/2020/03/05/实现技巧整理/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="题目链接 题解 假设 \(s\) 中有 \(R\) 个 r，第 \(i\) 个的位置是 \(p_i\)。 考虑一个最终结果可能出现的条件。假设不为白色的球构成的连续段有 \(c\) 个，其中第 \(i\) 个不为白色的连续段中蓝球构成的连续段有 \(d_i\) 个，如果 \(i &amp;gt; c\) 则 \(d_i = 0\)。把 \(d_i\) 从大到小排序后，这样一个结果可能出现的充要条件是 \(">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-05T12:33:03.420Z">
+<meta property="og:updated_time" content="2020-03-05T13:07:48.333Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[ARC089D] ColoringBalls">
-<meta name="twitter:description" content="题目链接 题解 假设 \(s\) 中有 \(R\) 个 r，第 \(i\) 个的位置是 \(p_i\)。 考虑一个最终结果可能出现的条件。假设不为白色的球构成的连续段有 \(c\) 个，其中第 \(i\) 个不为白色的连续段中蓝球构成的连续段有 \(d_i\) 个，如果 \(i &amp;gt; c\) 则 \(d_i = 0\)。把 \(d_i\) 从大到小排序后，这样一个结果可能出现的充要条件是 \(">
+<meta name="twitter:title" content="实现技巧整理">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zbww.cf/2019/11/09/[ARC089D]-ColoringBalls/">
+  <link rel="canonical" href="https://zbww.cf/2020/03/05/实现技巧整理/">
 
 
 
@@ -125,7 +122,7 @@
   };
 </script>
 
-  <title>[ARC089D] ColoringBalls | 一个蒟蒻的Blog</title>
+  <title>实现技巧整理 | 一个蒟蒻的Blog</title>
   
 
 
@@ -323,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/11/09/[ARC089D]-ColoringBalls/">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/05/实现技巧整理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zbww">
@@ -340,7 +337,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[ARC089D] ColoringBalls
+          <h1 class="post-title" itemprop="name headline">实现技巧整理
 
               
             
@@ -348,6 +345,11 @@
         
 
         <div class="post-meta">
+          
+            <i class="fa fa-thumb-tack"></i>
+            <font>置顶</font>
+            <span class="post-meta-divider">|</span>
+          
           <span class="post-time">
 
             
@@ -366,24 +368,12 @@
                 
               
 
-              <time title="创建时间：2019-11-09 15:03:25" itemprop="dateCreated datePublished" datetime="2019-11-09T15:03:25+08:00">2019-11-09</time>
+              <time title="创建时间：2020-03-05 21:07:26 / 修改时间：21:07:48" itemprop="dateCreated datePublished" datetime="2020-03-05T21:07:26+08:00">2020-03-05</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-03-05 20:33:03" itemprop="dateModified" datetime="2020-03-05T20:33:03+08:00">2020-03-05</time>
               
             
           </span>
@@ -424,12 +414,7 @@
       
 
       
-        <p><a href="https://atcoder.jp/contests/arc089/tasks/arc089_d" target="_blank" rel="noopener">题目链接</a></p>
-<h1 id="题解">题解</h1>
-<p>假设 <span class="math inline">\(s\)</span> 中有 <span class="math inline">\(R\)</span> 个 <code>r</code>，第 <span class="math inline">\(i\)</span> 个的位置是 <span class="math inline">\(p_i\)</span>。</p>
-<p>考虑一个最终结果可能出现的条件。假设不为白色的球构成的连续段有 <span class="math inline">\(c\)</span> 个，其中第 <span class="math inline">\(i\)</span> 个不为白色的连续段中蓝球构成的连续段有 <span class="math inline">\(d_i\)</span> 个，如果 <span class="math inline">\(i &gt; c\)</span> 则 <span class="math inline">\(d_i = 0\)</span>。把 <span class="math inline">\(d_i\)</span> 从大到小排序后，这样一个结果可能出现的充要条件是 <span class="math inline">\(c \le R\)</span> 且 <span class="math inline">\(\forall 1 \le i \le R, \sum_{k=i}^{R} d_k \le K-p_i-(R-i)\)</span> （很容易证，懒得写了qwq）。</p>
-<p>动态规划。我们从 <span class="math inline">\(d_R\)</span> 到 <span class="math inline">\(d_1\)</span> 地决定每个 <span class="math inline">\(d_i\)</span>（指排序后的）。</p>
-<p>设 <span class="math inline">\(f_{i,j,k}\)</span> 表示已经决定了 <span class="math inline">\(d_R,\ldots,d_{R-i+1}, \sum_{t \ge R-i+1} d_t = j, d_{R-i+1} = k\)</span> 的方案数。可以简单 dp。连续段之间的空白可以组合数计算。对于连续段的不同顺序，乘以一个阶乘就行了。</p>
+        
 
       
     </div>
@@ -460,8 +445,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/02/[AGC/" rel="next" title="[AGC034E] Complete Compress">
-                <i class="fa fa-chevron-left"></i> [AGC034E] Complete Compress
+              <a href="/2020/03/05/1/" rel="next" title="[Codeforces938G] Shortest Path Queries">
+                <i class="fa fa-chevron-left"></i> [Codeforces938G] Shortest Path Queries
               </a>
             
           </div>
@@ -520,17 +505,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -547,7 +523,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">54</span>
+                    <span class="site-state-item-count">55</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -735,23 +711,6 @@
       </div>
 
       
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题解"><span class="nav-number">1.</span> <span class="nav-text">题解</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
 
       
 
@@ -924,7 +883,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/11/09/[ARC089D]-ColoringBalls/'
+    refer: '2020/03/05/实现技巧整理/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
@@ -1274,54 +1233,6 @@
   
   
 
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
-        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
-      }
-    });
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-      for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<style>
-.MathJax_Display {
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-.MathJax{outline:0;}
-</style>
-
-    
   
 
 
