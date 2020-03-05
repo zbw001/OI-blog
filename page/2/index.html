@@ -320,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/09/18/CF571E/">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/09/18/CF1188E/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zbww">
@@ -340,7 +340,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/09/18/CF571E/" class="post-title-link" itemprop="url">[Codeforces571E] Geometric Progressions</a>
+                <a href="/2019/09/18/CF1188E/" class="post-title-link" itemprop="url">[Codeforces1188E] Problem from Red Panda</a>
               
             
           </h1>
@@ -365,7 +365,7 @@
                 
               
 
-              <time title="创建时间：2019-09-18 15:18:00 / 修改时间：21:11:42" itemprop="dateCreated datePublished" datetime="2019-09-18T15:18:00+08:00">2019-09-18</time>
+              <time title="创建时间：2019-09-18 15:18:00 / 修改时间：23:02:02" itemprop="dateCreated datePublished" datetime="2019-09-18T15:18:00+08:00">2019-09-18</time>
             
 
             
@@ -406,32 +406,15 @@
       
         
           
-            <p>口胡的没实现过，如有错误请 QQ 或评论告诉我！</p>
+            <p>还没写过。如果有错误可以 QQ / 评论告诉我。</p>
 <h3 id="题解">题解</h3>
-<p>考虑只有两个等比数列的情况。</p>
-<p>第一个等比数列：<span class="math inline">\(a_1, a_1b_1, a_1b_1^2, \ldots\)</span></p>
-<p>第二个等比数列：<span class="math inline">\(a_2,a_2b_2,a_2b_2^2,\ldots\)</span></p>
-<p>假设 <span class="math inline">\(v\)</span> 同时出现在两个等比数列中，那么 <span class="math inline">\(\exists k_1, k_2 \in \mathbb{N}, v = a_1b_1^{k_1} = a_2b_2^{k_2}\)</span>。</p>
-<p>设 <span class="math inline">\(p_i\)</span> 表示第 <span class="math inline">\(i\)</span> 个素数。</p>
-<p><span class="math inline">\(b_1 = \prod p_i^{c_{1i}}, b_2 = \prod p_i^{c_{2i}}\)</span></p>
-<p>考虑任意两个不同素数 <span class="math inline">\(p_i\)</span> 和 <span class="math inline">\(p_j\)</span>，假设 <span class="math inline">\(p_i\)</span> 在 <span class="math inline">\(a_1,a_2\)</span> 中出现次数分别是 <span class="math inline">\(w_{1i},w_{2i}\)</span>。</p>
-<p>那么有 <span class="math display">\[
-\begin{cases}
-k_1 c_{1i}+w_{1i} = k_2{c_{2i}} + w_{2i}\\
-k_1 c_{1j}+w_{1j} = k_2{c_{2j}} + w_{2j}
-\end{cases}
-\]</span> 这是一个二元一次方程组。假设 <span class="math inline">\((c_{1i},-c_{2i})\)</span> 和 <span class="math inline">\((c_{1j}, -c_{2j})\)</span> 线性无关，这个方程组有唯一解。</p>
-<p>假设存在 <span class="math inline">\(i &lt; j\)</span>， <span class="math inline">\((c_{1i},-c_{2i})\)</span> 和 <span class="math inline">\((c_{1j}, -c_{2j})\)</span> 线性无关，那么解出这个方程。这样就得到了唯一一个可能是所有等比数列共有元素的数（的素因数分解），然后检验一下即可。</p>
-<p>否则，对于任意的 <span class="math inline">\(i &lt; j\)</span> 都有 <span class="math inline">\((c_{1i},-c_{2i})\)</span> 和 <span class="math inline">\((c_{1j}, -c_{2j})\)</span> 线性相关。</p>
-<p>那么存在正整数 <span class="math inline">\(w\)</span>，<span class="math inline">\(b_1 = w^{i_1}, b_2 = w^{i_2}((i_1,i_2) = 1)\)</span>。 <span class="math display">\[
-a_1b_1^{k_1} = a_2b_2^{k_2} \Leftrightarrow w^{k_1i_1-k_2i_2}=\frac {a_2} {a_1}
-\]</span> 不妨设 <span class="math inline">\(a_1 \le a_2\)</span>。那么一定有 <span class="math inline">\(a_1 \mid a_2\)</span>。</p>
-<p>设 <span class="math inline">\(\frac {a_2} {a_1} = x\)</span>，如果有解，必有 <span class="math inline">\(x = w^n, n \in \mathbb{N}\)</span>。</p>
-<p>方程变为 <span class="math inline">\(k_1i_1-k_2i_2 = n\)</span>。</p>
-<p>这是一个简单的不定方程。不难找到这个方程的一组解 <span class="math inline">\(k_1= x, k_2 = y\)</span>。（具体来说先找到 <span class="math inline">\(k_1i_1-k_2i_2=1\)</span> 的解，然后在两边乘以 <span class="math inline">\(n\)</span>）</p>
-<p>那么这个方程的通解为 <span class="math inline">\(k_1 = x + pi_2, k_2 = y + pi_1, p \in \mathbb{Z}\)</span>。</p>
-<p>不难找到 <span class="math inline">\(k_1\)</span> 最小的非负整数解，假设这时 <span class="math inline">\(a_1w^{k_1c_1}=t\)</span>。这样两个等比数列就被合并为了一个等比数列：<span class="math inline">\(t, w^{i_1i_2}t,w^{wi_1i_2}t,\ldots\)</span>。</p>
-<p>继续把合并得到的等比数列和其他等比数列进行相同的操作即可。</p>
+<p>这样理解这个问题：初始时时间为第 <span class="math inline">\(0\)</span> 秒。每秒你可以选择一个 <span class="math inline">\(i\)</span>，然后把 <span class="math inline">\(a_i\)</span> 加上 <span class="math inline">\(k\)</span>，接下来再把所有 <span class="math inline">\(a_i\)</span> 减去 <span class="math inline">\(1\)</span>。你可以随时停止这个过程，并把当前的 <span class="math inline">\(a\)</span> 数组作为结果。问在不经过任何存在 <span class="math inline">\(a_i &lt; 0\)</span> 的状态的前提下，能够得到多少种不同的结果。</p>
+<p>从这个角度来看，如果不考虑 <span class="math inline">\(+k\)</span> 操作，每秒每个 <span class="math inline">\(a_i\)</span>都会减少 <span class="math inline">\(1\)</span>。</p>
+<p>设 <span class="math inline">\(c_{t,i}\)</span> 表示前 <span class="math inline">\(t\)</span> 秒 <span class="math inline">\(a_i\)</span> 被执行 <span class="math inline">\(+k\)</span> 操作的次数。那么，如果这个过程在进行了 <span class="math inline">\(T\)</span> 秒之后结束，<span class="math inline">\(\forall t \le T, 1 \le i \le n, a_i-t+kc_{t,i} \ge 0\)</span>，也就是说 <span class="math inline">\(\forall 1 \le i \le n, 0 \le p \le \lfloor \frac {T-a_i-1} k \rfloor,c_{a_i+kp+1,i} \ge p+1\)</span>。</p>
+<p>不难证明存在经过 <span class="math inline">\(T\)</span> 秒没有出现过负数的方案的充要条件是： <span class="math display">\[
+\forall t \le T, \sum_i \lceil \frac{\max(t-a_i, 0)} k \rceil \le t
+\]</span> 对于 <span class="math inline">\(t \in \mathbb{N}\)</span>，<span class="math inline">\(\sum_i \lceil \frac{\max(t-a_i, 0)} k \rceil \le t\)</span> 是否成立是与 <span class="math inline">\(T\)</span> 无关的。所以，要么对所有的 <span class="math inline">\(T\)</span> 都存在不经过负数的方案，要么存在一个非负整数 <span class="math inline">\(T_0\)</span>，当 <span class="math inline">\(T \le T_0\)</span> 时存在方案，<span class="math inline">\(T &gt; T_0\)</span> 时不存在方案。</p>
+<p>太晚了先睡了。坑待填。</p>
 
           
         
