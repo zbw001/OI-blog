@@ -370,7 +370,7 @@
                 
               
 
-              <time title="创建时间：2020-03-05 21:07:26 / 修改时间：21:07:48" itemprop="dateCreated datePublished" datetime="2020-03-05T21:07:26+08:00">2020-03-05</time>
+              <time title="创建时间：2020-03-05 21:07:26 / 修改时间：21:29:14" itemprop="dateCreated datePublished" datetime="2020-03-05T21:07:26+08:00">2020-03-05</time>
             
 
             
@@ -411,7 +411,10 @@
       
         
           
-            
+            <ul>
+<li><p>关于回滚操作的技巧在需要回滚的数组比较多的时候一个一个开栈回滚会比较麻烦，可以试着下面这样写： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *sta_p[maxn*k], sta_v[maxn*k], top;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> &amp;x)</span> </span>&#123;++ top; sta_p[top] = &amp;x; sta_v[top] = x;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样还原的时候也只需要根据指针搞一搞就好，只需要开一个栈就行了，注意 <span class="math inline">\(k\)</span> 不要开小。</p></li>
+</ul>
 
           
         
@@ -2561,11 +2564,11 @@
   
     
       
-    
-      
-    
-      
         
+      
+    
+      
+    
       
     
       

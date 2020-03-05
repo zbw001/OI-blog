@@ -97,15 +97,18 @@
 
 
 
-  <meta name="keywords" content="noip noi oi 算法 algorithm acm">
+  <meta name="description" content="关于回滚操作的技巧在需要回滚的数组比较多的时候一个一个开栈回滚会比较麻烦，可以试着下面这样写： 123int *sta_p[maxn*k], sta_v[maxn*k], top;void modify(int &amp;amp;x) &amp;#123;++ top; sta_p[top] = &amp;amp;x; sta_v[top] = x;&amp;#125; 这样还原的时候也只需要根据指针搞一搞就好，只需要开一个栈">
+<meta name="keywords" content="noip noi oi 算法 algorithm acm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实现技巧整理">
 <meta property="og:url" content="https://zbww.cf/2020/03/05/实现技巧整理/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
+<meta property="og:description" content="关于回滚操作的技巧在需要回滚的数组比较多的时候一个一个开栈回滚会比较麻烦，可以试着下面这样写： 123int *sta_p[maxn*k], sta_v[maxn*k], top;void modify(int &amp;amp;x) &amp;#123;++ top; sta_p[top] = &amp;amp;x; sta_v[top] = x;&amp;#125; 这样还原的时候也只需要根据指针搞一搞就好，只需要开一个栈">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-05T13:07:48.333Z">
+<meta property="og:updated_time" content="2020-03-05T13:29:14.244Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现技巧整理">
+<meta name="twitter:description" content="关于回滚操作的技巧在需要回滚的数组比较多的时候一个一个开栈回滚会比较麻烦，可以试着下面这样写： 123int *sta_p[maxn*k], sta_v[maxn*k], top;void modify(int &amp;amp;x) &amp;#123;++ top; sta_p[top] = &amp;amp;x; sta_v[top] = x;&amp;#125; 这样还原的时候也只需要根据指针搞一搞就好，只需要开一个栈">
 
 
 
@@ -368,7 +371,7 @@
                 
               
 
-              <time title="创建时间：2020-03-05 21:07:26 / 修改时间：21:07:48" itemprop="dateCreated datePublished" datetime="2020-03-05T21:07:26+08:00">2020-03-05</time>
+              <time title="创建时间：2020-03-05 21:07:26 / 修改时间：21:29:14" itemprop="dateCreated datePublished" datetime="2020-03-05T21:07:26+08:00">2020-03-05</time>
             
 
             
@@ -414,7 +417,10 @@
       
 
       
-        
+        <ul>
+<li><p>关于回滚操作的技巧在需要回滚的数组比较多的时候一个一个开栈回滚会比较麻烦，可以试着下面这样写： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *sta_p[maxn*k], sta_v[maxn*k], top;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> &amp;x)</span> </span>&#123;++ top; sta_p[top] = &amp;x; sta_v[top] = x;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样还原的时候也只需要根据指针搞一搞就好，只需要开一个栈就行了，注意 <span class="math inline">\(k\)</span> 不要开小。</p></li>
+</ul>
 
       
     </div>
@@ -1233,6 +1239,54 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.MathJax{outline:0;}
+</style>
+
+    
   
 
 
