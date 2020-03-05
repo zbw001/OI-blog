@@ -320,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/11/09/[ARC089D]-ColoringBalls/">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/05/1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zbww">
@@ -340,7 +340,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/11/09/[ARC089D]-ColoringBalls/" class="post-title-link" itemprop="url">[ARC089D] ColoringBalls</a>
+                <a href="/2020/03/05/1/" class="post-title-link" itemprop="url">[Codeforces938G] Shortest Path Queries</a>
               
             
           </h1>
@@ -365,24 +365,12 @@
                 
               
 
-              <time title="创建时间：2019-11-09 15:03:25" itemprop="dateCreated datePublished" datetime="2019-11-09T15:03:25+08:00">2019-11-09</time>
+              <time title="创建时间：2020-03-05 20:48:03 / 修改时间：21:00:51" itemprop="dateCreated datePublished" datetime="2020-03-05T20:48:03+08:00">2020-03-05</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-03-05 20:33:03" itemprop="dateModified" datetime="2020-03-05T20:33:03+08:00">2020-03-05</time>
               
             
           </span>
@@ -418,12 +406,14 @@
       
         
           
-            <p><a href="https://atcoder.jp/contests/arc089/tasks/arc089_d" target="_blank" rel="noopener">题目链接</a></p>
-<h1 id="题解">题解</h1>
-<p>假设 <span class="math inline">\(s\)</span> 中有 <span class="math inline">\(R\)</span> 个 <code>r</code>，第 <span class="math inline">\(i\)</span> 个的位置是 <span class="math inline">\(p_i\)</span>。</p>
-<p>考虑一个最终结果可能出现的条件。假设不为白色的球构成的连续段有 <span class="math inline">\(c\)</span> 个，其中第 <span class="math inline">\(i\)</span> 个不为白色的连续段中蓝球构成的连续段有 <span class="math inline">\(d_i\)</span> 个，如果 <span class="math inline">\(i &gt; c\)</span> 则 <span class="math inline">\(d_i = 0\)</span>。把 <span class="math inline">\(d_i\)</span> 从大到小排序后，这样一个结果可能出现的充要条件是 <span class="math inline">\(c \le R\)</span> 且 <span class="math inline">\(\forall 1 \le i \le R, \sum_{k=i}^{R} d_k \le K-p_i-(R-i)\)</span> （很容易证，懒得写了qwq）。</p>
-<p>动态规划。我们从 <span class="math inline">\(d_R\)</span> 到 <span class="math inline">\(d_1\)</span> 地决定每个 <span class="math inline">\(d_i\)</span>（指排序后的）。</p>
-<p>设 <span class="math inline">\(f_{i,j,k}\)</span> 表示已经决定了 <span class="math inline">\(d_R,\ldots,d_{R-i+1}, \sum_{t \ge R-i+1} d_t = j, d_{R-i+1} = k\)</span> 的方案数。可以简单 dp。连续段之间的空白可以组合数计算。对于连续段的不同顺序，乘以一个阶乘就行了。</p>
+            <h1 id="题解">题解</h1>
+<p>把操作离线，然后分治，把问题变成只需要支持加边，回滚，维护两点间最小 <span class="math inline">\(xor\)</span> 路径。</p>
+<p>在询问 <span class="math inline">\(u,v\)</span> 中，你可以从 <span class="math inline">\(u\)</span> 走到 <span class="math inline">\(t\)</span> 然后走回 <span class="math inline">\(u\)</span>，路径上每条边都被经过两次，所以路径上的边贡献为 <span class="math inline">\(0\)</span>。因此如果有一条 <span class="math inline">\(xor\)</span> 为 <span class="math inline">\(x\)</span> 的 <span class="math inline">\(u,v\)</span> 路径，有一个 <span class="math inline">\(xor\)</span> 为 <span class="math inline">\(c\)</span> 的环，就存在一条 <span class="math inline">\(xor\)</span> 为 <span class="math inline">\(x\oplus c\)</span> 的路径。</p>
+<p>任意考虑一棵生成树，对于一个非树边 <span class="math inline">\(u,v,w\)</span>，设 <span class="math inline">\(u\)</span> 到 <span class="math inline">\(v\)</span> 的树上路径 <span class="math inline">\(xor\)</span> 为 <span class="math inline">\(x\)</span>，那么存在一个 <span class="math inline">\(xor\)</span> 为 <span class="math inline">\(x \oplus w\)</span> 的环，因此如果经过了这条非树边，我们不妨把它看成是沿着树上路径从 <span class="math inline">\(u\)</span> 走到 <span class="math inline">\(v\)</span>。之后再异或上这个换的权值。</p>
+<p>所以我们只需要考虑把 <span class="math inline">\(u\)</span> 到 <span class="math inline">\(v\)</span> 之间的树上路径异或上一些由一条非树边一条树链构成的环的 <span class="math inline">\(xor\)</span>，答案最小是什么。</p>
+<p>维护所有非树边加上一条树链构成的环的 <span class="math inline">\(xor\)</span> 的线性基即可。</p>
+<p>然后考虑怎么加边维护这个东西。因为需要回滚，均摊算法（如 LCT，路径压缩的并查集）无法使用。我们只需要支持询问两点是否连通，询问两点之间的 <span class="math inline">\(xor\)</span>，加边和回滚即可。我们可以给点 <span class="math inline">\(i\)</span> 维护一个值 <span class="math inline">\(v_i\)</span>，初始时所有点的值 <span class="math inline">\(=0\)</span>，用按秩合并的并查集来维护连通性。我们始终要保证对于任意的 <span class="math inline">\(u,v\)</span>，如果 <span class="math inline">\(u,v\)</span> 连通，那么 <span class="math inline">\(u,v\)</span> 之间树上路径的 <span class="math inline">\(xor\)</span> 等于 <span class="math inline">\(v_u \oplus v_v\)</span>。每次加边的时候，如果两个连通块并成了一个连通块，你可以通过把其中一个连通块内的所有点的 <span class="math inline">\(v_i\)</span> 异或上一个数来保持这一性质。按秩合并时打个 tag 即可。</p>
+<p>时间复杂度为 <span class="math inline">\(\mathcal O(n \log^2 n)\)</span>。</p>
 
           
         

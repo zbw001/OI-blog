@@ -97,25 +97,25 @@
 
 
 
-  <meta name="description" content="虽然前面还有很多坑没补完...但是我发现自己代码能力问题比较严重。所以来做做ynoi。 坑先放在这...清醒的时候慢慢填。 [YNOI2016] 镜中的昆虫">
-<meta name="keywords" content="数据结构,题解">
+  <meta name="description" content="题解 把操作离线，然后分治，把问题变成只需要支持加边，回滚，维护两点间最小 \(xor\) 路径。 在询问 \(u,v\) 中，你可以从 \(u\) 走到 \(t\) 然后走回 \(u\)，路径上每条边都被经过两次，所以路径上的边贡献为 \(0\)。因此如果有一条 \(xor\) 为 \(x\) 的 \(u,v\) 路径，有一个 \(xor\) 为 \(c\) 的环，就存在一条 \(xor\) 为">
+<meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[题解] YNOI">
-<meta property="og:url" content="https://zbww.cf/2019/04/10/[题解]-YNOI/index.html">
+<meta property="og:title" content="[Codeforces938G] Shortest Path Queries">
+<meta property="og:url" content="https://zbww.cf/2020/03/05/1/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="虽然前面还有很多坑没补完...但是我发现自己代码能力问题比较严重。所以来做做ynoi。 坑先放在这...清醒的时候慢慢填。 [YNOI2016] 镜中的昆虫">
+<meta property="og:description" content="题解 把操作离线，然后分治，把问题变成只需要支持加边，回滚，维护两点间最小 \(xor\) 路径。 在询问 \(u,v\) 中，你可以从 \(u\) 走到 \(t\) 然后走回 \(u\)，路径上每条边都被经过两次，所以路径上的边贡献为 \(0\)。因此如果有一条 \(xor\) 为 \(x\) 的 \(u,v\) 路径，有一个 \(xor\) 为 \(c\) 的环，就存在一条 \(xor\) 为">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-12T02:04:31.258Z">
+<meta property="og:updated_time" content="2020-03-05T13:00:51.090Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[题解] YNOI">
-<meta name="twitter:description" content="虽然前面还有很多坑没补完...但是我发现自己代码能力问题比较严重。所以来做做ynoi。 坑先放在这...清醒的时候慢慢填。 [YNOI2016] 镜中的昆虫">
+<meta name="twitter:title" content="[Codeforces938G] Shortest Path Queries">
+<meta name="twitter:description" content="题解 把操作离线，然后分治，把问题变成只需要支持加边，回滚，维护两点间最小 \(xor\) 路径。 在询问 \(u,v\) 中，你可以从 \(u\) 走到 \(t\) 然后走回 \(u\)，路径上每条边都被经过两次，所以路径上的边贡献为 \(0\)。因此如果有一条 \(xor\) 为 \(x\) 的 \(u,v\) 路径，有一个 \(xor\) 为 \(c\) 的环，就存在一条 \(xor\) 为">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zbww.cf/2019/04/10/[题解]-YNOI/">
+  <link rel="canonical" href="https://zbww.cf/2020/03/05/1/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>[题解] YNOI | 一个蒟蒻的Blog</title>
+  <title>[Codeforces938G] Shortest Path Queries | 一个蒟蒻的Blog</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/04/10/[题解]-YNOI/">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/05/1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zbww">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[题解] YNOI
+          <h1 class="post-title" itemprop="name headline">[Codeforces938G] Shortest Path Queries
 
               
             
@@ -366,24 +366,12 @@
                 
               
 
-              <time title="创建时间：2019-04-10 10:16:06" itemprop="dateCreated datePublished" datetime="2019-04-10T10:16:06+08:00">2019-04-10</time>
+              <time title="创建时间：2020-03-05 20:48:03 / 修改时间：21:00:51" itemprop="dateCreated datePublished" datetime="2020-03-05T20:48:03+08:00">2020-03-05</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-12 10:04:31" itemprop="dateModified" datetime="2019-04-12T10:04:31+08:00">2019-04-12</time>
               
             
           </span>
@@ -424,9 +412,14 @@
       
 
       
-        <p>虽然前面还有很多坑没补完...但是我发现自己代码能力问题比较严重。所以来做做ynoi。</p>
-<p>坑先放在这...清醒的时候慢慢填。</p>
-<p><a href="https://zbww.cf/2019/04/12/%5BYNOI2016%5D-%E9%95%9C%E4%B8%AD%E7%9A%84%E6%98%86%E8%99%AB/">[YNOI2016] 镜中的昆虫</a></p>
+        <h1 id="题解">题解</h1>
+<p>把操作离线，然后分治，把问题变成只需要支持加边，回滚，维护两点间最小 <span class="math inline">\(xor\)</span> 路径。</p>
+<p>在询问 <span class="math inline">\(u,v\)</span> 中，你可以从 <span class="math inline">\(u\)</span> 走到 <span class="math inline">\(t\)</span> 然后走回 <span class="math inline">\(u\)</span>，路径上每条边都被经过两次，所以路径上的边贡献为 <span class="math inline">\(0\)</span>。因此如果有一条 <span class="math inline">\(xor\)</span> 为 <span class="math inline">\(x\)</span> 的 <span class="math inline">\(u,v\)</span> 路径，有一个 <span class="math inline">\(xor\)</span> 为 <span class="math inline">\(c\)</span> 的环，就存在一条 <span class="math inline">\(xor\)</span> 为 <span class="math inline">\(x\oplus c\)</span> 的路径。</p>
+<p>任意考虑一棵生成树，对于一个非树边 <span class="math inline">\(u,v,w\)</span>，设 <span class="math inline">\(u\)</span> 到 <span class="math inline">\(v\)</span> 的树上路径 <span class="math inline">\(xor\)</span> 为 <span class="math inline">\(x\)</span>，那么存在一个 <span class="math inline">\(xor\)</span> 为 <span class="math inline">\(x \oplus w\)</span> 的环，因此如果经过了这条非树边，我们不妨把它看成是沿着树上路径从 <span class="math inline">\(u\)</span> 走到 <span class="math inline">\(v\)</span>。之后再异或上这个换的权值。</p>
+<p>所以我们只需要考虑把 <span class="math inline">\(u\)</span> 到 <span class="math inline">\(v\)</span> 之间的树上路径异或上一些由一条非树边一条树链构成的环的 <span class="math inline">\(xor\)</span>，答案最小是什么。</p>
+<p>维护所有非树边加上一条树链构成的环的 <span class="math inline">\(xor\)</span> 的线性基即可。</p>
+<p>然后考虑怎么加边维护这个东西。因为需要回滚，均摊算法（如 LCT，路径压缩的并查集）无法使用。我们只需要支持询问两点是否连通，询问两点之间的 <span class="math inline">\(xor\)</span>，加边和回滚即可。我们可以给点 <span class="math inline">\(i\)</span> 维护一个值 <span class="math inline">\(v_i\)</span>，初始时所有点的值 <span class="math inline">\(=0\)</span>，用按秩合并的并查集来维护连通性。我们始终要保证对于任意的 <span class="math inline">\(u,v\)</span>，如果 <span class="math inline">\(u,v\)</span> 连通，那么 <span class="math inline">\(u,v\)</span> 之间树上路径的 <span class="math inline">\(xor\)</span> 等于 <span class="math inline">\(v_u \oplus v_v\)</span>。每次加边的时候，如果两个连通块并成了一个连通块，你可以通过把其中一个连通块内的所有点的 <span class="math inline">\(v_i\)</span> 异或上一个数来保持这一性质。按秩合并时打个 tag 即可。</p>
+<p>时间复杂度为 <span class="math inline">\(\mathcal O(n \log^2 n)\)</span>。</p>
 
       
     </div>
@@ -452,8 +445,6 @@
           
             <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
           
-            <a href="/tags/题解/" rel="tag"># 题解</a>
-          
         </div>
       
 
@@ -465,8 +456,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/05/[模板]-FWT/" rel="next" title="[模板] FWT">
-                <i class="fa fa-chevron-left"></i> [模板] FWT
+              <a href="/2019/11/02/[AGC/" rel="next" title="[AGC034E] Complete Compress">
+                <i class="fa fa-chevron-left"></i> [AGC034E] Complete Compress
               </a>
             
           </div>
@@ -474,10 +465,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/12/[YNOI2016]-镜中的昆虫/" rel="prev" title="[YNOI2016] 镜中的昆虫">
-                [YNOI2016] 镜中的昆虫 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -529,8 +516,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -735,6 +731,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题解"><span class="nav-number">1.</span> <span class="nav-text">题解</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -907,7 +920,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/04/10/[题解]-YNOI/'
+    refer: '2020/03/05/1/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
@@ -1257,6 +1270,54 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.MathJax{outline:0;}
+</style>
+
+    
   
 
 
