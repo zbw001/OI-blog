@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="关于回滚操作的技巧在需要回滚的数组比较多的时候一个一个开栈回滚会比较麻烦，可以试着下面这样写： 123int *sta_p[maxn*k], sta_v[maxn*k], top;void modify(int &amp;amp;x) &amp;#123;++ top; sta_p[top] = &amp;amp;x; sta_v[top] = x;&amp;#125; 这样还原的时候也只需要根据指针搞一搞就好，只需要开一个栈">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-05T13:29:14.244Z">
+<meta property="og:updated_time" content="2020-03-06T10:11:44.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现技巧整理">
 <meta name="twitter:description" content="关于回滚操作的技巧在需要回滚的数组比较多的时候一个一个开栈回滚会比较麻烦，可以试着下面这样写： 123int *sta_p[maxn*k], sta_v[maxn*k], top;void modify(int &amp;amp;x) &amp;#123;++ top; sta_p[top] = &amp;amp;x; sta_v[top] = x;&amp;#125; 这样还原的时候也只需要根据指针搞一搞就好，只需要开一个栈">
@@ -371,12 +371,24 @@
                 
               
 
-              <time title="创建时间：2020-03-05 21:07:26 / 修改时间：21:29:14" itemprop="dateCreated datePublished" datetime="2020-03-05T21:07:26+08:00">2020-03-05</time>
+              <time title="创建时间：2020-03-05 21:07:26" itemprop="dateCreated datePublished" datetime="2020-03-05T21:07:26+08:00">2020-03-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-06 18:11:44" itemprop="dateModified" datetime="2020-03-06T18:11:44+08:00">2020-03-06</time>
               
             
           </span>
@@ -420,6 +432,7 @@
         <ul>
 <li><p>关于回滚操作的技巧在需要回滚的数组比较多的时候一个一个开栈回滚会比较麻烦，可以试着下面这样写： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *sta_p[maxn*k], sta_v[maxn*k], top;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> &amp;x)</span> </span>&#123;++ top; sta_p[top] = &amp;x; sta_v[top] = x;&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这样还原的时候也只需要根据指针搞一搞就好，只需要开一个栈就行了，注意 <span class="math inline">\(k\)</span> 不要开小。</p></li>
+<li><p>有时候你需要记录一个支持随时清空的 <span class="math inline">\(01\)</span> 数组，这时可以不额外开标记数组。记一个变量 <span class="math inline">\(tim\)</span>，赋 <span class="math inline">\(1\)</span> 的时候就设为 <span class="math inline">\(tim\)</span>，判断是 <span class="math inline">\(0\)</span> 还是 <span class="math inline">\(1\)</span> 就看是否等于 <span class="math inline">\(tim\)</span>，清空就 <span class="math inline">\(tim \leftarrow tim + 1\)</span>。</p></li>
 </ul>
 
       
