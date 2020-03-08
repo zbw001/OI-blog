@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[需要经常复习的东西]]></title>
+    <url>%2F2020%2F03%2F09%2Fxu'yao%2F</url>
+    <content type="text"><![CDATA[一些感觉自己考试的时候很难独立想出来但是又经常会忘的东西。 楼房重建的做法 (2020.03.09) 支配树 伯努利数与自然数幂和 自然数的（可重 / 不可重）无序拆分：根号做法与 \(\log\) 做法]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[实现技巧整理]]></title>
     <url>%2F2020%2F03%2F05%2F%E5%AE%9E%E7%8E%B0%E6%8A%80%E5%B7%A7%E6%95%B4%E7%90%86%2F</url>
     <content type="text"><![CDATA[关于回滚操作的技巧在需要回滚的数组比较多的时候一个一个开栈回滚会比较麻烦，可以试着下面这样写： 123int *sta_p[maxn*k], sta_v[maxn*k], top;void modify(int &amp;x) &#123;++ top; sta_p[top] = &amp;x; sta_v[top] = x;&#125; 这样还原的时候也只需要根据指针搞一搞就好，只需要开一个栈就行了，注意 \(k\) 不要开小。 有时候你需要记录一个支持随时清空的 \(01\) 数组，这时可以不额外开标记数组。记一个变量 \(tim\)，赋 \(1\) 的时候就设为 \(tim\)，判断是 \(0\) 还是 \(1\) 就看是否等于 \(tim\)，清空就 \(tim \leftarrow tim + 1\)。]]></content>
