@@ -3,7 +3,12 @@
   <entry>
     <title><![CDATA[[Codeforces809E] Surprise me!]]></title>
     <url>%2F2020%2F03%2F15%2FCF809E%2F</url>
-    <content type="text"><![CDATA[做法 点分治一下，转化为以下问题： 有两个长为 \(n\) 的数组 \(a_1\) 和 \(d_1\)，两个长为 \(m\) 的数组 \(a_2\) 和 \(d_2\)，求： \[ \sum_{i=1}^n \sum_{j=1}^n \phi(a_1[i]a_2[j])(d_1[i]+d_2[j]) \\= \] 代码 12345678#include &lt;bits/stdc++.h&gt;using namespace std;int main() &#123; return 0;&#125;]]></content>
+    <content type="text"><![CDATA[做法 点分治一下，转化为以下问题： 有两个长为 \(n\) 的数组 \(a_1\) 和 \(d_1\)，两个长为 \(m\) 的数组 \(a_2\) 和 \(d_2\)，求： \[ \sum_{i=1}^n \sum_{j=1}^m \phi(a_1[i]a_2[j])(d_1[i]+d_2[j]) \] 枚举一下 \(i\)，关键就是如何求形如 \(\sum_j \phi(a_1[i]a_2[j]) d_2[j]\) 的东西。 注意到 \(\phi(ab) = \gcd(a,b) \frac{\phi(a)\phi(b)}{\phi(\gcd(a,b))}\) 设 \(s_i = \sum_{i|k} d_2[k]\phi(a_2[k])\) \[ \sum_j \phi(a_1[i]a_2[j]) d_2[j] \\=\phi(a_1[i])\sum_{d\mid a_1[i]} [\gcd(a_1[i],a_2[j])=d]\frac{dd_2[j]\phi(a_2[j])}{\phi(d)} \\=\phi(a_1[i])\sum_{d\mid a_1[i]} \frac d {\phi(d)} \sum_{d \mid k, k \mid a_1[i]} \mu(\frac k d) s_k \] \(s_i\) 是很容易处理的，只需要对每个 \(1\ldots m\) 中的数 \(i\) 考虑 \(d_2[i]\phi(a_2[i])\) 对每个 \(s\) 中 \(i\) 的约数下标位置的贡献即可。 如果暴力计算上式，复杂度为 \(1 \ldots n\) 中每个数的约数个数的约数个数之和乘以点分治的一个 \(\log\)。前面的部分复杂度是 \(\log^2\) 的（考虑 \((\sum \frac 1 i )^2\)），从而总复杂度为 \(\mathcal O(n\log^3 n)\)。 题解中对上式给出了神奇的求法，这里就直接用一个暴力一点的优化了： 代码 12345678#include &lt;bits/stdc++.h&gt;using namespace std;int main() &#123; return 0;&#125;]]></content>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>数论</tag>
+        <tag>点分治</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[[Codeforces176E] Archaeology]]></title>
