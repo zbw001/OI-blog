@@ -857,7 +857,7 @@
                 
               
 
-              <time title="创建时间：2020-03-15 15:32:24 / 修改时间：15:52:27" itemprop="dateCreated datePublished" datetime="2020-03-15T15:32:24+08:00">2020-03-15</time>
+              <time title="创建时间：2020-03-15 15:32:24 / 修改时间：16:11:51" itemprop="dateCreated datePublished" datetime="2020-03-15T15:32:24+08:00">2020-03-15</time>
             
 
             
@@ -914,7 +914,16 @@
 \]</span></p>
 <p><span class="math inline">\(s_i\)</span> 是很容易处理的，只需要对每个 <span class="math inline">\(1\ldots m\)</span> 中的数 <span class="math inline">\(i\)</span> 考虑 <span class="math inline">\(d_2[i]\phi(a_2[i])\)</span> 对每个 <span class="math inline">\(s\)</span> 中 <span class="math inline">\(i\)</span> 的约数下标位置的贡献即可。</p>
 <p>如果暴力计算上式，复杂度为 <span class="math inline">\(1 \ldots n\)</span> 中每个数的约数个数的约数个数之和乘以点分治的一个 <span class="math inline">\(\log\)</span>。前面的部分复杂度是 <span class="math inline">\(\log^2\)</span> 的（考虑 <span class="math inline">\((\sum \frac 1 i )^2\)</span>），从而总复杂度为 <span class="math inline">\(\mathcal O(n\log^3 n)\)</span>。</p>
-<p>题解中对上式给出了神奇的求法，这里就直接用一个暴力一点的优化了：</p>
+<p>继续对上式变形：</p>
+<p>设 <span class="math inline">\(t_k = \sum_{d \mid k} \frac d {\phi(d)} \mu(\frac k d)\)</span>，<span class="math inline">\(t_k\)</span> 是一个常数。</p>
+<p><span class="math display">\[
+\phi(a_1[i])\sum_{d\mid a_1[i]} \frac d {\phi(d)} \sum_{d \mid k, k \mid a_1[i]} \mu(\frac k d) s_k
+\\=\phi(a_1[i])\sum_{k \mid a_1[i]} s_k \sum_{d \mid k} \frac d {\phi(d)} \mu(\frac k d)
+\\=\phi(a_1[i])\sum_{k \mid a_1[i]} s_k t_k
+\]</span></p>
+<p>考虑对 <span class="math inline">\(t\)</span> 进行预处理。<span class="math inline">\(t\)</span> 是一个积性函数（因为它是两个积性函数的狄利克雷卷积），我们可以直接把它筛出来。</p>
+<p>但是因为我懒，我选择直接暴力预处理 <span class="math inline">\(t\)</span>，时间复杂度为 <span class="math inline">\(\mathcal O(n \log n)\)</span>。</p>
+<p>这个算法的复杂度为 <span class="math inline">\(\mathcal O(n \log^2n)\)</span>。</p>
 <h1 id="代码">代码</h1>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
