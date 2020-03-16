@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="比较函数定义不严格，存在返回相等但是实际上有区别的情况。这可能导致双堆维护删除操作时出现问题。（应当同时弹栈但是栈顶元素不相等） for (int i = 1; i &amp;lt;= n; i++) a[n] = inf。 在一些回溯时需要撤销操作的 dfs 中，因为其他原因 return 的时候没有撤销操作。 循环/if 里层外层变量名混淆。 进行 dfs / 递归时，因为使用全局变量下层 dfs">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-11T10:26:28.756Z">
+<meta property="og:updated_time" content="2020-03-16T14:21:51.587Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现错误记录">
 <meta name="twitter:description" content="比较函数定义不严格，存在返回相等但是实际上有区别的情况。这可能导致双堆维护删除操作时出现问题。（应当同时弹栈但是栈顶元素不相等） for (int i = 1; i &amp;lt;= n; i++) a[n] = inf。 在一些回溯时需要撤销操作的 dfs 中，因为其他原因 return 的时候没有撤销操作。 循环/if 里层外层变量名混淆。 进行 dfs / 递归时，因为使用全局变量下层 dfs">
@@ -388,7 +388,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-11 18:26:28" itemprop="dateModified" datetime="2020-03-11T18:26:28+08:00">2020-03-11</time>
+                <time title="修改时间：2020-03-16 22:21:51" itemprop="dateModified" datetime="2020-03-16T22:21:51+08:00">2020-03-16</time>
               
             
           </span>
@@ -437,6 +437,7 @@
 <li>进行 dfs / 递归时，因为使用全局变量下层 dfs 时破坏了上层之后要用到的信息。</li>
 <li>容斥时，只枚举了集合大小忘记了乘组合数。</li>
 <li>插头 dp 不要忘记连接两个左括号或者连接两个右括号的情况。</li>
+<li>树链剖分时，询问链的时候一定要注意是比较重链顶端深度大小，不能直接比较两个点深度大小。</li>
 </ul>
 
       
