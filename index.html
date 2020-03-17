@@ -1007,7 +1007,7 @@
                 
               
 
-              <time title="创建时间：2020-03-17 16:05:00 / 修改时间：17:15:45" itemprop="dateCreated datePublished" datetime="2020-03-17T16:05:00+08:00">2020-03-17</time>
+              <time title="创建时间：2020-03-17 16:05:00 / 修改时间：17:23:55" itemprop="dateCreated datePublished" datetime="2020-03-17T16:05:00+08:00">2020-03-17</time>
             
 
             
@@ -1049,8 +1049,9 @@
         
           
             <h1 id="做法">做法</h1>
-<p>想了挺久只会胡个 <span class="math inline">\(\mathcal O(n \sqrt {n\log n})\)</span> 的莫队 + 维护 huffman 树，去看了眼别人的题解发现也是这个复杂度的.....不过比我胡的妙多了，下面写的是看到的别人的做法。</p>
-<p>用莫队处理询问，维护下每个数出现几次，用一个 set 维护出现的数。对次数不超过 <span class="math inline">\(x\)</span> 的数，记一下每个数出现几次然后 <span class="math inline">\(\mathcal O(x)\)</span> 算出合并代价。转化为只有出现次数超过 <span class="math inline">\(x\)</span> 的数的情况，这时最多只有 <span class="math inline">\(\frac n x\)</span> 个数，贪心合并即可。询问时间复杂度为 <span class="math inline">\(\mathcal O(x + \frac n x \log n)\)</span>，取 <span class="math inline">\(x = \sqrt {n \log n}\)</span>，则一次询问的复杂度为 <span class="math inline">\(\sqrt {n \log n}\)</span>。</p>
+<p>想了挺久只会胡个 <span class="math inline">\(\mathcal O(n \sqrt n \log n)\)</span> 的莫队 + 维护 huffman 树，去看了眼别人的题解发现也是这个复杂度的.....不过比我胡的妙多了，下面写的是看到的别人的做法。</p>
+<p>用莫队处理询问，维护下每个数出现几次，并记录下当前出现次数大于 <span class="math inline">\(x\)</span> 的数。对次数不超过 <span class="math inline">\(x\)</span> 的数，记一下每个数出现几次然后 <span class="math inline">\(\mathcal O(x)\)</span> 算出合并代价。转化为只有出现次数超过 <span class="math inline">\(x\)</span> 的数的情况，这时最多只有 <span class="math inline">\(\frac n x\)</span> 个数，贪心合并即可。询问时间复杂度为 <span class="math inline">\(\mathcal O(x + \frac n x \log n)\)</span>，取 <span class="math inline">\(x = \sqrt {n \log n}\)</span>，则一次询问的复杂度为 <span class="math inline">\(\sqrt {n \log n}\)</span>。</p>
+<p>对于莫队的过程，如果你使用只有加元素的莫队，复杂度也可以做到 <span class="math inline">\(\mathcal O(n \sqrt {n \log n})\)</span>，但是由于我懒两个部分都写了 <span class="math inline">\(\mathcal O(n \sqrt n \log n)\)</span>。</p>
 <h1 id="代码">代码</h1>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
