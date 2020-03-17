@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[Codeforces700D] Huffman Coding on Segment]]></title>
+    <url>%2F2020%2F03%2F17%2FCF700D%2F</url>
+    <content type="text"><![CDATA[做法 想了挺久只会胡个 \(\mathcal O(n \sqrt n \log n)\) 的莫队 + 维护 huffman 树，去看了眼别人的题解发现也是这个复杂度的.....不过比我胡的妙多了，下面写的是看到的别人的做法。 用莫队处理询问，维护下每个数出现几次，并记录下当前出现次数大于 \(x\) 的数。对次数不超过 \(x\) 的数，记一下每个数出现几次然后 \(\mathcal O(x)\) 算出合并代价。转化为只有出现次数超过 \(x\) 的数的情况，这时最多只有 \(\frac n x\) 个数，贪心合并即可。询问时间复杂度为 \(\mathcal O(x + \frac n x \log n)\)，取 \(x = \sqrt {n \log n}\)，则一次询问的复杂度为 \(\sqrt {n \log n}\)。 对于莫队的过程，如果你使用只有加元素的莫队，复杂度也可以做到 \(\mathcal O(n \sqrt {n \log n})\)，但是由于我懒写了 \(\mathcal O(n \sqrt n \log n)\)。 代码 12]]></content>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>贪心</tag>
+        <tag>分块</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[Codeforces319E] Ping-Pong]]></title>
     <url>%2F2020%2F03%2F17%2FCF319E%2F</url>
     <content type="text"><![CDATA[做法 题目中的连边方式可以概括为，如果(开)区间 \((l_1,r_1)\) 与 \((l_2,r_2)\) 交不为空，且 \((l_1,r_1)\) 与 \((l_2,r_2)\) 不是一对存在包含关系的区间，那么这两个区间之间有一条双向边。否则，如果 \((l_1,r_1)\) 被 \((l_2,r_2)\) 包含，\((l_1,r_1)\) 到 \((l_2,r_2)\) 有一条有向边。 对于一个仅由双向边构成的连通块，设这个连通块中所有区间的并为 \((L,R)\)，我们可以认为现在就存在这样一个区间 \((L,R)\)。因为长度是递增的，如果之后加入一个区间 \((a,b)\)，\(a\) 被 \((L,R)\) 包含或者 \(b\) 被 \((L,R)\) 包含，那么 \((a,b)\) 与这个连通块中的某个点有一条双向边。不难发现，一个区间 \(a\) 能到达区间 \(b\) 的充要条件是 \(a\) 所在连通块所有区间的并被 \(b\) 所在连通块所有区间的并包含。这样我们只要用并查集维护连通块，并记录一下连通块的并的左右端点，就可以直接判断能否到达了。 我们用线段树维护，对于每个点有哪些连通块的并包含这个点。这可以通过在线段树上每个点开一个 vector 来实现，查询哪些连通块的并包含一个点时，只需取这个点到根的路径上所有 vector 的并即可。每加入一个区间，就对左右端点查一下，把得到的连通块合并，然后再把新的连通块加入线段树。由于所有被你查过的点 vector 中所有点都会被你合并，所以你每查询一个点的 vector 就可以把它的 vector 清空，而每加入一个区间最多增加一个连通块，你只会给 \(\mathcal O(\log n)\) 个点的 vector 添加元素。所以这个算法的总复杂度为 \(\mathcal O(n \log n \alpha (n))\)。 代码 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485#include &lt;bits/stdc++.h&gt;using namespace std;const int maxn = 100010*2;const int maxw = 1e9;vector&lt;int&gt; tmp;int n, c;int L[maxn], R[maxn], fa[maxn];int qo[maxn], qx[maxn], qy[maxn];vector&lt;int&gt; T[maxn&lt;&lt;2];vector&lt;int&gt; vres;int getroot(int x) &#123; if (x == fa[x]) return x; return fa[x] = getroot(fa[x]);&#125;void upd(int L, int R, int x, int l, int r, int rt) &#123; if (L &gt; R) return; if (L &lt;= l &amp;&amp; r &lt;= R) &#123; T[rt].push_back(x); return; &#125; int m = (l + r) &gt;&gt; 1; if (L &lt;= m) upd(L, R, x, l, m, rt&lt;&lt;1); if (R &gt; m) upd(L, R, x, m+1, r, rt&lt;&lt;1|1);&#125;void qry(int p, int l, int r, int rt) &#123; vres.insert(vres.end(), T[rt].begin(), T[rt].end()); T[rt].clear(); if (l == r) return; int m = (l + r) &gt;&gt; 1; if (p &lt;= m) qry(p, l, m, rt&lt;&lt;1); else qry(p, m+1, r, rt&lt;&lt;1|1);&#125;// x 是根，把 y 加入 xvoid Union(int x, int y) &#123; int ry = getroot(y); fa[ry] = x; L[x] = min(L[x], L[ry]); R[x] = max(R[x], R[ry]);&#125;int main() &#123; scanf("%d", &amp;n); for (int i = 1; i &lt;= n; i++) &#123; scanf("%d%d%d", &amp;qo[i], &amp;qx[i], &amp;qy[i]); if (qo[i] == 1) &#123; tmp.push_back(qx[i]), tmp.push_back(qy[i]); &#125; &#125; sort(tmp.begin(), tmp.end()); for (int i = 1; i &lt;= n; i++) &#123; if (qo[i] == 1) &#123; qx[i] = int (lower_bound(tmp.begin(), tmp.end(), qx[i]) - tmp.begin() + 1); qy[i] = int (lower_bound(tmp.begin(), tmp.end(), qy[i]) - tmp.begin() + 1); ++ c; L[c] = qx[i], R[c] = qy[i]; fa[c] = c; &#125; &#125; int _c = 0; for (int i = 1; i &lt;= n; i++) &#123; if (qo[i] == 1) &#123; ++ _c; vres.clear(); int l = qx[i], r = qy[i]; qry(l, 1, 2*n, 1), qry(r, 1, 2*n, 1); for (int i = 0; i &lt; vres.size(); i++) Union(_c, vres[i]); upd(L[_c]+1, R[_c]-1, _c, 1, 2*n, 1); &#125; else &#123; int rx = getroot(qx[i]), ry = getroot(qy[i]); if (L[rx] &gt;= L[ry] &amp;&amp; R[rx] &lt;= R[ry]) puts("YES"); else puts("NO"); &#125; &#125; return 0;&#125;]]></content>
       <tags>
         <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[[Codeforces700D] Huffman Coding on Segment]]></title>
-    <url>%2F2020%2F03%2F17%2FCF700D%2F</url>
-    <content type="text"><![CDATA[做法 想了挺久只会胡个 \(\mathcal O(n \sqrt n \log n)\) 的莫队 + 维护 huffman 树，去看了眼别人的题解发现也是这个复杂度的.....不过比我胡的妙多了，下面写的是看到的别人的做法。 用莫队处理询问，维护下每个数出现几次，并记录下当前出现次数大于 \(x\) 的数。对次数不超过 \(x\) 的数，记一下每个数出现几次然后 \(\mathcal O(x)\) 算出合并代价。转化为只有出现次数超过 \(x\) 的数的情况，这时最多只有 \(\frac n x\) 个数，贪心合并即可。询问时间复杂度为 \(\mathcal O(x + \frac n x \log n)\)，取 \(x = \sqrt {n \log n}\)，则一次询问的复杂度为 \(\sqrt {n \log n}\)。 对于莫队的过程，如果你使用只有加元素的莫队，复杂度也可以做到 \(\mathcal O(n \sqrt {n \log n})\)，但是由于我懒两个部分都写了 \(\mathcal O(n \sqrt n \log n)\)。 代码 12]]></content>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>贪心</tag>
-        <tag>分块</tag>
       </tags>
   </entry>
   <entry>
