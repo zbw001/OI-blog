@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="做法 先求重心：随便找个点，把多边形划分成若干个三角形，求出每个三角形重心，按有向面积加权平均。 对于一个点 \((x_p,y_p)\)，设 \(p = \begin{bmatrix} x_p \\ y_p \\ 1 \end{bmatrix}\)。把它绕 \((x_0,y_0)\) 逆时针旋转 \(c\) 弧度，相当于把 \(p\) 左乘一个矩阵 \(\begin{bmatrix} \cos c">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-18T06:49:23.792Z">
+<meta property="og:updated_time" content="2020-03-18T07:03:27.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Codeforces975E] Hag&#39;s Khashba">
 <meta name="twitter:description" content="做法 先求重心：随便找个点，把多边形划分成若干个三角形，求出每个三角形重心，按有向面积加权平均。 对于一个点 \((x_p,y_p)\)，设 \(p = \begin{bmatrix} x_p \\ y_p \\ 1 \end{bmatrix}\)。把它绕 \((x_0,y_0)\) 逆时针旋转 \(c\) 弧度，相当于把 \(p\) 左乘一个矩阵 \(\begin{bmatrix} \cos c">
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2020-03-18 11:46:00 / 修改时间：14:49:23" itemprop="dateCreated datePublished" datetime="2020-03-18T11:46:00+08:00">2020-03-18</time>
+              <time title="创建时间：2020-03-18 11:46:00 / 修改时间：15:03:27" itemprop="dateCreated datePublished" datetime="2020-03-18T11:46:00+08:00">2020-03-18</time>
             
 
             
@@ -416,7 +416,7 @@
         <h1 id="做法">做法</h1>
 <p>先求重心：随便找个点，把多边形划分成若干个三角形，求出每个三角形重心，按有向面积加权平均。</p>
 <p>对于一个点 <span class="math inline">\((x_p,y_p)\)</span>，设 <span class="math inline">\(p = \begin{bmatrix} x_p \\ y_p \\ 1 \end{bmatrix}\)</span>。把它绕 <span class="math inline">\((x_0,y_0)\)</span> 逆时针旋转 <span class="math inline">\(c\)</span> 弧度，相当于把 <span class="math inline">\(p\)</span> 左乘一个矩阵 <span class="math inline">\(\begin{bmatrix} \cos c &amp; -\sin c &amp; x_0+\sin c y_0 - \cos c x_0 \\ \sin c &amp; \cos c &amp; y_0 - \cos c y_0-\sin c x_0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}\)</span>。只需要记一个 <span class="math inline">\(3 \times 3\)</span> 矩阵就能快速获得每个点的位置。旋转时考虑一下固定的点和重心的位置即可。</p>
-<p>听（题解上说）需要把一个点移到 <span class="math inline">\((0,0)\)</span> 避免精度误差。不知道不这样能不能过。</p>
+<p>听（题解上）说需要把一个点移到 <span class="math inline">\((0,0)\)</span> 避免精度误差。不知道不这样能不能过。</p>
 <p>（样例 2 真的会转吗？）</p>
 <p>时间复杂度 <span class="math inline">\(\mathcal O(n+m)\)</span>。</p>
 <h1 id="代码">代码</h1>
