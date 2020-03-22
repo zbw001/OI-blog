@@ -861,7 +861,7 @@
                 
               
 
-              <time title="创建时间：2020-03-22 17:08:00 / 修改时间：21:21:19" itemprop="dateCreated datePublished" datetime="2020-03-22T17:08:00+08:00">2020-03-22</time>
+              <time title="创建时间：2020-03-22 17:08:00 / 修改时间：21:38:33" itemprop="dateCreated datePublished" datetime="2020-03-22T17:08:00+08:00">2020-03-22</time>
             
 
             
@@ -917,6 +917,8 @@
 <p>其中 <span class="math inline">\(e\)</span> 是不在最小树形图中的边，从图中可以很明显地看到，把环缩成一个点，然后把缩完后的的点的出边边权减去原来这条出边对应的 <span class="math inline">\(e\)</span> 的权值即可得到一个等价的图。</p>
 <p>暴力缩点可以用 <span class="math inline">\(\mathcal O(nm)\)</span> 的时间复杂度求出最小树形图。</p>
 <h1 id="复杂度优化">复杂度优化</h1>
+<p>用并查集维护弱连通块，再用并查集维护当前哪些点被缩成了一个点。用可并堆维护当前每个点的出边，缩点时带 tag 合并一下，然后找最小出边，如果在同一弱连通块又可以缩点了，否则的话就和其他弱连通块合并在了一起。</p>
+<p>缩一次至少减少一个点，所以这个算法的复杂度为 <span class="math inline">\(\mathcal O((n+m) \log n)\)</span>。</p>
 <h1 id="实现">实现</h1>
 
           
