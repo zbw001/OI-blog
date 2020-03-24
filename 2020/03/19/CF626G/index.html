@@ -97,25 +97,25 @@
 
 
 
-  <meta name="description" content="题目链接： https://codeforces.com/contest/1120/problem/C 题目大意 你有一个长度为 \(n\) 个字符串 \(s\)。 请你把 \(s\) 拆成若干个字符串 \(s=t_1t_2\cdots t_k\)。 对于第 \(i\) 个串，若 \(t_i\) 是 \(t_1t_2\cdots t_{i-1}\) 的字符串，你需要付出 \(b\) 的代价，否则">
-<meta name="keywords" content="codeforces,题解">
+  <meta name="description" content="做法 猜了个结论，不会证但是又想不到其他做法..看了眼题解发现是对的。 对于第 \(i\) 个抽奖，假设你买了 \(x\) 次，你从这个抽奖中获得的钱数的期望是 \(p_i\frac {x} {x + l_i}\)。假设你已经买了第 \(i\) 个抽奖 \(x\) 次，再买一次，期望的增加量是 \(p_i(\frac{x+1}{x+l_i+1} - \frac{x}{x+l_i}) = p_i \">
+<meta name="keywords" content="贪心">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Codeforces1120C] Compress String">
-<meta property="og:url" content="https://zbww.cf/2019/03/11/-/index.html">
+<meta property="og:title" content="[Codeforces626G] Raffles">
+<meta property="og:url" content="https://zbww.cf/2020/03/19/CF626G/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="题目链接： https://codeforces.com/contest/1120/problem/C 题目大意 你有一个长度为 \(n\) 个字符串 \(s\)。 请你把 \(s\) 拆成若干个字符串 \(s=t_1t_2\cdots t_k\)。 对于第 \(i\) 个串，若 \(t_i\) 是 \(t_1t_2\cdots t_{i-1}\) 的字符串，你需要付出 \(b\) 的代价，否则">
+<meta property="og:description" content="做法 猜了个结论，不会证但是又想不到其他做法..看了眼题解发现是对的。 对于第 \(i\) 个抽奖，假设你买了 \(x\) 次，你从这个抽奖中获得的钱数的期望是 \(p_i\frac {x} {x + l_i}\)。假设你已经买了第 \(i\) 个抽奖 \(x\) 次，再买一次，期望的增加量是 \(p_i(\frac{x+1}{x+l_i+1} - \frac{x}{x+l_i}) = p_i \">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-15T11:44:43.762Z">
+<meta property="og:updated_time" content="2020-03-24T10:49:07.420Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Codeforces1120C] Compress String">
-<meta name="twitter:description" content="题目链接： https://codeforces.com/contest/1120/problem/C 题目大意 你有一个长度为 \(n\) 个字符串 \(s\)。 请你把 \(s\) 拆成若干个字符串 \(s=t_1t_2\cdots t_k\)。 对于第 \(i\) 个串，若 \(t_i\) 是 \(t_1t_2\cdots t_{i-1}\) 的字符串，你需要付出 \(b\) 的代价，否则">
+<meta name="twitter:title" content="[Codeforces626G] Raffles">
+<meta name="twitter:description" content="做法 猜了个结论，不会证但是又想不到其他做法..看了眼题解发现是对的。 对于第 \(i\) 个抽奖，假设你买了 \(x\) 次，你从这个抽奖中获得的钱数的期望是 \(p_i\frac {x} {x + l_i}\)。假设你已经买了第 \(i\) 个抽奖 \(x\) 次，再买一次，期望的增加量是 \(p_i(\frac{x+1}{x+l_i+1} - \frac{x}{x+l_i}) = p_i \">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zbww.cf/2019/03/11/-/">
+  <link rel="canonical" href="https://zbww.cf/2020/03/19/CF626G/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>[Codeforces1120C] Compress String | 一个蒟蒻的Blog</title>
+  <title>[Codeforces626G] Raffles | 一个蒟蒻的Blog</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/03/11/-/">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/19/CF626G/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zbww">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[Codeforces1120C] Compress String
+          <h1 class="post-title" itemprop="name headline">[Codeforces626G] Raffles
 
               
             
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2019-03-11 18:58:20" itemprop="dateCreated datePublished" datetime="2019-03-11T18:58:20+08:00">2019-03-11</time>
+              <time title="创建时间：2020-03-19 17:22:00" itemprop="dateCreated datePublished" datetime="2020-03-19T17:22:00+08:00">2020-03-19</time>
             
 
             
@@ -384,7 +384,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-15 19:44:43" itemprop="dateModified" datetime="2019-03-15T19:44:43+08:00">2019-03-15</time>
+                <time title="修改时间：2020-03-24 18:49:07" itemprop="dateModified" datetime="2020-03-24T18:49:07+08:00">2020-03-24</time>
               
             
           </span>
@@ -425,16 +425,12 @@
       
 
       
-        <p>题目链接： https://codeforces.com/contest/1120/problem/C</p>
-<h1 id="题目大意">题目大意</h1>
-<p>你有一个长度为 <span class="math inline">\(n\)</span> 个字符串 <span class="math inline">\(s\)</span>。<br>
-请你把 <span class="math inline">\(s\)</span> 拆成若干个字符串 <span class="math inline">\(s=t_1t_2\cdots t_k\)</span>。<br>
-对于第 <span class="math inline">\(i\)</span> 个串，若 <span class="math inline">\(t_i\)</span> 是 <span class="math inline">\(t_1t_2\cdots t_{i-1}\)</span> 的字符串，你需要付出 <span class="math inline">\(b\)</span> 的代价，否则 <span class="math inline">\(t_i\)</span> 长度必须为 <span class="math inline">\(1\)</span>，你需要付出 <span class="math inline">\(a\)</span> 的代价。求最小代价。<br>
-<span class="math inline">\(n \le 5000\)</span>，字符集大小 <span class="math inline">\(26\)</span>。</p>
-<h1 id="解法">解法</h1>
-<p>设 <span class="math inline">\(dp_i\)</span> 表示前 <span class="math inline">\(i\)</span> 个字符的最小划分，在求出 <span class="math inline">\(dp_i\)</span> 后用 <span class="math inline">\(kmp\)</span> 找最长在前面出现过的从 <span class="math inline">\(i+1\)</span> 开始的串，更新所有 <span class="math inline">\(dp_j\)</span>。</p>
+        <h1 id="做法">做法</h1>
+<p>猜了个结论，不会证但是又想不到其他做法..看了眼题解发现是对的。</p>
+<p>对于第 <span class="math inline">\(i\)</span> 个抽奖，假设你买了 <span class="math inline">\(x\)</span> 次，你从这个抽奖中获得的钱数的期望是 <span class="math inline">\(p_i\frac {x} {x + l_i}\)</span>。假设你已经买了第 <span class="math inline">\(i\)</span> 个抽奖 <span class="math inline">\(x\)</span> 次，再买一次，期望的增加量是 <span class="math inline">\(p_i(\frac{x+1}{x+l_i+1} - \frac{x}{x+l_i}) = p_i \frac{l_i}{(x+l_i)(x+l_i+1)}\)</span>。容易发现这个增加量关于 <span class="math inline">\(x\)</span> 单调递减，所以我们只要对于所有的 <span class="math inline">\(i\)</span> 和 <span class="math inline">\(x \le i\)</span>，把 <span class="math inline">\(p_i \frac{l_i}{(x+l_i)(x+l_i+1)}\)</span> 丢进一个数组，从大到小排个序，前 <span class="math inline">\(t\)</span> 个数之和即是答案。但是这样做复杂度不能接受。</p>
+<p>我们先算出初始清空的最优方案，给第 <span class="math inline">\(k\)</span> 个抽奖原有的票数加一减一之后，考虑两种操作：一，少买一个抽奖 <span class="math inline">\(k\)</span>，多买一个另一个抽奖；二，多买一个抽奖 <span class="math inline">\(k\)</span>，少买一个另一个抽奖。我们找到能使期望增加量最大的操作，这很容易用堆来维护。只需要经过一次这样的操作即可得到最优方案，证明就不具体写出了。（比如说如果是进行操作二，从进行一次操作二后，再进行一次操作二的减小量要比在修改票数之前进行一次操作二的减小量要大来考虑即可）</p>
 <h1 id="代码">代码</h1>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">5010</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, a, b, fail[maxn], dp[maxn];</span><br><span class="line"><span class="keyword">char</span> s[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;a, &amp;b);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s+<span class="number">1</span>);</span><br><span class="line">    fail[<span class="number">0</span>] = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> cur = fail[i<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">while</span> (cur != <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[cur+<span class="number">1</span>] == s[i]) &#123;</span><br><span class="line">                fail[i] = cur+<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            cur = fail[cur];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) dp[i] = inf;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        fail[<span class="number">0</span>] = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; i+j &lt;= n; j++) &#123;</span><br><span class="line">            <span class="keyword">int</span> cur = fail[j<span class="number">-1</span>];</span><br><span class="line">            fail[j] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (cur != <span class="number">-1</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (s[i+cur+<span class="number">1</span>] == s[i+j]) &#123;</span><br><span class="line">                    fail[j] = cur+<span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                cur = fail[cur];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> p = <span class="number">0</span>, mx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (p != <span class="number">-1</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (s[i+p+<span class="number">1</span>] == s[j]) &#123;</span><br><span class="line">                    ++ p;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (p) p = fail[p];</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (p &gt; mx) mx = p;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= mx; j++) &#123;</span><br><span class="line">            dp[i+j] = min(dp[i+j], dp[i]+b);</span><br><span class="line">        &#125;</span><br><span class="line">        dp[i+<span class="number">1</span>] = min(dp[i+<span class="number">1</span>], dp[i]+a);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, dp[n]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -458,9 +454,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/codeforces/" rel="tag"># codeforces</a>
-          
-            <a href="/tags/题解/" rel="tag"># 题解</a>
+            <a href="/tags/贪心/" rel="tag"># 贪心</a>
           
         </div>
       
@@ -473,8 +467,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/08/博弈论整理/" rel="next" title="博弈整理（一）">
-                <i class="fa fa-chevron-left"></i> 博弈整理（一）
+              <a href="/2020/03/19/CF1063F/" rel="next" title="[Codeforces1063F] String Journey">
+                <i class="fa fa-chevron-left"></i> [Codeforces1063F] String Journey
               </a>
             
           </div>
@@ -483,8 +477,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/11/[Codeforces1120D]-/" rel="prev" title="[Codeforces1120D] Power Tree">
-                [Codeforces1120D] Power Tree <i class="fa fa-chevron-right"></i>
+              <a href="/2020/03/22/最小树形图/" rel="prev" title="[知识点] 最小树形图">
+                [知识点] 最小树形图 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -776,7 +770,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目大意"><span class="nav-number">1.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解法"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#做法"><span class="nav-number">1.</span> <span class="nav-text">做法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
 
           </div>
@@ -955,7 +949,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/03/11/-/'
+    refer: '2020/03/19/CF626G/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];

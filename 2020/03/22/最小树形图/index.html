@@ -106,7 +106,7 @@
 <meta property="og:description" content="问题 给定一个 \(n\) 个点 \(m\) 条边的带权简单有向图，求一个最小边权和的是以 \(r\) 为根的内向生成树。 外向树的情况没有本质区别，边反一反就好。 无根的情况可以加一个点转化为有根的情况。 算法 如果给定的有向图是 DAG，一个显然的贪心是，取除了 \(r\) 以外的每个点的最小出边。显然这样会构成一棵内向树，且不可能有权值和更小的内向树。 如果给定的有向图不是 DAG，直接取除">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://zbww.cf/images/2020032201.png">
-<meta property="og:updated_time" content="2020-03-22T13:38:33.230Z">
+<meta property="og:updated_time" content="2020-03-24T10:23:27.050Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[知识点] 最小树形图">
 <meta name="twitter:description" content="问题 给定一个 \(n\) 个点 \(m\) 条边的带权简单有向图，求一个最小边权和的是以 \(r\) 为根的内向生成树。 外向树的情况没有本质区别，边反一反就好。 无根的情况可以加一个点转化为有根的情况。 算法 如果给定的有向图是 DAG，一个显然的贪心是，取除了 \(r\) 以外的每个点的最小出边。显然这样会构成一棵内向树，且不可能有权值和更小的内向树。 如果给定的有向图不是 DAG，直接取除">
@@ -369,12 +369,24 @@
                 
               
 
-              <time title="创建时间：2020-03-22 17:08:00 / 修改时间：21:38:33" itemprop="dateCreated datePublished" datetime="2020-03-22T17:08:00+08:00">2020-03-22</time>
+              <time title="创建时间：2020-03-22 17:08:00" itemprop="dateCreated datePublished" datetime="2020-03-22T17:08:00+08:00">2020-03-22</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-24 18:23:27" itemprop="dateModified" datetime="2020-03-24T18:23:27+08:00">2020-03-24</time>
               
             
           </span>
@@ -433,6 +445,8 @@
 <p>用并查集维护弱连通块，再用并查集维护当前哪些点被缩成了一个点。用可并堆维护当前每个点的出边，缩点时带 tag 合并一下，然后找最小出边，如果在同一弱连通块又可以缩点了，否则的话就和其他弱连通块合并在了一起。</p>
 <p>缩一次至少减少一个点，所以这个算法的复杂度为 <span class="math inline">\(\mathcal O((n+m) \log n)\)</span>。</p>
 <h1 id="实现">实现</h1>
+<p>咕咕咕。</p>
+<p>由于实现咕了所以也不能保证上面说的是对的。</p>
 
       
     </div>
@@ -469,8 +483,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/19/CF1063F/" rel="next" title="[Codeforces1063F] String Journey">
-                <i class="fa fa-chevron-left"></i> [Codeforces1063F] String Journey
+              <a href="/2020/03/19/CF626G/" rel="next" title="[Codeforces626G] Raffles">
+                <i class="fa fa-chevron-left"></i> [Codeforces626G] Raffles
               </a>
             
           </div>
@@ -556,7 +570,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">68</span>
+                    <span class="site-state-item-count">69</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
