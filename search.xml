@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[Codeforces1088F] Ehab and a weird weight formula]]></title>
+    <url>%2F2020%2F03%2F25%2FCF1088F%2F</url>
+    <content type="text"><![CDATA[做法 奇怪的题目... 先把点按 \(a_i\) 从小到大重新标个号。接下来我们假设 \(a_i &lt; a_{i+1}\)。 把 \(1\) 看作根，显然可以通过调整使每个点的父亲编号都比他小。 把两种贡献一起考虑，定义边 \(\{u, fa(u)\}\) 的贡献为 \(a_u + (\lceil\log_2{dist(u,fa(u))}\rceil+1)a_{fa(u)}\)，对每个 \(u\) 去找能使代价最小的 \(fa(u)\)。由于这个树的特殊性质，点 \(u\) 最优的父亲一定是原树上 \(u\) 的祖先，所以倍增一下即可。 时间复杂度 \(\mathcal O(n \log n)\)。 代码 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364#include &lt;bits/stdc++.h&gt;using namespace std;const int maxn = 500010;typedef long long ll;int l[maxn], e = 0;struct Edge &#123; int v, x;&#125; E[maxn&lt;&lt;1];int n, a[maxn], ind[maxn], ni[maxn], _a[maxn];int fa[maxn][20], mn[maxn][20]; // 距离不超过 2^k 的点int cmp(int x, int y) &#123; return a[x] &lt; a[y];&#125;void dfs(int u, int f) &#123; fa[u][0] = f; if (u != 1) mn[u][0] = a[f]; else mn[u][0] = 0x3f3f3f3f; for (int i = 1; i &lt; 20; i++) &#123; fa[u][i] = fa[fa[u][i-1]][i-1]; mn[u][i] = min(mn[u][i-1], mn[fa[u][i-1]][i-1]); &#125; for (int p = l[u]; p &gt;= 0; p = E[p].x) &#123; int v = E[p].v; if (v != f) &#123; dfs(v, u); &#125; &#125;&#125;inline void addEdge(int u, int v) &#123; E[e].v = v, E[e].x = l[u], l[u] = e++;&#125;int main() &#123; memset(l, -1, sizeof(l)); scanf("%d", &amp;n); memset(mn[0], 0x3f, sizeof(mn[0])); for (int i = 1; i &lt;= n; i++) scanf("%d", &amp;a[i]), ind[i] = i; sort(ind+1, ind+n+1, cmp); for (int i = 1; i &lt;= n; i++) _a[i] = a[ind[i]], ni[ind[i]] = i; for (int i = 1; i &lt;= n; i++) a[i] = _a[i]; for (int i = 1; i &lt; n; i++) &#123; int u, v; scanf("%d%d", &amp;u, &amp;v); u = ni[u], v = ni[v]; addEdge(u, v), addEdge(v, u); &#125; dfs(1, 0); ll ans = 0; for (int i = 2; i &lt;= n; i++) &#123; ll res = 1e18; for (int j = 0; j &lt; 20; j++) &#123; res = min(res, 1LL * (j + 1) * mn[i][j]); &#125; ans += res + a[i]; &#125; printf("%lld\n", ans); return 0;&#125;]]></content>
+      <tags>
+        <tag>codeforces</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LOJ2390] 「JOISC 2017 Day 1」开荒者]]></title>
     <url>%2F2020%2F03%2F25%2FLOJ2390%2F</url>
     <content type="text"><![CDATA[]]></content>
