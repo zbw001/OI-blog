@@ -97,22 +97,25 @@
 
 
 
-  <meta name="keywords" content="LOJ,JOISC">
+  <meta name="description" content="做法 容易证明，对于一个长度为 \(n\) 的度数序列 \(d\)，存在一棵对应的 \(n\) 个点的树的充要条件是 \(1 \le d_i &amp;lt; n\) 且 \(\sum {d_i} = 2(n-1)\)（从叶子归纳）。 考虑去钦定这个树的 \(k\) 个匹配，如果能钦定出来就说明答案 \(\ge k\)。钦定两个点匹配可以看作这两个点被缩到了一起，变成了一个度数和为两个点的度数之和减去 \">
+<meta name="keywords" content="gym">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LOJ2390] 「JOISC 2017 Day 1」开荒者">
-<meta property="og:url" content="https://zbww.cf/2020/03/25/LOJ2390/index.html">
+<meta property="og:title" content="[Gym102538B] Best Tree">
+<meta property="og:url" content="https://zbww.cf/2020/03/26/Gym102538B/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
+<meta property="og:description" content="做法 容易证明，对于一个长度为 \(n\) 的度数序列 \(d\)，存在一棵对应的 \(n\) 个点的树的充要条件是 \(1 \le d_i &amp;lt; n\) 且 \(\sum {d_i} = 2(n-1)\)（从叶子归纳）。 考虑去钦定这个树的 \(k\) 个匹配，如果能钦定出来就说明答案 \(\ge k\)。钦定两个点匹配可以看作这两个点被缩到了一起，变成了一个度数和为两个点的度数之和减去 \">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-25T05:41:24.071Z">
+<meta property="og:updated_time" content="2020-03-26T03:06:41.624Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LOJ2390] 「JOISC 2017 Day 1」开荒者">
+<meta name="twitter:title" content="[Gym102538B] Best Tree">
+<meta name="twitter:description" content="做法 容易证明，对于一个长度为 \(n\) 的度数序列 \(d\)，存在一棵对应的 \(n\) 个点的树的充要条件是 \(1 \le d_i &amp;lt; n\) 且 \(\sum {d_i} = 2(n-1)\)（从叶子归纳）。 考虑去钦定这个树的 \(k\) 个匹配，如果能钦定出来就说明答案 \(\ge k\)。钦定两个点匹配可以看作这两个点被缩到了一起，变成了一个度数和为两个点的度数之和减去 \">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zbww.cf/2020/03/25/LOJ2390/">
+  <link rel="canonical" href="https://zbww.cf/2020/03/26/Gym102538B/">
 
 
 
@@ -122,7 +125,7 @@
   };
 </script>
 
-  <title>[LOJ2390] 「JOISC 2017 Day 1」开荒者 | 一个蒟蒻的Blog</title>
+  <title>[Gym102538B] Best Tree | 一个蒟蒻的Blog</title>
   
 
 
@@ -320,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/25/LOJ2390/">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/26/Gym102538B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zbww">
@@ -337,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[LOJ2390] 「JOISC 2017 Day 1」开荒者
+          <h1 class="post-title" itemprop="name headline">[Gym102538B] Best Tree
 
               
             
@@ -364,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2020-03-25 13:41:00 / 修改时间：13:41:24" itemprop="dateCreated datePublished" datetime="2020-03-25T13:41:00+08:00">2020-03-25</time>
+              <time title="创建时间：2020-03-26 10:49:00 / 修改时间：11:06:41" itemprop="dateCreated datePublished" datetime="2020-03-26T10:49:00+08:00">2020-03-26</time>
             
 
             
@@ -410,7 +413,11 @@
       
 
       
-        
+        <h1 id="做法">做法</h1>
+<p>容易证明，对于一个长度为 <span class="math inline">\(n\)</span> 的度数序列 <span class="math inline">\(d\)</span>，存在一棵对应的 <span class="math inline">\(n\)</span> 个点的树的充要条件是 <span class="math inline">\(1 \le d_i &lt; n\)</span> 且 <span class="math inline">\(\sum {d_i} = 2(n-1)\)</span>（从叶子归纳）。</p>
+<p>考虑去钦定这个树的 <span class="math inline">\(k\)</span> 个匹配，如果能钦定出来就说明答案 <span class="math inline">\(\ge k\)</span>。钦定两个点匹配可以看作这两个点被缩到了一起，变成了一个度数和为两个点的度数之和减去 <span class="math inline">\(2\)</span> 的点。只要保证所有匹配缩起来之后得到的度数序列依然满足之前所说的条件即可。这是一个众所周知的贪心问题，排序后贪心用小的匹配大的即可。需要特别注意 <span class="math inline">\(1\)</span> 和 <span class="math inline">\(1\)</span> 在点数大于 <span class="math inline">\(2\)</span> 时不能匹配（因为 <span class="math inline">\(1+1-2=0\)</span>），但是点数等于 <span class="math inline">\(2\)</span> 时可以匹配。</p>
+<h1 id="代码">代码</h1>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">200010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T, n, d[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;d[i]);</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"1"</span>);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">multiset</span>&lt;<span class="keyword">int</span>&gt; st;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) st.insert(d[i]);</span><br><span class="line">        <span class="keyword">while</span> (st.size() &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> x = * st.begin(), y = * st.rbegin();</span><br><span class="line">            <span class="keyword">if</span> (x + y - <span class="number">2</span> &gt;= n) &#123;</span><br><span class="line">                <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator _ = st.end();</span><br><span class="line">                st.erase(-- _);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (x + y - <span class="number">2</span> &lt;= <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">            <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator _ = st.end();</span><br><span class="line">            st.erase(-- _);</span><br><span class="line">            st.erase(st.begin());</span><br><span class="line">            ++ ans;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -434,9 +441,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LOJ/" rel="tag"># LOJ</a>
-          
-            <a href="/tags/JOISC/" rel="tag"># JOISC</a>
+            <a href="/tags/gym/" rel="tag"># gym</a>
           
         </div>
       
@@ -449,8 +454,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/22/最小树形图/" rel="next" title="[知识点] 最小树形图">
-                <i class="fa fa-chevron-left"></i> [知识点] 最小树形图
+              <a href="/2020/03/25/CF1088F/" rel="next" title="[Codeforces1088F] Ehab and a weird weight formula">
+                <i class="fa fa-chevron-left"></i> [Codeforces1088F] Ehab and a weird weight formula
               </a>
             
           </div>
@@ -458,10 +463,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/03/25/CF1088F/" rel="prev" title="[Codeforces1088F] Ehab and a weird weight formula">
-                [Codeforces1088F] Ehab and a weird weight formula <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -513,8 +514,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -737,6 +747,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#做法"><span class="nav-number">1.</span> <span class="nav-text">做法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -909,7 +936,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2020/03/25/LOJ2390/'
+    refer: '2020/03/26/Gym102538B/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];

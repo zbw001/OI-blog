@@ -815,6 +815,154 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/26/Gym102538B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zbww">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个蒟蒻的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/03/26/Gym102538B/" class="post-title-link" itemprop="url">[Gym102538B] Best Tree</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-26 10:49:00 / 修改时间：11:06:41" itemprop="dateCreated datePublished" datetime="2020-03-26T10:49:00+08:00">2020-03-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="做法">做法</h1>
+<p>容易证明，对于一个长度为 <span class="math inline">\(n\)</span> 的度数序列 <span class="math inline">\(d\)</span>，存在一棵对应的 <span class="math inline">\(n\)</span> 个点的树的充要条件是 <span class="math inline">\(1 \le d_i &lt; n\)</span> 且 <span class="math inline">\(\sum {d_i} = 2(n-1)\)</span>（从叶子归纳）。</p>
+<p>考虑去钦定这个树的 <span class="math inline">\(k\)</span> 个匹配，如果能钦定出来就说明答案 <span class="math inline">\(\ge k\)</span>。钦定两个点匹配可以看作这两个点被缩到了一起，变成了一个度数和为两个点的度数之和减去 <span class="math inline">\(2\)</span> 的点。只要保证所有匹配缩起来之后得到的度数序列依然满足之前所说的条件即可。这是一个众所周知的贪心问题，排序后贪心用小的匹配大的即可。需要特别注意 <span class="math inline">\(1\)</span> 和 <span class="math inline">\(1\)</span> 在点数大于 <span class="math inline">\(2\)</span> 时不能匹配（因为 <span class="math inline">\(1+1-2=0\)</span>），但是点数等于 <span class="math inline">\(2\)</span> 时可以匹配。</p>
+<h1 id="代码">代码</h1>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">200010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T, n, d[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;d[i]);</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"1"</span>);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">multiset</span>&lt;<span class="keyword">int</span>&gt; st;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) st.insert(d[i]);</span><br><span class="line">        <span class="keyword">while</span> (st.size() &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> x = * st.begin(), y = * st.rbegin();</span><br><span class="line">            <span class="keyword">if</span> (x + y - <span class="number">2</span> &gt;= n) &#123;</span><br><span class="line">                <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator _ = st.end();</span><br><span class="line">                st.erase(-- _);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (x + y - <span class="number">2</span> &lt;= <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">            <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator _ = st.end();</span><br><span class="line">            st.erase(-- _);</span><br><span class="line">            st.erase(st.begin());</span><br><span class="line">            ++ ans;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/25/CF1088F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1746,157 +1894,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/18/975E/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zbww">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一个蒟蒻的Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2020/03/18/975E/" class="post-title-link" itemprop="url">[Codeforces975E] Hag's Khashba</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2020-03-18 11:46:00 / 修改时间：15:03:27" itemprop="dateCreated datePublished" datetime="2020-03-18T11:46:00+08:00">2020-03-18</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="做法">做法</h1>
-<p>先求重心：随便找个点，把多边形划分成若干个三角形，求出每个三角形重心，按有向面积加权平均。</p>
-<p>对于一个点 <span class="math inline">\((x_p,y_p)\)</span>，设 <span class="math inline">\(p = \begin{bmatrix} x_p \\ y_p \\ 1 \end{bmatrix}\)</span>。把它绕 <span class="math inline">\((x_0,y_0)\)</span> 逆时针旋转 <span class="math inline">\(c\)</span> 弧度，相当于把 <span class="math inline">\(p\)</span> 左乘一个矩阵 <span class="math inline">\(\begin{bmatrix} \cos c &amp; -\sin c &amp; x_0+\sin c y_0 - \cos c x_0 \\ \sin c &amp; \cos c &amp; y_0 - \cos c y_0-\sin c x_0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}\)</span>。只需要记一个 <span class="math inline">\(3 \times 3\)</span> 矩阵就能快速获得每个点的位置。旋转时考虑一下固定的点和重心的位置即可。</p>
-<p>听（题解上）说需要把一个点移到 <span class="math inline">\((0,0)\)</span> 避免精度误差。不知道不这样能不能过。</p>
-<p>（样例 2 真的会转吗？）</p>
-<p>时间复杂度 <span class="math inline">\(\mathcal O(n+m)\)</span>。</p>
-<h1 id="代码">代码</h1>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">double</span> ld;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">10010</span>;</span><br><span class="line"><span class="keyword">const</span> ld eps = <span class="number">1e-9</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, q, p1, p2;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> &#123;</span></span><br><span class="line">    ld x, y;</span><br><span class="line">    Point (ld x_=<span class="number">0</span>, ld y_=<span class="number">0</span>) : x(x_), y(y_) &#123;&#125;</span><br><span class="line">    <span class="function">ld <span class="title">abs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sqrt</span>(x * x + y * y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; p[maxn], c;</span><br><span class="line"></span><br><span class="line">Point <span class="keyword">operator</span>*(<span class="keyword">const</span> ld &amp;k, <span class="keyword">const</span> Point &amp;p) &#123;</span><br><span class="line">    <span class="keyword">return</span> Point(k * p.x, k * p.y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Point <span class="keyword">operator</span>+(<span class="keyword">const</span> Point &amp;a, <span class="keyword">const</span> Point &amp;b) &#123;</span><br><span class="line">    <span class="keyword">return</span> Point(a.x + b.x, a.y + b.y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Point <span class="keyword">operator</span>-(<span class="keyword">const</span> Point &amp;a, <span class="keyword">const</span> Point &amp;b) &#123;</span><br><span class="line">    <span class="keyword">return</span> Point(a.x - b.x, a.y - b.y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ld <span class="keyword">operator</span>*(<span class="keyword">const</span> Point &amp;a, <span class="keyword">const</span> Point &amp;b) &#123;</span><br><span class="line">    <span class="keyword">return</span> a.x * b.y - a.y * b.x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Matrix</span> &#123;</span></span><br><span class="line">    ld a[<span class="number">3</span>][<span class="number">3</span>];</span><br><span class="line">&#125; cur;</span><br><span class="line"></span><br><span class="line">Matrix <span class="keyword">operator</span>*(<span class="keyword">const</span> Matrix &amp;m1, <span class="keyword">const</span> Matrix &amp;m2) &#123;</span><br><span class="line">    Matrix ret;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++) &#123;</span><br><span class="line">            ret.a[i][j] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">3</span>; k++) &#123;</span><br><span class="line">                ret.a[i][j] += m1.a[i][k] * m2.a[k][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Point <span class="title">cal</span><span class="params">(Point s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Point(cur.a[<span class="number">0</span>][<span class="number">0</span>] * s.x + cur.a[<span class="number">0</span>][<span class="number">1</span>] * s.y + cur.a[<span class="number">0</span>][<span class="number">2</span>], cur.a[<span class="number">1</span>][<span class="number">0</span>] * s.x + cur.a[<span class="number">1</span>][<span class="number">1</span>] * s.y + cur.a[<span class="number">1</span>][<span class="number">2</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;q);</span><br><span class="line">    cur.a[<span class="number">0</span>][<span class="number">0</span>] = cur.a[<span class="number">1</span>][<span class="number">1</span>] = cur.a[<span class="number">2</span>][<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> x, y;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x, &amp;y);</span><br><span class="line">        p[i].x = x, p[i].y = y;</span><br><span class="line">    &#125;</span><br><span class="line">    Point _ = p[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) p[i] = p[i] - _;</span><br><span class="line">    p1 = <span class="number">1</span>, p2 = <span class="number">2</span>;</span><br><span class="line">    ld S = <span class="number">0</span>; p[n+<span class="number">1</span>] = p[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) S += p[i] * p[i+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="function">Point <span class="title">cc</span><span class="params">((p[i].x + p[i+<span class="number">1</span>].x) / <span class="number">3</span>, (p[i].y + p[i+<span class="number">1</span>].y) / <span class="number">3</span>)</span></span>;</span><br><span class="line">        c = c + p[i] * p[i+<span class="number">1</span>] / S * cc;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= q; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> o; <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;o);</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> f, t; <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;f, &amp;t);</span><br><span class="line">            <span class="keyword">if</span> (f == p2) swap(p1, p2);</span><br><span class="line">            <span class="comment">// 现在用 p2 旋转</span></span><br><span class="line">            Point nc = cal(c), np = cal(p[p2]);</span><br><span class="line">            Point d = nc - np;</span><br><span class="line">            <span class="comment">/* if (d.x &lt; eps &amp;&amp; d.x &gt; -eps) &#123;</span></span><br><span class="line"><span class="comment">				p1 = t;</span></span><br><span class="line"><span class="comment">				continue;</span></span><br><span class="line"><span class="comment">			&#125; */</span></span><br><span class="line">            d = ld(<span class="number">1</span>) / d.<span class="built_in">abs</span>() * d;</span><br><span class="line">            ld co = - d.y, si = - d.x;</span><br><span class="line">            Matrix m;</span><br><span class="line">            m.a[<span class="number">0</span>][<span class="number">0</span>] = co, m.a[<span class="number">0</span>][<span class="number">1</span>] = -si, m.a[<span class="number">0</span>][<span class="number">2</span>] = np.x + si * np.y - co * np.x;</span><br><span class="line">            m.a[<span class="number">1</span>][<span class="number">0</span>] = si, m.a[<span class="number">1</span>][<span class="number">1</span>] = co, m.a[<span class="number">1</span>][<span class="number">2</span>] = np.y - co * np.y - si * np.x;</span><br><span class="line">            m.a[<span class="number">2</span>][<span class="number">0</span>] = <span class="number">0</span>, m.a[<span class="number">2</span>][<span class="number">1</span>] = <span class="number">0</span>, m.a[<span class="number">2</span>][<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">            cur = m * cur;</span><br><span class="line">            p1 = t;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> v; <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;v);</span><br><span class="line">            Point res = cal(p[v]);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%.10lf %.10lf\n"</span>, <span class="keyword">double</span> (res.x + _.x), <span class="keyword">double</span> (res.y + _.y));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1948,7 +1945,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-count">72</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2029,7 +2026,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">33</span>
+                      
+                    
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
