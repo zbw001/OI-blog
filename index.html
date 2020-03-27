@@ -815,6 +815,150 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/27/CF566C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zbww">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个蒟蒻的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/03/27/CF566C/" class="post-title-link" itemprop="url">[Codeeforces566C] Logistical Questions</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-27 17:18:00 / 修改时间：17:18:11" itemprop="dateCreated datePublished" datetime="2020-03-27T17:18:00+08:00">2020-03-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/27/CF453E/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1695,181 +1839,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/22/最小树形图/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zbww">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一个蒟蒻的Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2020/03/22/最小树形图/" class="post-title-link" itemprop="url">[知识点] 最小树形图</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2020-03-22 17:08:00" itemprop="dateCreated datePublished" datetime="2020-03-22T17:08:00+08:00">2020-03-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-03-24 18:23:27" itemprop="dateModified" datetime="2020-03-24T18:23:27+08:00">2020-03-24</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="问题">问题</h1>
-<p>给定一个 <span class="math inline">\(n\)</span> 个点 <span class="math inline">\(m\)</span> 条边的带权简单有向图，求一个最小边权和的是以 <span class="math inline">\(r\)</span> 为根的内向生成树。</p>
-<p>外向树的情况没有本质区别，边反一反就好。</p>
-<p>无根的情况可以加一个点转化为有根的情况。</p>
-<h1 id="算法">算法</h1>
-<p>如果给定的有向图是 DAG，一个显然的贪心是，取除了 <span class="math inline">\(r\)</span> 以外的每个点的最小出边。显然这样会构成一棵内向树，且不可能有权值和更小的内向树。</p>
-<p>如果给定的有向图不是 DAG，直接取除了 <span class="math inline">\(r\)</span> 以外的每个点的最小出边不一定会得到一棵树，此时可能会有多个弱连通块，每个连通块是一条链（包含 <span class="math inline">\(r\)</span> 的）或者一棵基环内向树。如果你得到了一个内向生成树就求出了答案，下面我们考虑至少有一个环的情况。</p>
-<p>可以发现，对于一个（某个基环树连通块中的）环，一定存在一个最小内向生成树，恰好只有一条环上边不在这个最小内向生成树中。原因很简单，我们先假设边权互不相同（你可以加入一个充分小的偏移量，在不影响答案的前提下使边权互不相同），设点 <span class="math inline">\(u\)</span> 的最大出边连向点 <span class="math inline">\(f(u)\)</span>，考虑一个最小内向生成树，如果存在一个点 <span class="math inline">\(u \neq r\)</span>，<span class="math inline">\(f(u)\)</span> 不在 <span class="math inline">\(u\)</span> 的子树中，且 <span class="math inline">\(f(u)\)</span> 不是 <span class="math inline">\(u\)</span> 的父亲，我们可以把 <span class="math inline">\(u\)</span> 的父亲改为 <span class="math inline">\(f(u)\)</span>，得到一个更小的内向生成树，这与这个树是最小内向生成树矛盾。这说明，对于任意一个环上的点 <span class="math inline">\(u\)</span>，使得 <span class="math inline">\(f(u)\)</span> 不是 <span class="math inline">\(u\)</span> 的父亲 (环上点肯定不是 <span class="math inline">\(r\)</span>)，<span class="math inline">\(f(u)\)</span> 要么是 <span class="math inline">\(u\)</span> 的父亲要么在 <span class="math inline">\(u\)</span> 的子树中。考虑从 <span class="math inline">\(u\)</span> 出发，每次从 <span class="math inline">\(u\)</span> 走向 <span class="math inline">\(f(u)\)</span>，在走回 <span class="math inline">\(u\)</span> 之前，一定不会经过一个点两次，从而路径上只有第一次走的时候 <span class="math inline">\(f(u)\)</span> 不是 <span class="math inline">\(u\)</span> 的父亲，因此环上只有一条边没有在这个最小内向生成树中出现。</p>
-<p>因此我们只需要考虑一个环上哪一条边没有出现。考虑把环缩成一个点，得到一个与原图等价的图。</p>
-<figure>
-<img src="/images/2020032201.png" alt="例图"><figcaption>例图</figcaption>
-</figure>
-<p>其中 <span class="math inline">\(e\)</span> 是不在最小树形图中的边，从图中可以很明显地看到，把环缩成一个点，然后把缩完后的的点的出边边权减去原来这条出边对应的 <span class="math inline">\(e\)</span> 的权值即可得到一个等价的图。</p>
-<p>暴力缩点可以用 <span class="math inline">\(\mathcal O(nm)\)</span> 的时间复杂度求出最小树形图。</p>
-<h1 id="复杂度优化">复杂度优化</h1>
-<p>用并查集维护弱连通块，再用并查集维护当前哪些点被缩成了一个点。用可并堆维护当前每个点的出边，缩点时带 tag 合并一下，然后找最小出边，如果在同一弱连通块又可以缩点了，否则的话就和其他弱连通块合并在了一起。</p>
-<p>缩一次至少减少一个点，所以这个算法的复杂度为 <span class="math inline">\(\mathcal O((n+m) \log n)\)</span>。</p>
-<h1 id="实现">实现</h1>
-<p>咕咕咕。</p>
-<p>由于实现咕了所以也不能保证上面说的是对的。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1921,7 +1890,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">75</span>
+                    <span class="site-state-item-count">76</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

@@ -1,3 +1,4 @@
+https://zbww.cf/2020/03/27/CF566C/
 https://zbww.cf/2020/03/27/CF453E/
 https://zbww.cf/2020/03/26/CF1110G/
 https://zbww.cf/2020/03/26/Gym102538G/
@@ -46,7 +47,7 @@ https://zbww.cf/2019/05/12/[LOJ6235]-区间素数个数/
 https://zbww.cf/2019/05/08/[Codeforces715E]-/
 https://zbww.cf/2019/04/25/[AGC031C]-Differ-by-1-Bit/
 https://zbww.cf/2019/04/23/[AGC032D]-Rotation-Sort/
-https://zbww.cf/2019/04/20/CF/
+https://zbww.cf/2019/04/20/CF917E/
 https://zbww.cf/2019/04/17/[LOJ2537]-PKUWC2018-Minimax/
 https://zbww.cf/2019/04/16/[]/
 https://zbww.cf/2019/04/16/[模板]-Miller-Rabin/

@@ -97,25 +97,22 @@
 
 
 
-  <meta name="description" content="题目链接。 题目大意 给你一棵 \(n\) 个点的树，边上有字符。定义路径 \(u\) 到 \(v\) 上的字符串就是把路径上的字符依次接起来得到的字符串。给定 \(m\) 个字符串 \(s_1,s_2\ldots s_m\)。\(q\) 次询问，每次询问给出三个数 \(i, j, k\)，询问在路径 \(i\) 到 \(j\) 的字符串中，\(s_k\) 出现了几次。 解法 符号说明：\(s^R">
-<meta name="keywords" content="codeforces,题解,字符串,数据结构">
+  <meta name="keywords" content="codeforces,数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Codeforces917E] Upside Down">
-<meta property="og:url" content="https://zbww.cf/2019/04/20/CF/index.html">
+<meta property="og:title" content="[Codeeforces566C] Logistical Questions">
+<meta property="og:url" content="https://zbww.cf/2020/03/27/CF566C/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="题目链接。 题目大意 给你一棵 \(n\) 个点的树，边上有字符。定义路径 \(u\) 到 \(v\) 上的字符串就是把路径上的字符依次接起来得到的字符串。给定 \(m\) 个字符串 \(s_1,s_2\ldots s_m\)。\(q\) 次询问，每次询问给出三个数 \(i, j, k\)，询问在路径 \(i\) 到 \(j\) 的字符串中，\(s_k\) 出现了几次。 解法 符号说明：\(s^R">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-25T09:44:59.728Z">
+<meta property="og:updated_time" content="2020-03-27T09:18:11.427Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Codeforces917E] Upside Down">
-<meta name="twitter:description" content="题目链接。 题目大意 给你一棵 \(n\) 个点的树，边上有字符。定义路径 \(u\) 到 \(v\) 上的字符串就是把路径上的字符依次接起来得到的字符串。给定 \(m\) 个字符串 \(s_1,s_2\ldots s_m\)。\(q\) 次询问，每次询问给出三个数 \(i, j, k\)，询问在路径 \(i\) 到 \(j\) 的字符串中，\(s_k\) 出现了几次。 解法 符号说明：\(s^R">
+<meta name="twitter:title" content="[Codeeforces566C] Logistical Questions">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zbww.cf/2019/04/20/CF/">
+  <link rel="canonical" href="https://zbww.cf/2020/03/27/CF566C/">
 
 
 
@@ -125,7 +122,7 @@
   };
 </script>
 
-  <title>[Codeforces917E] Upside Down | 一个蒟蒻的Blog</title>
+  <title>[Codeeforces566C] Logistical Questions | 一个蒟蒻的Blog</title>
   
 
 
@@ -323,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/04/20/CF/">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/27/CF566C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zbww">
@@ -340,7 +337,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[Codeforces917E] Upside Down
+          <h1 class="post-title" itemprop="name headline">[Codeeforces566C] Logistical Questions
 
               
             
@@ -367,24 +364,12 @@
                 
               
 
-              <time title="创建时间：2019-04-20 12:58:09" itemprop="dateCreated datePublished" datetime="2019-04-20T12:58:09+08:00">2019-04-20</time>
+              <time title="创建时间：2020-03-27 17:18:00 / 修改时间：17:18:11" itemprop="dateCreated datePublished" datetime="2020-03-27T17:18:00+08:00">2020-03-27</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-25 17:44:59" itemprop="dateModified" datetime="2019-04-25T17:44:59+08:00">2019-04-25</time>
               
             
           </span>
@@ -425,20 +410,7 @@
       
 
       
-        <p><a href="https://codeforc.es/problemset/problem/917/E" target="_blank" rel="noopener">题目链接</a>。</p>
-<h1 id="题目大意">题目大意</h1>
-<p>给你一棵 <span class="math inline">\(n\)</span> 个点的树，边上有字符。定义路径 <span class="math inline">\(u\)</span> 到 <span class="math inline">\(v\)</span> 上的字符串就是把路径上的字符依次接起来得到的字符串。给定 <span class="math inline">\(m\)</span> 个字符串 <span class="math inline">\(s_1,s_2\ldots s_m\)</span>。<span class="math inline">\(q\)</span> 次询问，每次询问给出三个数 <span class="math inline">\(i, j, k\)</span>，询问在路径 <span class="math inline">\(i\)</span> 到 <span class="math inline">\(j\)</span> 的字符串中，<span class="math inline">\(s_k\)</span> 出现了几次。</p>
-<h1 id="解法">解法</h1>
-<p>符号说明：<span class="math inline">\(s^R\)</span> 表示 <span class="math inline">\(s\)</span> 的反串。<span class="math inline">\(pre(s,i)\)</span> 表示 <span class="math inline">\(s\)</span> 的长度为 <span class="math inline">\(i\)</span> 的前缀，<span class="math inline">\(suf(s,i)\)</span> 表示 <span class="math inline">\(s\)</span> 的长度为 <span class="math inline">\(i\)</span> 的后缀。<span class="math inline">\(s+t\)</span> 表示把字符串 <span class="math inline">\(s\)</span> 和字符串 <span class="math inline">\(t\)</span> 拼起来得到的字符串。</p>
-<p>先做一次点分治就可以把问题转化为 <span class="math inline">\(u \rightarrow v\)</span> 经过根的情况，所以只讨论经过根的情况。</p>
-<p>设根为 <span class="math inline">\(r\)</span>，询问的路径为 <span class="math inline">\(u \rightarrow v\)</span>，询问的字符串为 <span class="math inline">\(s_k\)</span>。</p>
-<p>可以把 <span class="math inline">\(s_k\)</span> 在路径 <span class="math inline">\(u \rightarrow v\)</span> 上的匹配分成三部分计算，第一部分是在 <span class="math inline">\(u\rightarrow r\)</span> 上的匹配，第二部分是在 <span class="math inline">\(r \rightarrow v\)</span> 上的匹配，第三部分是在跨过 <span class="math inline">\(r\)</span> 的匹配。</p>
-<p>前两部分是比较好计算的。离线一下，对所有的 <span class="math inline">\(s_i\)</span> 建AC自动机，在树上dfs，每次在AC自动机上走一条转移边，用 BIT 维护一下每个点被走了几次，在 dfs 到点 <span class="math inline">\(x\)</span> 时，只需作一次子树询问即可快速得到 <span class="math inline">\(s_k\)</span> 在 <span class="math inline">\(r\rightarrow x\)</span> 上出现了几次（对于第一部分是询问 <span class="math inline">\(s_k\)</span> 的反串出现了几次）。 比较简单就不详细描述了。</p>
-<p>第三部分比较复杂。设路径 <span class="math inline">\(u\rightarrow r\)</span> 上的字符串为 <span class="math inline">\(x\)</span>，路径 <span class="math inline">\(r \rightarrow v\)</span> 上的字符串为 <span class="math inline">\(y\)</span>。设 <span class="math inline">\(p\)</span> 是最大的满足 <span class="math inline">\(pre(s_k,p)=suf(x,p)\)</span> 的整数，<span class="math inline">\(q\)</span> 是最大的满足 <span class="math inline">\(suf(s_k,q)=pre(y,q)\)</span> 的整数。那么计算第三部分可以转化为计算 <span class="math inline">\(s_k\)</span> 在 <span class="math inline">\(suf(x,p)+pre(y,q)\)</span> 中的出现次数。</p>
-<p>设 <span class="math inline">\(t_i\)</span> 路径表示 <span class="math inline">\(r\rightarrow i\)</span> 上的字符串。则 <span class="math inline">\(suf(x,p)+pre(y,q)\)</span> 可以表示为 <span class="math inline">\(pre(s_k,p)+suf(s_k,q)\)</span>，这样就转化为了只与 <span class="math inline">\(s_k\)</span> 相关的问题。<span class="math inline">\(p\)</span>、<span class="math inline">\(q\)</span> 的具体求法后面会详细描述。假设已经求得了 <span class="math inline">\(p\)</span>、<span class="math inline">\(q\)</span>，考虑怎么快速得到第三部分的匹配次数。</p>
-<p>把询问离线。对每个 <span class="math inline">\(i\)</span>，建一棵 <span class="math inline">\(s_i\)</span> 的后缀树和 <span class="math inline">\(s_i^R\)</span> 的后缀树。在 <span class="math inline">\(s_i^R\)</span> 的后缀树上 <span class="math inline">\(dfs\)</span>，<span class="math inline">\(dfs\)</span> 的过程中，维护一棵线段树。如果 <span class="math inline">\(dfs\)</span> 到一个代表 <span class="math inline">\(s_i^R\)</span> 后缀的点，设这个点对应的字符串长度为 <span class="math inline">\(l\)</span>，那么就在线段树上把 <span class="math inline">\(s_i\)</span> 的后缀树上对应 <span class="math inline">\(s_i[l+1\ldots \lvert s_i \rvert]\)</span> 的点的子树 <span class="math inline">\(dfs\)</span> 序上位置加一。（可能描述的不是很清楚...我也不知道怎么描述了）回溯时撤销操作。然后对每个询问 <span class="math inline">\(p, q\)</span>，只要在 <span class="math inline">\(dfs\)</span> 到 <span class="math inline">\(s_i^R\)</span> 长度为 <span class="math inline">\(p\)</span> 的后缀时，询问一下 <span class="math inline">\(s_i\)</span> 长度为 <span class="math inline">\(q\)</span> 的后缀在 <span class="math inline">\(s_i\)</span> 的后缀树上的 <span class="math inline">\(dfs\)</span> 序上位置在线段树上的值即可。</p>
-<p>考虑如何求 <span class="math inline">\(p\)</span>、<span class="math inline">\(q\)</span>。由于求 <span class="math inline">\(q\)</span> 的过程和求 <span class="math inline">\(p\)</span> 类似，这里只详细描述求 <span class="math inline">\(p\)</span> 的过程。对所有 <span class="math inline">\(s_i\)</span> 以及 <span class="math inline">\(s_i^R\)</span> 建出一个广义SAM。然后类似AC自动机+BIT的过程地，维护一个以parent树 <span class="math inline">\(dfs\)</span> 序为下标的线段树。然后在点分治后得到的连通块上 <span class="math inline">\(dfs\)</span>，<span class="math inline">\(dfs\)</span> 到 <span class="math inline">\(u\)</span> 时维护 <span class="math inline">\(r\rightarrow u\)</span> 上的字符串在SAM上的位置，并把它的子树在 <span class="math inline">\(dfs\)</span> 序上的位置在线段树上子树对长度取 <span class="math inline">\(max\)</span>。然后求 <span class="math inline">\(p\)</span> 时只需要询问一下 <span class="math inline">\(s_k^R\)</span> 在 <span class="math inline">\(SAM\)</span> 上的位置在parent tree中的 <span class="math inline">\(dfs\)</span> 在线段树上的位置即可。</p>
-<h1 id="代码">代码</h1>
+        
 
       
     </div>
@@ -464,10 +436,6 @@
           
             <a href="/tags/codeforces/" rel="tag"># codeforces</a>
           
-            <a href="/tags/题解/" rel="tag"># 题解</a>
-          
-            <a href="/tags/字符串/" rel="tag"># 字符串</a>
-          
             <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
           
         </div>
@@ -481,8 +449,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/17/[LOJ2537]-PKUWC2018-Minimax/" rel="next" title="[LOJ2537] PKUWC2018 Minimax">
-                <i class="fa fa-chevron-left"></i> [LOJ2537] PKUWC2018 Minimax
+              <a href="/2020/03/27/CF453E/" rel="next" title="[Codeforces453E] Little Pony and Lord Tirek">
+                <i class="fa fa-chevron-left"></i> [Codeforces453E] Little Pony and Lord Tirek
               </a>
             
           </div>
@@ -490,10 +458,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/23/[AGC032D]-Rotation-Sort/" rel="prev" title="[AGC032D] Rotation Sort">
-                [AGC032D] Rotation Sort <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -545,17 +509,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -572,7 +527,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">75</span>
+                    <span class="site-state-item-count">76</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -778,23 +733,6 @@
       </div>
 
       
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目大意"><span class="nav-number">1.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解法"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
 
       
 
@@ -967,7 +905,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/04/20/CF/'
+    refer: '2020/03/27/CF566C/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
