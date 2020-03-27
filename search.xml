@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[知识点] 万能欧几里得]]></title>
+    <url>%2F2020%2F03%2F27%2F%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%2F</url>
+    <content type="text"><![CDATA[例题 https://loj.ac/problem/6440]]></content>
+      <tags>
+        <tag>知识点</tag>
+        <tag>数论</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[Codeeforces566C] Logistical Questions]]></title>
     <url>%2F2020%2F03%2F27%2FCF566C%2F</url>
     <content type="text"><![CDATA[]]></content>
