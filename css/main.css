@@ -1891,7 +1891,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3d9467;
+  background: #337398;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3009,9 +3009,6 @@ ul.breadcrumb li+li:last-child {
   color: #fff;
 }
 .sidebar {
-  background: rgba(0,0,0,0);
-}
-.MathJax_Display {
   background: rgba(0,0,0,0);
 }
 body {
