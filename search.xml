@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[[AGC019F] Yes or No]]></title>
     <url>%2F2020%2F04%2F23%2Fagc019_f%2F</url>
-    <content type="text"><![CDATA[做法 不妨假设 \(n \ge m\)。 代码]]></content>
+    <content type="text"><![CDATA[做法 不妨假设 \(n \ge m\)。 只会 \(\mathcal O(n \log^2 n)\) 自闭了，去看题解了。 由于你的决策不会影响之后的问题的答案，所以显然每次选概率大的就比较好。 设第 \(k+1\) 个问题能够答对的概率为 \(p_k\)，假设前 \(k\) 个问题中答对了 \(a\) 个，那么 \(p_k = \sum_{a \le k} \binom k a \binom{n+m-k}{n-a} \frac{\max\{n-a, m-(k-a)\}}{n+m-k}\) 分为 \(n - a &lt; m - (k - a)\) 和 \(n-a \ge m - (k - a)\) 计算贡献。 设 \(F(n,m,x,y) = \binom {x+y} x \binom{n+m-x-y}{n-x},G(n,m,s,x) =\sum_{i \le x} F(n,m,i,s-i),H(n,m,s,x) =\sum_{i &gt; x} F(n,m,i,s-i)\)。 第一部分： \(n - a &lt; m - (k - a) \Leftrightarrow 2a &gt; n-m+k\) 这一部分对 \(p_k\) 贡献为 \[ \sum_{n-m+k &lt; 2a \le k} \binom k a \binom {n+m-k}{m-k+a} \frac{m-k+a}{n+m-k} \newline =\sum_{2a &gt; n-m+k} \binom k a \binom {n+m-k-1}{m-k+a-1} \newline =\sum_{2a &gt; n-m+k} \binom k a \binom {n+(m-1)-k}{n-a} \newline =H(n,m-1,k,\lfloor \frac {n-m+k} 2\rfloor) \] 第二部分 \(n - a \ge m - (k - a) \Leftrightarrow 2a \le n-m+k\) 这一部分对 \(p_k\) 贡献为 \[ \sum_{2a \le n-m+k} \binom k {a} \binom {n+m-k}{n-a} \frac{n-a}{n+m-k} \newline =\sum_{2a \le n-m+k} \binom k a \binom {(n-1)+m-k}{n-1-a} \newline =G(n-1,m,k,\lfloor \frac {n-m+k}2 \rfloor) \] 快速计算 \(H,G\) 的意义是有多少条从 \((0,0)\) 到 \((n,m)\) 的非降路径与直线 \(x+y = s\) 的交点的横坐标在某个范围内。 由这个组合意义很容易得出 \[ H(n,m,k+1,l) - H(n,m,k,l) = \binom{k}{l}\binom{n+m-k}{n-l-1} \] \[ G(n,m,k+1,l) - G(n,m,k,l) = -\binom{k}{l}\binom{n+m-k}{n-l-1} \] 所以我们从小到大枚举 \(k\) 线性维护 \(H\) 和 \(G\) 需要用到的值，就在 \(\mathcal O(n)\) 的复杂度内解决了问题。 代码]]></content>
       <tags>
         <tag>题解</tag>
         <tag>atcoder</tag>
