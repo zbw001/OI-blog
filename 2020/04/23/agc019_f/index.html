@@ -97,18 +97,18 @@
 
 
 
-  <meta name="description" content="做法 不妨假设 \(n \ge m\)。  只会 \(\mathcal O(n \log^2 n)\) 自闭了，去看题解了。 由于你的决策不会影响之后的问题的答案，所以显然每次选概率大的就比较好。 设第 \(k+1\) 个问题能够答对的概率为 \(p_k\)，假设前 \(k\) 个问题中答对了 \(a\) 个，那么 \(p_k = \sum_{a \le k} \binom k a \binom{">
+  <meta name="description" content="做法 不妨假设 \(n \ge m\)。  只会 \(\mathcal O(n \log^2 n)\) 自闭了，去看题解了。 由于你的决策不会影响之后的问题的答案，所以显然每次选概率大的就比较好。 设第 \(k+1\) 个问题能够答对的概率为 \(p_k\)，假设前 \(k\) 个问题中答对了 \(a\) 个，那么 \[p_k = \sum_{a \le k} \binom k a \binom{">
 <meta name="keywords" content="题解,atcoder,数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[AGC019F] Yes or No">
 <meta property="og:url" content="https://zbww.cf/2020/04/23/agc019_f/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="做法 不妨假设 \(n \ge m\)。  只会 \(\mathcal O(n \log^2 n)\) 自闭了，去看题解了。 由于你的决策不会影响之后的问题的答案，所以显然每次选概率大的就比较好。 设第 \(k+1\) 个问题能够答对的概率为 \(p_k\)，假设前 \(k\) 个问题中答对了 \(a\) 个，那么 \(p_k = \sum_{a \le k} \binom k a \binom{">
+<meta property="og:description" content="做法 不妨假设 \(n \ge m\)。  只会 \(\mathcal O(n \log^2 n)\) 自闭了，去看题解了。 由于你的决策不会影响之后的问题的答案，所以显然每次选概率大的就比较好。 设第 \(k+1\) 个问题能够答对的概率为 \(p_k\)，假设前 \(k\) 个问题中答对了 \(a\) 个，那么 \[p_k = \sum_{a \le k} \binom k a \binom{">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-23T10:30:39.813Z">
+<meta property="og:updated_time" content="2020-04-23T10:33:43.352Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[AGC019F] Yes or No">
-<meta name="twitter:description" content="做法 不妨假设 \(n \ge m\)。  只会 \(\mathcal O(n \log^2 n)\) 自闭了，去看题解了。 由于你的决策不会影响之后的问题的答案，所以显然每次选概率大的就比较好。 设第 \(k+1\) 个问题能够答对的概率为 \(p_k\)，假设前 \(k\) 个问题中答对了 \(a\) 个，那么 \(p_k = \sum_{a \le k} \binom k a \binom{">
+<meta name="twitter:description" content="做法 不妨假设 \(n \ge m\)。  只会 \(\mathcal O(n \log^2 n)\) 自闭了，去看题解了。 由于你的决策不会影响之后的问题的答案，所以显然每次选概率大的就比较好。 设第 \(k+1\) 个问题能够答对的概率为 \(p_k\)，假设前 \(k\) 个问题中答对了 \(a\) 个，那么 \[p_k = \sum_{a \le k} \binom k a \binom{">
 
 
 
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2020-04-23 15:35:12 / 修改时间：18:30:39" itemprop="dateCreated datePublished" datetime="2020-04-23T15:35:12+08:00">2020-04-23</time>
+              <time title="创建时间：2020-04-23 15:35:12 / 修改时间：18:33:43" itemprop="dateCreated datePublished" datetime="2020-04-23T15:35:12+08:00">2020-04-23</time>
             
 
             
@@ -449,7 +449,7 @@ $\sum_{2a \le n-m+k} a\binom k a=\sum_{2a \le n-m+k} \binom {k-1} {a-1} = \sum_{
 <p>只会 <span class="math inline">\(\mathcal O(n \log^2 n)\)</span> 自闭了，去看题解了。</p>
 <p>由于你的决策不会影响之后的问题的答案，所以显然每次选概率大的就比较好。</p>
 <p>设第 <span class="math inline">\(k+1\)</span> 个问题能够答对的概率为 <span class="math inline">\(p_k\)</span>，假设前 <span class="math inline">\(k\)</span> 个问题中答对了 <span class="math inline">\(a\)</span> 个，那么</p>
-<p><span class="math inline">\(p_k = \sum_{a \le k} \binom k a \binom{n+m-k}{n-a} \frac{\max\{n-a, m-(k-a)\}}{n+m-k}\)</span></p>
+<p><span class="math display">\[p_k = \sum_{a \le k} \binom k a \binom{n+m-k}{n-a} \frac{\max\{n-a, m-(k-a)\}}{n+m-k}\]</span></p>
 <p>分为 <span class="math inline">\(n - a &lt; m - (k - a)\)</span> 和 <span class="math inline">\(n-a \ge m - (k - a)\)</span> 计算贡献。</p>
 <p>设 <span class="math inline">\(F(n,m,x,y) = \binom {x+y} x \binom{n+m-x-y}{n-x},G(n,m,s,x) =\sum_{i \le x} F(n,m,i,s-i),H(n,m,s,x) =\sum_{i &gt; x} F(n,m,i,s-i)\)</span>。</p>
 <h3 id="第一部分">第一部分：</h3>
@@ -457,11 +457,11 @@ $\sum_{2a \le n-m+k} a\binom k a=\sum_{2a \le n-m+k} \binom {k-1} {a-1} = \sum_{
 <p>这一部分对 <span class="math inline">\(p_k\)</span> 贡献为 <span class="math display">\[
 \sum_{n-m+k &lt; 2a \le k} \binom k a \binom {n+m-k}{m-k+a}
 \frac{m-k+a}{n+m-k}
-\newline
+\\\\
 =\sum_{2a &gt; n-m+k} \binom k a \binom {n+m-k-1}{m-k+a-1}
-\newline
+\\\\
 =\sum_{2a &gt; n-m+k} \binom k a \binom {n+(m-1)-k}{n-a}
-\newline
+\\\\
 =H(n,m-1,k,\lfloor \frac {n-m+k} 2\rfloor)
 \]</span></p>
 <h3 id="第二部分">第二部分</h3>
@@ -470,9 +470,9 @@ $\sum_{2a \le n-m+k} a\binom k a=\sum_{2a \le n-m+k} \binom {k-1} {a-1} = \sum_{
 <p><span class="math display">\[
 \sum_{2a \le n-m+k} \binom k {a} \binom {n+m-k}{n-a}
 \frac{n-a}{n+m-k}
-\newline
+\\\\
 =\sum_{2a \le n-m+k} \binom k a \binom {(n-1)+m-k}{n-1-a}
-\newline
+\\\\
 =G(n-1,m,k,\lfloor \frac {n-m+k}2 \rfloor)
 \]</span></p>
 <h3 id="快速计算">快速计算</h3>
