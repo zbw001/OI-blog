@@ -97,21 +97,25 @@
 
 
 
-  <meta name="keywords" content="noip noi oi 算法 algorithm acm">
-<meta property="og:type" content="website">
-<meta property="og:title" content="一个蒟蒻的Blog">
-<meta property="og:url" content="https://zbww.cf/page/9/index.html">
+  <meta name="description" content="做法 考虑一个无向图 \(G\)，对于第 \(i\) 个交换，如果交换的是 \(a_i\) 和 \(a_j\)，在点 \(i\) 和点 \(j\) 之间连一条边，标号为 \(i\)。 设 \(S_1\) 是所有第一个序列中是 \(0\) 第二个序列中是 \(1\) 的位置的集合，\(S_2\) 是所有两个序列中都是 \(1\) 的位置的集合，\(S_3\) 是所有第一个序列中是 \(1\) 第二个">
+<meta name="keywords" content="题解,atcoder">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[AGC019E] Shuffle and Swap">
+<meta property="og:url" content="https://zbww.cf/2020/04/23/agc019_e/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
+<meta property="og:description" content="做法 考虑一个无向图 \(G\)，对于第 \(i\) 个交换，如果交换的是 \(a_i\) 和 \(a_j\)，在点 \(i\) 和点 \(j\) 之间连一条边，标号为 \(i\)。 设 \(S_1\) 是所有第一个序列中是 \(0\) 第二个序列中是 \(1\) 的位置的集合，\(S_2\) 是所有两个序列中都是 \(1\) 的位置的集合，\(S_3\) 是所有第一个序列中是 \(1\) 第二个">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-23T03:41:28.681Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一个蒟蒻的Blog">
+<meta name="twitter:title" content="[AGC019E] Shuffle and Swap">
+<meta name="twitter:description" content="做法 考虑一个无向图 \(G\)，对于第 \(i\) 个交换，如果交换的是 \(a_i\) 和 \(a_j\)，在点 \(i\) 和点 \(j\) 之间连一条边，标号为 \(i\)。 设 \(S_1\) 是所有第一个序列中是 \(0\) 第二个序列中是 \(1\) 的位置的集合，\(S_2\) 是所有两个序列中都是 \(1\) 的位置的集合，\(S_3\) 是所有第一个序列中是 \(1\) 第二个">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zbww.cf/page/9/">
+  <link rel="canonical" href="https://zbww.cf/2020/04/23/agc019_e/">
 
 
 
@@ -121,7 +125,7 @@
   };
 </script>
 
-  <title>一个蒟蒻的Blog</title>
+  <title>[AGC019E] Shuffle and Swap | 一个蒟蒻的Blog</title>
   
 
 
@@ -169,8 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -303,9 +306,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -320,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/03/08/博弈论整理/">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/04/23/agc019_e/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zbww">
@@ -337,10 +340,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/08/博弈论整理/" class="post-title-link" itemprop="url">博弈整理（一）</a>
+          <h1 class="post-title" itemprop="name headline">[AGC019E] Shuffle and Swap
+
               
             
           </h1>
@@ -366,202 +367,7 @@
                 
               
 
-              <time title="创建时间：2019-03-08 10:25:39" itemprop="dateCreated datePublished" datetime="2019-03-08T10:25:39+08:00">2019-03-08</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-15 19:43:29" itemprop="dateModified" datetime="2019-03-15T19:43:29+08:00">2019-03-15</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="impartial-game">Impartial game</h3>
-<p>wikipedia链接：https://en.wikipedia.org/wiki/Impartial_game</p>
-<p><strong>impartial game</strong> 是指满足如下条件的游戏： - 两个玩家轮流操作，直到达到不能操作的状态（terminal position）。 - 当一个玩家不能操作时，winner 就被确定了。 - 每个状态的操作数和状态总数是有限的。 - 所有的操作必须同时能被两个玩家进行。 - 所有操作的结果都是确定性的。</p>
-<h3 id="normal-play-convention">Normal play convention</h3>
-<p>wikipedia链接：https://en.wikipedia.org/wiki/Normal_play_convention<br>
-Impartial game 的 <strong>Normal play convention</strong> ：最后一个可以操作的玩家获胜。</p>
-<h3 id="nim游戏">Nim游戏</h3>
-<p>wikipedia链接：https://en.wikipedia.org/wiki/Nim<br>
-有若干堆石子，两个人轮流取石子。每次轮到的人可以选择从某一堆中拿走若干颗石子（不能不拿），不能按规则操作的人输。<br>
-<strong>Nim</strong> 游戏属于 Impartial game。</p>
-<h3 id="nim游戏的胜利条件">Nim游戏的胜利条件</h3>
-<p><strong>定理</strong>：当且仅当每堆石子的个数异或和不为 <span class="math inline">\(0\)</span> 时，先手必胜。<br>
-<strong>证明</strong>：<br>
-对于 terminal position，即没有石的情况，异或和为 <span class="math inline">\(0\)</span>，轮到这个状态的人输。定理对 terminal position 成立。<br>
-<strong>引理1</strong> 若一个状态，每堆石子个数异或和不为 <span class="math inline">\(0\)</span>，则它必定可以转移到一个石子个数为 <span class="math inline">\(0\)</span> 的状态。<br>
-<strong>证明</strong>：<br>
-设每堆石子个数的异或和为 <span class="math inline">\(s\)</span>。<br>
-设 <span class="math inline">\(s\)</span> 最高的二进制位是第 <span class="math inline">\(k\)</span> 位（从低到高，最低位为第 <span class="math inline">\(0\)</span> 位）。<br>
-一定存在一堆石子个数为 <span class="math inline">\(x\)</span>，二进制下 <span class="math inline">\(x\)</span> 的第 <span class="math inline">\(k\)</span> 位为 <span class="math inline">\(1\)</span>。<br>
-除了这堆石子外，其他堆石子个数的异或和为 <span class="math inline">\(s\oplus x\)</span>。<br>
-<span class="math inline">\(s\oplus x\)</span> 和 <span class="math inline">\(x\)</span> 在所有比第 <span class="math inline">\(k\)</span> 位高的二进制位上相等，<span class="math inline">\(s\oplus x\)</span> 的第 <span class="math inline">\(k\)</span> 位为 <span class="math inline">\(0\)</span>，<span class="math inline">\(x\)</span> 的第 <span class="math inline">\(k\)</span> 位为 <span class="math inline">\(1\)</span>，所以 <span class="math inline">\(s \oplus x &lt; x\)</span>。<br>
-可以从这堆石子中取走 <span class="math inline">\(x-s\oplus x\)</span> 个石子，使异或和变为 <span class="math inline">\(0\)</span>。</p>
-<p><strong>引理2</strong> 若一个状态，每堆石子个数异或和为 <span class="math inline">\(0\)</span>，无论怎么操作都会转移到一个每堆石子个数异或和不为 <span class="math inline">\(0\)</span> 的状态。<br>
-<strong>证明</strong>：<br>
-设操作的堆在操作前有 <span class="math inline">\(x\)</span> 颗石子。<br>
-那么除了这堆以外的其他堆石子数异或和也为 <span class="math inline">\(x\)</span>。<br>
-在取石子后，这堆石子的个数一定不为 <span class="math inline">\(x\)</span>。<br>
-只有这堆石子的个数为 <span class="math inline">\(x\)</span> 时，与其他堆石子个数的异或和才会为 <span class="math inline">\(0\)</span>。<br>
-所以操作后，每堆石子个数的异或和一定非 <span class="math inline">\(0\)</span>。<br>
-根据结构归纳法可知定理成立。</p>
-<h3 id="spraguegrundy-定理">Sprague–Grundy 定理</h3>
-<p>wikipedia链接：https://en.wikipedia.org/wiki/Sprague–Grundy_theorem<br>
-定义 <span class="math inline">\(mex\)</span> 运算，一个集合的 <span class="math inline">\(mex\)</span> 值是最小的没有出现在这个集合中的自然数。<br>
-定义 Sprague-Grundy 函数：对于一个状态 <span class="math inline">\(x\)</span>，当 <span class="math inline">\(x\)</span> 是 terminal position 时，<span class="math inline">\(SG(x)=mex\{SG(y)|x\)</span> 可以转移到 <span class="math inline">\(y\}\)</span>。<br>
-可以用 Sprague-Grundy 函数判断一个状态是必胜状态还是必败状态，因为必胜状态函数值必不为 <span class="math inline">\(0\)</span>，必败状态函数值必为 <span class="math inline">\(0\)</span>。<br>
-定义两个游戏的 disjunctive sum 为一个游戏：轮到每个玩家的时候，他可以选择两个游戏中的一个游戏，然后在这个游戏上操作一步，无法操作的人输。<br>
-显然 disjunctive sum 满足交换律和结合律。<br>
-<strong>定理</strong> 有 <span class="math inline">\(n\)</span> 个游戏 <span class="math inline">\(G_1,G_2,\cdots,G_n\)</span>，设他们的 disjunctive sum 为 <span class="math inline">\(G\)</span>。那么 <span class="math inline">\(SG(G)=SG(G_1)\oplus SG(G_2)\cdots \oplus SG(G_n)\)</span>。<br>
-证明可以看<a href="http://web.mit.edu/sp.268/www/nim.pdf" target="_blank" rel="noopener">这个</a>。<br>
-这也说明了每一个 normal play convention 下的 impartial game 都等价于一个Nim游戏。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/03/08/Hello-World/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zbww">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一个蒟蒻的Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/08/Hello-World/" class="post-title-link" itemprop="url">Hello World!</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-08 01:08:03 / 修改时间：01:08:34" itemprop="dateCreated datePublished" datetime="2019-03-08T01:08:03+08:00">2019-03-08</time>
+              <time title="创建时间：2020-04-23 11:22:27 / 修改时间：11:41:28" itemprop="dateCreated datePublished" datetime="2020-04-23T11:22:27+08:00">2020-04-23</time>
             
 
             
@@ -582,6 +388,13 @@ Impartial game 的 <strong>Normal play convention</strong> ：最后一个可以
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
           
 
@@ -600,12 +413,18 @@ Impartial game 的 <strong>Normal play convention</strong> ：最后一个可以
       
 
       
-        
-          
-            
+        <h1 id="做法">做法</h1>
+<p>考虑一个无向图 <span class="math inline">\(G\)</span>，对于第 <span class="math inline">\(i\)</span> 个交换，如果交换的是 <span class="math inline">\(a_i\)</span> 和 <span class="math inline">\(a_j\)</span>，在点 <span class="math inline">\(i\)</span> 和点 <span class="math inline">\(j\)</span> 之间连一条边，标号为 <span class="math inline">\(i\)</span>。</p>
+<p>设 <span class="math inline">\(S_1\)</span> 是所有第一个序列中是 <span class="math inline">\(0\)</span> 第二个序列中是 <span class="math inline">\(1\)</span> 的位置的集合，<span class="math inline">\(S_2\)</span> 是所有两个序列中都是 <span class="math inline">\(1\)</span> 的位置的集合，<span class="math inline">\(S_3\)</span> 是所有第一个序列中是 <span class="math inline">\(1\)</span> 第二个序列中是 <span class="math inline">\(0\)</span> 的位置的集合。</p>
+<p><span class="math inline">\(S_1\)</span> 和 <span class="math inline">\(S_3\)</span> 中点度数都是 <span class="math inline">\(1\)</span>，<span class="math inline">\(S_2\)</span> 中点度数都是 <span class="math inline">\(2\)</span>。不难证明，如果最终两个序列变得一样 <span class="math inline">\(G\)</span> 的一个连通块要么是一条 <span class="math inline">\(S_1\)</span> 中点到 <span class="math inline">\(S_3\)</span> 中点的路径，要么是一个 <span class="math inline">\(S_2\)</span> 内部的环。</p>
+<p>考虑对能使两个序列变得一样的图的形态和边的标号计数，那么，对于一个固定的图 <span class="math inline">\(G\)</span>，一个环上的标号顺序是无所谓的，一条链标号一定是从一侧到另一侧递增（但是不能确定是哪一侧）。所以如果决定了 <span class="math inline">\(G\)</span>，可以先决定每个连通块的边用哪些标号，然后对于环可以任意排列，对于链，如果长度为 <span class="math inline">\(1\)</span> 只有一种方案，否则有两种方案。</p>
+<p>考虑决定 <span class="math inline">\(S_2\)</span> 中的图的结构，我们可以写出环和链的 EGF，<span class="math inline">\(C(x)\)</span> 和 <span class="math inline">\(P(x)\)</span>。</p>
+<p>$$ C(x) = (_{k 1} (k-1)!k! )= (-(1-x)) = 1 {1-x} \</p>
+<p>P(x) = 1+2<em>{k 1} k!=1+2 x </em>{k 1} =1+2 x(e^x-1-x) $$</p>
+<p>题目中要求的即是 <span class="math inline">\(\lvert S_1 \rvert!\lvert S_2 \rvert!(\lvert S_1 \rvert + \lvert S_2 \rvert)![x^{\lvert S_2 \rvert}](P(x)^{\lvert S_1 \rvert}C(x))\)</span>。</p>
+<p>NTT 一下即可，时间复杂度 <span class="math inline">\(\mathcal O(n \log^2 n)\)</span>。</p>
+<h1 id="代码">代码</h1>
 
-          
-        
       
     </div>
 
@@ -626,14 +445,38 @@ Impartial game 的 <strong>Normal play convention</strong> ：最后一个可以
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/题解/" rel="tag"># 题解</a>
+          
+            <a href="/tags/atcoder/" rel="tag"># atcoder</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/22/agc016_f/" rel="next" title="[AGC016F] Games on DAG">
+                <i class="fa fa-chevron-left"></i> [AGC016F] Games on DAG
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -643,18 +486,20 @@ Impartial game 的 <strong>Normal play convention</strong> ：最后一个可以
   </article>
 
 
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span>
-  </nav>
-
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk2NC8yMjQ3NQ=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -677,8 +522,17 @@ Impartial game 的 <strong>Normal play convention</strong> ：最后一个可以
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -901,6 +755,23 @@ Impartial game 的 <strong>Normal play convention</strong> ：最后一个可以
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#做法"><span class="nav-number">1.</span> <span class="nav-text">做法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -1055,6 +926,10 @@ Impartial game 的 <strong>Normal play convention</strong> ：最后一个可以
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -1065,6 +940,23 @@ Impartial game 的 <strong>Normal play convention</strong> ：最后一个可以
   
   
 
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2020/04/23/agc019_e/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
 
 
   
@@ -1400,14 +1292,6 @@ Impartial game 的 <strong>Normal play convention</strong> ：最后一个可以
   
 
   
-  
-    
-      
-        
-      
-    
-      
-    
   
 
   
