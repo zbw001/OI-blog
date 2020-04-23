@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[[AGC019F] Yes or No]]></title>
     <url>%2F2020%2F04%2F23%2Fagc019_f%2F</url>
-    <content type="text"><![CDATA[做法 不妨假设 \(m \ge n\)。 由于你的决策不会影响之后的问题的答案，所以显然每次选概率大的就比较好。 设第 \(k+1\) 个问题能够答对的概率为 \(p_k\)，假设前 \(k\) 个问题中答对了 \(a\) 个，那么 \(p_k = \sum_{a \le k} \binom k a \frac{\max\{n-a, m-(k-a)\}}{n+m-k}\) 分为 \(n - a &lt; m - (k - a)\) 和 \(n-a \ge m - (k - a)\) 计算贡献。 定义 \(F(n,m) = \sum_{k \le m} \binom n k\)。 第一部分：\(n - a &lt; m - (k - a) \Leftrightarrow 2a &gt; n-m+k\) 这一部分对 \(p_k\) 贡献为 \(\frac 1 {n+m-k} \sum_{n-m+k &lt; 2a \le k} \binom k a (m-k+a)=\frac 1 {n+m-k} [(m-k)(F(k,k)-F(k,\lfloor \frac {n-m+k} 2 \rfloor))+\sum_{n-m+k &lt; 2a \le k} a\binom k a]\) 由于 \(a \binom k a = k\binom {k-1}{a-1}\)，\(\sum_{n-m+k &lt; 2a \le k} a\binom k a=\sum_{n-m+k &lt; 2a \le k} \binom {k-1} {a-1} = \sum_{n-m+k &lt; 2a+2 \le k} \binom {k-1} {a} = F(k-1,k-1)-F(k-1,\lfloor \frac {n-m+k} 2 \rfloor-1)\)。 于是这一部分的贡献可以用 \(F(k-1, \lfloor \frac {n-m+k} 2 \rfloor-1)\) 和 \(F(k,\lfloor \frac {n-m+k} 2 \rfloor)\) 来描述。 我们要对每个 \(k\) 求一遍这个东西。注意到 \(F(n,m) = F(n-1,m) + F(n-1,m-1)\)，同时 \(F(n,m) = F(n,m-1) + \binom n m\)，所以可以很容易地在扫描过程中线性维护。 第二部分：\(n - a \ge m - (k - a) \Leftrightarrow 2a \le n-m+k\) 这一部分对 \(p_k\) 贡献为 \(\frac 1 {n+m-k} \sum_{2a \le n-m+k} \binom k a (n-a)=\frac 1 {n+m-k} [nF(k,\lfloor \frac {n-m+k} 2 \rfloor)-\sum_{2a \le n-m+k} a\binom k a]\) \(\sum_{2a \le n-m+k} a\binom k a=\sum_{2a \le n-m+k} \binom {k-1} {a-1} = \sum_{2a+2 \le n-m+k} \binom {k-1} {a} = F(k-1,\lfloor \frac {n-m+k} 2 \rfloor-1)\)。 可以发现这一部分要维护的东西和第一部分是完全一样的。 代码]]></content>
+    <content type="text"><![CDATA[做法 不妨假设 \(n \ge m\)。 代码]]></content>
       <tags>
         <tag>题解</tag>
         <tag>atcoder</tag>

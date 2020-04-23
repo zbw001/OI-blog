@@ -861,7 +861,7 @@
                 
               
 
-              <time title="创建时间：2020-04-23 15:35:12 / 修改时间：16:23:39" itemprop="dateCreated datePublished" datetime="2020-04-23T15:35:12+08:00">2020-04-23</time>
+              <time title="创建时间：2020-04-23 15:35:12 / 修改时间：17:00:55" itemprop="dateCreated datePublished" datetime="2020-04-23T15:35:12+08:00">2020-04-23</time>
             
 
             
@@ -903,21 +903,38 @@
         
           
             <h1 id="做法">做法</h1>
-<p>不妨假设 <span class="math inline">\(m \ge n\)</span>。</p>
-<p>由于你的决策不会影响之后的问题的答案，所以显然每次选概率大的就比较好。</p>
-<p>设第 <span class="math inline">\(k+1\)</span> 个问题能够答对的概率为 <span class="math inline">\(p_k\)</span>，假设前 <span class="math inline">\(k\)</span> 个问题中答对了 <span class="math inline">\(a\)</span> 个，那么</p>
-<p><span class="math inline">\(p_k = \sum_{a \le k} \binom k a \frac{\max\{n-a, m-(k-a)\}}{n+m-k}\)</span></p>
-<p>分为 <span class="math inline">\(n - a &lt; m - (k - a)\)</span> 和 <span class="math inline">\(n-a \ge m - (k - a)\)</span> 计算贡献。</p>
-<p>定义 <span class="math inline">\(F(n,m) = \sum_{k \le m} \binom n k\)</span>。</p>
-<p><strong>第一部分：<span class="math inline">\(n - a &lt; m - (k - a) \Leftrightarrow 2a &gt; n-m+k\)</span></strong></p>
-<p>这一部分对 <span class="math inline">\(p_k\)</span> 贡献为 <span class="math inline">\(\frac 1 {n+m-k} \sum_{n-m+k &lt; 2a \le k} \binom k a (m-k+a)=\frac 1 {n+m-k} [(m-k)(F(k,k)-F(k,\lfloor \frac {n-m+k} 2 \rfloor))+\sum_{n-m+k &lt; 2a \le k} a\binom k a]\)</span></p>
-<p>由于 <span class="math inline">\(a \binom k a = k\binom {k-1}{a-1}\)</span>，<span class="math inline">\(\sum_{n-m+k &lt; 2a \le k} a\binom k a=\sum_{n-m+k &lt; 2a \le k} \binom {k-1} {a-1} = \sum_{n-m+k &lt; 2a+2 \le k} \binom {k-1} {a} = F(k-1,k-1)-F(k-1,\lfloor \frac {n-m+k} 2 \rfloor-1)\)</span>。</p>
-<p>于是这一部分的贡献可以用 <span class="math inline">\(F(k-1, \lfloor \frac {n-m+k} 2 \rfloor-1)\)</span> 和 <span class="math inline">\(F(k,\lfloor \frac {n-m+k} 2 \rfloor)\)</span> 来描述。</p>
-<p>我们要对每个 <span class="math inline">\(k\)</span> 求一遍这个东西。注意到 <span class="math inline">\(F(n,m) = F(n-1,m) + F(n-1,m-1)\)</span>，同时 <span class="math inline">\(F(n,m) = F(n,m-1) + \binom n m\)</span>，所以可以很容易地在扫描过程中线性维护。</p>
-<p><strong>第二部分：<span class="math inline">\(n - a \ge m - (k - a) \Leftrightarrow 2a \le n-m+k\)</span></strong></p>
-<p>这一部分对 <span class="math inline">\(p_k\)</span> 贡献为 <span class="math inline">\(\frac 1 {n+m-k} \sum_{2a \le n-m+k} \binom k a (n-a)=\frac 1 {n+m-k} [nF(k,\lfloor \frac {n-m+k} 2 \rfloor)-\sum_{2a \le n-m+k} a\binom k a]\)</span></p>
-<p><span class="math inline">\(\sum_{2a \le n-m+k} a\binom k a=\sum_{2a \le n-m+k} \binom {k-1} {a-1} = \sum_{2a+2 \le n-m+k} \binom {k-1} {a} = F(k-1,\lfloor \frac {n-m+k} 2 \rfloor-1)\)</span>。</p>
-<p>可以发现这一部分要维护的东西和第一部分是完全一样的。</p>
+<p>不妨假设 <span class="math inline">\(n \ge m\)</span>。</p>
+<!--
+这是一个推错的假算法
+
+由于你的决策不会影响之后的问题的答案，所以显然每次选概率大的就比较好。
+
+设第 $k+1$ 个问题能够答对的概率为 $p_k$，假设前 $k$ 个问题中答对了 $a$ 个，那么
+
+$p_k = \sum_{a \le k} \binom k a \frac{\max\{n-a, m-(k-a)\}}{n+m-k}$
+
+分为 $n - a < m - (k - a)$ 和 $n-a \ge m - (k - a)$ 计算贡献。
+
+定义 $F(n,m) = \sum_{k \le m} \binom n k$。
+
+**第一部分：$n - a < m - (k - a) \Leftrightarrow 2a > n-m+k$**
+
+这一部分对 $p_k$ 贡献为 $\frac 1 {n+m-k} \sum_{n-m+k < 2a \le k} \binom k a (m-k+a)=\frac 1 {n+m-k} [(m-k)(F(k,k)-F(k,\lfloor \frac {n-m+k} 2 \rfloor))+\sum_{n-m+k < 2a \le k} a\binom k a]$
+
+由于 $a \binom k a = k\binom {k-1}{a-1}$，$\sum_{n-m+k < 2a \le k} a\binom k a=\sum_{n-m+k < 2a \le k} \binom {k-1} {a-1} = \sum_{n-m+k < 2a+2 \le k} \binom {k-1} {a} = F(k-1,k-1)-F(k-1,\lfloor \frac {n-m+k} 2 \rfloor-1)$。
+
+于是这一部分的贡献可以用 $F(k-1, \lfloor \frac {n-m+k} 2 \rfloor-1)$ 和 $F(k,\lfloor \frac {n-m+k} 2 \rfloor)$ 来描述。
+
+我们要对每个 $k$ 求一遍这个东西。注意到 $F(n,m) = F(n-1,m) + F(n-1,m-1)$，同时 $F(n,m) = F(n,m-1) + \binom n m$，所以可以很容易地在扫描过程中线性维护。
+
+**第二部分：$n - a \ge m - (k - a) \Leftrightarrow 2a \le n-m+k$**
+
+这一部分对 $p_k$ 贡献为 $\frac 1 {n+m-k} \sum_{2a \le n-m+k} \binom k a (n-a)=\frac 1 {n+m-k} [nF(k,\lfloor \frac {n-m+k} 2 \rfloor)-\sum_{2a \le n-m+k} a\binom k a]$
+
+$\sum_{2a \le n-m+k} a\binom k a=\sum_{2a \le n-m+k} \binom {k-1} {a-1} = \sum_{2a+2 \le n-m+k} \binom {k-1} {a} = F(k-1,\lfloor \frac {n-m+k} 2 \rfloor-1)$。
+
+可以发现这一部分要维护的东西和第一部分是完全一样的。
+-->
 <h1 id="代码">代码</h1>
 
           
