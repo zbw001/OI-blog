@@ -815,6 +815,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/04/24/agc027_f/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zbww">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个蒟蒻的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/04/24/agc027_f/" class="post-title-link" itemprop="url">[AGC027F] Grafting</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-04-24 18:24:11 / 修改时间：19:09:55" itemprop="dateCreated datePublished" datetime="2020-04-24T18:24:11+08:00">2020-04-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="做法">做法</h1>
+<p>特判掉两棵树一模一样的情况。</p>
+<p>枚举第一个操作的点及其操作方式，设这个点为 <span class="math inline">\(r\)</span>。我们考虑进行完第一次操作后的两棵树。</p>
+<p>设第一棵树为 <span class="math inline">\(T_A\)</span>，第二棵树为 <span class="math inline">\(T_B\)</span>，把 <span class="math inline">\(r\)</span> 作为两棵树的根。接下来我们在有根树上考虑问题。</p>
+<p>假设在一个合法方案中，你在某个时刻把点 <span class="math inline">\(u\)</span> 染黑并接到点 <span class="math inline">\(v\)</span>，那么在这之后 <span class="math inline">\(v\)</span> 以及其祖先一定都不可能是叶子，所以此时 <span class="math inline">\(T_A\)</span> 上 <span class="math inline">\(u\)</span> 到根的路径等于 <span class="math inline">\(T_B\)</span> 上 <span class="math inline">\(u\)</span> 到根的路径。因此 <span class="math inline">\(v\)</span> 必须是 <span class="math inline">\(u\)</span> 在 <span class="math inline">\(T_B\)</span> 上的父亲。</p>
+<p>如果一个点初始时到根的路径（经过的点的序列）在两棵树上不同，我们称它为不好的，否则我们称它为好的。显然我们不会染黑好的点，而不好的点必须要被染黑。所以我们只需要解决可行性问题。</p>
+<p>事实上，存在一个合法方案等价于存在一个不好的点的排列，使得： - 任意一个不好的点在 <span class="math inline">\(T_A\)</span> 上的所有儿子都排在它之前。 - 任意一个不好的点在 <span class="math inline">\(T_B\)</span> 上的所有儿子都排在它之后。</p>
+<p>这是一个有向图是否存在拓扑序的问题，判一下 DAG 即可。</p>
+<p>时间复杂度 <span class="math inline">\(\mathcal O(Tn^3)\)</span>。由于我懒写了 <span class="math inline">\(\mathcal O(Tn^4)\)</span>。</p>
+<h1 id="代码">代码</h1>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">55</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T, n;</span><br><span class="line"><span class="keyword">int</span> E1[maxn][maxn], E2[maxn][maxn], E[maxn][maxn], deg[maxn];</span><br><span class="line"><span class="keyword">int</span> tag[maxn], _deg[maxn], _E1[maxn][maxn], _E2[maxn][maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs_tag</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">    tag[u] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">1</span>; v &lt;= n; v++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (E1[u][v] &amp;&amp; E2[u][v] &amp;&amp; v != f) &#123;</span><br><span class="line">            dfs_tag(v, u);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">1</span>; v &lt;= n; v++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (E1[u][v] &amp;&amp; v != f) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!tag[u]) &#123;</span><br><span class="line">                ++ E[u][v];</span><br><span class="line">                ++ deg[v];</span><br><span class="line">            &#125;</span><br><span class="line">            dfs1(v, u);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs2</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">1</span>; v &lt;= n; v++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (E2[u][v] &amp;&amp; v != f) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!tag[u]) &#123;</span><br><span class="line">                ++ E[v][u];</span><br><span class="line">                ++ deg[u];</span><br><span class="line">            &#125;</span><br><span class="line">            dfs2(v, u);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T --) &#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">                _E1[i][j] = _E2[i][j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            _deg[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> u, v; <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;u, &amp;v);</span><br><span class="line">            _E1[u][v] = _E1[v][u] = <span class="number">1</span>;</span><br><span class="line">            ++ _deg[u], ++ _deg[v];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> u, v; <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;u, &amp;v);</span><br><span class="line">            _E2[u][v] = _E2[v][u] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> dif = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (_E1[i][j] != _E2[i][j]) &#123;</span><br><span class="line">                    dif = <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!dif) &#123;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"0"</span>);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> s = <span class="number">1</span>; s &lt;= n; s++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (_deg[s] != <span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">int</span> f = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="keyword">if</span> (_E1[s][i]) f = i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">1</span>; t &lt;= n; t++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (t == s) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">                        E[i][j] = <span class="number">0</span>;</span><br><span class="line">                        E1[i][j] = _E1[i][j];</span><br><span class="line">                        E2[i][j] = _E2[i][j]; </span><br><span class="line">                    &#125;</span><br><span class="line">                    deg[i] = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                E1[s][f] = E1[f][s] = <span class="number">0</span>, E1[s][t] = E1[t][s] = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) tag[i] = <span class="number">0</span>;</span><br><span class="line">                dfs_tag(s, <span class="number">0</span>);</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="keyword">if</span> (tag[i]) ++ cnt;</span><br><span class="line">                dfs1(s, <span class="number">0</span>), dfs2(s, <span class="number">0</span>);</span><br><span class="line">                <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; Q;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (!tag[i] &amp;&amp; !deg[i]) Q.push(i);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">while</span> (!Q.empty()) &#123;</span><br><span class="line">                    <span class="keyword">int</span> u = Q.front(); Q.pop();</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">1</span>; v &lt;= n; v++) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (E[u][v]) &#123;</span><br><span class="line">                            deg[v] -= E[u][v];</span><br><span class="line">                            <span class="keyword">if</span> (!deg[v]) Q.push(v);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">int</span> ok = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="keyword">if</span> (!tag[i] &amp;&amp; deg[i]) ok = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span> (ok) ans = min(ans, n - cnt);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (ans &lt; <span class="number">0x3f3f3f3f</span>) <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"-1"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/04/24/agc040_e/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1772,154 +1926,6 @@ G(n,m,k+1,l) - G(n,m,k,l) = -\binom{k}{l}\binom{n+m-k-1}{n-l-1}
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/04/15/dilworth/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zbww">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一个蒟蒻的Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2020/04/15/dilworth/" class="post-title-link" itemprop="url">关于最长反链方案的构造</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2020-04-15 02:58:00 / 修改时间：03:09:16" itemprop="dateCreated datePublished" datetime="2020-04-15T02:58:00+08:00">2020-04-15</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>有一些求最长反链的题目会让你构造方案，比如 <a href="https://www.luogu.com.cn/problem/P4298" target="_blank" rel="noopener">[CTSC2008] 祭祀</a> 和 <a href="https://codeforces.com/problemset/problem/590/E" target="_blank" rel="noopener">CF590E Birthday</a>。</p>
-<p>找到了一个写的比较清晰的做法，<a href="http://r-64.blog.uoj.ac/blog/623" target="_blank" rel="noopener">r-64 的 uoj blog</a>。</p>
-<p>大概是说建出二分图求最大独立集，所有两部中对应的点都在独立集中的点构成最长反链。</p>
-<p>构成反链是显然的，构成最长反链的理由似乎不太完整（也有可能是作者觉得这过于显然了），坑了我很久，这里记录一下。</p>
-<p>设原图点数为 <span class="math inline">\(n\)</span>，二分图的最大匹配为 <span class="math inline">\(m\)</span>，那么最小链覆盖大小为 <span class="math inline">\(n-m\)</span>，最大独立集大小为 <span class="math inline">\(2n - m\)</span>。我们要证明，对于一个最大独立集，左右部中对应点都在其中的点有 <span class="math inline">\(n-m\)</span> 个。首先我们要证明，对于任意一个点，它在左右部对应的点至少有一个在最大独立集中（那篇 blog 中似乎缺少了这一步）：如果一个点在左右部对应的点都不在最大独立集中，一定有一个与它在左部对应的(二分图上的)点有边的(二分图上的)点 <span class="math inline">\(a\)</span> 在最大独立集，也有一个与它在右部对应的点有边的点 <span class="math inline">\(b\)</span> 在最大独立集中。由偏序关系的传递性可知 <span class="math inline">\(a\)</span> 和 <span class="math inline">\(b\)</span> 在二分图上有一条边，与最大独立集的定义矛盾。因此，最大独立集大小等于 <span class="math inline">\(n + 左右部对应点都在最大独立集中的点的数量\)</span>，也就证明了我们构造出的反链是最长反链。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1971,7 +1977,7 @@ G(n,m,k+1,l) - G(n,m,k,l) = -\binom{k}{l}\binom{n+m-k-1}{n-l-1}
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">84</span>
+                    <span class="site-state-item-count">85</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
