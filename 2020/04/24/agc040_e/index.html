@@ -97,21 +97,25 @@
 
 
 
-  <meta name="keywords" content="noip noi oi 算法 algorithm acm">
-<meta property="og:type" content="website">
-<meta property="og:title" content="一个蒟蒻的Blog">
-<meta property="og:url" content="https://zbww.cf/tags/题解/page/3/index.html">
+  <meta name="description" content="做法 对于给定的序列 \(a\)，我们把它拆成两个非负序列 \(x\) 和 \(y\) 的和。然后仅用不减序列取得到 \(x\)，仅用不增序列得到 \(y\)。 容易证明，对于长为 \(k\) 序列 \(a\) (定义 \(a_0 = a_{k+1} = 0\))，把它拆成若干前缀不减序列的和，最小个数为 \(\sum_{i=1}^n [a_{i+1} &amp;lt; a_i]\)；把它拆成若干后缀不增">
+<meta name="keywords" content="题解,atcoder">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[AGC040E] Prefix Suffix Addition">
+<meta property="og:url" content="https://zbww.cf/2020/04/24/agc040_e/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
+<meta property="og:description" content="做法 对于给定的序列 \(a\)，我们把它拆成两个非负序列 \(x\) 和 \(y\) 的和。然后仅用不减序列取得到 \(x\)，仅用不增序列得到 \(y\)。 容易证明，对于长为 \(k\) 序列 \(a\) (定义 \(a_0 = a_{k+1} = 0\))，把它拆成若干前缀不减序列的和，最小个数为 \(\sum_{i=1}^n [a_{i+1} &amp;lt; a_i]\)；把它拆成若干后缀不增">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-24T09:13:18.841Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一个蒟蒻的Blog">
+<meta name="twitter:title" content="[AGC040E] Prefix Suffix Addition">
+<meta name="twitter:description" content="做法 对于给定的序列 \(a\)，我们把它拆成两个非负序列 \(x\) 和 \(y\) 的和。然后仅用不减序列取得到 \(x\)，仅用不增序列得到 \(y\)。 容易证明，对于长为 \(k\) 序列 \(a\) (定义 \(a_0 = a_{k+1} = 0\))，把它拆成若干前缀不减序列的和，最小个数为 \(\sum_{i=1}^n [a_{i+1} &amp;lt; a_i]\)；把它拆成若干后缀不增">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zbww.cf/tags/题解/page/3/">
+  <link rel="canonical" href="https://zbww.cf/2020/04/24/agc040_e/">
 
 
 
@@ -121,7 +125,7 @@
   };
 </script>
 
-  <title>标签: 题解 | 一个蒟蒻的Blog</title>
+  <title>[AGC040E] Prefix Suffix Addition | 一个蒟蒻的Blog</title>
   
 
 
@@ -169,7 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -299,259 +303,199 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>题解<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/04/24/agc040_e/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zbww">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个蒟蒻的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/04/20/CF917E/" itemprop="url">
-            
-              <span itemprop="name">[Codeforces917E] Upside Down</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">[AGC040E] Prefix Suffix Addition
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-20T12:58:09+08:00" content="2019-04-20">
-          04-20
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-04-24 17:03:50 / 修改时间：17:13:18" itemprop="dateCreated datePublished" datetime="2020-04-24T17:03:50+08:00">2020-04-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/04/16/[]/" itemprop="url">
-            
-              <span itemprop="name">[LOJ2302] NOI2017 整数</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-16T21:08:13+08:00" content="2019-04-16">
-          04-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/04/12/[YNOI2016]-镜中的昆虫/" itemprop="url">
-            
-              <span itemprop="name">[YNOI2016] 镜中的昆虫</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-12T09:59:10+08:00" content="2019-04-12">
-          04-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/04/10/[题解]-YNOI/" itemprop="url">
-            
-              <span itemprop="name">[题解] YNOI</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-10T10:16:06+08:00" content="2019-04-10">
-          04-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/29/口胡的题目/" itemprop="url">
-            
-              <span itemprop="name">口胡的题目</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-29T20:13:13+08:00" content="2019-03-29">
-          03-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/29/[Gym100543G]-Virus-synthesis/" itemprop="url">
-            
-              <span itemprop="name">[Gym100543G] Virus synthesis</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-29T15:57:51+08:00" content="2019-03-29">
-          03-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/11/[Codeforces1120D]-/" itemprop="url">
-            
-              <span itemprop="name">[Codeforces1120D] Power Tree</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-11T19:55:47+08:00" content="2019-03-11">
-          03-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/11/-/" itemprop="url">
-            
-              <span itemprop="name">[Codeforces1120C] Compress String</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-11T18:58:20+08:00" content="2019-03-11">
-          03-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h1 id="做法">做法</h1>
+<p>对于给定的序列 <span class="math inline">\(a\)</span>，我们把它拆成两个非负序列 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span> 的和。然后仅用不减序列取得到 <span class="math inline">\(x\)</span>，仅用不增序列得到 <span class="math inline">\(y\)</span>。</p>
+<p>容易证明，对于长为 <span class="math inline">\(k\)</span> 序列 <span class="math inline">\(a\)</span> (定义 <span class="math inline">\(a_0 = a_{k+1} = 0\)</span>)，把它拆成若干前缀不减序列的和，最小个数为 <span class="math inline">\(\sum_{i=1}^n [a_{i+1} &lt; a_i]\)</span>；把它拆成若干后缀不增序列的和，最小个数为 <span class="math inline">\(\sum_{i=0}^{n-1} [a_{i+1} &gt; a_i]\)</span>。</p>
+<p>于是我们可以想到一个贪心，考虑 <span class="math inline">\(i\)</span> 从小到大地决定 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span> 的第 <span class="math inline">\(i\)</span> 项，然后使得前 <span class="math inline">\(i\)</span> 项 <span class="math inline">\(\sum_{i=1}^n [x_{i+1} &lt; x_i] + \sum_{i=0}^{n-1} [y_{i+1} &gt; y_i]\)</span> 尽可能小。然而直接贪心是不对的。注意到，对于两种 <span class="math inline">\(\sum_{i=1}^n [x_{i+1} &lt; x_i] + \sum_{i=0}^{n-1} [y_{i+1} &gt; y_i]\)</span> 的方案，<span class="math inline">\(x_i\)</span> 较小的一定比较优，而且如果前 <span class="math inline">\(i\)</span> 项一个方案的代价比前 <span class="math inline">\(i\)</span> 项最小代价方案的代价还要大超过 <span class="math inline">\(2\)</span>，它一定不优。所以实际上我们可以只保留三个方案，使得其中一定有一个在之后可以变成最优方案。</p>
+<p>时间复杂度 <span class="math inline">\(\mathcal O(n)\)</span>。</p>
+<h1 id="代码">代码</h1>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">200010</span>;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; pi;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, a[maxn];</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;pi&gt; cal(<span class="keyword">int</span> lasta, <span class="keyword">int</span> lastb, <span class="keyword">int</span> s, <span class="keyword">int</span> _) &#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;pi&gt; ret;</span><br><span class="line">    <span class="comment">// 先判断是否可能不增加</span></span><br><span class="line">    <span class="comment">// x &gt;= lasta, s - x &lt;= lastb</span></span><br><span class="line">    <span class="comment">// x &gt;= lasta, x &gt;= s - lastb;</span></span><br><span class="line">    <span class="keyword">if</span> (max(lasta, s - lastb) &lt;= s) ret.push_back(make_pair(_, max(lasta, s - lastb)));</span><br><span class="line">    <span class="comment">// 再判断只增加一项，x 的最小值（显然可以只增加一项）</span></span><br><span class="line">    ret.push_back(pi(_ + <span class="number">1</span>, max(<span class="number">0</span>, min(lasta, s - lastb))));</span><br><span class="line">    ret.push_back(pi(_ + <span class="number">2</span>, <span class="number">0</span>));</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</span><br><span class="line">    pi mn0(0, 0), mn1(0, 0), mn2(0, 0);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n+<span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;pi&gt; v0 = cal(mn0.second, a[i<span class="number">-1</span>] - mn0.second, a[i], mn0.first);</span><br><span class="line">        <span class="built_in">vector</span>&lt;pi&gt; v1 = cal(mn1.second, a[i<span class="number">-1</span>] - mn1.second, a[i], mn1.first);</span><br><span class="line">        <span class="built_in">vector</span>&lt;pi&gt; v2 = cal(mn2.second, a[i<span class="number">-1</span>] - mn2.second, a[i], mn2.first);</span><br><span class="line">        <span class="built_in">vector</span>&lt;pi&gt; ch;</span><br><span class="line">        ch.insert(ch.end(), v0.begin(), v0.end());</span><br><span class="line">        ch.insert(ch.end(), v1.begin(), v1.end());</span><br><span class="line">        ch.insert(ch.end(), v2.begin(), v2.end());</span><br><span class="line">        sort(ch.begin(), ch.end());</span><br><span class="line">        <span class="keyword">int</span> mn = ch[<span class="number">0</span>].first;</span><br><span class="line">        pi nmn0(0x3f3f3f3f, 0), nmn1(0x3f3f3f3f, 0), nmn2(0x3f3f3f3f, 0);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ch.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (ch[i].first == mn) nmn0 = min(nmn0, ch[i]);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (ch[i].first == mn + <span class="number">1</span>) nmn1 = min(nmn1, ch[i]);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (ch[i].first == mn + <span class="number">2</span>) nmn2 = min(nmn1, ch[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        mn0 = nmn0, mn1 = nmn1, mn2 = nmn2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, mn0.first);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/题解/" rel="tag"># 题解</a>
+          
+            <a href="/tags/atcoder/" rel="tag"># atcoder</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/23/agc019_f/" rel="next" title="[AGC019F] Yes or No">
+                <i class="fa fa-chevron-left"></i> [AGC019F] Yes or No
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/题解/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/tags/题解/">1</a><a class="page-number" href="/tags/题解/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk2NC8yMjQ3NQ=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -574,8 +518,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -798,6 +751,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#做法"><span class="nav-number">1.</span> <span class="nav-text">做法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -952,6 +922,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -962,6 +936,23 @@
   
   
 
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2020/04/24/agc040_e/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
 
 
   

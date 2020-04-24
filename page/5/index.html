@@ -320,6 +320,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/09/18/CF1188E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zbww">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个蒟蒻的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/09/18/CF1188E/" class="post-title-link" itemprop="url">[Codeforces1188E] Problem from Red Panda</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-18 15:18:00 / 修改时间：23:02:02" itemprop="dateCreated datePublished" datetime="2019-09-18T15:18:00+08:00">2019-09-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>还没写过。如果有错误可以 QQ / 评论告诉我。</p>
+<h3 id="题解">题解</h3>
+<p>这样理解这个问题：初始时时间为第 <span class="math inline">\(0\)</span> 秒。每秒你可以选择一个 <span class="math inline">\(i\)</span>，然后把 <span class="math inline">\(a_i\)</span> 加上 <span class="math inline">\(k\)</span>，接下来再把所有 <span class="math inline">\(a_i\)</span> 减去 <span class="math inline">\(1\)</span>。你可以随时停止这个过程，并把当前的 <span class="math inline">\(a\)</span> 数组作为结果。问在不经过任何存在 <span class="math inline">\(a_i &lt; 0\)</span> 的状态的前提下，能够得到多少种不同的结果。</p>
+<p>从这个角度来看，如果不考虑 <span class="math inline">\(+k\)</span> 操作，每秒每个 <span class="math inline">\(a_i\)</span>都会减少 <span class="math inline">\(1\)</span>。</p>
+<p>设 <span class="math inline">\(c_{t,i}\)</span> 表示前 <span class="math inline">\(t\)</span> 秒 <span class="math inline">\(a_i\)</span> 被执行 <span class="math inline">\(+k\)</span> 操作的次数。那么，如果这个过程在进行了 <span class="math inline">\(T\)</span> 秒之后结束，<span class="math inline">\(\forall t \le T, 1 \le i \le n, a_i-t+kc_{t,i} \ge 0\)</span>，也就是说 <span class="math inline">\(\forall 1 \le i \le n, 0 \le p \le \lfloor \frac {T-a_i-1} k \rfloor,c_{a_i+kp+1,i} \ge p+1\)</span>。</p>
+<p>不难证明存在经过 <span class="math inline">\(T\)</span> 秒没有出现过负数的方案的充要条件是： <span class="math display">\[
+\forall t \le T, \sum_i \lceil \frac{\max(t-a_i, 0)} k \rceil \le t
+\]</span> 对于 <span class="math inline">\(t \in \mathbb{N}\)</span>，<span class="math inline">\(\sum_i \lceil \frac{\max(t-a_i, 0)} k \rceil \le t\)</span> 是否成立是与 <span class="math inline">\(T\)</span> 无关的。所以，要么对所有的 <span class="math inline">\(T\)</span> 都存在不经过负数的方案，要么存在一个非负整数 <span class="math inline">\(T_0\)</span>，当 <span class="math inline">\(T \le T_0\)</span> 时存在方案，<span class="math inline">\(T &gt; T_0\)</span> 时不存在方案。</p>
+<p>太晚了先睡了。坑待填。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/09/18/CF571E/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1792,156 +1944,6 @@ f(a,b,c,n)=\sum_{i=0}^n \lfloor \frac {ai+b} c \rfloor \\
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/06/23/LOJ2572/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zbww">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一个蒟蒻的Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/23/LOJ2572/" class="post-title-link" itemprop="url">[LOJ2572] 「ZJOI2017」字符串</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-06-23 14:48:22 / 修改时间：16:57:20" itemprop="dateCreated datePublished" datetime="2019-06-23T14:48:22+08:00">2019-06-23</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://loj.ac/problem/2572" target="_blank" rel="noopener">题目链接</a></p>
-<h1 id="做法">做法</h1>
-<p>不难证明如果一个子串 <span class="math inline">\(s\)</span> 有两个后缀 <span class="math inline">\(s_1, s_2\)</span>，<span class="math inline">\(s_2\)</span> 是 <span class="math inline">\(s_1\)</span> 的 border 且 <span class="math inline">\(2\lvert s_2 \rvert &gt; \lvert s_1 \rvert\)</span>，那么对于任意的字符串 <span class="math inline">\(t\)</span>，<span class="math inline">\(s_2\)</span> 不可能是 <span class="math inline">\(st\)</span> 的最小后缀。</p>
-<p>用一个线段树维护每个区间内可能成为最小后缀的点，这样的点只有 <span class="math inline">\(\mathcal O (\log n)\)</span> 个。push up 的时候暴力合并即可。</p>
-<p>比较大小的时候需要查 lcp，分块维护前缀哈希即可做到 <span class="math inline">\(\mathcal O(\sqrt n)\)</span> 修改，<span class="math inline">\(\mathcal O(\log n)\)</span> 询问（调整块大小应该可以做到更优的复杂度）。</p>
-<p>总复杂度 <span class="math inline">\(\mathcal O(n\log^2n+m \log ^3 n+m\sqrt n)\)</span>。</p>
-<p>（真的毒瘤）</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1993,7 +1995,7 @@ f(a,b,c,n)=\sum_{i=0}^n \lfloor \frac {ai+b} c \rfloor \\
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">83</span>
+                    <span class="site-state-item-count">84</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
