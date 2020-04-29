@@ -97,21 +97,25 @@
 
 
 
-  <meta name="keywords" content="noip noi oi 算法 algorithm acm">
+  <meta name="description" content="这是一个假做法。坑先留着，以后填 假做法 一个填法的贡献之和每行每列最小值有关。 考虑如何计算确定了每行每列最小值，有多少种填法。设第 \(i\) 行最小值为 \(a_i\)，第 \(i\) 列最小值为 \(b_i\)。我们只讨论 \(\max a_i \ge \max b_i\) (反过来也一样)，找到所有取到 \(\max a_i\) 的行 \(p_1, \ldots, p_k\)，决定这些行">
+<meta name="keywords" content="atcoder,题解">
 <meta property="og:type" content="website">
-<meta property="og:title" content="一个蒟蒻的Blog">
-<meta property="og:url" content="https://zbww.cf/tags/Atcoder/index.html">
+<meta property="og:title" content="[AGC039F] Min Product Sum">
+<meta property="og:url" content="https://zbww.cf/agc039_f.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
+<meta property="og:description" content="这是一个假做法。坑先留着，以后填 假做法 一个填法的贡献之和每行每列最小值有关。 考虑如何计算确定了每行每列最小值，有多少种填法。设第 \(i\) 行最小值为 \(a_i\)，第 \(i\) 列最小值为 \(b_i\)。我们只讨论 \(\max a_i \ge \max b_i\) (反过来也一样)，找到所有取到 \(\max a_i\) 的行 \(p_1, \ldots, p_k\)，决定这些行">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-25T07:48:53.441Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一个蒟蒻的Blog">
+<meta name="twitter:title" content="[AGC039F] Min Product Sum">
+<meta name="twitter:description" content="这是一个假做法。坑先留着，以后填 假做法 一个填法的贡献之和每行每列最小值有关。 考虑如何计算确定了每行每列最小值，有多少种填法。设第 \(i\) 行最小值为 \(a_i\)，第 \(i\) 列最小值为 \(b_i\)。我们只讨论 \(\max a_i \ge \max b_i\) (反过来也一样)，找到所有取到 \(\max a_i\) 的行 \(p_1, \ldots, p_k\)，决定这些行">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zbww.cf/tags/Atcoder/">
+  <link rel="canonical" href="https://zbww.cf/agc039_f.html">
 
 
 
@@ -121,7 +125,7 @@
   };
 </script>
 
-  <title>标签: Atcoder | 一个蒟蒻的Blog</title>
+  <title>[AGC039F] Min Product Sum | 一个蒟蒻的Blog</title>
   
 
 
@@ -169,7 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -316,56 +320,85 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Atcoder<small>标签</small>
-        </h1>
-      </div>
+<h1 class="post-title" itemprop="name headline">[AGC039F] Min Product Sum
+
+</h1>
+
+<div class="post-meta">
+  
+  
+
+
+
+</div>
+
+</header>
 
       
+      
+      
+      <div class="post-body">
         
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
         
-          <a class="post-title-link" href="/2019/10/24/[AGC023E]-Inversions/" itemprop="url">
-            
-              <span itemprop="name">[AGC023E] Inversions</span>
-            
-          </a>
-        
-      </h2>
+          <p>这是一个假做法。坑先留着，以后填</p>
+<h1 id="假做法">假做法</h1>
+<p>一个填法的贡献之和每行每列最小值有关。</p>
+<p>考虑如何计算确定了每行每列最小值，有多少种填法。设第 <span class="math inline">\(i\)</span> 行最小值为 <span class="math inline">\(a_i\)</span>，第 <span class="math inline">\(i\)</span> 列最小值为 <span class="math inline">\(b_i\)</span>。我们只讨论 <span class="math inline">\(\max a_i \ge \max b_i\)</span> (反过来也一样)，找到所有取到 <span class="math inline">\(\max a_i\)</span> 的行 <span class="math inline">\(p_1, \ldots, p_k\)</span>，决定这些行的填法，然后将它们删去，由于这些格子都大于等于 <span class="math inline">\(\max a_i\)</span> 和 <span class="math inline">\(\max b_i\)</span>，删去之后问题变成了一个子问题。</p>
+<p>扩展一下这个思路就得到了一个 DP。</p>
+<p>设 <span class="math inline">\(f_{n,m,k}\)</span> 表示已经删去了 <span class="math inline">\(N - n\)</span> 行和 <span class="math inline">\(M - m\)</span> 列 (删去的格子都大于 <span class="math inline">\(k\)</span>)，剩下的每行和每列最小值都不超过 <span class="math inline">\(k\)</span> 的 (给剩下的格子) 填数方案的贡献之和 (贡献指题目中定义的贡献)，<span class="math inline">\(g_{n,m,k}\)</span> 表示已经删去了 <span class="math inline">\(N - n\)</span> 行和 <span class="math inline">\(M - m\)</span> 列 (删去的格子都大于 <span class="math inline">\(k\)</span>)，每行最小值都小于 <span class="math inline">\(k\)</span>，每列最小值都不超过 <span class="math inline">\(k\)</span> 的填数方案的贡献之和。</p>
+<p><span class="math display">\[
+f_{n,m,k} = k^{n(M-m)+m(N-n)+nm}t_{n,m,k}+\sum_{c &lt; n} \binom n c ((K-k+1)^m-(K-k)^m)^ck^{c(M-m)}g_{n-c,m,k}
+\\\\
+g_{n,m,k} = \sum_{c &lt; m} \binom m c ((K-k+1)^n-(K-k)^n)^ck^{c(N-n)}f_{n,m-c,k-1}
+\]</span></p>
+<p>其中 <span class="math inline">\(t_{n,m,k}\)</span> 是在 <span class="math inline">\(n\)</span> 行 <span class="math inline">\(m\)</span> 列网格上填上 <span class="math inline">\(k, \ldots K\)</span> 的数，使得每行每列最小值都恰为 <span class="math inline">\(k\)</span> 的方案数。</p>
+<p><span class="math display">\[
+t_{n,m,k} = (K-k+1)^{nm} \sum_{i=0}^n \sum_{j=0}^m \binom n i\binom m j (-1)^{i+j}\frac{K-k}{K-k+1}^{mi+nj-ij}
+\\\\
+\text{令 $w = \frac{K-k}{K-k+1}$}
+\\\\
+t_{n,m,k} = (K-k+1)^{nm} \sum_{i=0}^n\binom ni (-1)^i w^{mi} \sum_{j=0}^m \binom mj (-w^{n-i})^j
+\\\\
+t_{n,m,k} = (K-k+1)^{nm} \sum_{i=0}^n\binom ni (-1)^i w^{mi} (1-w^{n-i})^m
+\]</span></p>
+<p>这样就在 <span class="math inline">\(\mathcal O(n^4)\)</span> 的复杂度解决了问题，避免使用快速幂，边界处理要特别小心。</p>
+<h1 id="代码">代码</h1>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-24T16:35:07+08:00" content="2019-10-24">
-          10-24
-        </time>
+        
       </div>
-
-    </header>
-  </article>
-
-
+      
+      
       
     </div>
+    
 
+
+
+    
+    
+    
   </div>
-  
-  
-  
-
-  
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk2NC8yMjQ3NQ=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -388,8 +421,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -612,6 +654,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#假做法"><span class="nav-number">1.</span> <span class="nav-text">假做法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -766,6 +825,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -776,6 +839,23 @@
   
   
 
+
+  
+    <script>
+  window.livereOptions = {
+    refer: 'agc039_f.html'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
 
 
   
@@ -1042,234 +1122,6 @@
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
                   return resultRight.searchTextCount - resultLeft.searchTextCount;
                 } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-  
-
-  
-  
-
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-	},
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
-        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
-      }
-    });
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-      for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<style>
-.MathJax_Display {
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-.MathJax{outline:0;}
-</style>
-
-    
-  
-
-
-  
-
-  
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  <style>
-    .copy-btn {
-      display: inline-block;
-      padding: 6px 12px;
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 20px;
-      color: #333;
-      white-space: nowrap;
-      vertical-align: middle;
-      cursor: pointer;
-      
-        background-color: #eee;
-        background-image: linear-gradient(#fcfcfc, #eee);
-        border: 1px solid #d5d5d5;
-        border-radius: 3px;
-      
-      user-select: none;
-      outline: 0;
-    }
-
-    .highlight-wrap .copy-btn {
-      transition: opacity .3s ease-in-out;
-      opacity: 0;
-      padding: 2px 6px;
-      position: absolute;
-      
-        right: 4px;
-        top: 8px;
-      
-    }
-
-    .highlight-wrap:hover .copy-btn,
-    .highlight-wrap .copy-btn:focus {
-      opacity: 1;
-    }
-
-    .highlight-wrap {
-      position: relative;
-    }
-  </style>
-  <script>
-    $('.highlight').each(function(i, e) {
-      var $wrap = $('<div>').addClass('highlight-wrap');
-      $(e).after($wrap);
-      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
-        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
-          return $(e).text();
-        }).toArray().join('\n');
-        var ta = document.createElement('textarea');
-        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
-        ta.style.top = yPosition + 'px'; // Prevent page scroll
-        ta.style.position = 'absolute';
-        ta.style.opacity = '0';
-        ta.readOnly = true;
-        ta.value = code;
-        document.body.appendChild(ta);
-        ta.select();
-        ta.setSelectionRange(0, code.length);
-        ta.readOnly = false;
-        var result = document.execCommand('copy');
-        
-        ta.blur(); // For iOS
-        $(this).blur();
-      })).on('mouseleave', function(e) {
-        var $b = $(this).find('.copy-btn');
-        setTimeout(function() {
-          $b.text('复制');
-        }, 300);
-      }).append(e);
-    })
-  </script>
-
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
-</html>
-!== resultRight.hitCount) {
                   return resultRight.hitCount - resultLeft.hitCount;
                 } else {
                   return resultRight.id - resultLeft.id;

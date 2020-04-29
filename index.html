@@ -387,7 +387,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-04-25 23:42:20" itemprop="dateModified" datetime="2020-04-25T23:42:20+08:00">2020-04-25</time>
+                <time title="修改时间：2020-04-25 23:42:31" itemprop="dateModified" datetime="2020-04-25T23:42:31+08:00">2020-04-25</time>
               
             
           </span>
@@ -830,7 +830,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/04/25/agc039_f/">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/04/29/agc041_e/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zbww">
@@ -850,7 +850,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2020/04/25/agc039_f/" class="post-title-link" itemprop="url">[AGC039F] Min Product Sum</a>
+                <a href="/2020/04/29/agc041_e/" class="post-title-link" itemprop="url">[AGC041E] Balancing Network</a>
               
             
           </h1>
@@ -876,7 +876,7 @@
                 
               
 
-              <time title="创建时间：2020-04-25 10:26:51 / 修改时间：15:48:53" itemprop="dateCreated datePublished" datetime="2020-04-25T10:26:51+08:00">2020-04-25</time>
+              <time title="创建时间：2020-04-29 15:12:25 / 修改时间：15:17:14" itemprop="dateCreated datePublished" datetime="2020-04-29T15:12:25+08:00">2020-04-29</time>
             
 
             
@@ -917,30 +917,10 @@
       
         
           
-            <p>这是一个假做法。坑先留着，以后填</p>
-<h1 id="假做法">假做法</h1>
-<p>一个填法的贡献之和每行每列最小值有关。</p>
-<p>考虑如何计算确定了每行每列最小值，有多少种填法。设第 <span class="math inline">\(i\)</span> 行最小值为 <span class="math inline">\(a_i\)</span>，第 <span class="math inline">\(i\)</span> 列最小值为 <span class="math inline">\(b_i\)</span>。我们只讨论 <span class="math inline">\(\max a_i \ge \max b_i\)</span> (反过来也一样)，找到所有取到 <span class="math inline">\(\max a_i\)</span> 的行 <span class="math inline">\(p_1, \ldots, p_k\)</span>，决定这些行的填法，然后将它们删去，由于这些格子都大于等于 <span class="math inline">\(\max a_i\)</span> 和 <span class="math inline">\(\max b_i\)</span>，删去之后问题变成了一个子问题。</p>
-<p>扩展一下这个思路就得到了一个 DP。</p>
-<p>设 <span class="math inline">\(f_{n,m,k}\)</span> 表示已经删去了 <span class="math inline">\(N - n\)</span> 行和 <span class="math inline">\(M - m\)</span> 列 (删去的格子都大于 <span class="math inline">\(k\)</span>)，剩下的每行和每列最小值都不超过 <span class="math inline">\(k\)</span> 的 (给剩下的格子) 填数方案的贡献之和 (贡献指题目中定义的贡献)，<span class="math inline">\(g_{n,m,k}\)</span> 表示已经删去了 <span class="math inline">\(N - n\)</span> 行和 <span class="math inline">\(M - m\)</span> 列 (删去的格子都大于 <span class="math inline">\(k\)</span>)，每行最小值都小于 <span class="math inline">\(k\)</span>，每列最小值都不超过 <span class="math inline">\(k\)</span> 的填数方案的贡献之和。</p>
-<p><span class="math display">\[
-f_{n,m,k} = k^{n(M-m)+m(N-n)+nm}t_{n,m,k}+\sum_{c &lt; n} \binom n c ((K-k+1)^m-(K-k)^m)^ck^{c(M-m)}g_{n-c,m,k}
-\\\\
-g_{n,m,k} = \sum_{c &lt; m} \binom m c ((K-k+1)^n-(K-k)^n)^ck^{c(N-n)}f_{n,m-c,k-1}
-\]</span></p>
-<p>其中 <span class="math inline">\(t_{n,m,k}\)</span> 是在 <span class="math inline">\(n\)</span> 行 <span class="math inline">\(m\)</span> 列网格上填上 <span class="math inline">\(k, \ldots K\)</span> 的数，使得每行每列最小值都恰为 <span class="math inline">\(k\)</span> 的方案数。</p>
-<p><span class="math display">\[
-t_{n,m,k} = (K-k+1)^{nm} \sum_{i=0}^n \sum_{j=0}^m \binom n i\binom m j (-1)^{i+j}\frac{K-k}{K-k+1}^{mi+nj-ij}
-\\\\
-\text{令 $w = \frac{K-k}{K-k+1}$}
-\\\\
-t_{n,m,k} = (K-k+1)^{nm} \sum_{i=0}^n\binom ni (-1)^i w^{mi} \sum_{j=0}^m \binom mj (-w^{n-i})^j
-\\\\
-t_{n,m,k} = (K-k+1)^{nm} \sum_{i=0}^n\binom ni (-1)^i w^{mi} (1-w^{n-i})^m
-\]</span></p>
-<p>这样就在 <span class="math inline">\(\mathcal O(n^4)\)</span> 的复杂度解决了问题，避免使用快速幂，边界处理要特别小心。</p>
+            <h1 id="做法">做法</h1>
+<h3 id="第一部分t1">第一部分：<span class="math inline">\(T=1\)</span></h3>
+<h3 id="第二部分t2">第二部分：<span class="math inline">\(T=2\)</span></h3>
 <h1 id="代码">代码</h1>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
           
         
