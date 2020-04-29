@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[[AGC041E] Balancing Network]]></title>
     <url>%2F2020%2F04%2F29%2Fagc041_e%2F</url>
-    <content type="text"><![CDATA[做法 第一部分：\(T=1\) 第二部分：\(T=2\) 代码]]></content>
+    <content type="text"><![CDATA[做法 考虑一个无向图 \(G\)，如果存在一个 balancer \((x_i,y_i)\)，就在点 \(x_i\) 和点 \(y_i\) 之间连一条标号为 \(i\) 的无向边。 第一部分：\(T=1\) 假设存在一个方案，考虑所有被用过 balancer，可以发现它们对应的边构成的子图一定是 \(G\) 的一棵生成树，且如果把最后终止的 wire 作为根，每个点到它父亲的边的标号都小于它父亲到它父亲的父亲的边的标号（如果存在的话）。反过来，容易验证如果存在一棵这样的生成树，那么也存在一种合法方案。 把 balancer 作为点建一个有向图，如果 balancer \(i,j\) 都连接了某个 wire，且 \(i &lt; j\)，就从 \(j\) 到 \(i\) 连一条边。如果存在合法方案，一定可以从这个图上某个点出发，到达与每个 wire 相连的至少一个 balancer。反过来，如果存在这样一个点，我们从这个点对应的 balancer 开始，按编号从大到小考虑每个 balancer。维护一个 balancer 的集合，初始时只有这个点对应的 balancer，考虑到一个 balancer 时，如果它连接的一个 wire 是当前维护的集合中某个 balancer 的端点，另一个不是，就把这个 balancer 加入集合。最后得到的集合显然是一个满足条件的生成树。 所以我们只要找到一个满足条件的 balancer，然后用以上算法构造即可。这是一个简单的 DAG 上 DP 问题，直接做复杂度为 \(\mathcal O(nm)\)，用 bitset 优化一下就能过了。 第二部分：\(T=2\) 当 \(n \ge 3\) 时，从后往前依次加入每条边，可以发现总存在一种方案使所有 wire 最终不汇聚在同一个点。 代码]]></content>
       <tags>
         <tag>题解</tag>
         <tag>atcoder</tag>

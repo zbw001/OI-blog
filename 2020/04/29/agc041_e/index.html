@@ -97,18 +97,18 @@
 
 
 
-  <meta name="description" content="做法 第一部分：\(T=1\) 第二部分：\(T=2\) 代码">
+  <meta name="description" content="做法 考虑一个无向图 \(G\)，如果存在一个 balancer \((x_i,y_i)\)，就在点 \(x_i\) 和点 \(y_i\) 之间连一条标号为 \(i\) 的无向边。 第一部分：\(T=1\) 假设存在一个方案，考虑所有被用过 balancer，可以发现它们对应的边构成的子图一定是 \(G\) 的一棵生成树，且如果把最后终止的 wire 作为根，每个点到它父亲的边的标号都小于它父亲到">
 <meta name="keywords" content="题解,atcoder">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[AGC041E] Balancing Network">
 <meta property="og:url" content="https://zbww.cf/2020/04/29/agc041_e/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="做法 第一部分：\(T=1\) 第二部分：\(T=2\) 代码">
+<meta property="og:description" content="做法 考虑一个无向图 \(G\)，如果存在一个 balancer \((x_i,y_i)\)，就在点 \(x_i\) 和点 \(y_i\) 之间连一条标号为 \(i\) 的无向边。 第一部分：\(T=1\) 假设存在一个方案，考虑所有被用过 balancer，可以发现它们对应的边构成的子图一定是 \(G\) 的一棵生成树，且如果把最后终止的 wire 作为根，每个点到它父亲的边的标号都小于它父亲到">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-29T07:17:14.675Z">
+<meta property="og:updated_time" content="2020-04-29T07:48:04.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[AGC041E] Balancing Network">
-<meta name="twitter:description" content="做法 第一部分：\(T=1\) 第二部分：\(T=2\) 代码">
+<meta name="twitter:description" content="做法 考虑一个无向图 \(G\)，如果存在一个 balancer \((x_i,y_i)\)，就在点 \(x_i\) 和点 \(y_i\) 之间连一条标号为 \(i\) 的无向边。 第一部分：\(T=1\) 假设存在一个方案，考虑所有被用过 balancer，可以发现它们对应的边构成的子图一定是 \(G\) 的一棵生成树，且如果把最后终止的 wire 作为根，每个点到它父亲的边的标号都小于它父亲到">
 
 
 
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2020-04-29 15:12:25 / 修改时间：15:17:14" itemprop="dateCreated datePublished" datetime="2020-04-29T15:12:25+08:00">2020-04-29</time>
+              <time title="创建时间：2020-04-29 15:12:25 / 修改时间：15:48:04" itemprop="dateCreated datePublished" datetime="2020-04-29T15:12:25+08:00">2020-04-29</time>
             
 
             
@@ -414,8 +414,13 @@
 
       
         <h1 id="做法">做法</h1>
+<p>考虑一个无向图 <span class="math inline">\(G\)</span>，如果存在一个 balancer <span class="math inline">\((x_i,y_i)\)</span>，就在点 <span class="math inline">\(x_i\)</span> 和点 <span class="math inline">\(y_i\)</span> 之间连一条标号为 <span class="math inline">\(i\)</span> 的无向边。</p>
 <h3 id="第一部分t1">第一部分：<span class="math inline">\(T=1\)</span></h3>
+<p>假设存在一个方案，考虑所有被用过 balancer，可以发现它们对应的边构成的子图一定是 <span class="math inline">\(G\)</span> 的一棵生成树，且如果把最后终止的 wire 作为根，每个点到它父亲的边的标号都小于它父亲到它父亲的父亲的边的标号（如果存在的话）。反过来，容易验证如果存在一棵这样的生成树，那么也存在一种合法方案。</p>
+<p>把 balancer 作为点建一个有向图，如果 balancer <span class="math inline">\(i,j\)</span> 都连接了某个 wire，且 <span class="math inline">\(i &lt; j\)</span>，就从 <span class="math inline">\(j\)</span> 到 <span class="math inline">\(i\)</span> 连一条边。如果存在合法方案，一定可以从这个图上某个点出发，到达与每个 wire 相连的至少一个 balancer。反过来，如果存在这样一个点，我们从这个点对应的 balancer 开始，按编号从大到小考虑每个 balancer。维护一个 balancer 的集合，初始时只有这个点对应的 balancer，考虑到一个 balancer 时，如果它连接的一个 wire 是当前维护的集合中某个 balancer 的端点，另一个不是，就把这个 balancer 加入集合。最后得到的集合显然是一个满足条件的生成树。</p>
+<p>所以我们只要找到一个满足条件的 balancer，然后用以上算法构造即可。这是一个简单的 DAG 上 DP 问题，直接做复杂度为 <span class="math inline">\(\mathcal O(nm)\)</span>，用 bitset 优化一下就能过了。</p>
 <h3 id="第二部分t2">第二部分：<span class="math inline">\(T=2\)</span></h3>
+<p>当 <span class="math inline">\(n \ge 3\)</span> 时，从后往前依次加入每条边，可以发现总存在一种方案使所有 wire 最终不汇聚在同一个点。</p>
 <h1 id="代码">代码</h1>
 
       
