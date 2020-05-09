@@ -97,18 +97,18 @@
 
 
 
-  <meta name="description" content="之前试图通过用树的生成函数复合边双的生成函数来得到答案...但是问题似乎等价于已知 \(F(x), H(x)\)，\(F(G(x)) = H(x)\)，求 \([x^n] G(x)\)。我不是很会，如果有人会的话求教我一下 /kel。 下面写的是题解做法。 做法 设有根边双和有根连通图 (有根就是钦定了一个点作根) 的 EGF 分别是 \(F(x)\) 和 \(G(x)\)。(均不包含空图) 考虑">
+  <meta name="description" content="之前试图通过用树的生成函数复合边双的生成函数来得到答案...但是问题似乎等价于已知 \(F(x), H(x)\)，\(F(G(x)) = H(x)\)，求 \([x^n] G(x)\)。我不是很会，如果有人会的话求教我一下 /kel。 下面写的是题解做法。 做法 设有根边双和有根连通图 (有根就是钦定了一个点作根) 的 EGF 分别是 \(F(x)\) 和 \(G(x)\)。(均不包含空图) 众所">
 <meta name="keywords" content="数学,NTT,组合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Luogu5828] 边双连通图计数">
 <meta property="og:url" content="https://zbww.cf/2020/05/10/Luogu5828/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="之前试图通过用树的生成函数复合边双的生成函数来得到答案...但是问题似乎等价于已知 \(F(x), H(x)\)，\(F(G(x)) = H(x)\)，求 \([x^n] G(x)\)。我不是很会，如果有人会的话求教我一下 /kel。 下面写的是题解做法。 做法 设有根边双和有根连通图 (有根就是钦定了一个点作根) 的 EGF 分别是 \(F(x)\) 和 \(G(x)\)。(均不包含空图) 考虑">
+<meta property="og:description" content="之前试图通过用树的生成函数复合边双的生成函数来得到答案...但是问题似乎等价于已知 \(F(x), H(x)\)，\(F(G(x)) = H(x)\)，求 \([x^n] G(x)\)。我不是很会，如果有人会的话求教我一下 /kel。 下面写的是题解做法。 做法 设有根边双和有根连通图 (有根就是钦定了一个点作根) 的 EGF 分别是 \(F(x)\) 和 \(G(x)\)。(均不包含空图) 众所">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-09T20:30:45.837Z">
+<meta property="og:updated_time" content="2020-05-09T20:37:55.098Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Luogu5828] 边双连通图计数">
-<meta name="twitter:description" content="之前试图通过用树的生成函数复合边双的生成函数来得到答案...但是问题似乎等价于已知 \(F(x), H(x)\)，\(F(G(x)) = H(x)\)，求 \([x^n] G(x)\)。我不是很会，如果有人会的话求教我一下 /kel。 下面写的是题解做法。 做法 设有根边双和有根连通图 (有根就是钦定了一个点作根) 的 EGF 分别是 \(F(x)\) 和 \(G(x)\)。(均不包含空图) 考虑">
+<meta name="twitter:description" content="之前试图通过用树的生成函数复合边双的生成函数来得到答案...但是问题似乎等价于已知 \(F(x), H(x)\)，\(F(G(x)) = H(x)\)，求 \([x^n] G(x)\)。我不是很会，如果有人会的话求教我一下 /kel。 下面写的是题解做法。 做法 设有根边双和有根连通图 (有根就是钦定了一个点作根) 的 EGF 分别是 \(F(x)\) 和 \(G(x)\)。(均不包含空图) 众所">
 
 
 
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2020-05-10 03:41:50 / 修改时间：04:30:45" itemprop="dateCreated datePublished" datetime="2020-05-10T03:41:50+08:00">2020-05-10</time>
+              <time title="创建时间：2020-05-10 03:41:50 / 修改时间：04:37:55" itemprop="dateCreated datePublished" datetime="2020-05-10T03:41:50+08:00">2020-05-10</time>
             
 
             
@@ -417,6 +417,7 @@
 <p>下面写的是题解做法。</p>
 <h1 id="做法">做法</h1>
 <p>设有根边双和有根连通图 (有根就是钦定了一个点作根) 的 EGF 分别是 <span class="math inline">\(F(x)\)</span> 和 <span class="math inline">\(G(x)\)</span>。(均不包含空图)</p>
+<p>众所周知，设无向图的 EGF 为 <span class="math inline">\(H(x)\)</span>，则连通无向图的 EGF 为 <span class="math inline">\(\ln H(x)\)</span>，所以 <span class="math inline">\(F(x) = \frac {xH&#39;(x)} {H(x)}\)</span>。</p>
 <p>考虑根所在的边双恰好为 <span class="math inline">\(n\)</span> 的连通图数，这样的连通图数是 <span class="math inline">\(x^n f_n \sum_k n^k \frac{G^k(x)}{k!}=f_ne^{nG(x)}\)</span>。</p>
 <p>所以有 <span class="math inline">\(G(x) = \sum_{n \ge 1} f_n (xe^{G(x)})^n=F(xe^{G(x)})\)</span>。</p>
 <p>作 (扩展) 拉格朗日反演可得 <span class="math inline">\([x^n] F(x) = \frac 1 n[x^{-1}]\frac {G&#39;(x)}{(xe^{G(x)})^n}\)</span></p>
