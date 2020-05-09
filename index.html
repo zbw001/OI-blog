@@ -1050,7 +1050,7 @@
                 
               
 
-              <time title="创建时间：2020-05-09 04:39:43 / 修改时间：17:50:52" itemprop="dateCreated datePublished" datetime="2020-05-09T04:39:43+08:00">2020-05-09</time>
+              <time title="创建时间：2020-05-09 04:39:43 / 修改时间：17:52:47" itemprop="dateCreated datePublished" datetime="2020-05-09T04:39:43+08:00">2020-05-09</time>
             
 
             
@@ -1108,7 +1108,7 @@
 <p>在 DFS 的过程中，每经过一条树边就把这条树边放入一个栈中。在点 <span class="math inline">\(u\)</span> 回溯时，检查一下是否有 <span class="math inline">\(low_u \ge dfn_{fa(u)}\)</span> (如果是根的话不用检查了)。</p>
 <p>考虑第一次满足这个条件的回溯，此时点 <span class="math inline">\(u\)</span> 子树中所有树边都在同一个点双连通分量中，因此存在一个包含 <span class="math inline">\(u\)</span> 子树中所有点的点双连通子图。因为不存在跨过 <span class="math inline">\(u\)</span> 到父亲的边的非树边，这个点双连通子图是一个极大点双连通子图，所以 <span class="math inline">\(u\)</span> 的子树中所有点的导出子图是一个点双连通分量。我们把这个点双连通分量中的点保存起来，然后从栈中弹出 <span class="math inline">\(u\)</span> 子树中所有树边。</p>
 <p>在之后的回溯中，如果满足 <span class="math inline">\(low_u \ge dfn_{fa(u)}\)</span>，那么此时栈中所有树边在同一个点双连通分量中，且这些边的所有端点的导出子图是一个点双连通分量。把这个点双连通分量保存下来然后把栈中所有 <span class="math inline">\(u\)</span> 子树中的边弹出即可。</p>
-<p>这样就在 <span class="math inline">\(\mathcal O(n+m)\)</span> 的复杂度内求出了每个点双连通分量的点集。一个点双连通分量中的边就是这个点双连通分量内部的树边加上这个点双连通分量中所有点的返祖边，这很容易处理。</p>
+<p>这样就在 <span class="math inline">\(\mathcal O(n+m)\)</span> 的复杂度内求出了每个点双连通分量的点集。一个点双连通分量中的边就是这个点双连通分量内部的树边加上这个点双连通分量中所有点的返祖边，这很容易处理。（注意这里返祖边的定义是从某个点出发到它祖先的非树边，这也就意味着每条非树边是恰好一个点的返祖边）</p>
 
           
         
