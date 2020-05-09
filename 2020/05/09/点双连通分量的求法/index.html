@@ -97,25 +97,25 @@
 
 
 
-  <meta name="description" content="有一些求最长反链的题目会让你构造方案，比如 [CTSC2008] 祭祀 和 CF590E Birthday。 找到了一个写的比较清晰的做法，r-64 的 uoj blog。 大概是说建出二分图求最大独立集，所有两部中对应的点都在独立集中的点构成最长反链。 构成反链是显然的，构成最长反链的理由似乎不太完整（也有可能是作者觉得这过于显然了），坑了我很久，这里记录一下。 设原图点数为 \(n\)，二分图">
-<meta name="keywords" content="noip noi oi 算法 algorithm acm">
+  <meta name="description" content="由于我水平太低普及组知识点都没掌握，今天终于搞懂了一点所以打算记录一下。 下面讨论的都是无向图，由于连通块间独立，我们只考虑连通图的情况。 如果点数为 \(1\)，在某些问题下需要特殊处理。下面我们只考虑点数不为 \(1\) 的情况。 定义 1 对于一个连通图 \(G\)，如果从 \(G\) 删去点 \(u\) 和所有与它相邻的边得到的图不连通，就称 \(u\) 是 \(G\) 的一个割点。 定义">
+<meta name="keywords" content="知识点,图论">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于最长反链方案的构造">
-<meta property="og:url" content="https://zbww.cf/2020/04/15/dilworth/index.html">
+<meta property="og:title" content="点双连通分量的求法">
+<meta property="og:url" content="https://zbww.cf/2020/05/09/点双连通分量的求法/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="有一些求最长反链的题目会让你构造方案，比如 [CTSC2008] 祭祀 和 CF590E Birthday。 找到了一个写的比较清晰的做法，r-64 的 uoj blog。 大概是说建出二分图求最大独立集，所有两部中对应的点都在独立集中的点构成最长反链。 构成反链是显然的，构成最长反链的理由似乎不太完整（也有可能是作者觉得这过于显然了），坑了我很久，这里记录一下。 设原图点数为 \(n\)，二分图">
+<meta property="og:description" content="由于我水平太低普及组知识点都没掌握，今天终于搞懂了一点所以打算记录一下。 下面讨论的都是无向图，由于连通块间独立，我们只考虑连通图的情况。 如果点数为 \(1\)，在某些问题下需要特殊处理。下面我们只考虑点数不为 \(1\) 的情况。 定义 1 对于一个连通图 \(G\)，如果从 \(G\) 删去点 \(u\) 和所有与它相邻的边得到的图不连通，就称 \(u\) 是 \(G\) 的一个割点。 定义">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-14T19:09:16.208Z">
+<meta property="og:updated_time" content="2020-05-09T09:50:52.772Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于最长反链方案的构造">
-<meta name="twitter:description" content="有一些求最长反链的题目会让你构造方案，比如 [CTSC2008] 祭祀 和 CF590E Birthday。 找到了一个写的比较清晰的做法，r-64 的 uoj blog。 大概是说建出二分图求最大独立集，所有两部中对应的点都在独立集中的点构成最长反链。 构成反链是显然的，构成最长反链的理由似乎不太完整（也有可能是作者觉得这过于显然了），坑了我很久，这里记录一下。 设原图点数为 \(n\)，二分图">
+<meta name="twitter:title" content="点双连通分量的求法">
+<meta name="twitter:description" content="由于我水平太低普及组知识点都没掌握，今天终于搞懂了一点所以打算记录一下。 下面讨论的都是无向图，由于连通块间独立，我们只考虑连通图的情况。 如果点数为 \(1\)，在某些问题下需要特殊处理。下面我们只考虑点数不为 \(1\) 的情况。 定义 1 对于一个连通图 \(G\)，如果从 \(G\) 删去点 \(u\) 和所有与它相邻的边得到的图不连通，就称 \(u\) 是 \(G\) 的一个割点。 定义">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zbww.cf/2020/04/15/dilworth/">
+  <link rel="canonical" href="https://zbww.cf/2020/05/09/点双连通分量的求法/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>关于最长反链方案的构造 | 一个蒟蒻的Blog</title>
+  <title>点双连通分量的求法 | 一个蒟蒻的Blog</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/04/15/dilworth/">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/05/09/点双连通分量的求法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zbww">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">关于最长反链方案的构造
+          <h1 class="post-title" itemprop="name headline">点双连通分量的求法
 
               
             
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2020-04-15 02:58:00 / 修改时间：03:09:16" itemprop="dateCreated datePublished" datetime="2020-04-15T02:58:00+08:00">2020-04-15</time>
+              <time title="创建时间：2020-05-09 04:39:43 / 修改时间：17:50:52" itemprop="dateCreated datePublished" datetime="2020-05-09T04:39:43+08:00">2020-05-09</time>
             
 
             
@@ -413,11 +413,24 @@
       
 
       
-        <p>有一些求最长反链的题目会让你构造方案，比如 <a href="https://www.luogu.com.cn/problem/P4298" target="_blank" rel="noopener">[CTSC2008] 祭祀</a> 和 <a href="https://codeforces.com/problemset/problem/590/E" target="_blank" rel="noopener">CF590E Birthday</a>。</p>
-<p>找到了一个写的比较清晰的做法，<a href="http://r-64.blog.uoj.ac/blog/623" target="_blank" rel="noopener">r-64 的 uoj blog</a>。</p>
-<p>大概是说建出二分图求最大独立集，所有两部中对应的点都在独立集中的点构成最长反链。</p>
-<p>构成反链是显然的，构成最长反链的理由似乎不太完整（也有可能是作者觉得这过于显然了），坑了我很久，这里记录一下。</p>
-<p>设原图点数为 <span class="math inline">\(n\)</span>，二分图的最大匹配为 <span class="math inline">\(m\)</span>，那么最小链覆盖大小为 <span class="math inline">\(n-m\)</span>，最大独立集大小为 <span class="math inline">\(2n - m\)</span>。我们要证明，对于一个最大独立集，左右部中对应点都在其中的点有 <span class="math inline">\(n-m\)</span> 个。首先我们要证明，对于任意一个点，它在左右部对应的点至少有一个在最大独立集中（那篇 blog 中似乎缺少了这一步）：如果一个点在左右部对应的点都不在最大独立集中，一定有一个与它在左部对应的(二分图上的)点有边的(二分图上的)点 <span class="math inline">\(a\)</span> 在最大独立集，也有一个与它在右部对应的点有边的点 <span class="math inline">\(b\)</span> 在最大独立集中。由偏序关系的传递性可知 <span class="math inline">\(a\)</span> 和 <span class="math inline">\(b\)</span> 在二分图上有一条边，与最大独立集的定义矛盾。因此，最大独立集大小等于 <span class="math inline">\(n + 左右部对应点都在最大独立集中的点的数量\)</span>，也就证明了我们构造出的反链是最长反链。</p>
+        <p>由于我水平太低普及组知识点都没掌握，今天终于搞懂了一点所以打算记录一下。</p>
+<p>下面讨论的都是无向图，由于连通块间独立，我们只考虑连通图的情况。</p>
+<p>如果点数为 <span class="math inline">\(1\)</span>，在某些问题下需要特殊处理。下面我们只考虑点数不为 <span class="math inline">\(1\)</span> 的情况。</p>
+<p><strong>定义 1</strong> 对于一个连通图 <span class="math inline">\(G\)</span>，如果从 <span class="math inline">\(G\)</span> 删去点 <span class="math inline">\(u\)</span> 和所有与它相邻的边得到的图不连通，就称 <span class="math inline">\(u\)</span> 是 <span class="math inline">\(G\)</span> 的一个割点。</p>
+<p><strong>定义 2</strong> 若连通图 <span class="math inline">\(G\)</span> 中不存在割点，则称 <span class="math inline">\(G\)</span> 是一个点双连通图。</p>
+<p><strong>定义 3</strong> 称连通图 <span class="math inline">\(G\)</span> 的极大点双连通图子图为 <span class="math inline">\(G\)</span> 的点双连通分量。</p>
+<p><strong>性质 1</strong> 两个不同点双连通分量的交至多包含一个点。</p>
+<p><strong>证明</strong> 假设两个不同的点双连通分量 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 有交，设这两个点双连通分量的并为 <span class="math inline">\(H\)</span>，根据点双连通分量的定义，<span class="math inline">\(H\)</span> 一定不是点双连通图，所以存在一个点 <span class="math inline">\(u\)</span>，从 <span class="math inline">\(H\)</span> 中删去点 <span class="math inline">\(u\)</span> 后得到的图不连通。<span class="math inline">\(H\)</span> 中删去点 <span class="math inline">\(u\)</span> 得到的图即为 <span class="math inline">\(A\)</span> 删去点 <span class="math inline">\(u\)</span> (如果存在) 和 <span class="math inline">\(B\)</span> 删去点 <span class="math inline">\(u\)</span> (如果存在) 得到的图的并。如果 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 的交大于 <span class="math inline">\(1\)</span>，由于两个有交的连通图的并仍为连通图，<span class="math inline">\(H\)</span> 中删去点 <span class="math inline">\(u\)</span> 得到的图也是连通图，这就导出了矛盾。</p>
+<p><strong>性质 2</strong> 在一个连通图 <span class="math inline">\(G\)</span> 中，对于任意一条边 <span class="math inline">\(e\)</span>，恰有一个 <span class="math inline">\(G\)</span> 的点双连通分量包含边 <span class="math inline">\(e\)</span>。</p>
+<p><strong>证明</strong> 边 <span class="math inline">\(e\)</span> 的两个顶点的导出子图就是一个 <span class="math inline">\(G\)</span> 的大小为 <span class="math inline">\(2\)</span> 的点双连通子图，所以也一定存在包含边 <span class="math inline">\(e\)</span> 的点双连通分量。由性质 1 可知两个不同的点双连通分量不可能包含同一条边。</p>
+<p>由于点双连通分量是连通的，只要确定了一个点双连通分量中所有边，点也就确定了。图 <span class="math inline">\(G\)</span> 的所有点双连通分量构成边集的一个划分。</p>
+<p>在图上作 DFS，取一棵以 <span class="math inline">\(r\)</span> 为根的 DFS 树，设点 <span class="math inline">\(u\)</span> 第一次被访问时间为 <span class="math inline">\(dfn_u\)</span>，<span class="math inline">\(u\)</span> 子树中所有点通过一条返祖边能够到达的 dfn 最小的点的 dfn 与 <span class="math inline">\(dfn_u\)</span> 的最小值为 <span class="math inline">\(low_u\)</span> (注意返祖边指的是非树边，不包含 <span class="math inline">\(u\)</span> 到父亲的边，实现时要特判)。</p>
+<p>设点 <span class="math inline">\(u\)</span> 在这棵 DFS 树上的父亲为 <span class="math inline">\(fa(u)\)</span>。</p>
+<p>对于点 <span class="math inline">\(u \neq r, fa(u) \neq r\)</span>，如果 <span class="math inline">\(low_u &lt; dfn_{fa(u)}\)</span>，那么存在一个包含点 <span class="math inline">\(u, fa(u), fa(fa(u))\)</span> 的点双连通子图，从而 <span class="math inline">\(u\)</span> 到父亲的边和 <span class="math inline">\(fa(u)\)</span> 到父亲的边在同一个点双连通分量中。</p>
+<p>在 DFS 的过程中，每经过一条树边就把这条树边放入一个栈中。在点 <span class="math inline">\(u\)</span> 回溯时，检查一下是否有 <span class="math inline">\(low_u \ge dfn_{fa(u)}\)</span> (如果是根的话不用检查了)。</p>
+<p>考虑第一次满足这个条件的回溯，此时点 <span class="math inline">\(u\)</span> 子树中所有树边都在同一个点双连通分量中，因此存在一个包含 <span class="math inline">\(u\)</span> 子树中所有点的点双连通子图。因为不存在跨过 <span class="math inline">\(u\)</span> 到父亲的边的非树边，这个点双连通子图是一个极大点双连通子图，所以 <span class="math inline">\(u\)</span> 的子树中所有点的导出子图是一个点双连通分量。我们把这个点双连通分量中的点保存起来，然后从栈中弹出 <span class="math inline">\(u\)</span> 子树中所有树边。</p>
+<p>在之后的回溯中，如果满足 <span class="math inline">\(low_u \ge dfn_{fa(u)}\)</span>，那么此时栈中所有树边在同一个点双连通分量中，且这些边的所有端点的导出子图是一个点双连通分量。把这个点双连通分量保存下来然后把栈中所有 <span class="math inline">\(u\)</span> 子树中的边弹出即可。</p>
+<p>这样就在 <span class="math inline">\(\mathcal O(n+m)\)</span> 的复杂度内求出了每个点双连通分量的点集。一个点双连通分量中的边就是这个点双连通分量内部的树边加上这个点双连通分量中所有点的返祖边，这很容易处理。</p>
 
       
     </div>
@@ -439,6 +452,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/知识点/" rel="tag"># 知识点</a>
+          
+            <a href="/tags/图论/" rel="tag"># 图论</a>
+          
+        </div>
+      
 
       
       
@@ -448,8 +469,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/31/LOJ2390/" rel="next" title="[LOJ2390] 「JOISC 2017 Day 1」开荒者">
-                <i class="fa fa-chevron-left"></i> [LOJ2390] 「JOISC 2017 Day 1」开荒者
+              <a href="/2020/05/08/gym102268I/" rel="next" title="[Gym102268I] Interesting Graph">
+                <i class="fa fa-chevron-left"></i> [Gym102268I] Interesting Graph
               </a>
             
           </div>
@@ -457,10 +478,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/04/22/agc005_e/" rel="prev" title="[AGC005E] Sugigma: The Showdown">
-                [AGC005E] Sugigma: The Showdown <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -908,7 +925,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2020/04/15/dilworth/'
+    refer: '2020/05/09/点双连通分量的求法/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
