@@ -1053,7 +1053,7 @@
                 
               
 
-              <time title="创建时间：2020-05-11 02:24:18 / 修改时间：06:05:15" itemprop="dateCreated datePublished" datetime="2020-05-11T02:24:18+08:00">2020-05-11</time>
+              <time title="创建时间：2020-05-11 02:24:18 / 修改时间：06:08:02" itemprop="dateCreated datePublished" datetime="2020-05-11T02:24:18+08:00">2020-05-11</time>
             
 
             
@@ -1097,9 +1097,9 @@
             <p>刚开始以为和边双没啥差别..结果后来搞了好久。</p>
 <p>UPD：好像存在更简单的方法。</p>
 <h1 id="做法">做法</h1>
-<p>设 <span class="math inline">\(n\)</span> 个点的<strong>有根</strong>点双连通图有 <span class="math inline">\(f_n\)</span> 个，<strong>无根</strong>连通图有 <span class="math inline">\(g_n\)</span> 个，它们的 EGF 分别是 <span class="math inline">\(F(x)\)</span> 和 <span class="math inline">\(G(x)\)</span>。</p>
+<p>设 <span class="math inline">\(n\)</span> 个点的点双连通图有 <span class="math inline">\(f_n\)</span> 个，连通图有 <span class="math inline">\(g_n\)</span> 个，它们的 EGF 分别是 <span class="math inline">\(F(x)\)</span> 和 <span class="math inline">\(G(x)\)</span>。(均不钦定根)</p>
 <p>我们认为一个点的图不点双连通，且这一个点为割点。由于题目里一个点是算点双连通图的，要特判下。</p>
-<p>设 <span class="math inline">\(n\)</span> 个点的根不是割点的连通图个数为 <span class="math inline">\(b_n\)</span>，其 EGF 为 <span class="math inline">\(B(x)\)</span>。根据割点的定义，去掉根之后的点构成一个连通图，所以 <span class="math inline">\(b_n = \frac n {n!}(2^{n-1}-1)(n-1)!g_{n-1}=(2^{n-1}-1)g_{n-1}\ (n \ge 2)\)</span>。</p>
+<p>设 <span class="math inline">\(n\)</span> 个点的根不是割点的<strong>有根</strong>连通图个数为 <span class="math inline">\(b_n\)</span>，其 EGF 为 <span class="math inline">\(B(x)\)</span>。根据割点的定义，去掉根之后的点构成一个连通图，所以 <span class="math inline">\(b_n = \frac n {n!}(2^{n-1}-1)(n-1)!g_{n-1}=(2^{n-1}-1)g_{n-1}\ (n \ge 2)\)</span>。</p>
 <p>另一方面，包含不是割点的点的点双是唯一的，我们可以枚举包含根的点双的大小来计算 <span class="math inline">\(B(x)\)</span>。设 <span class="math inline">\(H(x) = G&#39;(x)\)</span> (对 EGF 求导相当于平移了)，包含根的点双大小为 <span class="math inline">\(n\)</span> 且根不是割点的有根连通图的 EGF 为 <span class="math inline">\(n\frac{f_n}{n!}x^n H^{n-1}(x)\)</span> (考虑决定根，然后决定这个点双中除了根以外每个点挂的连通图)。</p>
 <p>设 <span class="math inline">\(C(x) = \frac{B(x)}x\)</span>，则</p>
 <p><span class="math display">\[
