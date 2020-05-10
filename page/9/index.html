@@ -320,6 +320,151 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/04/05/[模板]-后缀自动机/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zbww">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个蒟蒻的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/05/[模板]-后缀自动机/" class="post-title-link" itemprop="url">[模板] 后缀自动机</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-05 17:45:28 / 修改时间：17:47:01" itemprop="dateCreated datePublished" datetime="2019-04-05T17:45:28+08:00">2019-04-05</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>提交至 <a href="https://www.luogu.org/problemnew/show/P3804" target="_blank" rel="noopener">【模板】后缀自动机</a>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1000010</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tree[maxn*<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> s[maxn];</span><br><span class="line"><span class="keyword">int</span> n, tot, last = <span class="number">0</span>;</span><br><span class="line">ll ans = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> tr[maxn*<span class="number">2</span>][<span class="number">26</span>], par[maxn*<span class="number">2</span>], len[maxn*<span class="number">2</span>], sum[maxn*<span class="number">2</span>], val[maxn*<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addchar</span><span class="params">(<span class="keyword">int</span> c, <span class="keyword">int</span> l)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> np = ++tot; len[np] = l; val[np] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (!tr[last][c]) &#123;</span><br><span class="line">        tr[last][c] = np;</span><br><span class="line">        last = par[last];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!last) par[np] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> q = tr[last][c];</span><br><span class="line">        <span class="keyword">if</span> (len[q] == len[last] + <span class="number">1</span>) &#123;</span><br><span class="line">            par[np] = q;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> nq = ++tot;</span><br><span class="line">            len[nq] = len[last] + <span class="number">1</span>;</span><br><span class="line">            par[nq] = par[q];</span><br><span class="line">            <span class="built_in">memcpy</span>(tr[nq], tr[q], <span class="keyword">sizeof</span>(tr[nq]));</span><br><span class="line">            par[q] = par[np] = nq;</span><br><span class="line">            <span class="keyword">while</span> (tr[last][c] == q) &#123;</span><br><span class="line">                tr[last][c] = nq;</span><br><span class="line">                last = par[last];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    last = np;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">    sum[u] = val[u];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tree[u].size(); i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = tree[u][i];</span><br><span class="line">        dfs(v);</span><br><span class="line">        sum[u] += sum[v];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s+<span class="number">1</span>);</span><br><span class="line">    n = <span class="keyword">int</span>(<span class="built_in">strlen</span>(s+<span class="number">1</span>));</span><br><span class="line">    last = ++tot;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        addchar(s[i]-<span class="string">'a'</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= tot; i++) tree[par[i]].push_back(i);</span><br><span class="line">    dfs(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= tot; i++) <span class="keyword">if</span> (sum[i] &gt; <span class="number">1</span>) ans = max(ans, <span class="number">1L</span>L*sum[i]*len[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans); </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/04/05/[模板]-Splay/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1729,184 +1874,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/03/29/[Gym100543G]-Virus-synthesis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zbww">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一个蒟蒻的Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/29/[Gym100543G]-Virus-synthesis/" class="post-title-link" itemprop="url">[Gym100543G] Virus synthesis</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-29 15:57:51" itemprop="dateCreated datePublished" datetime="2019-03-29T15:57:51+08:00">2019-03-29</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-01 21:47:03" itemprop="dateModified" datetime="2019-04-01T21:47:03+08:00">2019-04-01</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题面：<br>
-https://codeforces.com/gym/100543/attachments/download/2854/20142015-acmicpc-central-europe-regional-contest-cerc-14-en.pdf</p>
-<h1 id="题目大意">题目大意</h1>
-<p>输入一个长度为 <span class="math inline">\(n\)</span> 的字符串 <span class="math inline">\(s\)</span>。你有一个空串 <span class="math inline">\(t\)</span>，你要把它变成输入的字符串。可以进行以下几种操作：</p>
-<ul>
-<li>在 <span class="math inline">\(t\)</span> 的开头或者末尾添加一个字符。<br>
-</li>
-<li>把 <span class="math inline">\(t\)</span> 翻转过来，然后接在原来的 <span class="math inline">\(t\)</span> 的开头或末尾。</li>
-</ul>
-<p>求最少操作次数。<br>
-<span class="math inline">\(n \le 10^5\)</span></p>
-<h1 id="解法">解法</h1>
-<p>在最后连续的若干次加字符操作之前，<span class="math inline">\(t\)</span> 一定是回文串。倒过来考虑，用最少操作次数把 <span class="math inline">\(s\)</span> 变成空串。只需要分别考虑每个回文串的最少操作次数。</p>
-<p>建立回文树。只需要考虑三种转移：</p>
-<ul>
-<li>一个长度为偶数的回文串变为他的一半。</li>
-<li>一个回文串，去掉他两端的字符。</li>
-<li>一个回文串，转移到他的最长回文前缀。</li>
-</ul>
-<p>按长度从小到大顺序 <span class="math inline">\(dp\)</span>。后两种转移可以直接计算。对第一种转移，倍增一下判断 <span class="math inline">\(fail\)</span> 树上有没有长度恰好为一半的祖先即可。</p>
-<h1 id="代码">代码</h1>
-<p>下面的代码是假的。要省选了..先补点别的再来打这题QAQ。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">200010</span>;</span><br><span class="line"><span class="keyword">const</span> ll inf = <span class="number">1e18</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> c[maxn], vis[<span class="number">4</span>*maxn], n;</span><br><span class="line">ll dp[maxn][<span class="number">2</span>][<span class="number">2</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tree[maxn], tran[maxn*<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">    dp[u][<span class="number">0</span>][<span class="number">0</span>] = dp[u][<span class="number">0</span>][<span class="number">1</span>] = dp[u][<span class="number">1</span>][<span class="number">0</span>] = dp[u][<span class="number">1</span>][<span class="number">1</span>] = inf;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tree[u].size(); i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = tree[u][i];</span><br><span class="line">        <span class="keyword">if</span> (v != f) &#123;</span><br><span class="line">            dfs1(v, u);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (u == <span class="number">1</span> || tree[u].size() &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        ll s = <span class="number">0</span>, mn = inf, cm = inf;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tree[u].size(); i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> v = tree[u][i];</span><br><span class="line">            <span class="keyword">if</span> (v != f) &#123;</span><br><span class="line">                s += min(dp[v][<span class="number">0</span>][<span class="number">0</span>], dp[v][<span class="number">1</span>][<span class="number">0</span>]);</span><br><span class="line">                ll t = dp[v][<span class="number">0</span>][<span class="number">1</span>] - min(dp[v][<span class="number">0</span>][<span class="number">0</span>], dp[v][<span class="number">1</span>][<span class="number">0</span>]);</span><br><span class="line">                <span class="keyword">if</span> (t &lt;= mn) &#123;</span><br><span class="line">                    cm = mn;</span><br><span class="line">                    mn = t;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (t &lt; cm)</span><br><span class="line">                    cm = t;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        dp[u][<span class="number">0</span>][<span class="number">0</span>] = s;</span><br><span class="line">        dp[u][<span class="number">0</span>][<span class="number">1</span>] = s+mn;</span><br><span class="line">        dp[u][<span class="number">1</span>][<span class="number">0</span>] = min(s+c[u]+mn, s+c[u]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tree[u].size(); i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> v = tree[u][i];</span><br><span class="line">            <span class="keyword">if</span> (v != f) &#123;</span><br><span class="line">                <span class="keyword">if</span> (dp[v][<span class="number">0</span>][<span class="number">0</span>] &lt; dp[v][<span class="number">1</span>][<span class="number">0</span>]) &#123;</span><br><span class="line">                    tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">0</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">0</span>);</span><br><span class="line">                    <span class="keyword">if</span> (mn &gt;= <span class="number">0</span>) tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">0</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dp[v][<span class="number">0</span>][<span class="number">0</span>] &gt; dp[v][<span class="number">1</span>][<span class="number">0</span>]) &#123;</span><br><span class="line">                    tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">0</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>);</span><br><span class="line">                    <span class="keyword">if</span> (mn &gt;= <span class="number">0</span>) tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">0</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">0</span>);</span><br><span class="line">                    tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">0</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>);</span><br><span class="line">                    <span class="keyword">if</span> (mn &gt;= <span class="number">0</span>) tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">0</span>);</span><br><span class="line">                    <span class="keyword">if</span> (mn &gt;= <span class="number">0</span>) tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                ll t = dp[v][<span class="number">0</span>][<span class="number">1</span>] - min(dp[v][<span class="number">0</span>][<span class="number">0</span>], dp[v][<span class="number">1</span>][<span class="number">0</span>]);</span><br><span class="line">                <span class="keyword">if</span> (t == mn) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (mn == cm) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (dp[v][<span class="number">0</span>][<span class="number">0</span>] &lt; dp[v][<span class="number">1</span>][<span class="number">0</span>]) &#123;</span><br><span class="line">                            tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">1</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">0</span>);</span><br><span class="line">                            <span class="keyword">if</span> (mn &lt;= <span class="number">0</span>) tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">0</span>);</span><br><span class="line">                        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dp[v][<span class="number">0</span>][<span class="number">0</span>] &gt; dp[v][<span class="number">1</span>][<span class="number">0</span>]) &#123;</span><br><span class="line">                            tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">1</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>);</span><br><span class="line">                            <span class="keyword">if</span> (mn &lt;= <span class="number">0</span>) tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>);</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">1</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">0</span>);</span><br><span class="line">                            tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">1</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>);</span><br><span class="line">                            <span class="keyword">if</span> (mn &lt;= <span class="number">0</span>) tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">0</span>);</span><br><span class="line">                            <span class="keyword">if</span> (mn &lt;= <span class="number">0</span>) tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">1</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">if</span> (mn &lt;= <span class="number">0</span>) tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">1</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (dp[v][<span class="number">0</span>][<span class="number">0</span>] &lt; dp[v][<span class="number">1</span>][<span class="number">0</span>]) &#123;</span><br><span class="line">                        tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">1</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">0</span>);</span><br><span class="line">                        <span class="keyword">if</span> (mn &lt;= <span class="number">0</span>) tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">0</span>);</span><br><span class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dp[v][<span class="number">0</span>][<span class="number">0</span>] &gt; dp[v][<span class="number">1</span>][<span class="number">0</span>]) &#123;</span><br><span class="line">                        tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">1</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>);</span><br><span class="line">                        <span class="keyword">if</span> (mn &lt;= <span class="number">0</span>) tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">1</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">0</span>);</span><br><span class="line">                        tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">1</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>);</span><br><span class="line">                        <span class="keyword">if</span> (mn &lt;= <span class="number">0</span>) tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">0</span>);</span><br><span class="line">                        <span class="keyword">if</span> (mn &lt;= <span class="number">0</span>) tran[u*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>].push_back(v*<span class="number">4</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        dp[u][<span class="number">1</span>][<span class="number">0</span>] = c[u];</span><br><span class="line">        dp[u][<span class="number">0</span>][<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs2</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">    vis[u] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tran[u].size(); i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = tran[u][i];</span><br><span class="line">        <span class="keyword">if</span> (!vis[v])</span><br><span class="line">            dfs2(v);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;c[i]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> u, v;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;u, &amp;v);</span><br><span class="line">        tree[u].push_back(v);</span><br><span class="line">        tree[v].push_back(u);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs1(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    ll ans = min(dp[<span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>], dp[<span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld "</span>, ans);</span><br><span class="line">    <span class="keyword">if</span> (dp[<span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>] == ans) dfs2(<span class="number">4</span>*<span class="number">1</span>+<span class="number">2</span>*<span class="number">0</span>+<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span> (dp[<span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>] == ans) dfs2(<span class="number">4</span>*<span class="number">1</span>+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (vis[<span class="number">4</span>*i+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>] || vis[<span class="number">4</span>*i+<span class="number">2</span>*<span class="number">1</span>+<span class="number">1</span>]) &#123;</span><br><span class="line">            cnt ++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, cnt);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (vis[<span class="number">4</span>*i+<span class="number">2</span>*<span class="number">1</span>+<span class="number">0</span>] || vis[<span class="number">4</span>*i+<span class="number">2</span>*<span class="number">1</span>+<span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>, i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1958,7 +1925,7 @@ https://codeforces.com/gym/100543/attachments/download/2854/20142015-acmicpc-cen
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">97</span>
+                    <span class="site-state-item-count">98</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2670,9 +2637,9 @@ https://codeforces.com/gym/100543/attachments/download/2854/20142015-acmicpc-cen
       
     
       
-        
-      
     
+      
+        
       
     
       

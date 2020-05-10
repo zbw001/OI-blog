@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="之前试图通过用树的生成函数复合边双的生成函数来得到答案...但是问题似乎等价于已知 \(F(x), H(x)\)，\(F(G(x)) = H(x)\)，求 \([x^n] G(x)\)。我不是很会，如果有人会的话求教我一下 /kel。 下面写的是题解做法。 UPD：树的生成函数其实也可以看做一个拉格朗日反演的结果..所以感性理解一下可以绕过上面那个式子是一个很自然的东西。(纯属胡言乱语) 做法 设">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-10T09:48:45.287Z">
+<meta property="og:updated_time" content="2020-05-10T18:31:44.993Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Luogu5828] 边双连通图计数">
 <meta name="twitter:description" content="之前试图通过用树的生成函数复合边双的生成函数来得到答案...但是问题似乎等价于已知 \(F(x), H(x)\)，\(F(G(x)) = H(x)\)，求 \([x^n] G(x)\)。我不是很会，如果有人会的话求教我一下 /kel。 下面写的是题解做法。 UPD：树的生成函数其实也可以看做一个拉格朗日反演的结果..所以感性理解一下可以绕过上面那个式子是一个很自然的东西。(纯属胡言乱语) 做法 设">
@@ -367,12 +367,24 @@
                 
               
 
-              <time title="创建时间：2020-05-10 03:41:50 / 修改时间：17:48:45" itemprop="dateCreated datePublished" datetime="2020-05-10T03:41:50+08:00">2020-05-10</time>
+              <time title="创建时间：2020-05-10 03:41:50" itemprop="dateCreated datePublished" datetime="2020-05-10T03:41:50+08:00">2020-05-10</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-05-11 02:31:44" itemprop="dateModified" datetime="2020-05-11T02:31:44+08:00">2020-05-11</time>
               
             
           </span>
@@ -419,7 +431,7 @@
 <h1 id="做法">做法</h1>
 <p>设有根边双和有根连通图 (有根就是钦定了一个点作根) 的 EGF 分别是 <span class="math inline">\(F(x)\)</span> 和 <span class="math inline">\(G(x)\)</span>。(均不包含空图)</p>
 <p>众所周知，设无向图的 EGF 为 <span class="math inline">\(H(x)\)</span>，则连通无向图的 EGF 为 <span class="math inline">\(\ln H(x)\)</span>，所以 <span class="math inline">\(G(x) = \frac {xH&#39;(x)} {H(x)}\)</span> (不用真的按照这个式子去算，就是第 <span class="math inline">\(i\)</span> 项乘以 <span class="math inline">\(i\)</span> 的意思)。</p>
-<p>考虑根所在的边双恰好为 <span class="math inline">\(n\)</span> 的连通图数，这样的连通图数是 <span class="math inline">\(x^n f_n \sum_k n^k \frac{G^k(x)}{k!}=f_ne^{nG(x)}\)</span>。</p>
+<p>考虑根所在的边双恰好为 <span class="math inline">\(n\)</span> 的连通图数，这样的连通图的生成函数是 <span class="math inline">\(x^n f_n \sum_k n^k \frac{G^k(x)}{k!}=x^nf_ne^{nG(x)}\)</span>。</p>
 <p>所以有 <span class="math inline">\(G(x) = \sum_{n \ge 1} f_n (xe^{G(x)})^n=F(xe^{G(x)})\)</span>。</p>
 <p>作 (扩展) 拉格朗日反演可得 <span class="math inline">\([x^n] F(x) = \frac 1 n[x^{-1}]\frac {G&#39;(x)}{(xe^{G(x)})^n}\)</span></p>
 <p>我选择贴板 💊💊💊</p>
@@ -474,6 +486,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/11/Luogu5827/" rel="prev" title="[Luogu5827] 点双连通图计数">
+                [Luogu5827] 点双连通图计数 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -552,7 +568,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">97</span>
+                    <span class="site-state-item-count">98</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
