@@ -97,18 +97,18 @@
 
 
 
-  <meta name="description" content="刚开始以为和边双没啥差别..结果后来搞了好久。 做法 设 \(n\) 个点的有根点双连通图有 \(f_n\) 个，有根连通图有 \(g_n\) 个，它们的 EGF 分别是 \(F(x)\) 和 \(G(x)\)。 我们认为一个点的图不点双连通，且这一个点为割点。由于题目里一个点是算点双连通图的，要特判下。 设 \(n\) 个点的根不是割点的连通图个数为 \(b_n\)，其 EGF 为 \(B(x)">
+  <meta name="description" content="刚开始以为和边双没啥差别..结果后来搞了好久。 做法 设 \(n\) 个点的有根点双连通图有 \(f_n\) 个，无根连通图有 \(g_n\) 个，它们的 EGF 分别是 \(F(x)\) 和 \(G(x)\)。 我们认为一个点的图不点双连通，且这一个点为割点。由于题目里一个点是算点双连通图的，要特判下。 设 \(n\) 个点的根不是割点的连通图个数为 \(b_n\)，其 EGF 为 \(B(x)">
 <meta name="keywords" content="数学,NTT,组合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Luogu5827] 点双连通图计数">
 <meta property="og:url" content="https://zbww.cf/2020/05/11/Luogu5827/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="刚开始以为和边双没啥差别..结果后来搞了好久。 做法 设 \(n\) 个点的有根点双连通图有 \(f_n\) 个，有根连通图有 \(g_n\) 个，它们的 EGF 分别是 \(F(x)\) 和 \(G(x)\)。 我们认为一个点的图不点双连通，且这一个点为割点。由于题目里一个点是算点双连通图的，要特判下。 设 \(n\) 个点的根不是割点的连通图个数为 \(b_n\)，其 EGF 为 \(B(x)">
+<meta property="og:description" content="刚开始以为和边双没啥差别..结果后来搞了好久。 做法 设 \(n\) 个点的有根点双连通图有 \(f_n\) 个，无根连通图有 \(g_n\) 个，它们的 EGF 分别是 \(F(x)\) 和 \(G(x)\)。 我们认为一个点的图不点双连通，且这一个点为割点。由于题目里一个点是算点双连通图的，要特判下。 设 \(n\) 个点的根不是割点的连通图个数为 \(b_n\)，其 EGF 为 \(B(x)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-10T21:04:57.961Z">
+<meta property="og:updated_time" content="2020-05-10T21:25:27.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Luogu5827] 点双连通图计数">
-<meta name="twitter:description" content="刚开始以为和边双没啥差别..结果后来搞了好久。 做法 设 \(n\) 个点的有根点双连通图有 \(f_n\) 个，有根连通图有 \(g_n\) 个，它们的 EGF 分别是 \(F(x)\) 和 \(G(x)\)。 我们认为一个点的图不点双连通，且这一个点为割点。由于题目里一个点是算点双连通图的，要特判下。 设 \(n\) 个点的根不是割点的连通图个数为 \(b_n\)，其 EGF 为 \(B(x)">
+<meta name="twitter:description" content="刚开始以为和边双没啥差别..结果后来搞了好久。 做法 设 \(n\) 个点的有根点双连通图有 \(f_n\) 个，无根连通图有 \(g_n\) 个，它们的 EGF 分别是 \(F(x)\) 和 \(G(x)\)。 我们认为一个点的图不点双连通，且这一个点为割点。由于题目里一个点是算点双连通图的，要特判下。 设 \(n\) 个点的根不是割点的连通图个数为 \(b_n\)，其 EGF 为 \(B(x)">
 
 
 
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2020-05-11 02:24:18 / 修改时间：05:04:57" itemprop="dateCreated datePublished" datetime="2020-05-11T02:24:18+08:00">2020-05-11</time>
+              <time title="创建时间：2020-05-11 02:24:18 / 修改时间：05:25:27" itemprop="dateCreated datePublished" datetime="2020-05-11T02:24:18+08:00">2020-05-11</time>
             
 
             
@@ -415,9 +415,9 @@
       
         <p>刚开始以为和边双没啥差别..结果后来搞了好久。</p>
 <h1 id="做法">做法</h1>
-<p>设 <span class="math inline">\(n\)</span> 个点的有根点双连通图有 <span class="math inline">\(f_n\)</span> 个，有根连通图有 <span class="math inline">\(g_n\)</span> 个，它们的 EGF 分别是 <span class="math inline">\(F(x)\)</span> 和 <span class="math inline">\(G(x)\)</span>。</p>
+<p>设 <span class="math inline">\(n\)</span> 个点的<strong>有根</strong>点双连通图有 <span class="math inline">\(f_n\)</span> 个，<strong>无根</strong>连通图有 <span class="math inline">\(g_n\)</span> 个，它们的 EGF 分别是 <span class="math inline">\(F(x)\)</span> 和 <span class="math inline">\(G(x)\)</span>。</p>
 <p>我们认为一个点的图不点双连通，且这一个点为割点。由于题目里一个点是算点双连通图的，要特判下。</p>
-<p>设 <span class="math inline">\(n\)</span> 个点的根不是割点的连通图个数为 <span class="math inline">\(b_n\)</span>，其 EGF 为 <span class="math inline">\(B(x)\)</span>。根据割点的定义，去掉根之后的点构成一个连通图，所以 <span class="math inline">\(b_n = \frac n {n!}(2^{n-1}-1)\frac{(n-1)!}{n-1}g_{n-1}=\frac 1 {n-1}(2^{n-1}-1)g_{n-1}\ (n \ge 2)\)</span> (这个系数是要考虑)。</p>
+<p>设 <span class="math inline">\(n\)</span> 个点的根不是割点的连通图个数为 <span class="math inline">\(b_n\)</span>，其 EGF 为 <span class="math inline">\(B(x)\)</span>。根据割点的定义，去掉根之后的点构成一个连通图，所以 <span class="math inline">\(b_n = \frac n {n!}(2^{n-1}-1)(n-1)!g_{n-1}=(2^{n-1}-1)g_{n-1}\ (n \ge 2)\)</span>。</p>
 <p>另一方面，包含割点的点双是唯一的，我们可以枚举包含根的点双的大小来计算 <span class="math inline">\(B(x)\)</span>。设 <span class="math inline">\(H(x) = \frac{G(x)}x\)</span>，包含根的点双大小为 <span class="math inline">\(n\)</span> 且根不是割点的有根连通图的 EGF 为 <span class="math inline">\(x^n f_n H^n(x)\)</span> (考虑决定这个点双中每个点挂的连通图)。</p>
 <p>设 <span class="math inline">\(A(x) = \frac {F(x)} x, C(x) = \frac{B(x)}x\)</span>，则</p>
 <p><span class="math display">\[
@@ -425,7 +425,7 @@ B(x) = \sum_{n \ge 1} f_n x^n H^n(x) = F(xH(x))
 \\\\
 xC(x) = xH(x)A(xH(x))
 \\\\
-\frac{C(x)}{H(x)} = A(xH(x))
+\frac{C(x)}{H(x)} = A(xH(x)) = A(G(x))
 \]</span></p>
 <p>其中 <span class="math inline">\(C(x)\)</span> 和 <span class="math inline">\(H(x)\)</span> 都是已知的，设 <span class="math inline">\(D(x) = \frac {C(x)}{H(x)}\)</span>，作 (扩展) 拉格朗日反演可得</p>
 <p><span class="math display">\[
