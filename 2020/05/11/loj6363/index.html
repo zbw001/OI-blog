@@ -97,25 +97,25 @@
 
 
 
-  <meta name="description" content="做法 不妨假设 \(n \ge m\)。  只会 \(\mathcal O(n \log^2 n)\) 自闭了，去看题解了。 由于你的决策不会影响之后的问题的答案，所以显然每次选概率大的就比较好。 设第 \(k+1\) 个问题能够答对的概率为 \(p_k\)，假设前 \(k\) 个问题中答对了 \(a\) 个，那么 \[p_k = \sum_{a \le k} \binom k a \binom{">
-<meta name="keywords" content="题解,数学,atcoder">
+  <meta name="description" content="做法 设有根无向连通图的 EGF 为 \(A(x) = \sum_k a_k\frac{x^k}{k!}\)，点双连通图的 EGF 为 \(B(x) = \sum_{k} b_k \frac{x^k}{k!}\) (均不含空图，一个点不算点双连通图) 则 \[ A(x) = x\sum_{k \ge 0} \frac{(\sum_{s \ge 2} A(x)^{s-1}\frac {b_s} {(">
+<meta name="keywords" content="NTT,组合">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[AGC019F] Yes or No">
-<meta property="og:url" content="https://zbww.cf/2020/04/23/agc019_f/index.html">
+<meta property="og:title" content="[LOJ6363] 「地底蔷薇」">
+<meta property="og:url" content="https://zbww.cf/2020/05/11/loj6363/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="做法 不妨假设 \(n \ge m\)。  只会 \(\mathcal O(n \log^2 n)\) 自闭了，去看题解了。 由于你的决策不会影响之后的问题的答案，所以显然每次选概率大的就比较好。 设第 \(k+1\) 个问题能够答对的概率为 \(p_k\)，假设前 \(k\) 个问题中答对了 \(a\) 个，那么 \[p_k = \sum_{a \le k} \binom k a \binom{">
+<meta property="og:description" content="做法 设有根无向连通图的 EGF 为 \(A(x) = \sum_k a_k\frac{x^k}{k!}\)，点双连通图的 EGF 为 \(B(x) = \sum_{k} b_k \frac{x^k}{k!}\) (均不含空图，一个点不算点双连通图) 则 \[ A(x) = x\sum_{k \ge 0} \frac{(\sum_{s \ge 2} A(x)^{s-1}\frac {b_s} {(">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-23T12:02:23.898Z">
+<meta property="og:updated_time" content="2020-05-11T15:46:44.900Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[AGC019F] Yes or No">
-<meta name="twitter:description" content="做法 不妨假设 \(n \ge m\)。  只会 \(\mathcal O(n \log^2 n)\) 自闭了，去看题解了。 由于你的决策不会影响之后的问题的答案，所以显然每次选概率大的就比较好。 设第 \(k+1\) 个问题能够答对的概率为 \(p_k\)，假设前 \(k\) 个问题中答对了 \(a\) 个，那么 \[p_k = \sum_{a \le k} \binom k a \binom{">
+<meta name="twitter:title" content="[LOJ6363] 「地底蔷薇」">
+<meta name="twitter:description" content="做法 设有根无向连通图的 EGF 为 \(A(x) = \sum_k a_k\frac{x^k}{k!}\)，点双连通图的 EGF 为 \(B(x) = \sum_{k} b_k \frac{x^k}{k!}\) (均不含空图，一个点不算点双连通图) 则 \[ A(x) = x\sum_{k \ge 0} \frac{(\sum_{s \ge 2} A(x)^{s-1}\frac {b_s} {(">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zbww.cf/2020/04/23/agc019_f/">
+  <link rel="canonical" href="https://zbww.cf/2020/05/11/loj6363/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>[AGC019F] Yes or No | 一个蒟蒻的Blog</title>
+  <title>[LOJ6363] 「地底蔷薇」 | 一个蒟蒻的Blog</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/04/23/agc019_f/">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/05/11/loj6363/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zbww">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[AGC019F] Yes or No
+          <h1 class="post-title" itemprop="name headline">[LOJ6363] 「地底蔷薇」
 
               
             
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2020-04-23 15:35:12 / 修改时间：20:02:23" itemprop="dateCreated datePublished" datetime="2020-04-23T15:35:12+08:00">2020-04-23</time>
+              <time title="创建时间：2020-05-11 23:12:00 / 修改时间：23:46:44" itemprop="dateCreated datePublished" datetime="2020-05-11T23:12:00+08:00">2020-05-11</time>
             
 
             
@@ -414,79 +414,25 @@
 
       
         <h1 id="做法">做法</h1>
-<p>不妨假设 <span class="math inline">\(n \ge m\)</span>。</p>
-<!--
-这是一个推错的假算法
-
-由于你的决策不会影响之后的问题的答案，所以显然每次选概率大的就比较好。
-
-设第 $k+1$ 个问题能够答对的概率为 $p_k$，假设前 $k$ 个问题中答对了 $a$ 个，那么
-
-$p_k = \sum_{a \le k} \binom k a \frac{\max\{n-a, m-(k-a)\}}{n+m-k}$
-
-分为 $n - a < m - (k - a)$ 和 $n-a \ge m - (k - a)$ 计算贡献。
-
-定义 $F(n,m) = \sum_{k \le m} \binom n k$。
-
-**第一部分：$n - a < m - (k - a) \Leftrightarrow 2a > n-m+k$**
-
-这一部分对 $p_k$ 贡献为 $\frac 1 {n+m-k} \sum_{n-m+k < 2a \le k} \binom k a (m-k+a)=\frac 1 {n+m-k} [(m-k)(F(k,k)-F(k,\lfloor \frac {n-m+k} 2 \rfloor))+\sum_{n-m+k < 2a \le k} a\binom k a]$
-
-由于 $a \binom k a = k\binom {k-1}{a-1}$，$\sum_{n-m+k < 2a \le k} a\binom k a=\sum_{n-m+k < 2a \le k} \binom {k-1} {a-1} = \sum_{n-m+k < 2a+2 \le k} \binom {k-1} {a} = F(k-1,k-1)-F(k-1,\lfloor \frac {n-m+k} 2 \rfloor-1)$。
-
-于是这一部分的贡献可以用 $F(k-1, \lfloor \frac {n-m+k} 2 \rfloor-1)$ 和 $F(k,\lfloor \frac {n-m+k} 2 \rfloor)$ 来描述。
-
-我们要对每个 $k$ 求一遍这个东西。注意到 $F(n,m) = F(n-1,m) + F(n-1,m-1)$，同时 $F(n,m) = F(n,m-1) + \binom n m$，所以可以很容易地在扫描过程中线性维护。
-
-**第二部分：$n - a \ge m - (k - a) \Leftrightarrow 2a \le n-m+k$**
-
-这一部分对 $p_k$ 贡献为 $\frac 1 {n+m-k} \sum_{2a \le n-m+k} \binom k a (n-a)=\frac 1 {n+m-k} [nF(k,\lfloor \frac {n-m+k} 2 \rfloor)-\sum_{2a \le n-m+k} a\binom k a]$
-
-$\sum_{2a \le n-m+k} a\binom k a=\sum_{2a \le n-m+k} \binom {k-1} {a-1} = \sum_{2a+2 \le n-m+k} \binom {k-1} {a} = F(k-1,\lfloor \frac {n-m+k} 2 \rfloor-1)$。
-
-可以发现这一部分要维护的东西和第一部分是完全一样的。
--->
-<p>只会 <span class="math inline">\(\mathcal O(n \log^2 n)\)</span> 自闭了，去看题解了。</p>
-<p>由于你的决策不会影响之后的问题的答案，所以显然每次选概率大的就比较好。</p>
-<p>设第 <span class="math inline">\(k+1\)</span> 个问题能够答对的概率为 <span class="math inline">\(p_k\)</span>，假设前 <span class="math inline">\(k\)</span> 个问题中答对了 <span class="math inline">\(a\)</span> 个，那么</p>
-<p><span class="math display">\[p_k = \sum_{a \le k} \binom k a \binom{n+m-k}{n-a} \frac{\max\{n-a, m-(k-a)\}}{n+m-k}\]</span></p>
-<p>分为 <span class="math inline">\(n - a &lt; m - (k - a)\)</span> 和 <span class="math inline">\(n-a \ge m - (k - a)\)</span> 计算贡献。</p>
-<p>设 <span class="math inline">\(F(n,m,x,y) = \binom {x+y} x \binom{n+m-x-y}{n-x},G(n,m,s,x) =\sum_{i \le x} F(n,m,i,s-i),H(n,m,s,x) =\sum_{i &gt; x} F(n,m,i,s-i)\)</span>。</p>
-<h3 id="第一部分">第一部分：</h3>
-<p><span class="math inline">\(n - a &lt; m - (k - a) \Leftrightarrow 2a &gt; n-m+k\)</span></p>
-<p>这一部分对 <span class="math inline">\(p_k\)</span> 贡献为 <span class="math display">\[
-\sum_{n-m+k &lt; 2a \le k} \binom k a \binom {n+m-k}{m-k+a}
-\frac{m-k+a}{n+m-k}
-\\\\
-=\sum_{2a &gt; n-m+k} \binom k a \binom {n+m-k-1}{m-k+a-1}
-\\\\
-=\sum_{2a &gt; n-m+k} \binom k a \binom {n+(m-1)-k}{n-a}
-\\\\
-=H(n,m-1,k,\lfloor \frac {n-m+k} 2\rfloor)
-\]</span></p>
-<h3 id="第二部分">第二部分</h3>
-<p><span class="math inline">\(n - a \ge m - (k - a) \Leftrightarrow 2a \le n-m+k\)</span></p>
-<p>这一部分对 <span class="math inline">\(p_k\)</span> 贡献为</p>
+<p>设有根无向连通图的 EGF 为 <span class="math inline">\(A(x) = \sum_k a_k\frac{x^k}{k!}\)</span>，点双连通图的 EGF 为 <span class="math inline">\(B(x) = \sum_{k} b_k \frac{x^k}{k!}\)</span> (均不含空图，一个点不算点双连通图)</p>
+<p>则</p>
 <p><span class="math display">\[
-\sum_{2a \le n-m+k} \binom k {a} \binom {n+m-k}{n-a}
-\frac{n-a}{n+m-k}
+A(x) = x\sum_{k \ge 0} \frac{(\sum_{s \ge 2} A(x)^{s-1}\frac {b_s} {(s-1)!})^k}{k!} = x  \exp(B&#39;(A(x)))
 \\\\
-=\sum_{2a \le n-m+k} \binom k a \binom {(n-1)+m-k}{n-1-a}
+B&#39;(A(x)) = \ln(\frac {A(x)} x)
+\]</span></p>
+<p>用拉格朗日反演求 <span class="math inline">\([x^n]B(x)\)</span> 的时间复杂度为 <span class="math inline">\(\mathcal O(n \log n)\)</span>，于是我们可以对每个 <span class="math inline">\(i \in S\)</span> 以 <span class="math inline">\(\mathcal O(i \log i)\)</span> 的时间复杂度计算 <span class="math inline">\([x^i]B(i)\)</span>，然后仅保留这些项得到一个题目允许的点双连通分量的生成函数 <span class="math inline">\(C(x)\)</span>。</p>
+<p>我们可以得到所有点双连通分量大小都在 <span class="math inline">\(S\)</span> 内的有根无向连通图的生成函数 <span class="math inline">\(D(x)\)</span> (下面用 <span class="math inline">\(D(x)^{-1}\)</span> 表示 <span class="math inline">\(D(x)\)</span> 的复合逆) :</p>
+<p><span class="math display">\[
+C&#39;(D(x)) = \ln(\frac {D(x)} x)
 \\\\
-=G(n-1,m,k,\lfloor \frac {n-m+k}2 \rfloor)
+C&#39;(x) = \ln \frac {x}{D(x)^{-1}}
+\\\\
+D(x)^{-1} = \frac x {\exp C&#39;(x)}
 \]</span></p>
-<h3 id="快速计算">快速计算</h3>
-<p><span class="math inline">\(H,G\)</span> 的意义是有多少条从 <span class="math inline">\((0,0)\)</span> 到 <span class="math inline">\((n,m)\)</span> 的非降路径与直线 <span class="math inline">\(x+y = s\)</span> 的交点的横坐标在某个范围内。</p>
-<p>由这个组合意义很容易得出</p>
-<p><span class="math display">\[
-H(n,m,k+1,l) - H(n,m,k,l) = \binom{k}{l}\binom{n+m-k-1}{n-l-1}
-\]</span></p>
-<p><span class="math display">\[
-G(n,m,k+1,l) - G(n,m,k,l) = -\binom{k}{l}\binom{n+m-k-1}{n-l-1}
-\]</span></p>
-<p>所以我们从小到大枚举 <span class="math inline">\(k\)</span> 线性维护 <span class="math inline">\(H\)</span> 和 <span class="math inline">\(G\)</span> 需要用到的值，就在 <span class="math inline">\(\mathcal O(n)\)</span> 的复杂度内解决了问题。</p>
+<p>所以 <span class="math inline">\(D(x)\)</span> 是 <span class="math inline">\(\frac x {\exp C&#39;(x)}\)</span> 的复合逆，作拉格朗日反演即可。</p>
+<p>时间复杂度 <span class="math inline">\(\mathcal O((n + \sum_{x \in S} x) \log n)\)</span></p>
 <h1 id="代码">代码</h1>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">500010</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, s, ans;</span><br><span class="line"><span class="keyword">int</span> fac[maxn&lt;&lt;<span class="number">1</span>], ifac[maxn&lt;&lt;<span class="number">1</span>], inv[maxn&lt;&lt;<span class="number">1</span>], pw[maxn&lt;&lt;<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (y) &#123;</span><br><span class="line">        <span class="keyword">if</span> (y &amp; <span class="number">1</span>) ret = <span class="number">1L</span>L * ret * x % mod;</span><br><span class="line">        x = <span class="number">1L</span>L * x * x % mod;</span><br><span class="line">        y &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binom</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">0</span> || m &lt; <span class="number">0</span> || m &gt; n) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1L</span>L * fac[n] * ifac[m] % mod * ifac[n - m] % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cal</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (k &gt;= <span class="number">0</span>) <span class="keyword">return</span> pw[k];</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m); s = n + m;</span><br><span class="line">    <span class="keyword">if</span> (n &lt; m) swap(n, m);</span><br><span class="line">    fac[<span class="number">0</span>] = ifac[<span class="number">0</span>] = inv[<span class="number">1</span>] = pw[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= s; i++) inv[i] = mod - <span class="number">1L</span>L * (mod / i) * inv[mod % i] % mod;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= s; i++) fac[i] = <span class="number">1L</span>L * fac[i<span class="number">-1</span>] * i % mod, ifac[i] = <span class="number">1L</span>L * inv[i] * ifac[i<span class="number">-1</span>] % mod, pw[i] = <span class="number">2</span> * pw[i<span class="number">-1</span>] % mod;</span><br><span class="line">    <span class="keyword">int</span> h = <span class="number">0</span>, g = binom(n + m - <span class="number">1</span>, n - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; s; k++) &#123;</span><br><span class="line">        ans = (ans + h) % mod;</span><br><span class="line">        ans = (ans + g) % mod;</span><br><span class="line">        <span class="keyword">int</span> l =  (n - m + k) / <span class="number">2</span>;</span><br><span class="line">        h = ( h + <span class="number">1L</span>L * binom( k, l ) * binom( n + m - <span class="number">1</span> - k - <span class="number">1</span>, n - l - <span class="number">1</span> ) % mod ) % mod;</span><br><span class="line">        g = ( g + mod - <span class="number">1L</span>L * binom( k, l ) * binom( n + m - <span class="number">1</span> - k - <span class="number">1</span>, n - <span class="number">1</span> - l - <span class="number">1</span> ) % mod ) % mod;</span><br><span class="line">        <span class="keyword">if</span> ( (n - m + k + <span class="number">1</span>) / <span class="number">2</span> &gt; (n - m + k) / <span class="number">2</span> ) &#123;</span><br><span class="line">            h = (h + mod - <span class="number">1L</span>L * binom( k + <span class="number">1</span>, l + <span class="number">1</span> ) * binom( n + m - <span class="number">1</span> - k - <span class="number">1</span>, n - l - <span class="number">1</span>) % mod ) % mod;</span><br><span class="line">            g = (g + <span class="number">1L</span>L * binom( k + <span class="number">1</span>, l + <span class="number">1</span> ) * binom( n + m - <span class="number">1</span> - k - <span class="number">1</span>, n - <span class="number">1</span> - l - <span class="number">1</span> ) % mod ) % mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ans = <span class="number">1L</span>L * ans * qpow(binom(n + m, n), mod - <span class="number">2</span>) % mod;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -510,11 +456,9 @@ G(n,m,k+1,l) - G(n,m,k,l) = -\binom{k}{l}\binom{n+m-k-1}{n-l-1}
       
         <div class="post-tags">
           
-            <a href="/tags/题解/" rel="tag"># 题解</a>
+            <a href="/tags/NTT/" rel="tag"># NTT</a>
           
-            <a href="/tags/数学/" rel="tag"># 数学</a>
-          
-            <a href="/tags/atcoder/" rel="tag"># atcoder</a>
+            <a href="/tags/组合/" rel="tag"># 组合</a>
           
         </div>
       
@@ -527,8 +471,8 @@ G(n,m,k+1,l) - G(n,m,k,l) = -\binom{k}{l}\binom{n+m-k-1}{n-l-1}
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/23/agc019_e/" rel="next" title="[AGC019E] Shuffle and Swap">
-                <i class="fa fa-chevron-left"></i> [AGC019E] Shuffle and Swap
+              <a href="/2020/05/11/Lagrange/" rel="next" title="拉格朗日反演及相关技巧整理">
+                <i class="fa fa-chevron-left"></i> 拉格朗日反演及相关技巧整理
               </a>
             
           </div>
@@ -536,10 +480,6 @@ G(n,m,k+1,l) - G(n,m,k,l) = -\binom{k}{l}\binom{n+m-k-1}{n-l-1}
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/04/24/agc040_e/" rel="prev" title="[AGC040E] Prefix Suffix Addition">
-                [AGC040E] Prefix Suffix Addition <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -838,7 +778,7 @@ G(n,m,k+1,l) - G(n,m,k,l) = -\binom{k}{l}\binom{n+m-k-1}{n-l-1}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#做法"><span class="nav-number">1.</span> <span class="nav-text">做法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一部分"><span class="nav-number">1.0.1.</span> <span class="nav-text">第一部分：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二部分"><span class="nav-number">1.0.2.</span> <span class="nav-text">第二部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速计算"><span class="nav-number">1.0.3.</span> <span class="nav-text">快速计算</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#做法"><span class="nav-number">1.</span> <span class="nav-text">做法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
 
           </div>
@@ -1017,7 +957,7 @@ G(n,m,k+1,l) - G(n,m,k,l) = -\binom{k}{l}\binom{n+m-k-1}{n-l-1}
   
     <script>
   window.livereOptions = {
-    refer: '2020/04/23/agc019_f/'
+    refer: '2020/05/11/loj6363/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];

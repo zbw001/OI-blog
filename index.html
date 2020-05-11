@@ -1007,6 +1007,169 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/05/11/loj6363/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zbww">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个蒟蒻的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/05/11/loj6363/" class="post-title-link" itemprop="url">[LOJ6363] 「地底蔷薇」</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-11 23:12:00 / 修改时间：23:46:44" itemprop="dateCreated datePublished" datetime="2020-05-11T23:12:00+08:00">2020-05-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="做法">做法</h1>
+<p>设有根无向连通图的 EGF 为 <span class="math inline">\(A(x) = \sum_k a_k\frac{x^k}{k!}\)</span>，点双连通图的 EGF 为 <span class="math inline">\(B(x) = \sum_{k} b_k \frac{x^k}{k!}\)</span> (均不含空图，一个点不算点双连通图)</p>
+<p>则</p>
+<p><span class="math display">\[
+A(x) = x\sum_{k \ge 0} \frac{(\sum_{s \ge 2} A(x)^{s-1}\frac {b_s} {(s-1)!})^k}{k!} = x  \exp(B&#39;(A(x)))
+\\\\
+B&#39;(A(x)) = \ln(\frac {A(x)} x)
+\]</span></p>
+<p>用拉格朗日反演求 <span class="math inline">\([x^n]B(x)\)</span> 的时间复杂度为 <span class="math inline">\(\mathcal O(n \log n)\)</span>，于是我们可以对每个 <span class="math inline">\(i \in S\)</span> 以 <span class="math inline">\(\mathcal O(i \log i)\)</span> 的时间复杂度计算 <span class="math inline">\([x^i]B(i)\)</span>，然后仅保留这些项得到一个题目允许的点双连通分量的生成函数 <span class="math inline">\(C(x)\)</span>。</p>
+<p>我们可以得到所有点双连通分量大小都在 <span class="math inline">\(S\)</span> 内的有根无向连通图的生成函数 <span class="math inline">\(D(x)\)</span> (下面用 <span class="math inline">\(D(x)^{-1}\)</span> 表示 <span class="math inline">\(D(x)\)</span> 的复合逆) :</p>
+<p><span class="math display">\[
+C&#39;(D(x)) = \ln(\frac {D(x)} x)
+\\\\
+C&#39;(x) = \ln \frac {x}{D(x)^{-1}}
+\\\\
+D(x)^{-1} = \frac x {\exp C&#39;(x)}
+\]</span></p>
+<p>所以 <span class="math inline">\(D(x)\)</span> 是 <span class="math inline">\(\frac x {\exp C&#39;(x)}\)</span> 的复合逆，作拉格朗日反演即可。</p>
+<p>时间复杂度 <span class="math inline">\(\mathcal O((n + \sum_{x \in S} x) \log n)\)</span></p>
+<h1 id="代码">代码</h1>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/05/11/Lagrange/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1053,7 +1216,7 @@
                 
               
 
-              <time title="创建时间：2020-05-11 22:17:04 / 修改时间：22:35:17" itemprop="dateCreated datePublished" datetime="2020-05-11T22:17:04+08:00">2020-05-11</time>
+              <time title="创建时间：2020-05-11 22:17:04 / 修改时间：23:45:41" itemprop="dateCreated datePublished" datetime="2020-05-11T22:17:04+08:00">2020-05-11</time>
             
 
             
@@ -1107,7 +1270,7 @@
 <h2 id="推导技巧">推导技巧</h2>
 <p>除了移项等变形之外，还可以利用复合进行化简。用复合化简时注意要灵活使用左右逆，即灵活使用 <span class="math inline">\(A(x) = B(x) \Rightarrow F(A(x))= F(B(x))\)</span> 和 <span class="math inline">\(A(x) = B(x) \Rightarrow A(F(x)) = B(F(x))\)</span>，避免一直只想到其中一种的情况。</p>
 <p>对于 <span class="math inline">\(F(G(x)) = H(x)\)</span>，知 <span class="math inline">\(H(x), F(x)\)</span> 求 <span class="math inline">\([x^n] G(x)\)</span> 的情况，目前暂不知有什么好的做法，但是对于一些 <span class="math inline">\(H(x)\)</span> 与 <span class="math inline">\(G(x)\)</span> 有较为简单的关系的问题是可做的。</p>
-<p>例如 <span class="math inline">\(F(G(x)) = xG(x) \Rightarrow F(G(G^{-1}(x))) = G^{-1}(x)G(G^{-1}(x)) \Rightarrow F(x) = x G^{-1}(x)\)</span>，即 <span class="math inline">\(G\)</span> 是 <span class="math inline">\(\frac {F(x)} x\)</span> 的复合逆，作拉格朗日反演即可。</p>
+<p>例如 <span class="math inline">\(F(G(x)) = xG(x) \Rightarrow F(G(G(x)^{-1})) = G^{-1}(x)G(G(x)^{-1}) \Rightarrow F(x) = x G(x)^{-1}\)</span>，即 <span class="math inline">\(G\)</span> 是 <span class="math inline">\(\frac {F(x)} x\)</span> 的复合逆，作拉格朗日反演即可。</p>
 
           
         
@@ -1795,155 +1958,6 @@ C(x) = F&#39;(xH(x))
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/05/09/gym102268J/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zbww">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一个蒟蒻的Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2020/05/09/gym102268J/" class="post-title-link" itemprop="url">[Gym102268J] Jealous Split</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2020-05-09 17:58:38 / 修改时间：19:20:35" itemprop="dateCreated datePublished" datetime="2020-05-09T17:58:38+08:00">2020-05-09</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>神仙题，之前听人提过。但是凸性完全不会证，会了之后补上 QwQ。</p>
-<h1 id="做法">做法</h1>
-<p>显然使 <span class="math inline">\(\sum s_i^2\)</span> 取到最小值的划分一定满足条件。</p>
-<p>所以二分斜率求出 <span class="math inline">\(\sum s_i^2\)</span> 最小的序列就行了。</p>
-<h1 id="代码">代码</h1>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"Ofast"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">double</span> ld;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">200010</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">line</span> &#123;</span></span><br><span class="line">    __int128 k, b;</span><br><span class="line">    <span class="keyword">int</span> c;</span><br><span class="line">    line (__int128 k_=<span class="number">0</span>, __int128 b_=<span class="number">0</span>, <span class="keyword">int</span> c_=<span class="number">0</span>) &#123;</span><br><span class="line">        k = k_, b = b_, c = c_;</span><br><span class="line">    &#125;</span><br><span class="line">    __<span class="function">int128 <span class="title">cal</span><span class="params">(__int128 x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> k * x + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; Q[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function">ld <span class="title">cross</span><span class="params">(<span class="keyword">const</span> line &amp;l1, <span class="keyword">const</span> line &amp;l2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (l1.b - l2.b) / (l2.k - l1.k);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, k;</span><br><span class="line">__int128 a[maxn], dp[maxn], S[maxn];</span><br><span class="line"><span class="keyword">int</span> mn_cnt[maxn], mx_cnt[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp_less</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x &lt; y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp_greater</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x &gt; y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">caldp</span><span class="params">(__int128 cur, <span class="keyword">int</span>* cnt, <span class="keyword">int</span> (*cmp) (<span class="keyword">int</span>, <span class="keyword">int</span>))</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> s = <span class="number">0</span>, t = <span class="number">0</span>;</span><br><span class="line">    Q[t++] = line(<span class="number">0</span>, cur, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (s + <span class="number">1</span> &lt; t) &#123;</span><br><span class="line">            __int128 v1 = Q[s].cal(S[i]), v2 = Q[s+<span class="number">1</span>].cal(S[i]);</span><br><span class="line">            <span class="keyword">if</span> (v1 &gt; v2 || (v1 == v2 &amp;&amp; cmp(Q[s+<span class="number">1</span>].c, Q[s].c))) &#123;</span><br><span class="line">                ++ s;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        dp[i] = Q[s].cal(S[i]) + S[i] * S[i];</span><br><span class="line">        cnt[i] = Q[s].c + <span class="number">1</span>;</span><br><span class="line">        <span class="function">line <span class="title">l</span><span class="params">(- <span class="number">2</span> * S[i], dp[i] + S[i] * S[i] + cur, cnt[i])</span></span>;</span><br><span class="line">        <span class="keyword">if</span> (s &lt; t &amp;&amp; Q[t<span class="number">-1</span>].k == l.k) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l.b == Q[t<span class="number">-1</span>].b) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!cmp(l.c, Q[t<span class="number">-1</span>].c)) &#123;</span><br><span class="line">                    l = Q[t<span class="number">-1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (l.b &gt; Q[t<span class="number">-1</span>].b) &#123;</span><br><span class="line">                    l = Q[t<span class="number">-1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            -- t;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (s &lt; t<span class="number">-1</span> &amp;&amp; (Q[t<span class="number">-1</span>].b - Q[t<span class="number">-2</span>].b) * (Q[t<span class="number">-2</span>].k - l.k) &gt;= (l.b - Q[t<span class="number">-2</span>].b) * (Q[t<span class="number">-2</span>].k - Q[t<span class="number">-1</span>].k)) &#123;</span><br><span class="line">            -- t;</span><br><span class="line">        &#125;</span><br><span class="line">        Q[t++] = l;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;k);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">        a[i] = x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        S[i] = S[i<span class="number">-1</span>] + a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    __int128 L = <span class="number">0</span>, R = <span class="number">3e19</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        __int128 mid = (L + R) / <span class="number">2</span>;</span><br><span class="line">        caldp(mid, mn_cnt, cmp_less);</span><br><span class="line">        caldp(mid, mx_cnt, cmp_greater);</span><br><span class="line">        <span class="keyword">if</span> (mn_cnt[n] &lt;= k &amp;&amp; mx_cnt[n] &gt;= k) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mn_cnt[n] &gt; k) &#123;</span><br><span class="line">            L = mid + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> R = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    __int128 mid = (L + R) / <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">    <span class="keyword">int</span> cur = n;</span><br><span class="line">    <span class="keyword">while</span> (cur) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> l = cur; l &gt;= <span class="number">1</span>; l--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (mn_cnt[l<span class="number">-1</span>] &lt;= k<span class="number">-1</span> &amp;&amp; mx_cnt[l<span class="number">-1</span>] &gt;= k<span class="number">-1</span> &amp;&amp; (dp[l<span class="number">-1</span>] + (S[cur] - S[l<span class="number">-1</span>]) * (S[cur] - S[l<span class="number">-1</span>]) + mid == dp[cur])) &#123;</span><br><span class="line">                cur = l<span class="number">-1</span>;</span><br><span class="line">                ans.push_back(cur);</span><br><span class="line">                -- k;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Yes"</span>);</span><br><span class="line">    ans.pop_back(); reverse(ans.begin(), ans.end());</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ans.size(); i++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, ans[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1995,7 +2009,7 @@ C(x) = F&#39;(xH(x))
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">99</span>
+                    <span class="site-state-item-count">100</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

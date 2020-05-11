@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="技巧 描述方式 尽量使用复合逆的概念来描述拉格朗日反演，这样可以省去很多麻烦。 定义记号 \(F(x)^{-1}\) 表示 \(F(x)\) 的复合逆 (注意不要与倒数混淆)，从这个角度来看拉格朗日反演公式可以表示为 \[ [x^n]F(x)^{-1} = \frac 1 n[x^{-1}] \frac 1 {F^n(x)} \\\\ [x^n]G(F(x)^{-1}) = \frac 1 n [">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-11T14:35:17.905Z">
+<meta property="og:updated_time" content="2020-05-11T15:45:41.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="拉格朗日反演及相关技巧整理">
 <meta name="twitter:description" content="技巧 描述方式 尽量使用复合逆的概念来描述拉格朗日反演，这样可以省去很多麻烦。 定义记号 \(F(x)^{-1}\) 表示 \(F(x)\) 的复合逆 (注意不要与倒数混淆)，从这个角度来看拉格朗日反演公式可以表示为 \[ [x^n]F(x)^{-1} = \frac 1 n[x^{-1}] \frac 1 {F^n(x)} \\\\ [x^n]G(F(x)^{-1}) = \frac 1 n [">
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2020-05-11 22:17:04 / 修改时间：22:35:17" itemprop="dateCreated datePublished" datetime="2020-05-11T22:17:04+08:00">2020-05-11</time>
+              <time title="创建时间：2020-05-11 22:17:04 / 修改时间：23:45:41" itemprop="dateCreated datePublished" datetime="2020-05-11T22:17:04+08:00">2020-05-11</time>
             
 
             
@@ -426,7 +426,7 @@
 <h2 id="推导技巧">推导技巧</h2>
 <p>除了移项等变形之外，还可以利用复合进行化简。用复合化简时注意要灵活使用左右逆，即灵活使用 <span class="math inline">\(A(x) = B(x) \Rightarrow F(A(x))= F(B(x))\)</span> 和 <span class="math inline">\(A(x) = B(x) \Rightarrow A(F(x)) = B(F(x))\)</span>，避免一直只想到其中一种的情况。</p>
 <p>对于 <span class="math inline">\(F(G(x)) = H(x)\)</span>，知 <span class="math inline">\(H(x), F(x)\)</span> 求 <span class="math inline">\([x^n] G(x)\)</span> 的情况，目前暂不知有什么好的做法，但是对于一些 <span class="math inline">\(H(x)\)</span> 与 <span class="math inline">\(G(x)\)</span> 有较为简单的关系的问题是可做的。</p>
-<p>例如 <span class="math inline">\(F(G(x)) = xG(x) \Rightarrow F(G(G^{-1}(x))) = G^{-1}(x)G(G^{-1}(x)) \Rightarrow F(x) = x G^{-1}(x)\)</span>，即 <span class="math inline">\(G\)</span> 是 <span class="math inline">\(\frac {F(x)} x\)</span> 的复合逆，作拉格朗日反演即可。</p>
+<p>例如 <span class="math inline">\(F(G(x)) = xG(x) \Rightarrow F(G(G(x)^{-1})) = G^{-1}(x)G(G(x)^{-1}) \Rightarrow F(x) = x G(x)^{-1}\)</span>，即 <span class="math inline">\(G\)</span> 是 <span class="math inline">\(\frac {F(x)} x\)</span> 的复合逆，作拉格朗日反演即可。</p>
 
       
     </div>
@@ -474,6 +474,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/11/loj6363/" rel="prev" title="[LOJ6363] 「地底蔷薇」">
+                [LOJ6363] 「地底蔷薇」 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -552,7 +556,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">99</span>
+                    <span class="site-state-item-count">100</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
