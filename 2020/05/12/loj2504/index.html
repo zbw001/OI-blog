@@ -97,18 +97,18 @@
 
 
 
-  <meta name="description" content="做法 显然编号最小黑球编号为 \(k\) 的方案有 \(\binom{n-k+1}m^2 - \binom {n-k}m^2\) 种。 设 \(F_p(x) = \binom x p\)，设 \[ c_p = \sum_{k \ge 1} (\binom{n-k+1}m^2 - \binom {n-k}m^2) F_p(k) \\\\= \binom n m^2 + \sum_{k \ge 1}">
+  <meta name="description" content="做法假了，先空着。">
 <meta name="keywords" content="数学,组合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LOJ2504] 「2018 集训队互测 Day 5」小 H 爱染色">
 <meta property="og:url" content="https://zbww.cf/2020/05/12/loj2504/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="做法 显然编号最小黑球编号为 \(k\) 的方案有 \(\binom{n-k+1}m^2 - \binom {n-k}m^2\) 种。 设 \(F_p(x) = \binom x p\)，设 \[ c_p = \sum_{k \ge 1} (\binom{n-k+1}m^2 - \binom {n-k}m^2) F_p(k) \\\\= \binom n m^2 + \sum_{k \ge 1}">
+<meta property="og:description" content="做法假了，先空着。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-11T20:17:55.745Z">
+<meta property="og:updated_time" content="2020-05-11T21:14:41.166Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LOJ2504] 「2018 集训队互测 Day 5」小 H 爱染色">
-<meta name="twitter:description" content="做法 显然编号最小黑球编号为 \(k\) 的方案有 \(\binom{n-k+1}m^2 - \binom {n-k}m^2\) 种。 设 \(F_p(x) = \binom x p\)，设 \[ c_p = \sum_{k \ge 1} (\binom{n-k+1}m^2 - \binom {n-k}m^2) F_p(k) \\\\= \binom n m^2 + \sum_{k \ge 1}">
+<meta name="twitter:description" content="做法假了，先空着。">
 
 
 
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2020-05-12 03:48:08 / 修改时间：04:17:55" itemprop="dateCreated datePublished" datetime="2020-05-12T03:48:08+08:00">2020-05-12</time>
+              <time title="创建时间：2020-05-12 03:48:08 / 修改时间：05:14:41" itemprop="dateCreated datePublished" datetime="2020-05-12T03:48:08+08:00">2020-05-12</time>
             
 
             
@@ -413,10 +413,13 @@
       
 
       
-        <h1 id="做法">做法</h1>
-<p>显然编号最小黑球编号为 <span class="math inline">\(k\)</span> 的方案有 <span class="math inline">\(\binom{n-k+1}m^2 - \binom {n-k}m^2\)</span> 种。</p>
-<p>设 <span class="math inline">\(F_p(x) = \binom x p\)</span>，设</p>
-<p><span class="math display">\[
+        <p>做法假了，先空着。 <!--
+# 做法
+显然编号最小黑球编号为 $k$ 的方案有 $\binom{n-k+1}m^2 - \binom {n-k}m^2$ 种。
+
+设 $F_p(x) = \binom x p$，设
+
+$$
 c_p = \sum_{k \ge 1} (\binom{n-k+1}m^2 - \binom {n-k}m^2) F_p(k)
 \\\\= \binom n m^2 + \sum_{k \ge 1} \binom {n-k} m ^2 (F_p(k+1)-F_p(k))
 \\\\= \binom n m ^2+\sum_{k \ge 1} \binom {n-k}m^2 \binom{k+1}{p+1}
@@ -425,16 +428,24 @@ c_p = \sum_{k \ge 1} (\binom{n-k+1}m^2 - \binom {n-k}m^2) F_p(k)
 \\\\
 c_p = \binom n m ^2+\frac 1 {(p+1)!}\sum_{k \ge 1} \binom {n-k}m^2 \frac{(k+1)!}{(k-p)!}
 \\\\=\binom n m ^2+\frac 1 {(p+1)!}\sum_{k \ge 1} a_{n-k}b_{k-p}
-\]</span></p>
-<p>后面的东西是一个卷积的形式。所以我们可以用一次 NTT 求出所有 <span class="math inline">\(c_p\)</span>。</p>
-<p>接下来只需要把 <span class="math inline">\(F(x)\)</span> 表示为 <span class="math inline">\(\sum w_p F_p(x)\)</span> 的形式，这样答案就是 <span class="math inline">\(\sum w_p c_p\)</span> 了。</p>
-<p>二项式反演一下</p>
-<p><span class="math display">\[
+$$
+
+后面的东西是一个卷积的形式。所以我们可以用一次 NTT 求出所有 $c_p$。
+
+接下来只需要把 $F(x)$ 表示为 $\sum w_p F_p(x)$ 的形式，这样答案就是 $\sum w_p c_p$ 了。
+
+二项式反演一下
+
+$$
 F(i) = \sum_p w_p \binom i p \Leftrightarrow w_p = \sum _i \binom p i (-1)^{p-i}F(i)
-\]</span></p>
-<p>于是也可以用一次 NTT 得到 <span class="math inline">\(w\)</span> 数组。</p>
-<p>这样就做完了，时间复杂度 <span class="math inline">\(\mathcal O(n \log n)\)</span>。</p>
-<h1 id="代码">代码</h1>
+$$
+
+于是也可以用一次 NTT 得到 $w$ 数组。
+
+这样就做完了，时间复杂度 $\mathcal O(n \log n)$。
+
+# 代码
+--></p>
 
       
     </div>
@@ -533,17 +544,8 @@ F(i) = \sum_p w_p \binom i p \Leftrightarrow w_p = \sum _i \binom p i (-1)^{p-i}
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -769,23 +771,6 @@ F(i) = \sum_p w_p \binom i p \Leftrightarrow w_p = \sum _i \binom p i (-1)^{p-i}
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#做法"><span class="nav-number">1.</span> <span class="nav-text">做法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       

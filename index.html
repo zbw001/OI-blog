@@ -1053,7 +1053,7 @@
                 
               
 
-              <time title="创建时间：2020-05-12 03:48:08 / 修改时间：04:17:55" itemprop="dateCreated datePublished" datetime="2020-05-12T03:48:08+08:00">2020-05-12</time>
+              <time title="创建时间：2020-05-12 03:48:08 / 修改时间：05:14:41" itemprop="dateCreated datePublished" datetime="2020-05-12T03:48:08+08:00">2020-05-12</time>
             
 
             
@@ -1094,10 +1094,13 @@
       
         
           
-            <h1 id="做法">做法</h1>
-<p>显然编号最小黑球编号为 <span class="math inline">\(k\)</span> 的方案有 <span class="math inline">\(\binom{n-k+1}m^2 - \binom {n-k}m^2\)</span> 种。</p>
-<p>设 <span class="math inline">\(F_p(x) = \binom x p\)</span>，设</p>
-<p><span class="math display">\[
+            <p>做法假了，先空着。 <!--
+# 做法
+显然编号最小黑球编号为 $k$ 的方案有 $\binom{n-k+1}m^2 - \binom {n-k}m^2$ 种。
+
+设 $F_p(x) = \binom x p$，设
+
+$$
 c_p = \sum_{k \ge 1} (\binom{n-k+1}m^2 - \binom {n-k}m^2) F_p(k)
 \\\\= \binom n m^2 + \sum_{k \ge 1} \binom {n-k} m ^2 (F_p(k+1)-F_p(k))
 \\\\= \binom n m ^2+\sum_{k \ge 1} \binom {n-k}m^2 \binom{k+1}{p+1}
@@ -1106,16 +1109,24 @@ c_p = \sum_{k \ge 1} (\binom{n-k+1}m^2 - \binom {n-k}m^2) F_p(k)
 \\\\
 c_p = \binom n m ^2+\frac 1 {(p+1)!}\sum_{k \ge 1} \binom {n-k}m^2 \frac{(k+1)!}{(k-p)!}
 \\\\=\binom n m ^2+\frac 1 {(p+1)!}\sum_{k \ge 1} a_{n-k}b_{k-p}
-\]</span></p>
-<p>后面的东西是一个卷积的形式。所以我们可以用一次 NTT 求出所有 <span class="math inline">\(c_p\)</span>。</p>
-<p>接下来只需要把 <span class="math inline">\(F(x)\)</span> 表示为 <span class="math inline">\(\sum w_p F_p(x)\)</span> 的形式，这样答案就是 <span class="math inline">\(\sum w_p c_p\)</span> 了。</p>
-<p>二项式反演一下</p>
-<p><span class="math display">\[
+$$
+
+后面的东西是一个卷积的形式。所以我们可以用一次 NTT 求出所有 $c_p$。
+
+接下来只需要把 $F(x)$ 表示为 $\sum w_p F_p(x)$ 的形式，这样答案就是 $\sum w_p c_p$ 了。
+
+二项式反演一下
+
+$$
 F(i) = \sum_p w_p \binom i p \Leftrightarrow w_p = \sum _i \binom p i (-1)^{p-i}F(i)
-\]</span></p>
-<p>于是也可以用一次 NTT 得到 <span class="math inline">\(w\)</span> 数组。</p>
-<p>这样就做完了，时间复杂度 <span class="math inline">\(\mathcal O(n \log n)\)</span>。</p>
-<h1 id="代码">代码</h1>
+$$
+
+于是也可以用一次 NTT 得到 $w$ 数组。
+
+这样就做完了，时间复杂度 $\mathcal O(n \log n)$。
+
+# 代码
+--></p>
 
           
         

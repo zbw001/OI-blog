@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[[LOJ2504] 「2018 集训队互测 Day 5」小 H 爱染色]]></title>
     <url>%2F2020%2F05%2F12%2Floj2504%2F</url>
-    <content type="text"><![CDATA[做法 显然编号最小黑球编号为 \(k\) 的方案有 \(\binom{n-k+1}m^2 - \binom {n-k}m^2\) 种。 设 \(F_p(x) = \binom x p\)，设 \[ c_p = \sum_{k \ge 1} (\binom{n-k+1}m^2 - \binom {n-k}m^2) F_p(k) \\\\= \binom n m^2 + \sum_{k \ge 1} \binom {n-k} m ^2 (F_p(k+1)-F_p(k)) \\\\= \binom n m ^2+\sum_{k \ge 1} \binom {n-k}m^2 \binom{k+1}{p+1} \\\\ \text{设 $a_k = \binom km^2 (n-k+1)!, b_k =k!$} \\\\ c_p = \binom n m ^2+\frac 1 {(p+1)!}\sum_{k \ge 1} \binom {n-k}m^2 \frac{(k+1)!}{(k-p)!} \\\\=\binom n m ^2+\frac 1 {(p+1)!}\sum_{k \ge 1} a_{n-k}b_{k-p} \] 后面的东西是一个卷积的形式。所以我们可以用一次 NTT 求出所有 \(c_p\)。 接下来只需要把 \(F(x)\) 表示为 \(\sum w_p F_p(x)\) 的形式，这样答案就是 \(\sum w_p c_p\) 了。 二项式反演一下 \[ F(i) = \sum_p w_p \binom i p \Leftrightarrow w_p = \sum _i \binom p i (-1)^{p-i}F(i) \] 于是也可以用一次 NTT 得到 \(w\) 数组。 这样就做完了，时间复杂度 \(\mathcal O(n \log n)\)。 代码]]></content>
+    <content type="text"><![CDATA[做法假了，先空着。]]></content>
       <tags>
         <tag>数学</tag>
         <tag>组合</tag>
