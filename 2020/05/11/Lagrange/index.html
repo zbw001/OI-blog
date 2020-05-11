@@ -97,15 +97,18 @@
 
 
 
-  <meta name="keywords" content="知识点,笔记">
+  <meta name="description" content="技巧 描述方式 尽量使用复合逆的概念来描述拉格朗日反演，这样可以省去很多麻烦。 定义记号 \(F(x)^{-1}\) 表示 \(F(x)\) 的复合逆 (注意不要与倒数混淆)，从这个角度来看拉格朗日反演公式可以表示为 \[ [x^n]F(x)^{-1} = \frac 1 n[x^{-1}] \frac 1 {F^n(x)} \\\\ [x^n]G(F(x)^{-1}) = \frac 1 n [">
+<meta name="keywords" content="知识点,笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="拉格朗日反演及相关技巧整理">
 <meta property="og:url" content="https://zbww.cf/2020/05/11/Lagrange/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
+<meta property="og:description" content="技巧 描述方式 尽量使用复合逆的概念来描述拉格朗日反演，这样可以省去很多麻烦。 定义记号 \(F(x)^{-1}\) 表示 \(F(x)\) 的复合逆 (注意不要与倒数混淆)，从这个角度来看拉格朗日反演公式可以表示为 \[ [x^n]F(x)^{-1} = \frac 1 n[x^{-1}] \frac 1 {F^n(x)} \\\\ [x^n]G(F(x)^{-1}) = \frac 1 n [">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-11T14:17:52.438Z">
+<meta property="og:updated_time" content="2020-05-11T14:34:26.528Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="拉格朗日反演及相关技巧整理">
+<meta name="twitter:description" content="技巧 描述方式 尽量使用复合逆的概念来描述拉格朗日反演，这样可以省去很多麻烦。 定义记号 \(F(x)^{-1}\) 表示 \(F(x)\) 的复合逆 (注意不要与倒数混淆)，从这个角度来看拉格朗日反演公式可以表示为 \[ [x^n]F(x)^{-1} = \frac 1 n[x^{-1}] \frac 1 {F^n(x)} \\\\ [x^n]G(F(x)^{-1}) = \frac 1 n [">
 
 
 
@@ -364,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2020-05-11 22:17:04 / 修改时间：22:17:52" itemprop="dateCreated datePublished" datetime="2020-05-11T22:17:04+08:00">2020-05-11</time>
+              <time title="创建时间：2020-05-11 22:17:04 / 修改时间：22:34:26" itemprop="dateCreated datePublished" datetime="2020-05-11T22:17:04+08:00">2020-05-11</time>
             
 
             
@@ -410,7 +413,20 @@
       
 
       
-        
+        <h1 id="技巧">技巧</h1>
+<h2 id="描述方式">描述方式</h2>
+<p>尽量使用复合逆的概念来描述拉格朗日反演，这样可以省去很多麻烦。</p>
+<p>定义记号 <span class="math inline">\(F(x)^{-1}\)</span> 表示 <span class="math inline">\(F(x)\)</span> 的复合逆 (注意不要与倒数混淆)，从这个角度来看拉格朗日反演公式可以表示为</p>
+<p><span class="math display">\[
+[x^n]F(x)^{-1} = \frac 1 n[x^{-1}] \frac 1 {F^n(x)}
+\\\\
+[x^n]G(F(x)^{-1}) = \frac 1 n [x^{-1}] \frac{G&#39;(x)}{F^n(x)}
+\]</span></p>
+<p>通过与第一个式子几乎完全一样的证明方法可以证明第一个式子的一个扩展：若 <span class="math inline">\(F(G(x)) = H(x)\)</span>，则 <span class="math inline">\([x^n]F(x) = \frac 1 n [x^{-1}] \frac{H&#39;(x)}{G^n(x)}\)</span>。第二个式子与这一结论是等价的，但是建议尽可能使用第二个式子而不要使用这个结论。</p>
+<h2 id="推导技巧">推导技巧</h2>
+<p>除了移项等变形之外，还可以利用复合进行化简。用复合化简时注意要灵活使用左右逆，即灵活使用 <span class="math inline">\(A(x) = B(x) \Rightarrow F(A(x))= F(B(x))\)</span> 和 <span class="math inline">\(A(x) = B(x) \Rightarrow A(F(x)) = B(F(x))\)</span>，避免一直只想到其中一种的情况。</p>
+<p>对于 <span class="math inline">\(F(G(x)) = H(x)\)</span>，知 <span class="math inline">\(H(x), F(x)\)</span> 求 <span class="math inline">\([x^n] G(x)\)</span> 的情况，目前暂不知有什么好的做法，但是对于一些 <span class="math inline">\(H(x)\)</span> 与 <span class="math inline">\(G(x)\)</span> 有较为简单的关系的问题是可做的。</p>
+<p>例如 <span class="math inline">\(F(G(x)) = xG(x) \Rightarrow F(G(G^{-1}(x))) = G^{-1}(x)G(G^{-1}(x)) \Rightarrow F(x) = x G^{-1}(x)\)</span>，即 <span class="math inline">\(G\)</span> 是 <span class="math inline">\(\frac {F(x)} x\)</span> 的复合逆，作拉格朗日反演即可。</p>
 
       
     </div>
@@ -509,8 +525,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -736,6 +761,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#技巧"><span class="nav-number">1.</span> <span class="nav-text">技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述方式"><span class="nav-number">1.1.</span> <span class="nav-text">描述方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推导技巧"><span class="nav-number">1.2.</span> <span class="nav-text">推导技巧</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
