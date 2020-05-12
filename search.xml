@@ -11,7 +11,7 @@
   <entry>
     <title><![CDATA[[LOJ2504] 「2018 集训队互测 Day 5」小 H 爱染色]]></title>
     <url>%2F2020%2F05%2F12%2Floj2504%2F</url>
-    <content type="text"><![CDATA[做法假了，先空着。 做法 显然编号最小黑球编号为 \(k\) 的方案有 \(\binom{n-k+1}m^2 - \binom {n-k}m^2\) 种。 答案即为 \[ \sum_{k \ge 1} (\binom{n-k+1}m^2 - \binom {n-k}m^2) F(k) \] 注意到 \((\binom{n-k+1}m^2 - \binom {n-k}m^2) F(k)\) 是一个关于 \(k\) 的最高 \(3m\) 次的多项式，设这个多项式为 \(G(x)\) 我们要求这个多项式的一个前缀和。设 \(G(i) = \sum w_p\binom i p\)，只要求出 \(w\) 就能很容易地计算 \(G(i)\) 的前缀和。 假设我们知道 \(G(0) \ldots G(3m)\) 二项式反演一下 \[ G(i) = \sum_p w_p \binom i p \Leftrightarrow w_p = \sum _i \binom p i (-1)^{p-i}G(i) \] 答案就是 \[ \sum_p w_p \binom{n+1}{p+1} = \sum_p \binom{n+1}{p+1} \sum_i \binom p i(-1)^{p-i} G(i) \] 但是我们只知道 \(F(0) \ldots F(m)\) 这样就做完了，时间复杂度 \(\mathcal O(n \log n)\)。 代码]]></content>
+    <content type="text"><![CDATA[做法假了，先空着。]]></content>
       <tags>
         <tag>数学</tag>
         <tag>组合</tag>
