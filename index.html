@@ -1054,12 +1054,24 @@
                 
               
 
-              <time title="创建时间：2020-05-13 09:52:46 / 修改时间：11:40:43" itemprop="dateCreated datePublished" datetime="2020-05-13T09:52:46+08:00">2020-05-13</time>
+              <time title="创建时间：2020-05-13 09:52:46" itemprop="dateCreated datePublished" datetime="2020-05-13T09:52:46+08:00">2020-05-13</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-05-14 00:47:12" itemprop="dateModified" datetime="2020-05-14T00:47:12+08:00">2020-05-14</time>
               
             
           </span>
@@ -1097,26 +1109,17 @@
           
             <h1 id="做法">做法</h1>
 <p>显然在任何一个时刻只有至多一个人拥有全部饼干。</p>
-<p>假设即使出现了拥有全部饼干的人游戏也不会结束，<span class="math inline">\(k\)</span> 步后存在一个人拥有所有饼干的概率为 <span class="math inline">\(p_k\)</span>，设 <span class="math inline">\(P(x) = \sum_{k \ge 0} p_k x^k\)</span>。</p>
-<p>设一个人当前拥有所有饼干，经过 <span class="math inline">\(k\)</span> 步之后所有饼干在一个人手上 (同样地，我们假设游戏不会结束) 的概率为 <span class="math inline">\(q_k\)</span>，设 <span class="math inline">\(Q(x) = \sum_{k \ge 0} q_k x^k\)</span>。</p>
+<p>设从一个存在一个人拥有所有饼干的状态开始，假设游戏不会结束，<span class="math inline">\(k\)</span> 步之后存在一个拥有所有饼干的人，且这是这个人第一次拥有所有饼干的概率为 <span class="math inline">\(q_k\)</span> (<span class="math inline">\(q_0=1\)</span>)，设 <span class="math inline">\(Q(x) = \sum_{k \ge 0} q_k x^k\)</span>。</p>
 <p>设第 <span class="math inline">\(k\)</span> 步时第一次出现一个拥有全部饼干的人的概率为 <span class="math inline">\(f_k\)</span> (即游戏 <span class="math inline">\(k\)</span> 步结束的概率)，设 <span class="math inline">\(F(x) = \sum_{k\ge 0} f_kx^k\)</span>。</p>
-<p>那么 <span class="math inline">\(F(x) Q(x) = P(x)\)</span>，所以 <span class="math inline">\(F(x) = \frac{P(x)}{Q(x)}\)</span>。我们要求的是 <span class="math inline">\(F&#39;(1) = \frac{P&#39;(x)Q(x)-P(x)Q&#39;(x)}{Q^2(x)}\)</span>。</p>
-<p>设 <span class="math inline">\(w_{i,k}\)</span> 表示如果一个人初始有 <span class="math inline">\(i\)</span> 个饼干，他在 <span class="math inline">\(k\)</span> 步之后有 <span class="math inline">\(n\)</span> 个饼干的概率 (游戏不会结束)，<span class="math inline">\(G_i(x) = \sum_{k \ge 0} w_{i,k}x^k\)</span>。</p>
-<p>那么 <span class="math inline">\(P(x) = \sum G_{a_i}(x), Q(x) = G_n(x)\)</span>。</p>
-<p>事实上存在求出 <span class="math inline">\(P(x)\)</span> 和 <span class="math inline">\(Q(x)\)</span> 的完整形式的方法。不过在这里，我们只需要知道 <span class="math inline">\(P(1), P&#39;(1), Q(1), Q&#39;(1)\)</span> (不需要关注收敛性)。</p>
-<p>可以写出 <span class="math inline">\(n+1\)</span> 个关于 <span class="math inline">\(G_i\)</span> 的方程，定义对于 <span class="math inline">\(i &lt; 0\)</span> 或 <span class="math inline">\(i &gt; n\)</span>，<span class="math inline">\(G_i(x) = 0\)</span>，第 <span class="math inline">\(i\)</span> 个方程为</p>
+<p>设 <span class="math inline">\(p_{i,k}\)</span> 表示第 <span class="math inline">\(i\)</span> 个人 <span class="math inline">\(k\)</span> 步后第一次拥有所有饼干的概率，设 <span class="math inline">\(P_i(x) = \sum_{k \ge 0} p_{i,k}x^k\)</span>。</p>
+<p>那么 <span class="math inline">\(F(x) Q(x) = \sum P_i(x)\)</span>，所以 <span class="math inline">\(F(x) = \frac{\sum P_i(x)}{Q(x)}\)</span>。我们要求的是 <span class="math inline">\(F&#39;(1)\)</span>。由分式求导公式问题被转化为求 <span class="math inline">\(P_i(1), P&#39;_i(1), Q(1), Q&#39;(1)\)</span>。</p>
+<p>显然 <span class="math inline">\(P_i(1) = Q(1) = 1\)</span>，考虑 <span class="math inline">\(P&#39;_i(x), Q&#39;(x)\)</span> 的实际意义，问题变成求一个初始有 <span class="math inline">\(x\)</span> 个饼干的人第一次拥有全部饼干的期望步数，这这个值为 <span class="math inline">\(x_i\)</span>，那么有</p>
 <p><span class="math display">\[
-G_i(x) = [i = n] + x[\frac {(n-i)(n-2)} {n(n-1)}G_i(x) + \frac in G_{i-1}(x) + \frac {n-i}{n(n-1)}G_{i+1}(x)]
+x_n = 0\\
+x_i = 1 + \frac 1 {n(n-1)}[(n-i)(n-2)x_i + i(n-1)x_{i-1}+(n-i)x_{i+1}]
 \]</span></p>
-<p>所以</p>
-<p><span class="math display">\[
-G_i(1) = [i = n] + [\frac {(n-i)(n-2)} {n(n-1)}G_i(1) + \frac in G_{i-1}(1) + \frac {n-i}{n(n-1)}G_{i+1}(1)]
-\\\\
-G&#39;_i(1) = [\frac {(n-i)(n-2)} {n(n-1)}G_i(1) + \frac in G_{i-1}(1) + \frac {n-i}{n(n-1)}G_{i+1}(1)]
-\\\\+ [\frac {(n-i)(n-2)} {n(n-1)}G&#39;_i(1) + \frac in G&#39;_{i-1}(1) + \frac {n-i}{n(n-1)}G&#39;_{i+1}(1)]
-\]</span></p>
-<p>设 <span class="math inline">\(x_i = (G_i(1), G&#39;_i(1))^T\)</span>，我们试着把每个 <span class="math inline">\(x_i\)</span> 都表示成 <span class="math inline">\(M_ix_0\)</span> 的形式，其中 <span class="math inline">\(M_i\)</span> 是一个 <span class="math inline">\(2\times 2\)</span> 矩阵。</p>
-<p>显然 <span class="math inline">\(M_0 = \begin{bmatrix} 1 &amp; 0 \\ 0&amp; 1\end{bmatrix}\)</span>，在已知 <span class="math inline">\(M_0, \ldots M_i\)</span> 的前提下，我们可以用第 <span class="math inline">\(i\ (i &lt; n)\)</span> 个方程求出 <span class="math inline">\(M_{i+1}\)</span>。这样就用前 <span class="math inline">\(n\)</span> 个方程得到了所有 <span class="math inline">\(M_i\)</span>，再用最后一个方程解出 <span class="math inline">\(x_1\)</span> 即可。</p>
+<p>解方程即可。</p>
+<p>为什么最终还是没有用到 <span class="math inline">\(\sum a_i\)</span> 这个条件。。？</p>
 <p>时间复杂度 <span class="math inline">\(\mathcal O(n \log mod)\)</span>。</p>
 <h1 id="代码">代码</h1>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
