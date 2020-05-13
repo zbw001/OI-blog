@@ -320,6 +320,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/05/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zbww">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个蒟蒻的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/03/05/1/" class="post-title-link" itemprop="url">[Codeforces938G] Shortest Path Queries</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-05 20:48:03 / 修改时间：22:52:31" itemprop="dateCreated datePublished" datetime="2020-03-05T20:48:03+08:00">2020-03-05</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="题解">题解</h1>
+<p>把操作离线，然后分治，把问题变成只需要支持加边，回滚，维护两点间最小 <span class="math inline">\(xor\)</span> 路径。</p>
+<p>在询问 <span class="math inline">\(u,v\)</span> 中，你可以从 <span class="math inline">\(u\)</span> 走到 <span class="math inline">\(t\)</span> 然后走回 <span class="math inline">\(u\)</span>，路径上每条边都被经过两次，所以路径上的边贡献为 <span class="math inline">\(0\)</span>。因此如果有一条 <span class="math inline">\(xor\)</span> 为 <span class="math inline">\(x\)</span> 的 <span class="math inline">\(u,v\)</span> 路径，有一个 <span class="math inline">\(xor\)</span> 为 <span class="math inline">\(c\)</span> 的环，就存在一条 <span class="math inline">\(xor\)</span> 为 <span class="math inline">\(x\oplus c\)</span> 的路径。</p>
+<p>任意考虑一棵生成树，对于一个非树边 <span class="math inline">\(u,v,w\)</span>，设 <span class="math inline">\(u\)</span> 到 <span class="math inline">\(v\)</span> 的树上路径 <span class="math inline">\(xor\)</span> 为 <span class="math inline">\(x\)</span>，那么存在一个 <span class="math inline">\(xor\)</span> 为 <span class="math inline">\(x \oplus w\)</span> 的环，因此如果经过了这条非树边，我们不妨把它看成是沿着树上路径从 <span class="math inline">\(u\)</span> 走到 <span class="math inline">\(v\)</span>。之后再异或上这个换的权值。</p>
+<p>所以我们只需要考虑把 <span class="math inline">\(u\)</span> 到 <span class="math inline">\(v\)</span> 之间的树上路径异或上一些由一条非树边一条树链构成的环的 <span class="math inline">\(xor\)</span>，答案最小是什么。</p>
+<p>维护所有非树边加上一条树链构成的环的 <span class="math inline">\(xor\)</span> 的线性基即可。</p>
+<p>然后考虑怎么加边维护这个东西。因为需要回滚，均摊算法（如 LCT，路径压缩的并查集）无法使用。我们只需要支持询问两点是否连通，询问两点之间的 <span class="math inline">\(xor\)</span>，加边和回滚即可。我们可以给点 <span class="math inline">\(i\)</span> 维护一个值 <span class="math inline">\(v_i\)</span>，初始时所有点的值 <span class="math inline">\(=0\)</span>，用按秩合并的并查集来维护连通性。我们始终要保证对于任意的 <span class="math inline">\(u,v\)</span>，如果 <span class="math inline">\(u,v\)</span> 连通，那么 <span class="math inline">\(u,v\)</span> 之间树上路径的 <span class="math inline">\(xor\)</span> 等于 <span class="math inline">\(v_u \oplus v_v\)</span>。每次加边的时候，如果两个连通块并成了一个连通块，你可以通过把其中一个连通块内的所有点的 <span class="math inline">\(v_i\)</span> 异或上一个数来保持这一性质。按秩合并时打个 tag 即可。</p>
+<p>时间复杂度为 <span class="math inline">\(\mathcal O(n \log^2 n)\)</span>。</p>
+<h1 id="代码">代码</h1>
+<p>这次尝试了一种新的码风。看上去字符量少了不少。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">200010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; pi;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, q;</span><br><span class="line"><span class="keyword">int</span> eu[maxn*<span class="number">2</span>], ev[maxn*<span class="number">2</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;pi&gt; tmp;</span><br><span class="line"><span class="keyword">int</span> bu[maxn], bv[maxn], bd[maxn], be[maxn];</span><br><span class="line"><span class="keyword">int</span> qo[maxn], qx[maxn], qy[maxn], qd[maxn], qe[maxn];</span><br><span class="line"><span class="keyword">int</span> ans[maxn];</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> DSU &#123;</span><br><span class="line">    <span class="keyword">int</span> f[maxn], d[maxn], w[maxn], e[maxn], top;</span><br><span class="line">    <span class="keyword">int</span> *sta_p[maxn*<span class="number">10</span>], sta_v[maxn*<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">30</span>];</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> &amp;x)</span> </span>&#123;</span><br><span class="line">        ++ top;</span><br><span class="line">        sta_p[top] = &amp;x, sta_v[top] = x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) f[i] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">gr</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (f[x] == x) <span class="keyword">return</span> x;</span><br><span class="line">        <span class="keyword">return</span> gr(f[x]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">ge</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (f[x] == x) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> e[x] ^ ge(f[x]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">gw</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> w[x] ^ ge(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">ins</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">29</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (x &amp; (<span class="number">1</span>&lt;&lt;i)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!a[i]) &#123;</span><br><span class="line">                    modify(a[i]);</span><br><span class="line">                    a[i] = x;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> x ^= a[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">ask</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">29</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (x &amp; (<span class="number">1</span>&lt;&lt;i)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (a[i]) &#123;</span><br><span class="line">                    x ^= a[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">adde</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ru = gr(u), rv = gr(v);</span><br><span class="line">        <span class="keyword">if</span> (ru == rv) &#123;</span><br><span class="line">            ins(gw(u) ^ gw(v) ^ x);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ru != rv) &#123;</span><br><span class="line">            <span class="keyword">if</span> (d[ru] &lt; d[rv]) swap(ru, rv);</span><br><span class="line">            modify(f[rv]); f[rv] = ru; </span><br><span class="line">            modify(d[ru]); d[ru] = max(d[ru], d[rv] + <span class="number">1</span>);</span><br><span class="line">            modify(e[rv]); e[rv] ^= x ^ gw(u) ^ gw(v);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">rollb</span><span class="params">(<span class="keyword">int</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (top &gt; t) &#123;</span><br><span class="line">            (*sta_p[top]) = sta_v[top];</span><br><span class="line">            -- top;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> tim = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> vis_l[maxn&lt;&lt;<span class="number">1</span>], vis_r[maxn&lt;&lt;<span class="number">1</span>], _vis[maxn&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="keyword">int</span> cur_ext[maxn&lt;&lt;<span class="number">1</span>], cur_d[maxn&lt;&lt;<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t = DSU::top;</span><br><span class="line">    <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">        <span class="keyword">if</span> (qo[l] == <span class="number">3</span>) &#123;</span><br><span class="line">            ans[l] = DSU::ask(DSU::gw(qx[l]) ^ DSU::gw(qy[l]));</span><br><span class="line">        &#125; <span class="keyword">else</span> cur_ext[qe[l]] ^= <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (qo[l] == <span class="number">1</span>) cur_d[qe[l]] = qd[l];</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    ++ tim;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = l; i &lt;= m; i++) <span class="keyword">if</span> (qo[i] != <span class="number">3</span>) vis_l[qe[i]] = tim;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 准备左区间</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = m+<span class="number">1</span>; i &lt;= r; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (qo[i] != <span class="number">3</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (vis_l[qe[i]] != tim) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (cur_ext[qe[i]]) &#123;</span><br><span class="line">                        DSU::adde(eu[qe[i]], ev[qe[i]], cur_d[qe[i]]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        solve(l, m);</span><br><span class="line">        DSU::rollb(t);</span><br><span class="line">    &#125;</span><br><span class="line">    ++ tim;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = m+<span class="number">1</span>; i &lt;= r; i++) <span class="keyword">if</span> (qo[i] != <span class="number">3</span>) vis_r[qe[i]] = tim;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 准备右区间</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = l; i &lt;= m; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (qo[i] != <span class="number">3</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (vis_r[qe[i]] != tim) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (cur_ext[qe[i]]) &#123;</span><br><span class="line">                        DSU::adde(eu[qe[i]], ev[qe[i]], cur_d[qe[i]]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        solve(m+<span class="number">1</span>, r);</span><br><span class="line">        DSU::rollb(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;bu[i], &amp;bv[i], &amp;bd[i]);</span><br><span class="line">        <span class="keyword">if</span> (bu[i] &gt; bv[i]) swap(bu[i], bv[i]);</span><br><span class="line">        tmp.push_back(pi(bu[i], bv[i]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;q);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= q; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;qo[i]);</span><br><span class="line">        <span class="keyword">if</span> (qo[i] == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;qx[i], &amp;qy[i], &amp;qd[i]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;qx[i], &amp;qy[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (qx[i] &gt; qy[i]) swap(qx[i], qy[i]);</span><br><span class="line">        <span class="keyword">if</span> (qo[i] != <span class="number">3</span>) tmp.push_back(pi(qx[i], qy[i]));</span><br><span class="line">    &#125;</span><br><span class="line">    sort(tmp.begin(), tmp.end());</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">        be[i] = <span class="keyword">int</span> (lower_bound(tmp.begin(), tmp.end(), pi(bu[i], bv[i])) - tmp.begin() + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= q; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (qo[i] != <span class="number">3</span>) qe[i] = <span class="keyword">int</span> (lower_bound(tmp.begin(), tmp.end(), pi(qx[i], qy[i])) - tmp.begin() + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tmp.size(); i++) eu[i+<span class="number">1</span>] = tmp[i].first, ev[i+<span class="number">1</span>] = tmp[i].second;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) cur_ext[be[i]] = <span class="number">1</span>, cur_d[be[i]] = bd[i];</span><br><span class="line">    DSU::init();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= q; i++) <span class="keyword">if</span> (qo[i] != <span class="number">3</span>) _vis[qe[i]] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) <span class="keyword">if</span> (!_vis[be[i]]) DSU::adde(bu[i], bv[i], bd[i]);</span><br><span class="line">    solve(<span class="number">1</span>, q);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= q; i++) <span class="keyword">if</span> (qo[i] == <span class="number">3</span>) <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/11/02/[AGC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1670,175 +1824,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/09/18/CF571E/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zbww">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一个蒟蒻的Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/09/18/CF571E/" class="post-title-link" itemprop="url">[Codeforces571E] Geometric Progressions</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-18 15:18:00 / 修改时间：21:11:42" itemprop="dateCreated datePublished" datetime="2019-09-18T15:18:00+08:00">2019-09-18</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>口胡的没实现过，如有错误请 QQ 或评论告诉我！</p>
-<h3 id="题解">题解</h3>
-<p>考虑只有两个等比数列的情况。</p>
-<p>第一个等比数列：<span class="math inline">\(a_1, a_1b_1, a_1b_1^2, \ldots\)</span></p>
-<p>第二个等比数列：<span class="math inline">\(a_2,a_2b_2,a_2b_2^2,\ldots\)</span></p>
-<p>假设 <span class="math inline">\(v\)</span> 同时出现在两个等比数列中，那么 <span class="math inline">\(\exists k_1, k_2 \in \mathbb{N}, v = a_1b_1^{k_1} = a_2b_2^{k_2}\)</span>。</p>
-<p>设 <span class="math inline">\(p_i\)</span> 表示第 <span class="math inline">\(i\)</span> 个素数。</p>
-<p><span class="math inline">\(b_1 = \prod p_i^{c_{1i}}, b_2 = \prod p_i^{c_{2i}}\)</span></p>
-<p>考虑任意两个不同素数 <span class="math inline">\(p_i\)</span> 和 <span class="math inline">\(p_j\)</span>，假设 <span class="math inline">\(p_i\)</span> 在 <span class="math inline">\(a_1,a_2\)</span> 中出现次数分别是 <span class="math inline">\(w_{1i},w_{2i}\)</span>。</p>
-<p>那么有 <span class="math display">\[
-\begin{cases}
-k_1 c_{1i}+w_{1i} = k_2{c_{2i}} + w_{2i}\\
-k_1 c_{1j}+w_{1j} = k_2{c_{2j}} + w_{2j}
-\end{cases}
-\]</span> 这是一个二元一次方程组。假设 <span class="math inline">\((c_{1i},-c_{2i})\)</span> 和 <span class="math inline">\((c_{1j}, -c_{2j})\)</span> 线性无关，这个方程组有唯一解。</p>
-<p>假设存在 <span class="math inline">\(i &lt; j\)</span>， <span class="math inline">\((c_{1i},-c_{2i})\)</span> 和 <span class="math inline">\((c_{1j}, -c_{2j})\)</span> 线性无关，那么解出这个方程。这样就得到了唯一一个可能是所有等比数列共有元素的数（的素因数分解），然后检验一下即可。</p>
-<p>否则，对于任意的 <span class="math inline">\(i &lt; j\)</span> 都有 <span class="math inline">\((c_{1i},-c_{2i})\)</span> 和 <span class="math inline">\((c_{1j}, -c_{2j})\)</span> 线性相关。</p>
-<p>那么存在正整数 <span class="math inline">\(w\)</span>，<span class="math inline">\(b_1 = w^{i_1}, b_2 = w^{i_2}((i_1,i_2) = 1)\)</span>。 <span class="math display">\[
-a_1b_1^{k_1} = a_2b_2^{k_2} \Leftrightarrow w^{k_1i_1-k_2i_2}=\frac {a_2} {a_1}
-\]</span> 不妨设 <span class="math inline">\(a_1 \le a_2\)</span>。那么一定有 <span class="math inline">\(a_1 \mid a_2\)</span>。</p>
-<p>设 <span class="math inline">\(\frac {a_2} {a_1} = x\)</span>，如果有解，必有 <span class="math inline">\(x = w^n, n \in \mathbb{N}\)</span>。</p>
-<p>方程变为 <span class="math inline">\(k_1i_1-k_2i_2 = n\)</span>。</p>
-<p>这是一个简单的不定方程。不难找到这个方程的一组解 <span class="math inline">\(k_1= x, k_2 = y\)</span>。（具体来说先找到 <span class="math inline">\(k_1i_1-k_2i_2=1\)</span> 的解，然后在两边乘以 <span class="math inline">\(n\)</span>）</p>
-<p>那么这个方程的通解为 <span class="math inline">\(k_1 = x + pi_2, k_2 = y + pi_1, p \in \mathbb{Z}\)</span>。</p>
-<p>不难找到 <span class="math inline">\(k_1\)</span> 最小的非负整数解，假设这时 <span class="math inline">\(a_1w^{k_1c_1}=t\)</span>。这样两个等比数列就被合并为了一个等比数列：<span class="math inline">\(t, w^{i_1i_2}t,w^{wi_1i_2}t,\ldots\)</span>。</p>
-<p>继续把合并得到的等比数列和其他等比数列进行相同的操作即可。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1890,7 +1875,7 @@ a_1b_1^{k_1} = a_2b_2^{k_2} \Leftrightarrow w^{k_1i_1-k_2i_2}=\frac {a_2} {a_1}
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">102</span>
+                    <span class="site-state-item-count">103</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
