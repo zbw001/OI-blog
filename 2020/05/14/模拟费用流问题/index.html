@@ -97,18 +97,18 @@
 
 
 
-  <meta name="description" content="本篇 blog 不公开">
+  <meta name="description" content="这篇 blog 是写给自己看的，所以可能描述比较简略。 什么是模拟费用流 有一些问题可以转化为一个费用流问题解决，但是建图复杂度太高或是求费用流代价太大。 模拟费用流就是指结合流网络中的性质，对费用流算法的具体过程进行优化。比如对 Successive Shortest Path 算法找最短路的过程优化；或是初始时仅保留一些边，然后逐条加入剩下的边，每次加入后消圈，通过分析负圈的性质优化复杂度。">
 <meta name="keywords" content="知识点,笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[知识点] 模拟费用流问题">
 <meta property="og:url" content="https://zbww.cf/2020/05/14/模拟费用流问题/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="本篇 blog 不公开">
+<meta property="og:description" content="这篇 blog 是写给自己看的，所以可能描述比较简略。 什么是模拟费用流 有一些问题可以转化为一个费用流问题解决，但是建图复杂度太高或是求费用流代价太大。 模拟费用流就是指结合流网络中的性质，对费用流算法的具体过程进行优化。比如对 Successive Shortest Path 算法找最短路的过程优化；或是初始时仅保留一些边，然后逐条加入剩下的边，每次加入后消圈，通过分析负圈的性质优化复杂度。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-14T10:33:58.725Z">
+<meta property="og:updated_time" content="2020-05-14T11:21:19.448Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[知识点] 模拟费用流问题">
-<meta name="twitter:description" content="本篇 blog 不公开">
+<meta name="twitter:description" content="这篇 blog 是写给自己看的，所以可能描述比较简略。 什么是模拟费用流 有一些问题可以转化为一个费用流问题解决，但是建图复杂度太高或是求费用流代价太大。 模拟费用流就是指结合流网络中的性质，对费用流算法的具体过程进行优化。比如对 Successive Shortest Path 算法找最短路的过程优化；或是初始时仅保留一些边，然后逐条加入剩下的边，每次加入后消圈，通过分析负圈的性质优化复杂度。">
 
 
 
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2020-05-14 17:16:49 / 修改时间：18:33:58" itemprop="dateCreated datePublished" datetime="2020-05-14T17:16:49+08:00">2020-05-14</time>
+              <time title="创建时间：2020-05-14 17:16:49 / 修改时间：19:21:19" itemprop="dateCreated datePublished" datetime="2020-05-14T17:16:49+08:00">2020-05-14</time>
             
 
             
@@ -413,20 +413,32 @@
       
 
       
-        <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<div id="hbe-security">
-  <div class="hbe-input-container">
-  <input type="password" class="hbe-form-control" id="pass" placeholder="请输入密码">
-    <label for="pass">请输入密码</label>
-    <div class="bottom-line"></div>
-  </div>
-</div>
-<div id="decryptionError" style="display: none;">Incorrect Password!</div>
-<div id="noContentError" style="display: none;">No content to display!</div>
-<div id="encrypt-blog" style="display:none">
-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
-</div>
-<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+        <p>这篇 blog 是写给自己看的，所以可能描述比较简略。</p>
+<h1 id="什么是模拟费用流">什么是模拟费用流</h1>
+<p>有一些问题可以转化为一个费用流问题解决，但是建图复杂度太高或是求费用流代价太大。</p>
+<p>模拟费用流就是指结合流网络中的性质，对费用流算法的具体过程进行优化。比如对 Successive Shortest Path 算法找最短路的过程优化；或是初始时仅保留一些边，然后逐条加入剩下的边，每次加入后消圈，通过分析负圈的性质优化复杂度。</p>
+<h1 id="费用流问题的一些性质">费用流问题的一些性质</h1>
+<p>如果你已经知道一个图的一个最小费用流/最小费用最大流，考虑加一条容量为 <span class="math inline">\(1\)</span> 的边如何求出新的图的最小费用流 / 最小费用最大流。</p>
+<h2 id="最小费用流">最小费用流</h2>
+<p>考虑加边后的一个最小费用流和加边前的一个最小费用流的差。</p>
+<p>这个差可以 (边不交地) 分解为若干个源到汇的简单路径和简单环。</p>
+<p>其中除了包含新加入的边的路径 / 环，其他权值之和都一定为 <span class="math inline">\(0\)</span>，可以删去。</p>
+<p>从而新的图一定存在一个可以由于加边前的图增广一个包含新加入的边的<strong>简单</strong>路径或增广一个包含新加入的边的<strong>简单</strong>环得到的最小费用流。（也就是增广最小的简单路径/最小的简单环，如果都为正则不增广）</p>
+<h2 id="最小费用最大流">最小费用最大流</h2>
+<p>与最小费用流很类似，不过要分增广一条路径和增广一个环讨论。</p>
+<p>同样把差分解为至多一条简单路径和若干简单环，仅有包含新加入的边的才是有用的，其他部分可以删去。</p>
+<p>所以新图的最小费用最大流一定可以由加边前的图的最小费用最大流增广</p>
+<h1 id="常见模型">常见模型</h1>
+<p>似乎常见的模拟费用流模型都是特殊的二分图上跑费用流的问题。也就是说图上除了源汇以外的点可分为两部分，边可分为三类：源和第一部分之间的边，第一部分和第二部分之间的边，第二部和汇之间的边。这样得到一个类似于二分图带权匹配的问题。（但是点可以带点权）</p>
+<h2 id="模型-1">模型 1</h2>
+<p>两部分之间的连边可以通过建一条链来优化。</p>
+<h3 id="例-1">例 1</h3>
+<h3 id="例-2">例 2</h3>
+<h2 id="模型-2">模型 2</h2>
+<p>右部点数特别少。</p>
+<h2 id="模型-3">模型 3</h2>
+<p>模型 1 上树。</p>
+
       
     </div>
 
@@ -524,8 +536,17 @@ U2FsdGVkX19xC0kakz0Zo+cXHWLn7RQUeYxYyhcS+CviyUEyboDZ+C8QtigwlM0UdO+cwaSipf3VCH4d
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -753,6 +774,23 @@ U2FsdGVkX19xC0kakz0Zo+cXHWLn7RQUeYxYyhcS+CviyUEyboDZ+C8QtigwlM0UdO+cwaSipf3VCH4d
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是模拟费用流"><span class="nav-number">1.</span> <span class="nav-text">什么是模拟费用流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#费用流问题的一些性质"><span class="nav-number">2.</span> <span class="nav-text">费用流问题的一些性质</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#最小费用流"><span class="nav-number">2.1.</span> <span class="nav-text">最小费用流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最小费用最大流"><span class="nav-number">2.2.</span> <span class="nav-text">最小费用最大流</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见模型"><span class="nav-number">3.</span> <span class="nav-text">常见模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型-1"><span class="nav-number">3.1.</span> <span class="nav-text">模型 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">例 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">例 2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型-2"><span class="nav-number">3.2.</span> <span class="nav-text">模型 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型-3"><span class="nav-number">3.3.</span> <span class="nav-text">模型 3</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
