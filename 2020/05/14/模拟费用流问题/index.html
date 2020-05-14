@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="本文可能会包含一些比较主观的思想，可能会包含一些错误。(如果找到错误请告诉我一下) 建议多参考一些其他文章。 什么是模拟费用流 有一些问题可以转化为一个费用流问题解决，但是建图复杂度太高或是求费用流代价太大。 模拟费用流就是指结合流网络中的性质，对费用流算法的具体过程进行优化。比如对 Successive Shortest Path 算法找最短路的过程优化；或是初始时仅保留一些边，然后逐条加入剩下">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-14T09:44:17.836Z">
+<meta property="og:updated_time" content="2020-05-14T09:46:32.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[知识点] 模拟费用流问题">
 <meta name="twitter:description" content="本文可能会包含一些比较主观的思想，可能会包含一些错误。(如果找到错误请告诉我一下) 建议多参考一些其他文章。 什么是模拟费用流 有一些问题可以转化为一个费用流问题解决，但是建图复杂度太高或是求费用流代价太大。 模拟费用流就是指结合流网络中的性质，对费用流算法的具体过程进行优化。比如对 Successive Shortest Path 算法找最短路的过程优化；或是初始时仅保留一些边，然后逐条加入剩下">
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2020-05-14 17:16:49 / 修改时间：17:44:17" itemprop="dateCreated datePublished" datetime="2020-05-14T17:16:49+08:00">2020-05-14</time>
+              <time title="创建时间：2020-05-14 17:16:49 / 修改时间：17:46:32" itemprop="dateCreated datePublished" datetime="2020-05-14T17:16:49+08:00">2020-05-14</time>
             
 
             
@@ -418,7 +418,7 @@
 <p>有一些问题可以转化为一个费用流问题解决，但是建图复杂度太高或是求费用流代价太大。</p>
 <p>模拟费用流就是指结合流网络中的性质，对费用流算法的具体过程进行优化。比如对 Successive Shortest Path 算法找最短路的过程优化；或是初始时仅保留一些边，然后逐条加入剩下的边，每次加入后消圈，通过分析负圈的性质优化复杂度。</p>
 <h1 id="一个性质">一个性质</h1>
-<p>对于一个费用流图，假设我们已经求出了它的最小费用最大流 <span class="math inline">\(f_0\)</span>。加入一条流量为 <span class="math inline">\(1\)</span>，费用为 <span class="math inline">\(c\)</span> 的边 <span class="math inline">\(e = (u,v)\)</span>，设加入这条边后得到的费用流图中的最小费用最大流为 <span class="math inline">\(f\)</span>。若 <span class="math inline">\(\lvert f\rvert = \lvert f_0 \rvert\)</span>，则 <span class="math inline">\(f\)</span> 可以通过 <span class="math inline">\(f_0\)</span> 增广残余网络上的一个简单负环得到。若 <span class="math inline">\(\lvert f \rvert &gt; \lvert f_0 \rvert\)</span>，则 <span class="math inline">\(f\)</span> 可以通过 <span class="math inline">\(f_0\)</span> 增广残余网络上的一条简单路径得到。</p>
+<p>对于一个费用流图，假设我们已经求出了它的最小费用最大流 <span class="math inline">\(f_0\)</span>。加入一条流量为 <span class="math inline">\(1\)</span>，费用为 <span class="math inline">\(c\)</span> 的边 <span class="math inline">\(e = (u,v)\)</span>，设加入这条边后得到的费用流图中的最小费用最大流为 <span class="math inline">\(f\)</span>。若 <span class="math inline">\(\lvert f\rvert = \lvert f_0 \rvert\)</span>，则 <span class="math inline">\(f\)</span> 可以通过在加边后的图中 <span class="math inline">\(f_0\)</span> 对应的残余网络上增广一个包含边 <span class="math inline">\(e\)</span> 的简单负环得到。若 <span class="math inline">\(\lvert f \rvert &gt; \lvert f_0 \rvert\)</span>，则 <span class="math inline">\(f\)</span> 可以通过在 <span class="math inline">\(f_0\)</span> 对应的残余网络中增广一条包含边 <span class="math inline">\(e\)</span> 简单路径得到。</p>
 <h1 id="常见模型">常见模型</h1>
 <h2 id="模型-1">模型 1</h2>
 <h2 id="模型-2">模型 2</h2>
