@@ -19,7 +19,7 @@
   <entry>
     <title><![CDATA[[LOJ2504] 「2018 集训队互测 Day 5」小 H 爱染色]]></title>
     <url>%2F2020%2F05%2F12%2Floj2504%2F</url>
-    <content type="text"><![CDATA[做法 显然编号最小黑球编号为 \(k\) 的方案有 \(\binom{n-k+1}m^2 - \binom {n-k}m^2\) 种。 答案为 \[ \sum_{k \ge 1} (\binom{n-k+1}m^2 - \binom {n-k}m^2) F(k) \] 注意到 \((\binom{n-k+1}m^2 - \binom {n-k}m^2) F(k)\) 是一个关于 \(k\) 的 \(3m\) 次多项式，我们要求这个多项式的一个前缀和，这个多项式的前缀和是一个 \(3m+1\) 次多项式，设它为 \(G(k)\)。如果我们知道 \(F(0) \ldots F(3m+1)\) 就可以很容易地得到 \(G(0) \ldots G(3m+1)\)，然后拉格朗日插值得到 \(G(n)\)。 但是我们只知道 \(F(0) \ldots F(m)\)。考虑如何计算 \(F(m+1) \ldots F(3m+1)\)。 \[ F(x) = \sum_{i=0}^m F(i) \prod_{j \neq i, 0 \le j\le m} \frac{x-j}{i-j} \\\\ \text{对于 $m &lt; x \le 3m+1$} \\\\ F(x) = \sum_{i=0}^m F(i) \frac {(-1)^{m-i}x^{\underline{m+1}}} {(x-i)i!(m-i)!}=x^{\underline{m+1}} \sum_{i=0}^m \frac{(-1)^{m-i}}{i!(m-i)!} \frac 1 {(x-i)!} \] 这可以用 NTT 优化，时间复杂度 \(\mathcal O(n \log n)\)。 代码]]></content>
+    <content type="text"><![CDATA[做法 显然编号最小黑球编号为 \(k\) 的方案有 \(\binom{n-k+1}m^2 - \binom {n-k}m^2\) 种。 答案为 \[ \sum_{k \ge 1} (\binom{n-k+1}m^2 - \binom {n-k}m^2) F(k) \] 注意到 \((\binom{n-k+1}m^2 - \binom {n-k}m^2) F(k)\) 是一个关于 \(k\) 的 \(3m\) 次多项式，我们要求这个多项式的一个前缀和，这个多项式的前缀和是一个 \(3m+1\) 次多项式，设它为 \(G(k)\)。如果我们知道 \(F(0) \ldots F(3m+1)\) 就可以很容易地得到 \(G(0) \ldots G(3m+1)\)，然后拉格朗日插值得到 \(G(n)\)。 但是我们只知道 \(F(0) \ldots F(m)\)。考虑如何计算 \(F(m+1) \ldots F(3m+1)\)。 \[ F(x) = \sum_{i=0}^m F(i) \prod_{j \neq i, 0 \le j\le m} \frac{x-j}{i-j} \\\\ \text{对于 $m &lt; x \le 3m+1$} \\\\ F(x) = \sum_{i=0}^m F(i) \frac {(-1)^{m-i}x^{\underline{m+1}}} {(x-i)i!(m-i)!}=x^{\underline{m+1}} \sum_{i=0}^m \frac{(-1)^{m-i}}{i!(m-i)!} \frac 1 {x-i} \] 这可以用 NTT 优化，时间复杂度 \(\mathcal O(m \log m)\)。 代码]]></content>
       <tags>
         <tag>数学</tag>
         <tag>组合</tag>

@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="做法 显然编号最小黑球编号为 \(k\) 的方案有 \(\binom{n-k+1}m^2 - \binom {n-k}m^2\) 种。 答案为 \[ \sum_{k \ge 1} (\binom{n-k+1}m^2 - \binom {n-k}m^2) F(k) \] 注意到 \((\binom{n-k+1}m^2 - \binom {n-k}m^2) F(k)\) 是一个关于 \(k\) 的 \">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-13T18:26:03.362Z">
+<meta property="og:updated_time" content="2020-05-14T05:20:11.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LOJ2504] 「2018 集训队互测 Day 5」小 H 爱染色">
 <meta name="twitter:description" content="做法 显然编号最小黑球编号为 \(k\) 的方案有 \(\binom{n-k+1}m^2 - \binom {n-k}m^2\) 种。 答案为 \[ \sum_{k \ge 1} (\binom{n-k+1}m^2 - \binom {n-k}m^2) F(k) \] 注意到 \((\binom{n-k+1}m^2 - \binom {n-k}m^2) F(k)\) 是一个关于 \(k\) 的 \">
@@ -384,7 +384,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-05-14 02:26:03" itemprop="dateModified" datetime="2020-05-14T02:26:03+08:00">2020-05-14</time>
+                <time title="修改时间：2020-05-14 13:20:11" itemprop="dateModified" datetime="2020-05-14T13:20:11+08:00">2020-05-14</time>
               
             
           </span>
@@ -438,9 +438,9 @@ F(x) = \sum_{i=0}^m F(i) \prod_{j \neq i, 0 \le j\le m} \frac{x-j}{i-j}
 \\\\
 \text{对于 $m &lt; x \le 3m+1$}
 \\\\
-F(x) = \sum_{i=0}^m F(i) \frac {(-1)^{m-i}x^{\underline{m+1}}} {(x-i)i!(m-i)!}=x^{\underline{m+1}} \sum_{i=0}^m \frac{(-1)^{m-i}}{i!(m-i)!} \frac 1 {(x-i)!}
+F(x) = \sum_{i=0}^m F(i) \frac {(-1)^{m-i}x^{\underline{m+1}}} {(x-i)i!(m-i)!}=x^{\underline{m+1}} \sum_{i=0}^m \frac{(-1)^{m-i}}{i!(m-i)!} \frac 1 {x-i}
 \]</span></p>
-<p>这可以用 NTT 优化，时间复杂度 <span class="math inline">\(\mathcal O(n \log n)\)</span>。</p>
+<p>这可以用 NTT 优化，时间复杂度 <span class="math inline">\(\mathcal O(m \log m)\)</span>。</p>
 <h1 id="代码">代码</h1>
 
       

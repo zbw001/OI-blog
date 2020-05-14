@@ -1394,7 +1394,7 @@ P&#39;_i(1) = x_{a_i}, Q&#39;(1) = (n-1) x_0
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-05-14 02:26:03" itemprop="dateModified" datetime="2020-05-14T02:26:03+08:00">2020-05-14</time>
+                <time title="修改时间：2020-05-14 13:20:11" itemprop="dateModified" datetime="2020-05-14T13:20:11+08:00">2020-05-14</time>
               
             
           </span>
@@ -1443,9 +1443,9 @@ F(x) = \sum_{i=0}^m F(i) \prod_{j \neq i, 0 \le j\le m} \frac{x-j}{i-j}
 \\\\
 \text{对于 $m &lt; x \le 3m+1$}
 \\\\
-F(x) = \sum_{i=0}^m F(i) \frac {(-1)^{m-i}x^{\underline{m+1}}} {(x-i)i!(m-i)!}=x^{\underline{m+1}} \sum_{i=0}^m \frac{(-1)^{m-i}}{i!(m-i)!} \frac 1 {(x-i)!}
+F(x) = \sum_{i=0}^m F(i) \frac {(-1)^{m-i}x^{\underline{m+1}}} {(x-i)i!(m-i)!}=x^{\underline{m+1}} \sum_{i=0}^m \frac{(-1)^{m-i}}{i!(m-i)!} \frac 1 {x-i}
 \]</span></p>
-<p>这可以用 NTT 优化，时间复杂度 <span class="math inline">\(\mathcal O(n \log n)\)</span>。</p>
+<p>这可以用 NTT 优化，时间复杂度 <span class="math inline">\(\mathcal O(m \log m)\)</span>。</p>
 <h1 id="代码">代码</h1>
 
           
