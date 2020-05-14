@@ -320,6 +320,189 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/15/CF809E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zbww">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个蒟蒻的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/03/15/CF809E/" class="post-title-link" itemprop="url">[Codeforces809E] Surprise me!</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-15 15:32:24" itemprop="dateCreated datePublished" datetime="2020-03-15T15:32:24+08:00">2020-03-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-27 17:18:59" itemprop="dateModified" datetime="2020-03-27T17:18:59+08:00">2020-03-27</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="做法">做法</h1>
+<p>点分治一下，转化为以下问题：</p>
+<p>有两个长为 <span class="math inline">\(n\)</span> 的数组 <span class="math inline">\(a_1\)</span> 和 <span class="math inline">\(d_1\)</span>，两个长为 <span class="math inline">\(m\)</span> 的数组 <span class="math inline">\(a_2\)</span> 和 <span class="math inline">\(d_2\)</span>，求：</p>
+<p><span class="math display">\[
+\sum_{i=1}^n \sum_{j=1}^m \phi(a_1[i]a_2[j])(d_1[i]+d_2[j])
+\]</span></p>
+<p>枚举一下 <span class="math inline">\(i\)</span>，关键就是如何求形如 <span class="math inline">\(\sum_j \phi(a_1[i]a_2[j]) d_2[j]\)</span> 的东西。</p>
+<p>注意到 <span class="math inline">\(\phi(ab) = \gcd(a,b) \frac{\phi(a)\phi(b)}{\phi(\gcd(a,b))}\)</span></p>
+<p>设 <span class="math inline">\(s_i = \sum_{i|k} d_2[k]\phi(a_2[k])\)</span></p>
+<p><span class="math display">\[
+\sum_j \phi(a_1[i]a_2[j]) d_2[j]
+\\=\phi(a_1[i])\sum_{d\mid a_1[i]} [\gcd(a_1[i],a_2[j])=d]\frac{dd_2[j]\phi(a_2[j])}{\phi(d)}
+\\=\phi(a_1[i])\sum_{d\mid a_1[i]} \frac d {\phi(d)} \sum_{d \mid k, k \mid a_1[i]} \mu(\frac k d) s_k
+\]</span></p>
+<p><span class="math inline">\(s_i\)</span> 是很容易处理的，只需要对每个 <span class="math inline">\(1\ldots m\)</span> 中的数 <span class="math inline">\(i\)</span> 考虑 <span class="math inline">\(d_2[i]\phi(a_2[i])\)</span> 对每个 <span class="math inline">\(s\)</span> 中 <span class="math inline">\(i\)</span> 的约数下标位置的贡献即可。</p>
+<p>如果暴力计算上式，复杂度为 <span class="math inline">\(1 \ldots n\)</span> 中每个数的约数个数的约数个数之和乘以点分治的一个 <span class="math inline">\(\log\)</span>。前面的部分复杂度是 <span class="math inline">\(\log^2\)</span> 的（考虑 <span class="math inline">\((\sum \frac 1 i )^2\)</span>），从而总复杂度为 <span class="math inline">\(\mathcal O(n\log^3 n)\)</span>。</p>
+<p>继续对上式变形：</p>
+<p>设 <span class="math inline">\(t_k = \sum_{d \mid k} \frac d {\phi(d)} \mu(\frac k d)\)</span>，<span class="math inline">\(t_k\)</span> 是一个常数。</p>
+<p><span class="math display">\[
+\phi(a_1[i])\sum_{d\mid a_1[i]} \frac d {\phi(d)} \sum_{d \mid k, k \mid a_1[i]} \mu(\frac k d) s_k
+\\=\phi(a_1[i])\sum_{k \mid a_1[i]} s_k \sum_{d \mid k} \frac d {\phi(d)} \mu(\frac k d)
+\\=\phi(a_1[i])\sum_{k \mid a_1[i]} s_k t_k
+\]</span></p>
+<p>考虑对 <span class="math inline">\(t\)</span> 进行预处理。<span class="math inline">\(t\)</span> 是一个积性函数（因为它是两个积性函数的狄利克雷卷积），我们可以直接把它筛出来。</p>
+<p>但是因为我懒，我选择直接暴力预处理 <span class="math inline">\(t\)</span>，时间复杂度为 <span class="math inline">\(\mathcal O(n \log n)\)</span>。</p>
+<p>这个算法的复杂度为 <span class="math inline">\(\mathcal O(n \log^2n)\)</span>。</p>
+<h1 id="代码">代码</h1>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"Ofast"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">200010</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vd[maxn];</span><br><span class="line"><span class="keyword">int</span> n, a[maxn], l[maxn], K[maxn], e, ans;</span><br><span class="line"><span class="keyword">int</span> phi[maxn], iphi[maxn], mu[maxn], isnp[maxn], prm[maxn], pcnt;</span><br><span class="line"><span class="keyword">int</span> sum1[maxn], sum2[maxn], dep[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (y) &#123;</span><br><span class="line">        <span class="keyword">if</span> (y &amp; <span class="number">1</span>) ret = <span class="number">1L</span>L * ret * x % mod;</span><br><span class="line">        x = <span class="number">1L</span>L * x * x % mod;</span><br><span class="line">        y &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> v, x;</span><br><span class="line">&#125; E[maxn&lt;&lt;<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">addEdge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">    E[e].v = v, E[e].x = l[u], l[u] = e++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> vis[maxn], sz[maxn], mx[maxn], sum[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> f, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;vl)</span> </span>&#123;</span><br><span class="line">    sz[u] = <span class="number">1</span>, mx[u] = <span class="number">0</span>;</span><br><span class="line">    vl.push_back(u);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> p = l[u]; p &gt;= <span class="number">0</span>; p = E[p].x) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = E[p].v;</span><br><span class="line">        <span class="keyword">if</span> (!vis[v] &amp;&amp; v != f) &#123;</span><br><span class="line">            dfs1(v, u, vl);</span><br><span class="line">            sz[u] += sz[v];</span><br><span class="line">            mx[u] = max(mx[u], sz[v]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs2</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">    sz[u] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> p = l[u]; p &gt;= <span class="number">0</span>; p = E[p].x) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = E[p].v;</span><br><span class="line">        <span class="keyword">if</span> (!vis[v] &amp;&amp; v != f) &#123;</span><br><span class="line">            dep[v] = dep[u] + <span class="number">1</span>;</span><br><span class="line">            dfs2(v, u);</span><br><span class="line">            sz[u] += sz[v];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mo</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= mod) <span class="keyword">return</span> x - mod;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">0</span>) <span class="keyword">return</span> x + mod;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs3_inc</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> w = a[u];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vd[w].size(); i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> d = vd[w][i];</span><br><span class="line">        sum1[d] = mo(sum1[d] + phi[w]);</span><br><span class="line">        sum2[d] = mo(sum2[d] + <span class="number">1L</span>L * phi[w] % mod * dep[u] % mod);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> p = l[u]; p &gt;= <span class="number">0</span>; p = E[p].x) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = E[p].v;</span><br><span class="line">        <span class="keyword">if</span> (!vis[v] &amp;&amp; v != f) &#123;</span><br><span class="line">            dfs3_inc(v, u);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs3_dec</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> w = a[u];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vd[w].size(); i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> d = vd[w][i];</span><br><span class="line">        sum1[d] = mo(sum1[d] - phi[w]);</span><br><span class="line">        sum2[d] = mo(sum2[d] - <span class="number">1L</span>L * phi[w] % mod * dep[u] % mod);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> p = l[u]; p &gt;= <span class="number">0</span>; p = E[p].x) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = E[p].v;</span><br><span class="line">        <span class="keyword">if</span> (!vis[v] &amp;&amp; v != f) &#123;</span><br><span class="line">            dfs3_dec(v, u);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs4</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> w = a[u];</span><br><span class="line">    <span class="keyword">int</span> s1 = <span class="number">0</span>, s2 = <span class="number">0</span>, cur_sum1 = <span class="number">0</span>, cur_sum2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vd[w].size(); i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> d = vd[w][i];</span><br><span class="line">        cur_sum1 = mo(cur_sum1 + <span class="number">1L</span>L * K[d] * sum1[d] % mod);</span><br><span class="line">        cur_sum2 = mo(cur_sum2 + <span class="number">1L</span>L * K[d] * sum2[d] % mod);</span><br><span class="line">    &#125;</span><br><span class="line">    ans = mo(ans + <span class="number">1L</span>L * cur_sum1 * dep[u] % mod * phi[w] % mod);</span><br><span class="line">    ans = mo(ans + <span class="number">1L</span>L * cur_sum2 * phi[w] % mod);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> p = l[u]; p &gt;= <span class="number">0</span>; p = E[p].x) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = E[p].v;</span><br><span class="line">        <span class="keyword">if</span> (!vis[v] &amp;&amp; v != f) &#123;</span><br><span class="line">            dfs4(v, u);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> s)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vl;</span><br><span class="line">    dfs1(u, <span class="number">0</span>, vl);</span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vl.size(); i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> u = vl[i];</span><br><span class="line">        mx[u] = max(mx[u], s - sz[u]);</span><br><span class="line">        <span class="keyword">if</span> (!c || mx[u] &lt; mx[c]) c = u;</span><br><span class="line">    &#125;</span><br><span class="line">    dep[c] = <span class="number">0</span>;</span><br><span class="line">    dfs2(c, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nv, ns;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> p = l[c]; p &gt;= <span class="number">0</span>; p = E[p].x) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = E[p].v;</span><br><span class="line">        <span class="keyword">if</span> (!vis[v]) &#123;</span><br><span class="line">            nv.push_back(v), ns.push_back(sz[v]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;	</span><br><span class="line">    dfs3_inc(c, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nv.size(); i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = nv[i];</span><br><span class="line">        dfs3_dec(v, c);</span><br><span class="line">        dfs4(v, c);</span><br><span class="line">        dfs3_inc(v, c);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> w = a[c];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vd[w].size(); i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> d = vd[w][i];</span><br><span class="line">            ans = (ans + <span class="number">1L</span>L * K[d] * sum2[d] % mod * phi[w] % mod) % mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dfs3_dec(c, <span class="number">0</span>);</span><br><span class="line">    vis[c] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nv.size(); i++) solve(nv[i], ns[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(l, <span class="number">-1</span>, <span class="keyword">sizeof</span>(l));</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    phi[<span class="number">1</span>] = <span class="number">1</span>, mu[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!isnp[i]) &#123;</span><br><span class="line">            phi[i] = i<span class="number">-1</span>;</span><br><span class="line">            mu[i] = mod - <span class="number">1</span>;</span><br><span class="line">            prm[++ pcnt] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= pcnt &amp;&amp; prm[j] * i &lt;= n; j++) &#123;</span><br><span class="line">            isnp[prm[j] * i] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (i % prm[j] == <span class="number">0</span>) &#123;</span><br><span class="line">                mu[i * prm[j]] = <span class="number">0</span>;</span><br><span class="line">                phi[i * prm[j]] = phi[i] * prm[j];</span><br><span class="line">                <span class="keyword">break</span>;。，</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                mu[i * prm[j]] = (mod - mu[i]) % mod;</span><br><span class="line">                phi[i * prm[j]] = phi[i] * (prm[j] - <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) iphi[i] = qpow(phi[i], mod<span class="number">-2</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j * i &lt;= n; j++) &#123;</span><br><span class="line">            vd[j*i].push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; vd[i].size(); j++) &#123;</span><br><span class="line">            <span class="keyword">int</span> d = vd[i][j];</span><br><span class="line">            K[i] = (K[i] + <span class="number">1L</span>L * mu[i/d] * d % mod * iphi[d] % mod) % mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> u, v; <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;u, &amp;v);</span><br><span class="line">        addEdge(u, v), addEdge(v, u);</span><br><span class="line">    &#125;</span><br><span class="line">    solve(<span class="number">1</span>, n);</span><br><span class="line">    ans = <span class="number">1L</span>L * ans * qpow(<span class="number">1L</span>L * n * (n<span class="number">-1</span>) % mod, mod<span class="number">-2</span>) % mod;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/10/[]1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1658,169 +1841,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/09/21/CF1204D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zbww">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一个蒟蒻的Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/09/21/CF1204D/" class="post-title-link" itemprop="url">[Codeforces1204D] Kirk and a Binary String</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-21 15:38:00 / 修改时间：17:02:24" itemprop="dateCreated datePublished" datetime="2019-09-21T15:38:00+08:00">2019-09-21</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="题解">题解</h3>
-<p>update: 感觉我做麻烦了，题解做法好简单。这篇 blog 就丢这吧…..感觉没什么错误。</p>
-<p>如果只把 <span class="math inline">\(0\)</span> 变成 <span class="math inline">\(1\)</span> 而不把 <span class="math inline">\(1\)</span> 变成 <span class="math inline">\(0\)</span>，会导致 <span class="math inline">\(0\)</span> 的个数减少，还不如不改变原序列。</p>
-<p>如果既出现把 <span class="math inline">\(0\)</span> 变成 <span class="math inline">\(1\)</span> 也出现把 <span class="math inline">\(1\)</span> 变成 <span class="math inline">\(0\)</span>，设某一个把 <span class="math inline">\(0\)</span> 变成 <span class="math inline">\(1\)</span> 的位置为 <span class="math inline">\(p_1\)</span>，某一个把 <span class="math inline">\(1\)</span> 变成 <span class="math inline">\(0\)</span> 的位置为 <span class="math inline">\(p_2\)</span>。</p>
-<p>不妨设 <span class="math inline">\(p_1 &lt; p_2\)</span>。（如果 <span class="math inline">\(p_1 &gt; p_2\)</span>，交换原序列和新序列就和一种 <span class="math inline">\(p_1 &lt; p_2\)</span> 的情况等价了）</p>
-<p>设 <span class="math inline">\(f[l,r]\)</span> 表示原序列上 <span class="math inline">\([l,r]\)</span> 中最长不降子序列长度，<span class="math inline">\(g[l,r]\)</span> 表示新序列上 <span class="math inline">\([l,r]\)</span> 中最长不降子序列长度。</p>
-<p>定义 <span class="math inline">\(f[l,r] = g[l,r] = 0(l &gt; r)\)</span>。</p>
-<p>那么 <span class="math inline">\(f[p_1,p_2] = f[p_1+1, p_2-1]+2 \Rightarrow g[p_1,p_2] = g[p_1+1,p_2-1]+2\)</span>。</p>
-<p>因此新序列上 <span class="math inline">\([p_1,p_2]\)</span> 中的最长不降子序列必然要包含 <span class="math inline">\(p_1\)</span> 和 <span class="math inline">\(p_2\)</span>，但是新序列上 <span class="math inline">\(p_1\)</span> 位置为 <span class="math inline">\(1\)</span>，<span class="math inline">\(p_2\)</span> 位置为 <span class="math inline">\(0\)</span>，这是不可能的。</p>
-<p>因此，只会出现把 <span class="math inline">\(1\)</span> 变成 <span class="math inline">\(0\)</span> 的位置，不会出现把 <span class="math inline">\(0\)</span> 变成 <span class="math inline">\(1\)</span> 的位置。</p>
-<p>考虑把一个位置在原序列左端或左边不为 <span class="math inline">\(1\)</span> 的 <span class="math inline">\(1\)</span> 变成 <span class="math inline">\(0\)</span>，不对任意区间内的最长不降子序列产生影响的条件。</p>
-<p>假设这个位置是 <span class="math inline">\(p\)</span>。分两种情况讨论：</p>
-<ol type="1">
-<li><span class="math inline">\(p &lt; n\)</span> 且位置 <span class="math inline">\(p+1\)</span> 上的是 <span class="math inline">\(1\)</span>.</li>
-<li><span class="math inline">\(p = n\)</span> 或位置 <span class="math inline">\(p+1\)</span> 上的是 <span class="math inline">\(0\)</span>.</li>
-</ol>
-<p>先看第一种情况。把位置 <span class="math inline">\(p\)</span> 上的 <span class="math inline">\(1\)</span> 变成 <span class="math inline">\(0\)</span> 看作新序列（用 <span class="math inline">\(g[l,r]\)</span> 描述新序列上的最长不降子序列）。对于任意的 <span class="math inline">\(i &lt; p\)</span>，<span class="math inline">\(f[i,p] = f[i,p-1] + 1 \Rightarrow g[i,p] = g[i,p-1] + 1\)</span>，而新序列上位置 <span class="math inline">\(p\)</span> 上的是 <span class="math inline">\(0\)</span>，这说明 <span class="math inline">\([i,p-1]\)</span> 存在结尾为 <span class="math inline">\(0\)</span> 的最长不降子序列，即 <span class="math inline">\([i,p-1]\)</span> 的最长不降子序列等于 <span class="math inline">\([i, p-1]\)</span> 中 <span class="math inline">\(0\)</span> 的个数。可以证明这个条件对任意的 <span class="math inline">\(i &lt; p\)</span> 都成立的充要条件为对于任意的 <span class="math inline">\(i &lt; p\)</span>，<span class="math inline">\([i,p-1]\)</span> 中 <span class="math inline">\(0\)</span> 的个数不少于 <span class="math inline">\(1\)</span> 的个数：必要性是显然的，只需证充分性，假设 <span class="math inline">\([i, p-1]\)</span> 的最长不降子序列大于 <span class="math inline">\(0\)</span> 的个数，任取一个 <span class="math inline">\([i,p-1]\)</span> 的最长不降子序列，它必然包含一个 <span class="math inline">\(1\)</span>，设第一个 <span class="math inline">\(1\)</span> 位置为 <span class="math inline">\(k\)</span>，那么这个子序列 <span class="math inline">\(k\)</span> 之前的元素再拼上 <span class="math inline">\([k,p-1]\)</span> 中所有的 <span class="math inline">\(0\)</span> 必然是一个全 <span class="math inline">\(0\)</span> 的不会更短的子序列（因为 <span class="math inline">\([k,p-1]\)</span> 中 <span class="math inline">\(0\)</span> 的个数不少于 <span class="math inline">\(1\)</span> 的个数），这与不存在全为 <span class="math inline">\(0\)</span> 的不降子序列矛盾。不难验证这也是第一种情况中能把 <span class="math inline">\(p\)</span> 上的数变为 <span class="math inline">\(0\)</span> 的充要条件。</p>
-<p>第二种情况显然也必须要满足第一种情况的条件。除此之外，由于位置 <span class="math inline">\(p+1\)</span> 上的是 <span class="math inline">\(0\)</span>，还需满足对于任意的 <span class="math inline">\(i &gt; p\)</span>，<span class="math inline">\([p+1,i]\)</span> 中 <span class="math inline">\(1\)</span> 的个数不少于 <span class="math inline">\(0\)</span> 的个数（与第一种情况的证明类似，详细过程就不写了）。</p>
-<p>从左往右贪心，对于一个位置，如果它是 <span class="math inline">\(1\)</span>，且能够保持任意区间最长不降子序列长度不变地变为 <span class="math inline">\(0\)</span>，就把它变成 <span class="math inline">\(0\)</span>。不难证明这种贪心是正确的，详细证明这里不写了。（提示：考虑最优解中 <span class="math inline">\(1\rightarrow0\)</span> 的最小位置）</p>
-<p>判断是否存在前缀 / 后缀 <span class="math inline">\(0\)</span> 的个数多于 / 少于 <span class="math inline">\(1\)</span> 的个数，可以通过计算每个前缀中 <span class="math inline">\(0\)</span> 的个数减 <span class="math inline">\(1\)</span> 的个数很容易地处理。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1872,7 +1892,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">104</span>
+                    <span class="site-state-item-count">105</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1961,7 +1981,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">37</span>
+                      
+                    
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -2588,9 +2610,9 @@
       
     
       
-        
-      
     
+      
+        
       
     
       
