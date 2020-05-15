@@ -320,6 +320,181 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/22/最小树形图/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zbww">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个蒟蒻的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/03/22/最小树形图/" class="post-title-link" itemprop="url">[知识点] 最小树形图</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-22 17:08:00" itemprop="dateCreated datePublished" datetime="2020-03-22T17:08:00+08:00">2020-03-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-24 18:23:27" itemprop="dateModified" datetime="2020-03-24T18:23:27+08:00">2020-03-24</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="问题">问题</h1>
+<p>给定一个 <span class="math inline">\(n\)</span> 个点 <span class="math inline">\(m\)</span> 条边的带权简单有向图，求一个最小边权和的是以 <span class="math inline">\(r\)</span> 为根的内向生成树。</p>
+<p>外向树的情况没有本质区别，边反一反就好。</p>
+<p>无根的情况可以加一个点转化为有根的情况。</p>
+<h1 id="算法">算法</h1>
+<p>如果给定的有向图是 DAG，一个显然的贪心是，取除了 <span class="math inline">\(r\)</span> 以外的每个点的最小出边。显然这样会构成一棵内向树，且不可能有权值和更小的内向树。</p>
+<p>如果给定的有向图不是 DAG，直接取除了 <span class="math inline">\(r\)</span> 以外的每个点的最小出边不一定会得到一棵树，此时可能会有多个弱连通块，每个连通块是一条链（包含 <span class="math inline">\(r\)</span> 的）或者一棵基环内向树。如果你得到了一个内向生成树就求出了答案，下面我们考虑至少有一个环的情况。</p>
+<p>可以发现，对于一个（某个基环树连通块中的）环，一定存在一个最小内向生成树，恰好只有一条环上边不在这个最小内向生成树中。原因很简单，我们先假设边权互不相同（你可以加入一个充分小的偏移量，在不影响答案的前提下使边权互不相同），设点 <span class="math inline">\(u\)</span> 的最大出边连向点 <span class="math inline">\(f(u)\)</span>，考虑一个最小内向生成树，如果存在一个点 <span class="math inline">\(u \neq r\)</span>，<span class="math inline">\(f(u)\)</span> 不在 <span class="math inline">\(u\)</span> 的子树中，且 <span class="math inline">\(f(u)\)</span> 不是 <span class="math inline">\(u\)</span> 的父亲，我们可以把 <span class="math inline">\(u\)</span> 的父亲改为 <span class="math inline">\(f(u)\)</span>，得到一个更小的内向生成树，这与这个树是最小内向生成树矛盾。这说明，对于任意一个环上的点 <span class="math inline">\(u\)</span>，使得 <span class="math inline">\(f(u)\)</span> 不是 <span class="math inline">\(u\)</span> 的父亲 (环上点肯定不是 <span class="math inline">\(r\)</span>)，<span class="math inline">\(f(u)\)</span> 要么是 <span class="math inline">\(u\)</span> 的父亲要么在 <span class="math inline">\(u\)</span> 的子树中。考虑从 <span class="math inline">\(u\)</span> 出发，每次从 <span class="math inline">\(u\)</span> 走向 <span class="math inline">\(f(u)\)</span>，在走回 <span class="math inline">\(u\)</span> 之前，一定不会经过一个点两次，从而路径上只有第一次走的时候 <span class="math inline">\(f(u)\)</span> 不是 <span class="math inline">\(u\)</span> 的父亲，因此环上只有一条边没有在这个最小内向生成树中出现。</p>
+<p>因此我们只需要考虑一个环上哪一条边没有出现。考虑把环缩成一个点，得到一个与原图等价的图。</p>
+<figure>
+<img src="/images/2020032201.png" alt="例图"><figcaption>例图</figcaption>
+</figure>
+<p>其中 <span class="math inline">\(e\)</span> 是不在最小树形图中的边，从图中可以很明显地看到，把环缩成一个点，然后把缩完后的的点的出边边权减去原来这条出边对应的 <span class="math inline">\(e\)</span> 的权值即可得到一个等价的图。</p>
+<p>暴力缩点可以用 <span class="math inline">\(\mathcal O(nm)\)</span> 的时间复杂度求出最小树形图。</p>
+<h1 id="复杂度优化">复杂度优化</h1>
+<p>用并查集维护弱连通块，再用并查集维护当前哪些点被缩成了一个点。用可并堆维护当前每个点的出边，缩点时带 tag 合并一下，然后找最小出边，如果在同一弱连通块又可以缩点了，否则的话就和其他弱连通块合并在了一起。</p>
+<p>缩一次至少减少一个点，所以这个算法的复杂度为 <span class="math inline">\(\mathcal O((n+m) \log n)\)</span>。</p>
+<h1 id="实现">实现</h1>
+<p>咕咕咕。</p>
+<p>由于实现咕了所以也不能保证上面说的是对的。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/19/CF626G/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1757,167 +1932,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/03/16/CF150E/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zbww">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一个蒟蒻的Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2020/03/16/CF150E/" class="post-title-link" itemprop="url">[Codeforces150E] Freezing with Style!</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2020-03-16 10:57:00" itemprop="dateCreated datePublished" datetime="2020-03-16T10:57:00+08:00">2020-03-16</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-03-27 17:18:15" itemprop="dateModified" datetime="2020-03-27T17:18:15+08:00">2020-03-27</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="做法">做法</h1>
-<p>显然可以二分答案，转化为这样一个问题：每个边的边权是正负一，判断是否有长度在 <span class="math inline">\(l\)</span> 到 <span class="math inline">\(r\)</span> 之间的路径，权值之和非负。</p>
-<p>从下往上合并，每次考虑当前点作为 lca 的情况，然后把子树合并，由于你合并时只需要考虑一个点子树中每个深度到根权值和最大的点，可以用长链剖分来维护深度信息。合并的时候顺便询问一下答案，长链剖分 + 线段树即可。</p>
-<p>时间复杂度 <span class="math inline">\(\mathcal O(n \log^2n)\)</span>。</p>
-<h1 id="代码">代码</h1>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; pi;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, L, R, ca, ru, rv;</span><br><span class="line"><span class="keyword">int</span> l[maxn], dep[maxn], dis[maxn], mx[maxn], son[maxn], e = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> tot, ls[maxn*<span class="number">20</span>], rs[maxn*<span class="number">20</span>], trt[maxn];</span><br><span class="line">pi T[maxn*<span class="number">20</span>];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> v, w, x;</span><br><span class="line">&#125; E[maxn&lt;&lt;<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">addEdge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">    E[e].v = v, E[e].x = l[u], E[e].w = w, l[u] = e++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> p = l[u]; p &gt;= <span class="number">0</span>; p = E[p].x) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = E[p].v;</span><br><span class="line">        <span class="keyword">if</span> (v != f) &#123;</span><br><span class="line">            dep[v] = dep[u] + <span class="number">1</span>;</span><br><span class="line">            dfs1(v, u);</span><br><span class="line">            <span class="keyword">if</span> (!son[u] || mx[v] &gt; mx[son[u]]) son[u] = v, mx[u] = mx[v] + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs2</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> p = l[u]; p &gt;= <span class="number">0</span>; p = E[p].x) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = E[p].v;</span><br><span class="line">        <span class="keyword">if</span> (v != f) &#123;</span><br><span class="line">            <span class="keyword">if</span> (E[p].w &gt;= ca) dis[v] = dis[u] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> dis[v] = dis[u] - <span class="number">1</span>;</span><br><span class="line">            dfs2(v, u);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">upd</span><span class="params">(<span class="keyword">int</span> p, pi v, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> &amp;rt)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!rt) &#123;</span><br><span class="line">        rt = ++ tot;</span><br><span class="line">        ls[rt] = rs[rt] = <span class="number">0</span>;</span><br><span class="line">        T[rt] = pi(-inf, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    T[rt] = max(T[rt], v);</span><br><span class="line">    <span class="keyword">if</span> (l == r) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (p &lt;= m) upd(p, v, l, m, ls[rt]);</span><br><span class="line">    <span class="keyword">else</span> upd(p, v, m+<span class="number">1</span>, r, rs[rt]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">pi <span class="title">qry</span><span class="params">(<span class="keyword">int</span> L, <span class="keyword">int</span> R, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> rt)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!rt) <span class="keyword">return</span> pi(-inf, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span> (L &lt;= l &amp;&amp; r &lt;= R) <span class="keyword">return</span> T[rt];</span><br><span class="line">    <span class="keyword">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="function">pi <span class="title">ret</span><span class="params">(-inf, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">if</span> (L &lt;= m) ret = max(ret, qry(L, R, l, m, ls[rt]));</span><br><span class="line">    <span class="keyword">if</span> (R &gt; m) ret = max(ret, qry(L, R, m+<span class="number">1</span>, r, rs[rt]));</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> _dis, _dep;</span><br><span class="line"></span><br><span class="line"><span class="comment">// rt2 -&gt; rt1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> _dfs1(<span class="keyword">int</span> t, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> rt) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!rt) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">        <span class="keyword">int</span> lb = max(<span class="number">0</span>, L + <span class="number">2</span> * _dep - l), rb = min(n, R + <span class="number">2</span> * _dep - l);</span><br><span class="line">        <span class="keyword">if</span> (lb &lt;= rb) &#123;</span><br><span class="line">            pi res = qry(lb, rb, <span class="number">0</span>, n, t);</span><br><span class="line">            <span class="keyword">if</span> (res.first + T[rt].first - <span class="number">2</span> * _dis &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                ru = res.second, rv = T[rt].second;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    _dfs1(t, l, m, ls[rt]);</span><br><span class="line">    _dfs1(t, m+<span class="number">1</span>, r, rs[rt]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> _dfs2(<span class="keyword">int</span> t, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> rt) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!rt) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">        upd(l, T[rt], <span class="number">0</span>, n, t);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    _dfs2(t, l, m, ls[rt]);</span><br><span class="line">    _dfs2(t, m+<span class="number">1</span>, r, rs[rt]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> rt1, <span class="keyword">int</span> rt2)</span> </span>&#123;</span><br><span class="line">    _dfs1(rt1, <span class="number">0</span>, n, rt2);</span><br><span class="line">    _dfs2(rt1, <span class="number">0</span>, n, rt2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs3</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">    trt[u] = <span class="number">0</span>;</span><br><span class="line">    upd(dep[u], pi(dis[u], u), <span class="number">0</span>, n, trt[u]);</span><br><span class="line">    <span class="keyword">if</span> (son[u]) dfs3(son[u], u);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> p = l[u]; p &gt;= <span class="number">0</span>; p = E[p].x) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = E[p].v;</span><br><span class="line">        <span class="keyword">if</span> (v != f &amp;&amp; v != son[u]) &#123;</span><br><span class="line">            dfs3(v, u);</span><br><span class="line">            _dis = dis[u], _dep = dep[u];</span><br><span class="line">            Merge(trt[son[u]], trt[v]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    _dis = dis[u], _dep = dep[u];</span><br><span class="line">    <span class="keyword">if</span> (son[u]) &#123;</span><br><span class="line">        Merge(trt[son[u]], trt[u]);</span><br><span class="line">        trt[u] = trt[son[u]];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// check ca</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">check</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    dfs2(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    tot = ru = rv = <span class="number">0</span>;</span><br><span class="line">    dfs3(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span> (ru + rv) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(l, <span class="number">-1</span>, <span class="keyword">sizeof</span>(l));</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;L, &amp;R);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> u, v, w; <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;u, &amp;v, &amp;w);</span><br><span class="line">        addEdge(u, v, w), addEdge(v, u, w);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs1(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> l = <span class="number">0</span>, r = <span class="keyword">int</span> (<span class="number">1e9</span>), ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">        <span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        ca = mid;</span><br><span class="line">        <span class="keyword">if</span> (check()) &#123;</span><br><span class="line">            ans = mid;</span><br><span class="line">            l = mid + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ca = ans;</span><br><span class="line">    check();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, ru, rv);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1969,7 +1983,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">105</span>
+                    <span class="site-state-item-count">106</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
