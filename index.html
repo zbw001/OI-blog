@@ -1054,7 +1054,7 @@
                 
               
 
-              <time title="创建时间：2020-05-20 01:06:01 / 修改时间：05:22:55" itemprop="dateCreated datePublished" datetime="2020-05-20T01:06:01+08:00">2020-05-20</time>
+              <time title="创建时间：2020-05-20 01:06:01 / 修改时间：05:41:22" itemprop="dateCreated datePublished" datetime="2020-05-20T01:06:01+08:00">2020-05-20</time>
             
 
             
@@ -1131,11 +1131,12 @@
 <p>令初始的 <span class="math inline">\(I\)</span> 为 <span class="math inline">\(\varnothing\)</span>，定义 <span class="math inline">\(X_1 = \{x \not \in I \mid I + \{x\} \in \mathcal I_1\}, X_2 = \{x \not \in I \mid I + \{x\} \in \mathcal I_2\}\)</span> (注意 <span class="math inline">\(X_1,X_2\)</span> 中的点都在右部)。如果交换图 <span class="math inline">\(D_{M_1,M_2}\)</span> 中的从 <span class="math inline">\(X_1\)</span> 中点出发到 <span class="math inline">\(X_2\)</span> 中点的路径，找到一条 <span class="math inline">\(X_1\)</span> 到 <span class="math inline">\(X_2\)</span> 的<strong>最短路</strong>，设这条路径为 <span class="math inline">\(P\)</span>，把 <span class="math inline">\(I\)</span> 变为 <span class="math inline">\(I \Delta P\)</span>，其中 <span class="math inline">\(\Delta\)</span> 为对称差，重复这一过程直到找不到路径为止，此时 <span class="math inline">\(I\)</span> 就是一个最大的同时是两个拟阵独立集的集合。注意，如果 <span class="math inline">\(X \cap Y \neq \varnothing\)</span>，这个算法会直接增广一条长度为 <span class="math inline">\(0\)</span> 的路径。</p>
 <p>下面来验证这个算法的正确性。</p>
 <p>首先，我们验证如果 <span class="math inline">\(I \in \mathcal I_1 \cap \mathcal I_2\)</span>，那么 <span class="math inline">\(I \Delta P \in \mathcal I_1 \cap \mathcal I_2\)</span>。</p>
-<p><span class="math inline">\(P\)</span> 中的右部到左部的边和左部到右部的边分别构成了 <span class="math inline">\(M_1\)</span> 和 <span class="math inline">\(M_2\)</span> 的交换图上的一个包含 <span class="math inline">\(P \cap I\)</span> 的匹配。比如在下面的例子中，红边和绿边分别构成匹配。</p>
+<p><span class="math inline">\(P\)</span> 中的左部到右部的边和右部到左部的边分别构成了 <span class="math inline">\(M_1\)</span> 和 <span class="math inline">\(M_2\)</span> 的交换图上的一个包含 <span class="math inline">\(P \cap I\)</span> 的匹配。比如在下面的例子中，红边和绿边分别构成匹配。</p>
 <figure>
 <img src="/images/2020052001.png" alt="例图"><figcaption>例图</figcaption>
 </figure>
-<p>设 <span class="math inline">\(P\)</span> 的起点为 <span class="math inline">\(s \in X_1\)</span>，终点为 <span class="math inline">\(t \in X_2\)</span></p>
+<p>设 <span class="math inline">\(P\)</span> 的起点为 <span class="math inline">\(s \in X_1\)</span>，终点为 <span class="math inline">\(t \in X_2\)</span>，则 <span class="math inline">\(P\)</span> 中左部到右部的边构成了 <span class="math inline">\(M_1\)</span> 的交换图上 <span class="math inline">\(I \cap P\)</span> 到 <span class="math inline">\(P \setminus (I \cup \{s\})\)</span> 的一个完美匹配，且这也是这两个点集在 <span class="math inline">\(M_1\)</span> 的交换图上唯一的完美匹配（因为它们之间不存在其他边，否则与最短路矛盾）。由 <strong>引理 3</strong> 可得，<span class="math inline">\((I \Delta P) \setminus \{s\} \in \mathcal I_1\)</span>。由于 <span class="math inline">\(P\)</span> 是一条最短路，<span class="math inline">\(\forall x \in P \setminus (I \cup \{s\}),\ x \not \in X_1\)</span>，即 <span class="math inline">\(x \in cl(I)\)</span>。所以 <span class="math inline">\(P \setminus (I \cup \{s\}) \subseteq cl(I)\)</span>，与之前类似地应用 <strong>引理 1</strong>、<strong>引理 3</strong> 可得 <span class="math inline">\(cl(P \setminus (I \cup \{s\})) \subseteq cl(I)\)</span>，再应用 <strong>引理 2</strong> 可得 <span class="math inline">\(cl((P \setminus (I \cup \{s\})) \cup I) = cl(I \cup (P \setminus \{s\})) \subseteq cl(I)\)</span>，又因为 <span class="math inline">\(s \not \in cl(I)\)</span>，所以 <span class="math inline">\(s \not \in cl((I \Delta P) \setminus \{s\})\)</span>。这就证明了 <span class="math inline">\(I \Delta P \in \mathcal I_1\)</span>。类似地也可以证明 <span class="math inline">\(I \Delta P \in \mathcal I_2\)</span>。</p>
+<p>接下来验证当找不到增广路时，<span class="math inline">\(I\)</span> 是最大的同时是两个拟阵的独立集的集合。我们只需找到一个集合 <span class="math inline">\(U\)</span> 并验证此时 <strong>定理 2</strong> 成立即可。</p>
 
           
         
