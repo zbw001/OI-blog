@@ -1377,10 +1377,11 @@ G(n,m,k+1,l) - G(n,m,k,l) = -\binom{k}{l}\binom{n+m-k-1}{n-l-1}
   
 
   MathJax.Hub.Config({
+	"HTML-CSS": { linebreaks: { automatic: true } },
+    SVG: { linebreaks: { automatic: true } },
     tex2jax: {
       inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
       processEscapes: true,
-	  linebreaks: { automatic: true },
       skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
 	},
     TeX: {
