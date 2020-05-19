@@ -387,7 +387,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-05-19 21:28:38" itemprop="dateModified" datetime="2020-05-19T21:28:38+08:00">2020-05-19</time>
+                <time title="修改时间：2020-05-20 01:42:36" itemprop="dateModified" datetime="2020-05-20T01:42:36+08:00">2020-05-20</time>
               
             
           </span>
@@ -952,6 +952,171 @@
 <li>在用 new 出来的数组时出现越界。这时不会报错，出现 new 出来的数组时，一定要谨慎计算每次调用的大小。（尤其是写多项式时）</li>
 <li>维护线段树区间加时，结果可能很大的时候 modify 函数参数不开 long long</li>
 </ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/05/20/拟阵交/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zbww">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个蒟蒻的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/05/20/拟阵交/" class="post-title-link" itemprop="url">[知识点] 拟阵交</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-20 01:06:01 / 修改时间：02:07:15" itemprop="dateCreated datePublished" datetime="2020-05-20T01:06:01+08:00">2020-05-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本文适合试图读 yql 论文然后 zbl 的选手，主要内容就是把 yql 论文中从强基交换定理到拟阵交的部分用人话 (我能直接理解的语言) 描述了一遍，对前面的内容不作描述，直接当做定理来使用。</p>
+<p>为了方便理解，我们用线性拟阵来作类比 (这样会比用图拟阵类比方便很多)。</p>
+<h1 id="强基交换定理">强基交换定理</h1>
+<p><strong>强基交换定理</strong> 对于拟阵 <span class="math inline">\(M\)</span>，如果存在两个不同的基 <span class="math inline">\(A,B\)</span>，那么对于任意一个 <span class="math inline">\(x \in A \setminus B\)</span>，都存在一个元素 <span class="math inline">\(y \in B \setminus A\)</span>，满足 <span class="math inline">\(A - \{x\} + \{y\}\)</span> 和 <span class="math inline">\(B - \{y\} + \{x\}\)</span> 都是拟阵的基。</p>
+<p>我们先考虑在一个线性拟阵中证明这个命题。</p>
+<p><strong>线性拟阵中强基交换定理的证明</strong> 由于 <span class="math inline">\(B\)</span> 是一组基，<span class="math inline">\(B + x\)</span> 包含一个唯一的环 <span class="math inline">\(C\)</span>。在线性拟阵中，环满足任意元素都可以被其他元素线性表出。对于 <span class="math inline">\(C\)</span> 中的任意一个元素 <span class="math inline">\(z \neq x\)</span>，<span class="math inline">\(z\)</span> 可以被 <span class="math inline">\(C - \{z\}\)</span> 线性标出，而 <span class="math inline">\(C- \{z\} \subseteq B + \{x\} - \{z\}\)</span>，所以 <span class="math inline">\(z\)</span> 可以被 <span class="math inline">\(B + \{x\} - \{z\}\)</span> 线性表出，从而 <span class="math inline">\(r(B+\{x\}-\{ z \} ) \ge r(B)\)</span>，因为 <span class="math inline">\(B\)</span> 是独立集，<span class="math inline">\(\lvert B + \{x\} - \{z\} \rvert = \lvert B \rvert\)</span>，所以 <span class="math inline">\(B - \{x\} + \{z\}\)</span> 是一组基。我们只需证明 <span class="math inline">\(C - \{x\}\)</span> 中存在一个元素 <span class="math inline">\(z\)</span> 不能被 <span class="math inline">\(A - \{x\}\)</span> 线性表出即可。假设 <span class="math inline">\(C - \{x\}\)</span> 中所有元素都可以被 <span class="math inline">\(z\)</span> 线性表出，那么 <span class="math inline">\(x\)</span> 也可以被 <span class="math inline">\(A - \{x\}\)</span> 线性表出 (因为 <span class="math inline">\(x\)</span> 可以被 <span class="math inline">\(C - \{x\}\)</span> 线性表出)，这与 <span class="math inline">\(A\)</span> 是独立集矛盾。这就完成了证明。</p>
+<p>接下来试着把这个证明推广到拟阵上。可以想到，如果要在拟阵上用上述思路证明这个命题，关键是要引入一个类似线性表出的概念。</p>
+<p><strong>定义 1</strong> 对于拟阵 <span class="math inline">\(M=(S, \mathcal I)\)</span> 和 <span class="math inline">\(A \subseteq S\)</span>，我们定义 <span class="math inline">\(A\)</span> 的闭包算子 <span class="math inline">\(cl(A)=\{e \in S: r(A \cup\{e\})=r(A)\}\)</span>。</p>
+<p>有了这一概念，在线性拟阵上，<span class="math inline">\(x\)</span> 可以被 <span class="math inline">\(A\)</span> 线性表出可以对应为 <span class="math inline">\(x \in cl(A)\)</span>，<span class="math inline">\(cl(A)\)</span> 等价于向量组 <span class="math inline">\(A\)</span> 张成的子空间。</p>
+<p><strong>引理 1</strong> 对于拟阵 <span class="math inline">\(M = (S, \mathcal I)\)</span>，如果 <span class="math inline">\(A \subseteq B\)</span>，那么 <span class="math inline">\(cl(A) \subseteq cl(B)\)</span>。</p>
+<p>在线性拟阵上，<strong>引理 1</strong> 等价于，如果 <span class="math inline">\(A \subseteq B\)</span>，若 <span class="math inline">\(x\)</span> 能被 <span class="math inline">\(A\)</span> 线性表出，则 <span class="math inline">\(x\)</span> 也能被 <span class="math inline">\(B\)</span> 线性表出，这一命题是显然的。现在我们在一般的拟阵上用秩函数的性质证明这个命题，这大概是本文中唯一一个技巧性较强的证明，可以当做结论记下来。</p>
+<p><strong>引理 1 的证明</strong> 假设 <span class="math inline">\(e \in cl(A)\)</span>，若 <span class="math inline">\(e \in A\)</span>，显然有 <span class="math inline">\(e \in cl(B)\)</span>，否则</p>
+<p><span class="math display">\[r(A \cup \{e\}) + r(B) \ge r((A\cup \{e\}) \cap B) + r(B \cup \{e\}) \ge r(A) + r(B \cup \{e\})\]</span></p>
+<p>左右消去 <span class="math inline">\(r(A \cup \{e\})\)</span> 和 <span class="math inline">\(r(A)\)</span> 得到 <span class="math inline">\(r(B) \ge r(B \cup \{e\})\)</span>，即 <span class="math inline">\(r(B) = r(B\cup \{e\})\)</span>，所以 <span class="math inline">\(e \in cl(B)\)</span>。因此 <span class="math inline">\(cl(A) \subseteq cl(B)\)</span>。</p>
+<p><strong>引理 2</strong> 对于拟阵 <span class="math inline">\(M = (S, \mathcal I)\)</span> 和 <span class="math inline">\(A \subseteq S\)</span>，如果 <span class="math inline">\(e \in cl(A)\)</span>，那么 <span class="math inline">\(cl(A) = cl(A \cup \{e\})\)</span>。</p>
+<p>在线性拟阵上，这等价于如果 <span class="math inline">\(e\)</span> 能被 <span class="math inline">\(A\)</span> 线性表出，那么 <span class="math inline">\(A\)</span> 与 <span class="math inline">\(A \cup \{e\}\)</span> 张成的子空间相同。</p>
+<p><strong>引理 2 的证明</strong> 因为 <span class="math inline">\(A \subseteq cl(A)\)</span>，由 <strong>引理 1</strong> 可以得到 <span class="math inline">\(cl(A) \subseteq cl(cl(A))\)</span>。假设 <span class="math inline">\(f \in cl(cl(A))\)</span>，则 <span class="math inline">\(r(A) = r(A+\{e\}) = r(A+\{e\}+\{f\})\)</span>，又因为 <span class="math inline">\(r(A) \le r(A +\{f\}) \le r(A + \{e\} + \{f\})\)</span>，所以 <span class="math inline">\(r(A+\{f\}) = r(A)\)</span>，即 <span class="math inline">\(f \in cl(A)\)</span>。这就证明了 <span class="math inline">\(cl(cl(A)) \subseteq cl(A)\)</span>，所以 <span class="math inline">\(cl(A) = cl(cl(A))\)</span>。</p>
+<p><strong>引理 3</strong> 对于拟阵 <span class="math inline">\(M = (S, \mathcal I)\)</span> 和 <span class="math inline">\(A \subseteq S\)</span>，<span class="math inline">\(cl(A) = cl(cl(A))\)</span>。</p>
+<p>这是 <strong>引理 2</strong> 的一个简单推论，证明就不详细写出了。</p>
+<p>现在，我们用已经证明的引理替换只存在于线性拟阵中的概念和结论，给出强基交换定理在一般拟阵上的证明。</p>
+<p><strong>强基交换定理的证明</strong></p>
+<h1 id="拟阵交">拟阵交</h1>
 
           
         
@@ -1796,180 +1961,6 @@ P&#39;_i(1) = x_{a_i}, Q&#39;(1) = (n-1) x_0
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/05/12/loj2504/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zbww">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一个蒟蒻的Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2020/05/12/loj2504/" class="post-title-link" itemprop="url">[LOJ2504] 「2018 集训队互测 Day 5」小 H 爱染色</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2020-05-12 03:48:08" itemprop="dateCreated datePublished" datetime="2020-05-12T03:48:08+08:00">2020-05-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-05-14 20:36:56" itemprop="dateModified" datetime="2020-05-14T20:36:56+08:00">2020-05-14</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="做法">做法</h1>
-<p>把编号看成 <span class="math inline">\(1 \ldots n\)</span> 调了巨久，我大概没救了。</p>
-<p>显然编号最小黑球编号为 <span class="math inline">\(k\)</span> 的方案有 <span class="math inline">\(\binom{n-k+1}m^2 - \binom {n-k}m^2\)</span> 种。</p>
-<p>答案为</p>
-<p><span class="math display">\[
-\sum_{k = 0}^{n-1} (\binom{n-k}m^2 - \binom {n-k-1}m^2) F(k)
-\]</span></p>
-<p>注意到 <span class="math inline">\((\binom{n-k}m^2 - \binom {n-k-1}m^2) F(k)\)</span> 是一个关于 <span class="math inline">\(k\)</span> 的 <span class="math inline">\(3m\)</span> 次多项式，我们要求这个多项式的一个前缀和，这个多项式的前缀和是一个 <span class="math inline">\(3m+1\)</span> 次多项式，设它为 <span class="math inline">\(G(k)\)</span>。如果我们知道 <span class="math inline">\(F(0) \ldots F(3m+1)\)</span> 就可以很容易地得到 <span class="math inline">\(G(0) \ldots G(3m+1)\)</span>，然后拉格朗日插值得到 <span class="math inline">\(G(n-1)\)</span>。</p>
-<p>但是我们只知道 <span class="math inline">\(F(0) \ldots F(m)\)</span>。考虑如何计算 <span class="math inline">\(F(m+1) \ldots F(3m+1)\)</span>。</p>
-<p><span class="math display">\[
-F(x) = \sum_{i=0}^m F(i) \prod_{j \neq i, 0 \le j\le m} \frac{x-j}{i-j}
-\\\\
-\text{对于 $m &lt; x \le 3m+1$}
-\\\\
-F(x) = \sum_{i=0}^m F(i) \frac {(-1)^{m-i}x^{\underline{m+1}}} {(x-i)i!(m-i)!}=x^{\underline{m+1}} \sum_{i=0}^m  F(i)\frac{(-1)^{m-i}}{i!(m-i)!} \frac 1 {x-i}
-\]</span></p>
-<p>这可以用 NTT 优化，时间复杂度 <span class="math inline">\(\mathcal O(m \log m)\)</span>。</p>
-<h1 id="代码">代码</h1>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> g = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">1000010</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (y) &#123;</span><br><span class="line">        <span class="keyword">if</span> (y &amp; <span class="number">1</span>) &#123;</span><br><span class="line">            ret = <span class="number">1L</span>L * ret * x % mod;</span><br><span class="line">        &#125;</span><br><span class="line">        y &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        x = <span class="number">1L</span>L * x * x % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">mo</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= mod) &#123;</span><br><span class="line">        <span class="keyword">return</span> x - mod;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> NTT &#123;</span><br><span class="line">    <span class="keyword">int</span> wn[<span class="number">30</span>], w[(<span class="number">1</span> &lt;&lt; <span class="number">22</span>) + <span class="number">10</span>], rev[(<span class="number">1</span>&lt;&lt;<span class="number">22</span>) + <span class="number">10</span>], wa[(<span class="number">1</span> &lt;&lt; <span class="number">22</span>) + <span class="number">10</span>], wb[(<span class="number">1</span> &lt;&lt; <span class="number">22</span>) + <span class="number">10</span>], wc[(<span class="number">1</span> &lt;&lt; <span class="number">22</span>) + <span class="number">10</span>];</span><br><span class="line">    ull _a[(<span class="number">1</span> &lt;&lt; <span class="number">22</span>) + <span class="number">10</span>];</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">22</span>; i++) &#123;</span><br><span class="line">            wn[i] = qpow(g, (mod - <span class="number">1</span>) / (<span class="number">1</span> &lt;&lt; i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">ntt</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> _l, <span class="keyword">int</span> ty)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> l = (<span class="number">1</span> &lt;&lt; _l);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; l; i++) &#123;</span><br><span class="line">            rev[i] = (rev[i &gt;&gt; <span class="number">1</span>] &gt;&gt; <span class="number">1</span>) | ((i &amp; <span class="number">1</span>) &lt;&lt; (_l - <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; l; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; rev[i]) &#123;</span><br><span class="line">                swap(a[i], a[rev[i]]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; l; i++) &#123;</span><br><span class="line">            _a[i] = a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> _ = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> len = <span class="number">2</span>; len &lt;= l; len &lt;&lt;= <span class="number">1</span>) &#123;</span><br><span class="line">            w[<span class="number">0</span>] = <span class="number">1</span>; ++ _;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">                w[i] = <span class="number">1L</span>L * w[i<span class="number">-1</span>] * wn[_] % mod;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> s = <span class="number">0</span>; s &lt; l; s += len) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = s; i &lt; s + (len &gt;&gt; <span class="number">1</span>); i++) &#123;</span><br><span class="line">                    ull v1 = _a[i], v2 = w[i - s] * _a[i + (len &gt;&gt; <span class="number">1</span>)] % mod;</span><br><span class="line">                    _a[i] = v1 + v2;</span><br><span class="line">                    _a[i + (len &gt;&gt; <span class="number">1</span>)] = v1 + mod - v2;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (len == (<span class="number">1</span> &lt;&lt; <span class="number">15</span>)) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; l; i++) &#123;</span><br><span class="line">                    _a[i] %= mod;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; l; i++) &#123;</span><br><span class="line">            a[i] = _a[i] % mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (ty == <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> inv = qpow(l, mod - <span class="number">2</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; l; i++) &#123;</span><br><span class="line">                a[i] = <span class="number">1L</span>L * a[i] * inv % mod;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; l / <span class="number">2</span>; i++) &#123;</span><br><span class="line">                swap(a[i], a[l-i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cal</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1L</span>L * x * x % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> F[maxm * <span class="number">3</span>], _F[maxm * <span class="number">3</span>], G[maxm * <span class="number">3</span>], fac[maxm * <span class="number">3</span>], ifac[maxm * <span class="number">3</span>], inv[maxm * <span class="number">3</span>], rinv[maxm * <span class="number">3</span>];</span><br><span class="line"><span class="keyword">int</span> pw[maxm * <span class="number">3</span>]; <span class="comment">// n - i 的 m 次下降幂</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;F[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    NTT::init();</span><br><span class="line">    fac[<span class="number">0</span>] = ifac[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    inv[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">3</span> * m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">        inv[i] = mod - <span class="number">1L</span>L * inv[mod % i] * (mod / i) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">3</span> * m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">        rinv[i] = qpow(n - i, mod - <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">3</span> * m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">        fac[i] = <span class="number">1L</span>L * fac[i<span class="number">-1</span>] * i % mod;</span><br><span class="line">        ifac[i] = <span class="number">1L</span>L * ifac[i<span class="number">-1</span>] * inv[i] % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">using</span> <span class="keyword">namespace</span> NTT;</span><br><span class="line">        <span class="keyword">int</span> l = (<span class="number">1</span> &lt;&lt; <span class="number">22</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m; i++) &#123;</span><br><span class="line">            wa[i] = <span class="number">1L</span>L * F[i] * ifac[i] % mod * ifac[m - i] % mod;</span><br><span class="line">            <span class="keyword">if</span> ((m - i) &amp; <span class="number">1</span>) &#123;</span><br><span class="line">                wa[i] = mo(mod - wa[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">3</span> * m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">            wb[i] = inv[i];</span><br><span class="line">        &#125;</span><br><span class="line">        ntt(wa, <span class="number">22</span>, <span class="number">1</span>), ntt(wb, <span class="number">22</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; l; i++) &#123;</span><br><span class="line">            wc[i] = <span class="number">1L</span>L * wa[i] * wb[i] % mod;</span><br><span class="line">        &#125;</span><br><span class="line">        ntt(wc, <span class="number">22</span>, <span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = m + <span class="number">1</span>; i &lt;= <span class="number">3</span> * m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">            F[i] = <span class="number">1L</span>L * fac[i] * ifac[i - m - <span class="number">1</span>] % mod * wc[i] % mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// P1 : n - i &gt;= m</span></span><br><span class="line">        pw[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            pw[<span class="number">0</span>] = <span class="number">1L</span>L * pw[<span class="number">0</span>] * (n - i) % mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n - m &amp;&amp; i &lt;= <span class="number">3</span> * m + <span class="number">2</span>; i++) &#123;</span><br><span class="line">            pw[i] = <span class="number">1L</span>L * pw[i<span class="number">-1</span>] * rinv[i - <span class="number">1</span>] % mod * (n - i - m + <span class="number">1</span>) % mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// P2 : n - i &lt; 0</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = n + <span class="number">1</span>; i &lt;= <span class="number">3</span> * m + <span class="number">2</span>; i++) &#123;</span><br><span class="line">            pw[i] = <span class="number">1L</span>L * fac[i - n + m - <span class="number">1</span>] * ifac[i - n - <span class="number">1</span>] % mod;</span><br><span class="line">            <span class="keyword">if</span> (m &amp; <span class="number">1</span>) &#123;</span><br><span class="line">                pw[i] = mo(mod - pw[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">3</span> * m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">        _F[i] = <span class="number">1L</span>L * cal(ifac[m]) * (cal(pw[i]) + mod - cal(pw[i+<span class="number">1</span>])) % mod * F[i] % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    G[<span class="number">0</span>] = _F[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">3</span> * m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">        G[i] = mo(G[i<span class="number">-1</span>] + _F[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (n - <span class="number">1</span> &gt; <span class="number">3</span> * m + <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> t = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">3</span> * m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">            t = <span class="number">1L</span>L * t * (n - <span class="number">1</span> - i) % mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">3</span> * m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> v = <span class="number">1L</span>L * t * qpow(n - <span class="number">1</span> - i, mod - <span class="number">2</span>) % mod * ifac[i] % mod * ifac[<span class="number">3</span> * m + <span class="number">1</span> - i] % mod;</span><br><span class="line">            <span class="keyword">if</span> ((<span class="number">3</span> * m + <span class="number">1</span> - i) &amp; <span class="number">1</span>) &#123;</span><br><span class="line">                v = mo(mod - v);</span><br><span class="line">            &#125;</span><br><span class="line">            ans = mo(ans + <span class="number">1L</span>L * G[i] * v % mod) % mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, G[n<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2021,7 +2012,7 @@ F(x) = \sum_{i=0}^m F(i) \frac {(-1)^{m-i}x^{\underline{m+1}}} {(x-i)i!(m-i)!}=x
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">106</span>
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

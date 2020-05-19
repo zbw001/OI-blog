@@ -97,25 +97,25 @@
 
 
 
-  <meta name="description" content="提交至 质数判定。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt;#include &amp;lt;algorithm&amp;gt;#include &amp;lt;">
-<meta name="keywords" content="数论,模板">
+  <meta name="description" content="本文适合试图读 yql 论文然后 zbl 的选手，主要内容就是把 yql 论文中从强基交换定理到拟阵交的部分用人话 (我能直接理解的语言) 描述了一遍，对前面的内容不作描述，直接当做定理来使用。 为了方便理解，我们用线性拟阵来作类比 (这样会比用图拟阵类比方便很多)。 强基交换定理 强基交换定理 对于拟阵 \(M\)，如果存在两个不同的基 \(A,B\)，那么对于任意一个 \(x \in A \s">
+<meta name="keywords" content="知识点">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[模板] Miller-Rabin">
-<meta property="og:url" content="https://zbww.cf/2019/04/16/[模板]-Miller-Rabin/index.html">
+<meta property="og:title" content="[知识点] 拟阵交">
+<meta property="og:url" content="https://zbww.cf/2020/05/20/拟阵交/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="提交至 质数判定。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt;#include &amp;lt;algorithm&amp;gt;#include &amp;lt;">
+<meta property="og:description" content="本文适合试图读 yql 论文然后 zbl 的选手，主要内容就是把 yql 论文中从强基交换定理到拟阵交的部分用人话 (我能直接理解的语言) 描述了一遍，对前面的内容不作描述，直接当做定理来使用。 为了方便理解，我们用线性拟阵来作类比 (这样会比用图拟阵类比方便很多)。 强基交换定理 强基交换定理 对于拟阵 \(M\)，如果存在两个不同的基 \(A,B\)，那么对于任意一个 \(x \in A \s">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-16T09:45:04.054Z">
+<meta property="og:updated_time" content="2020-05-19T18:07:15.136Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[模板] Miller-Rabin">
-<meta name="twitter:description" content="提交至 质数判定。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt;#include &amp;lt;algorithm&amp;gt;#include &amp;lt;">
+<meta name="twitter:title" content="[知识点] 拟阵交">
+<meta name="twitter:description" content="本文适合试图读 yql 论文然后 zbl 的选手，主要内容就是把 yql 论文中从强基交换定理到拟阵交的部分用人话 (我能直接理解的语言) 描述了一遍，对前面的内容不作描述，直接当做定理来使用。 为了方便理解，我们用线性拟阵来作类比 (这样会比用图拟阵类比方便很多)。 强基交换定理 强基交换定理 对于拟阵 \(M\)，如果存在两个不同的基 \(A,B\)，那么对于任意一个 \(x \in A \s">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zbww.cf/2019/04/16/[模板]-Miller-Rabin/">
+  <link rel="canonical" href="https://zbww.cf/2020/05/20/拟阵交/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>[模板] Miller-Rabin | 一个蒟蒻的Blog</title>
+  <title>[知识点] 拟阵交 | 一个蒟蒻的Blog</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2019/04/16/[模板]-Miller-Rabin/">
+    <link itemprop="mainEntityOfPage" href="https://zbww.cf/2020/05/20/拟阵交/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zbww">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[模板] Miller-Rabin
+          <h1 class="post-title" itemprop="name headline">[知识点] 拟阵交
 
               
             
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2019-04-16 17:43:24 / 修改时间：17:45:04" itemprop="dateCreated datePublished" datetime="2019-04-16T17:43:24+08:00">2019-04-16</time>
+              <time title="创建时间：2020-05-20 01:06:01 / 修改时间：02:07:15" itemprop="dateCreated datePublished" datetime="2020-05-20T01:06:01+08:00">2020-05-20</time>
             
 
             
@@ -413,8 +413,28 @@
       
 
       
-        <p>提交至 <a href="https://loj.ac/problem/143" target="_blank" rel="noopener">质数判定</a>。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">mul</span><span class="params">(ll a, ll b, ll mod)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> __int128(a)*__int128(b)%mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll a, ll x, ll mod)</span> </span>&#123;</span><br><span class="line">    ll ret = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (x) &#123;</span><br><span class="line">        <span class="keyword">if</span> (x &amp; <span class="number">1</span>) ret = mul(ret, a, mod);</span><br><span class="line">        a = mul(a, a, mod);</span><br><span class="line">        x &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> prm[<span class="number">12</span>] = &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>, <span class="number">23</span>, <span class="number">29</span>, <span class="number">31</span>, <span class="number">37</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">miller_rabin</span><span class="params">(ll p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p == <span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (p == <span class="number">1</span> || p % <span class="number">2</span> == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    ll t = p<span class="number">-1</span>, c = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (t % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        t /= <span class="number">2</span>;</span><br><span class="line">        ++ c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">12</span> &amp;&amp; prm[i] &lt; p; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> a = prm[i];</span><br><span class="line">        ll v = qpow(a, t, p);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; c; j++) &#123;</span><br><span class="line">            ll nv = mul(v, v, p);</span><br><span class="line">            <span class="keyword">if</span> (nv == <span class="number">1</span> &amp;&amp; v != <span class="number">1</span> &amp;&amp; v != p<span class="number">-1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            v = nv;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (v != <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;n) != EOF) &#123;</span><br><span class="line">        <span class="keyword">if</span> (miller_rabin(n)) <span class="built_in">puts</span>(<span class="string">"Y"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"N"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>本文适合试图读 yql 论文然后 zbl 的选手，主要内容就是把 yql 论文中从强基交换定理到拟阵交的部分用人话 (我能直接理解的语言) 描述了一遍，对前面的内容不作描述，直接当做定理来使用。</p>
+<p>为了方便理解，我们用线性拟阵来作类比 (这样会比用图拟阵类比方便很多)。</p>
+<h1 id="强基交换定理">强基交换定理</h1>
+<p><strong>强基交换定理</strong> 对于拟阵 <span class="math inline">\(M\)</span>，如果存在两个不同的基 <span class="math inline">\(A,B\)</span>，那么对于任意一个 <span class="math inline">\(x \in A \setminus B\)</span>，都存在一个元素 <span class="math inline">\(y \in B \setminus A\)</span>，满足 <span class="math inline">\(A - \{x\} + \{y\}\)</span> 和 <span class="math inline">\(B - \{y\} + \{x\}\)</span> 都是拟阵的基。</p>
+<p>我们先考虑在一个线性拟阵中证明这个命题。</p>
+<p><strong>线性拟阵中强基交换定理的证明</strong> 由于 <span class="math inline">\(B\)</span> 是一组基，<span class="math inline">\(B + x\)</span> 包含一个唯一的环 <span class="math inline">\(C\)</span>。在线性拟阵中，环满足任意元素都可以被其他元素线性表出。对于 <span class="math inline">\(C\)</span> 中的任意一个元素 <span class="math inline">\(z \neq x\)</span>，<span class="math inline">\(z\)</span> 可以被 <span class="math inline">\(C - \{z\}\)</span> 线性标出，而 <span class="math inline">\(C- \{z\} \subseteq B + \{x\} - \{z\}\)</span>，所以 <span class="math inline">\(z\)</span> 可以被 <span class="math inline">\(B + \{x\} - \{z\}\)</span> 线性表出，从而 <span class="math inline">\(r(B+\{x\}-\{ z \} ) \ge r(B)\)</span>，因为 <span class="math inline">\(B\)</span> 是独立集，<span class="math inline">\(\lvert B + \{x\} - \{z\} \rvert = \lvert B \rvert\)</span>，所以 <span class="math inline">\(B - \{x\} + \{z\}\)</span> 是一组基。我们只需证明 <span class="math inline">\(C - \{x\}\)</span> 中存在一个元素 <span class="math inline">\(z\)</span> 不能被 <span class="math inline">\(A - \{x\}\)</span> 线性表出即可。假设 <span class="math inline">\(C - \{x\}\)</span> 中所有元素都可以被 <span class="math inline">\(z\)</span> 线性表出，那么 <span class="math inline">\(x\)</span> 也可以被 <span class="math inline">\(A - \{x\}\)</span> 线性表出 (因为 <span class="math inline">\(x\)</span> 可以被 <span class="math inline">\(C - \{x\}\)</span> 线性表出)，这与 <span class="math inline">\(A\)</span> 是独立集矛盾。这就完成了证明。</p>
+<p>接下来试着把这个证明推广到拟阵上。可以想到，如果要在拟阵上用上述思路证明这个命题，关键是要引入一个类似线性表出的概念。</p>
+<p><strong>定义 1</strong> 对于拟阵 <span class="math inline">\(M=(S, \mathcal I)\)</span> 和 <span class="math inline">\(A \subseteq S\)</span>，我们定义 <span class="math inline">\(A\)</span> 的闭包算子 <span class="math inline">\(cl(A)=\{e \in S: r(A \cup\{e\})=r(A)\}\)</span>。</p>
+<p>有了这一概念，在线性拟阵上，<span class="math inline">\(x\)</span> 可以被 <span class="math inline">\(A\)</span> 线性表出可以对应为 <span class="math inline">\(x \in cl(A)\)</span>，<span class="math inline">\(cl(A)\)</span> 等价于向量组 <span class="math inline">\(A\)</span> 张成的子空间。</p>
+<p><strong>引理 1</strong> 对于拟阵 <span class="math inline">\(M = (S, \mathcal I)\)</span>，如果 <span class="math inline">\(A \subseteq B\)</span>，那么 <span class="math inline">\(cl(A) \subseteq cl(B)\)</span>。</p>
+<p>在线性拟阵上，<strong>引理 1</strong> 等价于，如果 <span class="math inline">\(A \subseteq B\)</span>，若 <span class="math inline">\(x\)</span> 能被 <span class="math inline">\(A\)</span> 线性表出，则 <span class="math inline">\(x\)</span> 也能被 <span class="math inline">\(B\)</span> 线性表出，这一命题是显然的。现在我们在一般的拟阵上用秩函数的性质证明这个命题，这大概是本文中唯一一个技巧性较强的证明，可以当做结论记下来。</p>
+<p><strong>引理 1 的证明</strong> 假设 <span class="math inline">\(e \in cl(A)\)</span>，若 <span class="math inline">\(e \in A\)</span>，显然有 <span class="math inline">\(e \in cl(B)\)</span>，否则</p>
+<p><span class="math display">\[r(A \cup \{e\}) + r(B) \ge r((A\cup \{e\}) \cap B) + r(B \cup \{e\}) \ge r(A) + r(B \cup \{e\})\]</span></p>
+<p>左右消去 <span class="math inline">\(r(A \cup \{e\})\)</span> 和 <span class="math inline">\(r(A)\)</span> 得到 <span class="math inline">\(r(B) \ge r(B \cup \{e\})\)</span>，即 <span class="math inline">\(r(B) = r(B\cup \{e\})\)</span>，所以 <span class="math inline">\(e \in cl(B)\)</span>。因此 <span class="math inline">\(cl(A) \subseteq cl(B)\)</span>。</p>
+<p><strong>引理 2</strong> 对于拟阵 <span class="math inline">\(M = (S, \mathcal I)\)</span> 和 <span class="math inline">\(A \subseteq S\)</span>，如果 <span class="math inline">\(e \in cl(A)\)</span>，那么 <span class="math inline">\(cl(A) = cl(A \cup \{e\})\)</span>。</p>
+<p>在线性拟阵上，这等价于如果 <span class="math inline">\(e\)</span> 能被 <span class="math inline">\(A\)</span> 线性表出，那么 <span class="math inline">\(A\)</span> 与 <span class="math inline">\(A \cup \{e\}\)</span> 张成的子空间相同。</p>
+<p><strong>引理 2 的证明</strong> 因为 <span class="math inline">\(A \subseteq cl(A)\)</span>，由 <strong>引理 1</strong> 可以得到 <span class="math inline">\(cl(A) \subseteq cl(cl(A))\)</span>。假设 <span class="math inline">\(f \in cl(cl(A))\)</span>，则 <span class="math inline">\(r(A) = r(A+\{e\}) = r(A+\{e\}+\{f\})\)</span>，又因为 <span class="math inline">\(r(A) \le r(A +\{f\}) \le r(A + \{e\} + \{f\})\)</span>，所以 <span class="math inline">\(r(A+\{f\}) = r(A)\)</span>，即 <span class="math inline">\(f \in cl(A)\)</span>。这就证明了 <span class="math inline">\(cl(cl(A)) \subseteq cl(A)\)</span>，所以 <span class="math inline">\(cl(A) = cl(cl(A))\)</span>。</p>
+<p><strong>引理 3</strong> 对于拟阵 <span class="math inline">\(M = (S, \mathcal I)\)</span> 和 <span class="math inline">\(A \subseteq S\)</span>，<span class="math inline">\(cl(A) = cl(cl(A))\)</span>。</p>
+<p>这是 <strong>引理 2</strong> 的一个简单推论，证明就不详细写出了。</p>
+<p>现在，我们用已经证明的引理替换只存在于线性拟阵中的概念和结论，给出强基交换定理在一般拟阵上的证明。</p>
+<p><strong>强基交换定理的证明</strong></p>
+<h1 id="拟阵交">拟阵交</h1>
 
       
     </div>
@@ -438,9 +458,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数论/" rel="tag"># 数论</a>
-          
-            <a href="/tags/模板/" rel="tag"># 模板</a>
+            <a href="/tags/知识点/" rel="tag"># 知识点</a>
           
         </div>
       
@@ -453,8 +471,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/15/[SDOI2018]-反回文串/" rel="next" title="[SDOI2018] 反回文串">
-                <i class="fa fa-chevron-left"></i> [SDOI2018] 反回文串
+              <a href="/2020/05/14/loj3158/" rel="next" title="[LOJ3158]「NOI2019」序列">
+                <i class="fa fa-chevron-left"></i> [LOJ3158]「NOI2019」序列
               </a>
             
           </div>
@@ -462,10 +480,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/16/[]/" rel="prev" title="[LOJ2302] NOI2017 整数">
-                [LOJ2302] NOI2017 整数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -517,8 +531,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -749,6 +772,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#强基交换定理"><span class="nav-number">1.</span> <span class="nav-text">强基交换定理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拟阵交"><span class="nav-number">2.</span> <span class="nav-text">拟阵交</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -921,7 +961,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/04/16/[模板]-Miller-Rabin/'
+    refer: '2020/05/20/拟阵交/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
