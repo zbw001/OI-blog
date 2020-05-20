@@ -1054,7 +1054,7 @@
                 
               
 
-              <time title="创建时间：2020-05-20 01:06:01 / 修改时间：06:22:25" itemprop="dateCreated datePublished" datetime="2020-05-20T01:06:01+08:00">2020-05-20</time>
+              <time title="创建时间：2020-05-20 01:06:01 / 修改时间：20:05:57" itemprop="dateCreated datePublished" datetime="2020-05-20T01:06:01+08:00">2020-05-20</time>
             
 
             
@@ -1124,7 +1124,7 @@
 <p>显然 <span class="math inline">\(\max_{I \in \mathcal I_1 \cap \mathcal I_2} \lvert I \rvert \le \min_{U \subseteq S} (r_1(U) + r_2(S \setminus U))\)</span>，我们只需找到任意一组能取到等号的 <span class="math inline">\(I\)</span> 和 <span class="math inline">\(U\)</span> 就证明了这个命题，且 <span class="math inline">\(I\)</span> 就是同属于两个拟阵独立集的最大独立集。</p>
 <p>由于论文中这一段内容写得比较容易理解了，我抄一遍也没什么意义，所以下面只记录 (抄) 一下需要用到的定义、定理和构造算法 (自己复习用)，引理的证明就不写了。</p>
 <details>
-<p><summary>基本上抄论文的内容</summary></p>
+<p><summary>基本上抄论文的内容 (点击展开)</summary></p>
 <p><strong>定义 3</strong> 对于给定的拟阵 <span class="math inline">\(M=(S, \mathcal I)\)</span> 和一个独立集 <span class="math inline">\(I \in \mathcal I\)</span>，定义 <span class="math inline">\(M\)</span> 中 <span class="math inline">\(I\)</span> 的交换图 <span class="math inline">\(D_{M}(I)\)</span> 是这样一种二分图。它的两部分点集各自由 <span class="math inline">\(I\)</span> 和 <span class="math inline">\(S \setminus I\)</span> 构成，一条连接 <span class="math inline">\(y \in I\)</span> 和 <span class="math inline">\(x \in S \setminus I\)</span> 的边存在，当且仅当 <span class="math inline">\(I-\{y\}+\{x\} \in I\)</span> 成立。</p>
 <p><strong>引理 4</strong> 令 <span class="math inline">\(I\)</span> 和 <span class="math inline">\(J\)</span> 都是拟阵 <span class="math inline">\(M\)</span> 的独立集，且 <span class="math inline">\(|I|=|J|\)</span>，那么在 <span class="math inline">\(D_{M}(I)\)</span> 中存在一个关于 <span class="math inline">\(I \setminus J\)</span> 和 <span class="math inline">\(J \setminus I\)</span> 的完美匹配。</p>
 <p><strong>定理 3</strong> 令 <span class="math inline">\(I\)</span> 是拟阵 <span class="math inline">\(M\)</span> 的独立集， <span class="math inline">\(J\)</span> 是一个大小与 <span class="math inline">\(I\)</span> 相同的集合。如果在二分图 <span class="math inline">\(D_{M}(I)\)</span> 中存在一个唯一的 <span class="math inline">\(I \setminus J\)</span> 到 <span class="math inline">\(J \setminus I\)</span> 的完美匹配，那么 <span class="math inline">\(J\)</span> 也是独立集。</p>
