@@ -1054,7 +1054,7 @@
                 
               
 
-              <time title="创建时间：2020-05-20 01:06:01 / 修改时间：20:05:57" itemprop="dateCreated datePublished" datetime="2020-05-20T01:06:01+08:00">2020-05-20</time>
+              <time title="创建时间：2020-05-20 01:06:01 / 修改时间：21:46:05" itemprop="dateCreated datePublished" datetime="2020-05-20T01:06:01+08:00">2020-05-20</time>
             
 
             
@@ -1144,7 +1144,7 @@ U = \{x \in S \mid \text{$x$ 在 $D_{M_1,M_2}(I)$ 上可以到达 $X_2$} \}
 \]</span></p>
 <p>考虑分别证明 <span class="math inline">\(r_1(U) \le \lvert U \cap I\rvert\)</span> 和 <span class="math inline">\(r_2(S \setminus U) \le \lvert (S \setminus U) \cap I \rvert\)</span>，后者与前者是类似的，只写出前者。</p>
 <p>假设 <span class="math inline">\(r_1(U) &gt; \lvert U \cap I \rvert\)</span>，那么存在 <span class="math inline">\(x \in S \setminus I\)</span> 使得 <span class="math inline">\((U \cap I) \cup \{x\} \in \mathcal I_1\)</span>，可以通过反复对 <span class="math inline">\(I\)</span> 使用交换性得到一个包含 <span class="math inline">\((U \cap I) \cup \{x\}\)</span> 的大小与 <span class="math inline">\(I\)</span> 相同的 <span class="math inline">\(J \in \mathcal I_1\)</span>，且 <span class="math inline">\(J \setminus I = \{x\}\)</span>，设 <span class="math inline">\(y\in I \setminus J\)</span>，显然 <span class="math inline">\(y \not \in U\)</span>，则 <span class="math inline">\(J = I + \{x\} - \{y\}\)</span>，所以 <span class="math inline">\(y\)</span> 到 <span class="math inline">\(x\)</span> 在 <span class="math inline">\(D_{M_1,M_2}(i)\)</span> 中有一条有向边，<span class="math inline">\(x \in U\)</span>，这与 <span class="math inline">\(U\)</span> 的定义矛盾。所以 <span class="math inline">\(r_1(U) \le \lvert U \cap I \rvert\)</span>。</p>
-<p>设 <span class="math inline">\(r = \max(r_1(S), r_2(S))\)</span>，这个算法的时间复杂度为 <span class="math inline">\(\mathcal O(r^2 n)\)</span>。（边数为 <span class="math inline">\(rn\)</span>，因为左部总是只有 <span class="math inline">\(r\)</span> 个点）</p>
+<p>设 <span class="math inline">\(r = \max(r_1(S), r_2(S))\)</span>，这个算法的时间复杂度为 <span class="math inline">\(\mathcal O(r^2 n)\)</span>。（边数为 <span class="math inline">\(rn\)</span>，因为左部总是只有至多 <span class="math inline">\(r\)</span> 个点）</p>
 <p>在带权问题中，只要给左部点带上负权，右部点带上正权，每次第一关键字为权值和，第二关键字为边数找最短路即可。(不会证) 注意这里对找到的独立集的大小没有限制。</p>
 </details>
 
