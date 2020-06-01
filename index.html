@@ -387,7 +387,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-06-01 15:21:48" itemprop="dateModified" datetime="2020-06-01T15:21:48+08:00">2020-06-01</time>
+                <time title="修改时间：2020-06-01 18:05:06" itemprop="dateModified" datetime="2020-06-01T18:05:06+08:00">2020-06-01</time>
               
             
           </span>
@@ -1054,7 +1054,7 @@
                 
               
 
-              <time title="创建时间：2020-06-01 15:22:08 / 修改时间：18:02:21" itemprop="dateCreated datePublished" datetime="2020-06-01T15:22:08+08:00">2020-06-01</time>
+              <time title="创建时间：2020-06-01 15:22:08 / 修改时间：20:26:32" itemprop="dateCreated datePublished" datetime="2020-06-01T15:22:08+08:00">2020-06-01</time>
             
 
             
@@ -1153,10 +1153,34 @@
 \left(a \over b \right) = \prod_{k=1}^r \left(a \over p_k \right)
 \]</span></p>
 <p>不难验证在雅可比符号中，等式 <span class="math inline">\((1),(2)\)</span> 仍然成立。但是如果二次互反律要成立，必须限定 <span class="math inline">\(p,q\)</span> 为正奇数 (这也很容易验证)。</p>
-<p>这也就意味着如果上面是奇数，必须先分解出一个 <span class="math inline">\(2\)</span> 再翻转。</p>
+<p>这也就意味着如果上面是偶数，必须先分解出一个 <span class="math inline">\(2\)</span> 再翻转。</p>
 <p>如果上下很接近，有时候可以先分解一个 <span class="math inline">\(-1\)</span> 来化简，但是注意翻转时上面必须是正数。</p>
 <p><del>不过我依然不知道如果 <span class="math inline">\(p\)</span> 为素数幂时应该怎么办</del></p>
 <h1 id="求解">求解</h1>
+<p>求 <span class="math inline">\(x^2 \equiv a \pmod p\)</span> 的一组解。</p>
+<h2 id="一个特殊情况">一个特殊情况</h2>
+<p>当 <span class="math inline">\(p\)</span> 是一个满足 <span class="math inline">\(p \equiv 3 \pmod 4\)</span> 的素数时，如果 <span class="math inline">\(a\)</span> 是模 <span class="math inline">\(p\)</span> 的二次剩余，容易验证 <span class="math inline">\(x = a^{\frac{p+1}4}\)</span> 是一组解。</p>
+<h2 id="cipolla-算法">Cipolla 算法</h2>
+<p>Cipolla 算法可以求解 <span class="math inline">\(p\)</span> 为奇素数的情况。</p>
+<p>先检验 <span class="math inline">\(a\)</span> 是不是模 <span class="math inline">\(p\)</span> 的二次剩余。</p>
+<p>首先找到一个数 <span class="math inline">\(b\)</span> 使得 <span class="math inline">\(b^2-a\)</span> 是模 <span class="math inline">\(p\)</span> 的二次非剩余，随机几次用欧拉准则检验一下即可。(感性理解应该期望 <span class="math inline">\(\mathcal O(1)\)</span>，但是因为 <span class="math inline">\(b^2\)</span> 并不是所有数都能取到的所以感觉还是需要证明的，我不会)</p>
+<p>设 <span class="math inline">\(\omega = \sqrt {b^2 - a}\)</span>，考虑所有形如 <span class="math inline">\(k + l\omega\ (0 \le k,l &lt; p)\)</span> 的数构成的集合。我们可以在这个集合上定义加法和乘法：</p>
+<p><span class="math display">\[
+(k_1 + l_1\omega) + (k_2 + l_2\omega) = ((k_1+k_2)\bmod p) + ((l_1+l_2) \bmod p)\omega
+\\\\
+(k_1 + l_1\omega) \times (k_2 + l_2\omega) = ((k_1k_2 +l_1l_2(b^2-a))\bmod p) + ((k_1l_2+k_2l_1) \bmod p)\omega
+\]</span></p>
+<p>可以证明这个这个集合上的加法和乘法构成一个域。</p>
+<p>那么 <span class="math inline">\(x = (b + \omega)^{\frac{p+1}2}\)</span> 即是一组满足条件的解。</p>
+<p><strong>证明</strong></p>
+<p><span class="math display">\[
+((b + \omega)^{\frac{p+1}2})^2 \equiv (b+\omega)^{p+1} \equiv (b+\omega)^p (b + \omega)
+\]</span></p>
+<p>用二项式定理展开 <span class="math inline">\((b+\omega)^p\)</span>，中间的项系数都是 <span class="math inline">\(p\)</span> 的倍数。所以</p>
+<p><span class="math display">\[
+(b+\omega)^p (b + \omega)\equiv (b^p+\omega^p)(b+\omega) \equiv (b + \omega)(b - \omega) \equiv b^2 - (b^2 - a) \equiv a
+\]</span></p>
+<p>同时由拉格朗日定理可知 <span class="math inline">\(x^2 \equiv a\)</span> 在新定义的这个域上也只有两个解。而由于已知存在两个形如 <span class="math inline">\(k + 0\omega\)</span> 的解，我们得到的解必定是形如 <span class="math inline">\(k + 0\omega\)</span> 的，也就是得到了原问题的一组解。</p>
 
           
         
