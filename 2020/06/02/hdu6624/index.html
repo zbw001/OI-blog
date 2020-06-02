@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="一个蒟蒻的Blog">
 <meta property="og:description" content="题意 给定正整数 \(p,x\)，其中 \(p\) 是素数。 求最小的 \(b\)，使得存在正整数 \(a &amp;lt; b\), \(x \equiv ab^{-1} \pmod p\)。 \(T\) 组询问。\(T \le 2 \times 10^5, 3 \le p \le 10^{15}\)。 吐槽 标算太神仙了想不到。 因为总是被各种各样的类欧几里得题卡自闭，想找个通用做法。然后就发现万能欧">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-02T10:22:18.057Z">
+<meta property="og:updated_time" content="2020-06-02T12:52:46.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[HDU6624] fraction">
 <meta name="twitter:description" content="题意 给定正整数 \(p,x\)，其中 \(p\) 是素数。 求最小的 \(b\)，使得存在正整数 \(a &amp;lt; b\), \(x \equiv ab^{-1} \pmod p\)。 \(T\) 组询问。\(T \le 2 \times 10^5, 3 \le p \le 10^{15}\)。 吐槽 标算太神仙了想不到。 因为总是被各种各样的类欧几里得题卡自闭，想找个通用做法。然后就发现万能欧">
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2020-06-02 15:24:26 / 修改时间：18:22:18" itemprop="dateCreated datePublished" datetime="2020-06-02T15:24:26+08:00">2020-06-02</time>
+              <time title="创建时间：2020-06-02 15:24:26 / 修改时间：20:52:46" itemprop="dateCreated datePublished" datetime="2020-06-02T15:24:26+08:00">2020-06-02</time>
             
 
             
@@ -423,13 +423,14 @@
 <h1 id="做法">做法</h1>
 <p>题意等价于求最小的 <span class="math inline">\(b\)</span> 使得 <span class="math inline">\(bx \bmod p &lt; b \Leftrightarrow bx \bmod p - b &lt; 0\)</span></p>
 <p>考虑万能欧几里得。下面使用 <a href="https://zbww.cf/2020/03/27/%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/">这篇 blog</a> 中的记号来描述算法。</p>
+<p>为了避免重名..下面我们用 <span class="math inline">\(a\)</span> 来表示题目中的 <span class="math inline">\(x\)</span>。</p>
 <p>考虑直线 <span class="math inline">\(y = \frac ap \cdot x\)</span>。</p>
 <p>碰到横线执行操作 <span class="math inline">\(A\)</span>，碰到竖线执行操作 <span class="math inline">\(B\)</span>。</p>
 <p>钦定穿过整点时，先执行操作 <span class="math inline">\(B\)</span> 再执行操作 <span class="math inline">\(A\)</span>。</p>
 <p>考虑这样一个整数序列，初始为空，每执行一个操作 <span class="math inline">\(B\)</span> 就在末尾添加一个 <span class="math inline">\(a-1\)</span>，每执行一个操作 <span class="math inline">\(A\)</span> 就在末尾添加一个 <span class="math inline">\(-p\)</span> 得到一个整数序列。我们要求的就是这个整数序列的长度最小的和为负数的前缀的长度。</p>
 <p>显然维护序列和和最小前缀和这两个信息，二分答案万能欧几里得一下就可以得到一个两个 <span class="math inline">\(\log\)</span> 做法。</p>
-<p>有一个一个 <span class="math inline">\(\log\)</span> 的做法。在普通的万能欧几里得算法中传入的参数中，<span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 代表的是两个序列的信息。现在我们给每一个出现过的序列一个编号，每个新出现的序列都可以由两个已经出现的序列重复若干次组合起来得到的 (形如 <span class="math inline">\(A^kB\)</span>)，记录重复次数和这两个序列的编号以及这个序列的信息。传参数时我们传序列编号。</p>
-<p>最终的序列也是一个出现过的序列。这样我们就可以利用预处理出的序列组合的信息一路递归下去找到答案，相当于在一个最长路长度 <span class="math inline">\(\mathcal O(\log n)\)</span> 的有向图上走一条路径，复杂度自然是一个 <span class="math inline">\(\log\)</span>。</p>
+<p>有一个一个 <span class="math inline">\(\log\)</span> 的做法。在普通的万能欧几里得算法中传入的参数中，<span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 代表的是两个序列的信息。现在我们给每一个出现过的序列一个编号，每个新出现的序列都可以由两个已经出现的序列重复若干次组合起来得到的 (形如 <span class="math inline">\(A^kB\)</span>)，记录重复次数和这两个序列的编号以及这个序列的信息。传参数时传序列编号即可依次把这些信息处理出来。</p>
+<p>最终的序列也是一个出现过的序列。这样我们就可以利用预处理出的序列组合方式的信息一路递归下去找到答案，相当于在一个最长路长度 <span class="math inline">\(\mathcal O(\log n)\)</span> 的有向图上走一条路径，复杂度自然是一个 <span class="math inline">\(\log\)</span>。</p>
 <h1 id="代码">代码</h1>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <!-- flag of hidden posts -->
