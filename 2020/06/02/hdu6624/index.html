@@ -97,18 +97,18 @@
 
 
 
-  <meta name="description" content="题意 给定正整数 \(p,x\)，其中 \(p\) 是素数。 求最小的 \(b\)，使得存在正整数 \(a &amp;lt; b\), \(x \equiv ab^{-1} \pmod p\)。 \(T\) 组询问。\(T \le 2 \times 10^5, 3 \le p \le 10^{15}\)。 吐槽 标算太神仙了想不到。 因为总是被各种各样的类欧几里得题卡自闭，想找个通用做法。然后就发现万能欧">
+  <meta name="description" content="题意 给定正整数 \(p,x\)，其中 \(p\) 是素数。 求最小的 \(b\)，使得存在正整数 \(a &amp;lt; b\), \(x \equiv ab^{-1} \pmod p\)。 \(T\) 组询问。\(T \le 2 \times 10^5, 3 \le p \le 10^{15}\)。  # 代码 12345678#include &amp;lt;bits/stdc++.h&amp;gt;using">
 <meta name="keywords" content="题解,数论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[HDU6624] fraction">
 <meta property="og:url" content="https://zbww.cf/2020/06/02/hdu6624/index.html">
 <meta property="og:site_name" content="一个蒟蒻的Blog">
-<meta property="og:description" content="题意 给定正整数 \(p,x\)，其中 \(p\) 是素数。 求最小的 \(b\)，使得存在正整数 \(a &amp;lt; b\), \(x \equiv ab^{-1} \pmod p\)。 \(T\) 组询问。\(T \le 2 \times 10^5, 3 \le p \le 10^{15}\)。 吐槽 标算太神仙了想不到。 因为总是被各种各样的类欧几里得题卡自闭，想找个通用做法。然后就发现万能欧">
+<meta property="og:description" content="题意 给定正整数 \(p,x\)，其中 \(p\) 是素数。 求最小的 \(b\)，使得存在正整数 \(a &amp;lt; b\), \(x \equiv ab^{-1} \pmod p\)。 \(T\) 组询问。\(T \le 2 \times 10^5, 3 \le p \le 10^{15}\)。  # 代码 12345678#include &amp;lt;bits/stdc++.h&amp;gt;using">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-02T09:26:56.212Z">
+<meta property="og:updated_time" content="2020-06-02T09:32:36.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[HDU6624] fraction">
-<meta name="twitter:description" content="题意 给定正整数 \(p,x\)，其中 \(p\) 是素数。 求最小的 \(b\)，使得存在正整数 \(a &amp;lt; b\), \(x \equiv ab^{-1} \pmod p\)。 \(T\) 组询问。\(T \le 2 \times 10^5, 3 \le p \le 10^{15}\)。 吐槽 标算太神仙了想不到。 因为总是被各种各样的类欧几里得题卡自闭，想找个通用做法。然后就发现万能欧">
+<meta name="twitter:description" content="题意 给定正整数 \(p,x\)，其中 \(p\) 是素数。 求最小的 \(b\)，使得存在正整数 \(a &amp;lt; b\), \(x \equiv ab^{-1} \pmod p\)。 \(T\) 组询问。\(T \le 2 \times 10^5, 3 \le p \le 10^{15}\)。  # 代码 12345678#include &amp;lt;bits/stdc++.h&amp;gt;using">
 
 
 
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2020-06-02 15:24:26 / 修改时间：17:26:56" itemprop="dateCreated datePublished" datetime="2020-06-02T15:24:26+08:00">2020-06-02</time>
+              <time title="创建时间：2020-06-02 15:24:26 / 修改时间：17:32:36" itemprop="dateCreated datePublished" datetime="2020-06-02T15:24:26+08:00">2020-06-02</time>
             
 
             
@@ -416,16 +416,21 @@
         <h1 id="题意">题意</h1>
 <p>给定正整数 <span class="math inline">\(p,x\)</span>，其中 <span class="math inline">\(p\)</span> 是素数。</p>
 <p>求最小的 <span class="math inline">\(b\)</span>，使得存在正整数 <span class="math inline">\(a &lt; b\)</span>, <span class="math inline">\(x \equiv ab^{-1} \pmod p\)</span>。</p>
-<p><span class="math inline">\(T\)</span> 组询问。<span class="math inline">\(T \le 2 \times 10^5, 3 \le p \le 10^{15}\)</span>。</p>
-<h1 id="吐槽">吐槽</h1>
-<p>标算太神仙了想不到。</p>
-<p>因为总是被各种各样的类欧几里得题卡自闭，想找个通用做法。然后就发现万能欧几里得是真的万能，以前都没想到过拿它做极值。。。</p>
-<h1 id="做法">做法</h1>
-<p>题意等价于求最小的 <span class="math inline">\(b\)</span> 使得 <span class="math inline">\(bx \bmod p &lt; b \Leftrightarrow bx \bmod p - b &lt; 0\)</span></p>
-<p>考虑万能欧几里得。(下面假设阅读这篇题解的人熟悉万能欧几里得)</p>
-<p>考虑直线 <span class="math inline">\(y = \frac ap \cdot x\)</span>，经过一条竖线就写一个 <span class="math inline">\(A\)</span>，经过一条横线就写一个，得到一个整数序列。我们要求的就是这个整数序列的长度最小的和为负数的前缀。</p>
-<h1 id="代码">代码</h1>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(T\)</span> 组询问。<span class="math inline">\(T \le 2 \times 10^5, 3 \le p \le 10^{15}\)</span>。 <!--
+# 吐槽
+标算太神仙了想不到。
+
+因为总是被各种各样的类欧几里得题卡自闭，想找个通用做法。然后就发现万能欧几里得是真的万能，以前都没想到过拿它做极值。。。
+
+# 做法
+题意等价于求最小的 $b$ 使得 $bx \bmod p < b \Leftrightarrow bx \bmod p - b < 0$
+
+考虑万能欧几里得。(下面假设阅读这篇题解的人熟悉万能欧几里得)
+
+考虑直线 $y = \frac ap  \cdot x$，经过一条竖线就写一个 $A$，经过一条横线就写一个，得到一个整数序列。我们要求的就是这个整数序列的长度最小的和为负数的前缀。
+
+
+--> # 代码 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -775,7 +780,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题意"><span class="nav-number">1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#吐槽"><span class="nav-number">2.</span> <span class="nav-text">吐槽</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#做法"><span class="nav-number">3.</span> <span class="nav-text">做法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题意"><span class="nav-number">1.</span> <span class="nav-text">题意</span></a></li></ol></div>
             
 
           </div>

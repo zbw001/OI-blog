@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[[HDU6624] fraction]]></title>
     <url>%2F2020%2F06%2F02%2Fhdu6624%2F</url>
-    <content type="text"><![CDATA[题意 给定正整数 \(p,x\)，其中 \(p\) 是素数。 求最小的 \(b\)，使得存在正整数 \(a &lt; b\), \(x \equiv ab^{-1} \pmod p\)。 \(T\) 组询问。\(T \le 2 \times 10^5, 3 \le p \le 10^{15}\)。 吐槽 标算太神仙了想不到。 因为总是被各种各样的类欧几里得题卡自闭，想找个通用做法。然后就发现万能欧几里得是真的万能，以前都没想到过拿它做极值。。。 做法 题意等价于求最小的 \(b\) 使得 \(bx \bmod p &lt; b \Leftrightarrow bx \bmod p - b &lt; 0\) 考虑万能欧几里得。(下面假设阅读这篇题解的人熟悉万能欧几里得) 考虑直线 \(y = \frac ap \cdot x\)，经过一条竖线就写一个 \(A\)，经过一条横线就写一个，得到一个整数序列。我们要求的就是这个整数序列的长度最小的和为负数的前缀。 代码 12345678#include &lt;bits/stdc++.h&gt;using namespace std;int main() &#123; return 0;&#125;]]></content>
+    <content type="text"><![CDATA[题意 给定正整数 \(p,x\)，其中 \(p\) 是素数。 求最小的 \(b\)，使得存在正整数 \(a &lt; b\), \(x \equiv ab^{-1} \pmod p\)。 \(T\) 组询问。\(T \le 2 \times 10^5, 3 \le p \le 10^{15}\)。 # 代码 12345678#include &lt;bits/stdc++.h&gt;using namespace std;int main() &#123; return 0;&#125;]]></content>
       <tags>
         <tag>题解</tag>
         <tag>数论</tag>
